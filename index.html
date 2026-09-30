@@ -39,7 +39,118 @@
     section{
         padding-top:30px;
     }
-    
+
+    /* Hero ribbon: back arm behind the image, front arm over it */
+    /* Sized from the hero height so the front ribbon (which reaches ~114% of the
+       image height at the screen edge) leaves the hero only at the bottom-right corner */
+    .hero-visual-wrap {
+        position: absolute;
+        top: 100px;
+        height: calc((100% - 100px) / 1.12);
+        right: 1%;
+    }
+    .hero-visual {
+        position: relative;
+        height: 100%;
+        aspect-ratio: 1080 / 1358;
+    }
+    .hero-visual .hero-person {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        /* Hide everything below the front ribbon's lower edge, so she emerges from the ribbon */
+        clip-path: polygon(0 0, 100% 0, 100% 110.3%, 0 85%);
+    }
+    @media (max-width: 1199px) {
+        .hero-visual-wrap { right: -6%; }
+    }
+
+    /* Floating 3D tech icons beside the hero image (positions in % of the image box) */
+    .hero-tech-icon {
+        position: absolute;
+        z-index: 3;
+        width: 16%;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 24%;
+        color: #fff;
+        background: linear-gradient(145deg, #c6e06a 0%, #94b92f 55%, #6f8f1f 100%);
+        box-shadow:
+            inset 0 2px 0 rgba(255, 255, 255, 0.55),
+            inset 0 -5px 10px rgba(0, 0, 0, 0.18),
+            0 6px 0 #5d7a17,
+            0 18px 30px rgba(60, 90, 20, 0.35);
+        animation: hero-icon-float 5s ease-in-out infinite;
+        pointer-events: none;
+    }
+    .hero-tech-icon-light {
+        color: #6f8f1f;
+        background: linear-gradient(145deg, #ffffff 0%, #eef6e4 100%);
+        box-shadow:
+            inset 0 2px 0 #ffffff,
+            inset 0 -5px 10px rgba(0, 0, 0, 0.06),
+            0 6px 0 #cfe0b6,
+            0 18px 30px rgba(60, 90, 20, 0.22);
+    }
+    .hero-tech-icon-sm {
+        width: 12%;
+    }
+    .hero-tech-icon i {
+        font-size: clamp(16px, 3.8vh, 38px);
+        line-height: 1;
+        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+    }
+    .hero-tech-icon-sm i {
+        font-size: clamp(13px, 2.9vh, 28px);
+    }
+    @keyframes hero-icon-float {
+        0%, 100% { transform: perspective(400px) translateY(0) rotateX(8deg) rotateY(-14deg); }
+        50% { transform: perspective(400px) translateY(-14px) rotateX(-6deg) rotateY(14deg); }
+    }
+    @media (max-width: 1199px) {
+        .hero-tech-icon { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .hero-tech-icon { animation: none; }
+    }
+    @media (max-width: 991px) {
+        .hero-visual-wrap { right: -22%; }
+    }
+    .hero-ribbon {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+    }
+    .hero-ribbon-back {
+        z-index: 0;
+    }
+    .hero-ribbon-front {
+        z-index: 2;
+        filter: drop-shadow(0 -6px 14px rgba(0, 0, 0, 0.12));
+    }
+    .hero-ribbon polygon {
+        transform-box: fill-box;
+        transform-origin: 0 50%;
+        animation: hero-ribbon-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+    }
+    .hero-ribbon-front polygon {
+        animation-delay: 0.6s;
+    }
+    @keyframes hero-ribbon-in {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .hero-ribbon polygon { animation: none; }
+    }
+
     
 </style>
     </head>
@@ -149,7 +260,7 @@
             <!-- end navigation -->
         </header>
         <!-- end header -->
-    <section class="p-0 full-screen md-h-600px sm-h-600px ipad-top-space-margin background-position-center-top position-relative lg-overflow-hidden" style="background-image: url('images/demo-marketing-dot.svg')">
+    <section class="p-0 full-screen md-h-600px sm-h-600px ipad-top-space-margin background-position-center-top position-relative overflow-hidden" style="background-image: url('images/demo-marketing-dot.svg')">
     <div class="bg-gradient-black-green position-absolute left-0px top-0px h-100 w-100 z-index-minus-1"></div>
     <div class="container h-100">
         <div class="row align-items-center h-100">
@@ -184,8 +295,36 @@
             
             <!-- Right Side Images -->
             <div class="col-xl-5 col-lg-4 col-md-2 align-self-end d-none d-md-inline-block">
-                <div class="position-absolute right-0px bottom-minus-90px xxl-bottom-minus-30px md-bottom-minus-35px md-right-minus-250px lg-right-minus-150px w-50 xl-w-55 lg-w-65 md-w-75 overflow-hidden">
-                    <img src="images/home .png" class="w-100" alt="" data-anime='{ "opacity": [0, 1], "translateX": [100, 0], "duration": 1000, "delay": 200, "easing": "easeOutQuad" }'>
+                <div class="hero-visual-wrap">
+                    <!-- Ribbon wraps the image: back arm sits behind the person, front arm crosses over.
+                         Ribbon points are in % of the image box; values outside 0-100 extend past the image. -->
+                    <div class="hero-visual" data-anime='{ "opacity": [0, 1], "translateX": [100, 0], "duration": 1000, "delay": 200, "easing": "easeOutQuad" }'>
+                        <svg class="hero-ribbon hero-ribbon-back" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="hero-ribbon-back-fill" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0" stop-color="#6f8f1f"/>
+                                    <stop offset="0.3" stop-color="#94b92f"/>
+                                    <stop offset="1" stop-color="#a4c43b"/>
+                                </linearGradient>
+                            </defs>
+                            <polygon points="-18,62 140,10 140,29.5 -18,81.5" fill="url(#hero-ribbon-back-fill)"/>
+                        </svg>
+                        <span class="hero-tech-icon" style="left: -52%; top: 11%;" aria-hidden="true"><i class="bi bi-robot"></i></span>
+                        <span class="hero-tech-icon hero-tech-icon-light" style="left: -22%; top: 4%; animation-duration: 6s; animation-delay: -1.5s;" aria-hidden="true"><i class="bi bi-code-slash"></i></span>
+                        <span class="hero-tech-icon hero-tech-icon-light hero-tech-icon-sm" style="left: -38%; top: 30%; animation-duration: 5.5s; animation-delay: -3s;" aria-hidden="true"><i class="bi bi-chat-dots"></i></span>
+                        <span class="hero-tech-icon" style="left: 12%; top: 14%; animation-duration: 6.5s; animation-delay: -2.2s;" aria-hidden="true"><i class="bi bi-graph-up-arrow"></i></span>
+                        <span class="hero-tech-icon hero-tech-icon-light hero-tech-icon-sm" style="left: -8%; top: 26%; animation-duration: 4.8s; animation-delay: -0.8s;" aria-hidden="true"><i class="bi bi-cpu"></i></span>
+                        <img src="images/Header-1-transparent.png" class="hero-person" alt="AI software engineer at AD Soft Technologies holding a laptop">
+                        <svg class="hero-ribbon hero-ribbon-front" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="hero-ribbon-front-fill" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0" stop-color="#a4c43b"/>
+                                    <stop offset="1" stop-color="#8fb52e"/>
+                                </linearGradient>
+                            </defs>
+                            <polygon points="-18,62 140,102 140,121.5 -18,81.5" fill="url(#hero-ribbon-front-fill)"/>
+                        </svg>
+                    </div>
                 </div>
 
             </div>
