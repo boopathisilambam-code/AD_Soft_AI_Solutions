@@ -1,135 +1,2007 @@
-<!doctype html><html class="no-js" lang="en"><head><title>AI Agent Development Services for Businesses | AD Soft Technologies</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="AD Soft Technologies builds custom AI agents that interpret requests, use connected tools and automate multi-step business tasks, for clients in India, Europe and the USA.">
-<link rel="shortcut icon" href="images/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/vendors.min.css"/><link rel="stylesheet" href="css/icon.min.css"/><link rel="stylesheet" href="css/style.css"/><link rel="stylesheet" href="css/responsive.css"/><link rel="stylesheet" href="demos/marketing/marketing.css"/>
-<style>
-:root{--g:#559643;--g-d:#3f7431;--g-l:#94b92f}
-.text-base-color,.btn-base-color{color:var(--g)!important}.bg-base-color{background-color:var(--g)!important}.btn-base-color{background:var(--g)!important}
-section{padding-top:30px}
-.ai-hero{position:relative;overflow:hidden;background:rgba(102,243,199,.14) url('images/demo-marketing-dot.svg');padding:150px 0 90px}
-.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:blob 14s ease-in-out infinite}.b1{width:380px;height:380px;background:#c6e06a;top:-80px;right:8%}.b2{width:320px;height:320px;background:#66f3c7;bottom:-100px;left:5%}
-@keyframes blob{50%{transform:translate(40px,30px) scale(1.15)}}
-.chat{background:#fff;border-radius:18px;box-shadow:0 30px 60px rgba(60,90,20,.25);padding:22px;max-width:400px;margin-left:auto}
-.chat .m{padding:10px 14px;border-radius:14px;font-size:14px;margin-bottom:10px;max-width:85%;opacity:0;transform:translateY(12px);animation:pop .5s forwards}
-.chat .u{background:#eef6e4}.chat .a{background:var(--g);color:#fff;margin-left:auto}
-.chat .m:nth-child(2){animation-delay:.8s}.chat .m:nth-child(3){animation-delay:2s}.chat .m:nth-child(4){animation-delay:3.2s}.chat .m:nth-child(5){animation-delay:4.4s}
-@keyframes pop{to{opacity:1;transform:none}}
-.dots span{display:inline-block;width:6px;height:6px;border-radius:50%;background:#fff;margin:0 2px;animation:dt 1s infinite}.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
-@keyframes dt{50%{transform:translateY(-4px);opacity:.5}}
-.blink{animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
-.mq{overflow:hidden;white-space:nowrap;background:var(--g);padding:16px 0;transform:rotate(-1.2deg);margin:50px -20px 10px}
-.mq div{display:inline-block;animation:mq 40s linear infinite;color:#fff;font-weight:700;font-size:20px;letter-spacing:1px}.mq b{margin:0 26px;opacity:.6}@keyframes mq{to{transform:translateX(-50%)}}
-.svc{position:relative;background:#fff;border-radius:16px;padding:34px 30px;height:100%;overflow:hidden;box-shadow:0 10px 35px rgba(0,0,0,.07);transition:.35s}
-.svc:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(85,150,67,.2)}
-.svc .ic{width:64px;height:64px;border-radius:20px;background:#eef6e4;display:flex;align-items:center;justify-content:center;margin-bottom:20px}.svc .ic i{font-size:28px;color:var(--g)}
-.svc .no{position:absolute;right:18px;top:20px;font-size:70px;font-weight:800;opacity:.06}
-.pick{border-left:4px solid var(--g);background:#fff;border-radius:0 12px 12px 0;padding:24px;box-shadow:0 8px 25px rgba(0,0,0,.05)}
-.uc{background:#fff;border-radius:14px;padding:26px;height:100%;border:1px solid #e6efe0;transition:.3s}.uc:hover{border-color:var(--g);transform:translateY(-8px);box-shadow:0 18px 40px rgba(85,150,67,.18)}.uc i{font-size:30px;color:var(--g)}
-.dark-band{background:#1c2a17;color:#c9d6c3;padding:90px 0}.dark-band h2,.dark-band h3{color:#fff}
-.chip{display:inline-flex;background:rgba(255,255,255,.06);border:1px solid rgba(148,185,47,.4);color:#fff;border-radius:40px;padding:10px 18px;margin:6px;font-weight:600;font-size:14px}
-.flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px}.flow span{background:#fff;border:1px solid #dbe8d2;border-radius:12px;padding:14px 18px;font-weight:700}.flow .ag{background:var(--g);color:#fff}.flow i{color:var(--g)}
-.ico3d{width:68px;height:68px;margin:0 auto 22px;border-radius:24%;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(145deg,#c6e06a,#94b92f 55%,#6f8f1f);box-shadow:inset 0 2px 0 rgba(255,255,255,.55),inset 0 -5px 10px rgba(0,0,0,.18),0 6px 0 #5d7a17,0 18px 30px rgba(60,90,20,.35)}.ico3d i{font-size:28px}
-.card-idx{transition:transform .35s}.card-idx:hover{transform:translateY(-8px)}
-.list-idx{list-style:none;padding:0;margin:0}.list-idx li{display:flex;padding:10px 0;border-bottom:1px solid #ededed}.list-idx li:last-child{border:0}.list-idx li i{color:var(--g);margin-right:12px;margin-top:4px}
-.tl{position:relative;max-width:900px;margin:auto}.tl:before{content:"";position:absolute;left:29px;top:0;bottom:0;width:3px;background:#dbe8d2}
-.st{position:relative;padding-left:90px;margin-bottom:34px}.st .n{position:absolute;left:0;top:0;width:60px;height:60px;border-radius:50%;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 0 0 10px rgba(85,150,67,.15)}
-.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.chat .m{opacity:1;transform:none}}
-.vs{background:#fff;border-radius:24px;box-shadow:0 30px 70px rgba(60,90,20,.15);overflow:hidden;border:1px solid #dbe8d2}
-.vs-tabs{display:flex;background:#eef6e4;padding:8px;gap:8px}.vs-tabs button{flex:1;border:0;background:transparent;padding:14px;border-radius:16px;font-weight:700;color:#555;transition:.3s}.vs-tabs button.on{background:var(--g);color:#fff;box-shadow:0 8px 20px rgba(85,150,67,.35)}
-.vs-screen{padding:30px;background:#f7faf3;min-height:380px}.vs-side{padding:40px;display:flex;flex-direction:column;justify-content:center}
-.vs-screen>*{opacity:0;transform:translateY(12px);animation:pop .5s forwards}.vs-screen>:nth-child(2){animation-delay:.6s}.vs-screen>:nth-child(3){animation-delay:1.3s}.vs-screen>:nth-child(4){animation-delay:2s}.vs-screen>:nth-child(5){animation-delay:2.7s}.vs-screen>:nth-child(6){animation-delay:3.4s}
-.vb{padding:12px 16px;border-radius:16px;margin-bottom:12px;max-width:88%;font-size:15px}.vb.u{background:#fff;border:1px solid #dbe8d2}.vb.a{background:var(--g);color:#fff;margin-left:auto}
-.tr{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--g-d);background:rgba(148,185,47,.14);border-radius:10px;padding:8px 12px;margin-bottom:8px;max-width:88%}
-.vq{display:inline-block;margin:4px 6px 0 0;padding:6px 12px;border-radius:30px;background:#fff;color:var(--g-d);font-weight:700;font-size:13px}
-.tag{display:inline-block;padding:5px 12px;border-radius:30px;background:#eef6e4;color:var(--g-d);font-weight:700;font-size:13px;margin:0 6px 8px 0}
-.hub{position:relative;height:640px;max-width:1100px;margin:auto}
-.hub-ring{position:absolute;left:12%;right:12%;top:12%;bottom:12%;border:2px dashed rgba(148,185,47,.4);border-radius:50%;animation:spin 40s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
-.hub-core{position:absolute;left:50%;top:50%;width:170px;height:170px;margin:-85px 0 0 -85px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;background:linear-gradient(145deg,#c6e06a,#94b92f 50%,var(--g));box-shadow:0 0 0 16px rgba(148,185,47,.14),0 0 0 36px rgba(148,185,47,.07),0 0 70px rgba(148,185,47,.6);animation:cp 3s ease-in-out infinite}.hub-core i{font-size:46px}.hub-core b{font-size:18px}@keyframes cp{50%{transform:scale(1.06)}}
-.hub-n{position:absolute;transform:translate(-50%,-50%);width:190px;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(148,185,47,.45);color:#fff;font-size:13.5px;font-weight:600;line-height:1.35;transition:.3s;backdrop-filter:blur(4px)}
-.hub-n em{display:block;font-style:normal;color:var(--g-l);font-size:12px;font-weight:800;letter-spacing:1px}.hub-n:hover{background:var(--g);transform:translate(-50%,-50%) scale(1.08);z-index:3}
-@media(max-width:991px){.hub{height:auto;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}.hub-n{position:static;transform:none!important;width:calc(50% - 10px)}.hub-core,.hub-ring{display:none}}
-.pipe{position:relative;display:flex;justify-content:space-between;padding:20px 0}
-.pipe-line{position:absolute;left:8%;right:8%;top:50px;height:3px;background:repeating-linear-gradient(90deg,#b9d3ac 0 8px,transparent 8px 14px)}.pipe-line i{position:absolute;top:-6px;left:0;width:15px;height:15px;border-radius:50%;background:var(--g);box-shadow:0 0 14px var(--g);animation:trv 4s linear infinite}@keyframes trv{to{left:calc(100% - 15px)}}
-.pn{position:relative;text-align:center;width:20%}.pn span{display:flex;margin:0 auto 10px;width:62px;height:62px;border-radius:24%;align-items:center;justify-content:center;background:#fff;color:var(--g);font-size:26px;box-shadow:0 6px 0 #cfe0b6,0 14px 24px rgba(60,90,20,.18)}
-.pn.ag span{color:#fff;background:linear-gradient(145deg,#c6e06a,#94b92f 55%,#6f8f1f);box-shadow:0 6px 0 #5d7a17,0 14px 30px rgba(60,90,20,.4);animation:cp 2.4s ease-in-out infinite}.pn b{font-size:13px;color:#232323}.btn.btn-base-color,.btn.btn-base-color:hover,.btn.btn-base-color span{color:#fff!important}.ig{position:relative;overflow:hidden;padding:80px 0 40px}.ig-bgdots{position:absolute;right:-60px;top:40px;width:340px;height:340px;background:radial-gradient(#94b92f 2px,transparent 2px) 0 0/22px 22px;opacity:.3}
-.ig .container{position:relative}
-.ig-pill{display:inline-block;background:#eef6e4;color:var(--g-d);font-weight:700;font-size:14px;border-radius:40px;padding:7px 16px;margin-bottom:18px}
-.ig-h{font-size:2.6rem;line-height:1.2;margin-bottom:20px}.ig-grad{background:linear-gradient(90deg,var(--g-d),var(--g-l),var(--g-d));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:igs 5s linear infinite}@keyframes igs{to{background-position:200% center}}
-.ig-note{display:flex;gap:16px;align-items:flex-start;background:#fff;border-left:4px solid var(--g);border-radius:0 14px 14px 0;padding:18px 20px;box-shadow:0 10px 30px rgba(60,90,20,.1)}.ig-note>i{font-size:26px;color:var(--g)}
-.ig2{position:relative;height:560px;max-width:520px;margin:auto;perspective:1200px}
-.ig2-stage{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out}
-.ig2-back{position:absolute;left:8%;top:6%;width:84%;height:88%;border-radius:36px 36px 140px 36px;background:linear-gradient(145deg,#c6e06a,#94b92f 55%,#559643);transform:translate(28px,26px) rotate(4deg)}
-.ig2-dots{position:absolute;right:-6px;top:-14px;width:150px;height:150px;background:radial-gradient(#94b92f 2.5px,transparent 2.5px) 0 0/18px 18px;opacity:.55}
-.ig2-ring{position:absolute;left:-34px;bottom:-24px;width:190px;height:190px;border:2px dashed #94b92f;border-radius:50%;animation:spin 22s linear infinite}
-.ig2-frame{position:absolute;left:4%;top:2%;width:84%;height:88%;border-radius:36px 36px 140px 36px;overflow:hidden;background:#eef6e4;border:8px solid #fff;box-shadow:0 30px 70px rgba(60,90,20,.3);transform:translateZ(30px)}
-.ig2-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s}.ig2-frame:hover img{transform:scale(1.07)}
-.ig2-frame:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(28,42,23,.45),transparent 45%);pointer-events:none}
-.ig2-ph{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;color:var(--g-d);font-weight:700;background:repeating-linear-gradient(45deg,#eef6e4 0 14px,#e4f0d8 14px 28px)}.ig2-ph i{font-size:54px}.ig2-ph small{font-weight:500;opacity:.7}.noimg .ig2-ph{display:flex}.noimg img{display:none}
-.ig2-badge{position:absolute;left:-18px;bottom:80px;background:#1c2a17;color:#fff;border-radius:20px;padding:14px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 18px 40px rgba(0,0,0,.3);transform:translateZ(90px);animation:igc 5s ease-in-out infinite}.ig2-badge b{font-size:36px;font-weight:800;color:var(--g-l);line-height:1}.ig2-badge span{font-size:13px;line-height:1.3;color:#c9d6c3}
-.ig-chip{position:absolute;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.96);border:1px solid #dbe8d2;border-radius:16px;padding:10px 14px;box-shadow:0 14px 34px rgba(60,90,20,.22);animation:igc 5s ease-in-out infinite;transform:translateZ(90px)}
-.ig-chip span{width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,#c6e06a,#94b92f 55%,#6f8f1f);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 0 #5d7a17}
-.ig-chip b{display:block;font-size:14px;color:#232323;line-height:1.2}.ig-chip small{font-size:12px;color:#6b7a63}
-@keyframes igc{50%{margin-top:-14px}}.ig-chip.c1{left:-26px;top:50px}.ig-chip.c2{right:-30px;top:200px;animation-delay:-1.5s}.ig-chip.c3{right:6px;bottom:30px;animation-delay:-3s}
-@media(max-width:991px){.ig-h{font-size:2rem}.ig2{transform:scale(.88)}}
-@media(max-width:575px){.ig2{height:520px;max-width:100%;transform:scale(.82);transform-origin:top center;margin-bottom:-70px}.ig-chip.c1{left:-6px}.ig-chip.c2{right:-6px}.ig2-badge{left:-4px}}
-</style></head><body data-mobile-nav-style="classic" class="custom-cursor"><div class="cursor-page-inner"><div class="circle-cursor circle-cursor-inner"></div><div class="circle-cursor circle-cursor-outer"></div></div>
-<header><nav class="navbar navbar-expand-lg header-light header-transparent bg-transparent disable-fixed"><div class="container-fluid"><div class="col-auto me-lg-0 me-auto"><a class="navbar-brand d-flex align-items-center" href="index.html"><img src="images/logo.png" alt="AD Soft Technologies" class="default-logo" style="max-height:70px;"><img src="images/logo.png" alt="AD Soft Technologies" class="alt-logo"><img src="images/logo.png" alt="AD Soft Technologies" class="mobile-logo"><span class="ms-15px text-dark-gray fw-800 ls-1px text-nowrap" style="font-size:16px;">AD SOFT TECHNOLOGIES</span></a></div>
-<div class="col menu-order position-static"><button class="navbar-toggler float-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span></button>
-<div class="collapse navbar-collapse justify-content-center" id="navbarNav"><ul class="navbar-nav"><li class="nav-item"><a href="index.html" class="nav-link text-nowrap">Home</a></li><li class="nav-item"><a href="demo-marketing-about.html" class="nav-link text-nowrap">About Us</a></li>
-<li class="nav-item dropdown simple-dropdown"><a href="ai-solutions.html" class="nav-link text-nowrap text-base-color">AI Solutions</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i><ul class="dropdown-menu" aria-labelledby="dAI" style="min-width:270px;"><li><a href="ai-agent-developemnt.html">AI Agent Development</a></li><li><a href="ai-chatbot-developemt.html">AI Chatbot Development</a></li><li><a href="ai-automation.html">AI Automation</a></li><li><a href="ai-solutions.html#integration">AI Integration</a></li><li><a href="ai-solutions.html#consulting">AI Adoption &amp; Consulting</a></li></ul></li>
-<li class="nav-item"><a href="#" class="nav-link text-nowrap">Software Development</a></li><li class="nav-item"><a href="#" class="nav-link text-nowrap">Business Solutions</a></li><li class="nav-item"><a href="demo-marketing-case-studies.html" class="nav-link text-nowrap">Our Work</a></li><li class="nav-item"><a href="#" class="nav-link text-nowrap">AI Insights</a></li><li class="nav-item"><a href="demo-marketing-contact.html" class="nav-link text-nowrap">Contact</a></li></ul></div></div></div></nav></header>
-<section class="ai-hero" id="hero"><div class="blob b1"></div><div class="blob b2"></div><div class="container position-relative" style="z-index:4"><div class="row align-items-center"><div class="col-lg-7">
-<span class="d-inline-block bg-white border-radius-100px ps-20px pe-20px fs-14 fw-600 text-base-color mb-20px box-shadow-large">● AI Agent Development Services for Businesses</span>
-<h1 class="fs-50 md-fs-40 sm-fs-32 text-dark-gray lh-60 md-lh-46 fw-800 ls-minus-2px mb-20px"><span id="typer"></span><span class="blink text-base-color">|</span></h1>
-<p class="mb-30px">AD Soft Technologies provides custom AI agent development services for businesses looking to automate workflows, improve customer experiences, assist employees and build intelligent digital products.</p>
-<a href="demo-marketing-contact.html" class="btn btn-large btn-hover-animation-switch btn-dark-gray btn-round-edge btn-box-shadow me-15px xs-mb-10px"><span><span class="btn-text">Talk to Our AI Agent Development Experts</span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span></span></a><a href="demo-marketing-contact.html" class="btn btn-large btn-white fw-600 btn-round-edge btn-box-shadow me-15px xs-mb-10px">Discuss Your AI Agent Idea</a></div>
-<div class="col-lg-5 mt-50px lg-mt-0 d-none d-lg-block"><div class="chat" aria-hidden="true"><div class="d-flex align-items-center mb-15px"><b class="text-dark-gray">AD Soft AI Agent</b><span class="ms-auto fs-12 text-base-color">● online</span></div>
-<div class="m u">Where is my order?</div><div class="m a">Your order is currently being processed. I checked the order system and it is expected to ship tomorrow.</div><div class="m u">Okay, thanks.</div><div class="m a">Would you like me to update your delivery preference? <span class="dots"><span></span><span></span><span></span></span></div></div></div></div></div></section>
-<div class="mq" aria-hidden="true"><div><span>AI AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>AI AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>AI AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>AI AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>AI AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>AI AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b></div></div>
-<section class="ig"><div class="ig-bgdots"></div><div class="container"><div class="row"><div class="col-12 text-center mb-5 rv in"><span class="ig-pill"><i class="bi bi-stars"></i> Custom AI Agent Development</span><h2 class="fw-800 text-dark-gray ls-minus-1px ig-h">Build Intelligent AI Agents That Can <br> <span class="ig-grad">Think, Act and Automate</span></h2></div></div>
-<div class="row align-items-center"><div class="col-lg-6 rv mb-5 mb-lg-0 ig-left"><p class="fs-18 text-dark-gray">AI is moving beyond simple question-and-answer chatbots. Businesses can now use AI agents to <b>interpret requests, access information, interact with software systems, use connected tools</b> and perform multi-step tasks within defined business rules.</p><p>AD Soft Technologies provides custom AI agent development services for businesses looking to automate workflows, improve customer experiences, assist employees and build intelligent digital products.</p><p>We design AI agents around your actual business requirements rather than offering a one-size-fits-all solution. Whether you need an AI agent for customer support, lead management, internal operations, knowledge retrieval, workflow automation or an AI-powered application, we can help you plan, develop and integrate the right solution.</p>
-<div class="ig-note"><i class="bi bi-trophy-fill"></i><p class="mb-0">With <b>20+ projects delivered</b> and experience working with clients in <b>India, Europe and the USA</b>, our team combines software development expertise with modern AI technologies to build practical and scalable AI solutions.</p></div>
-<div class="mt-30px"><a href="demo-marketing-contact.html" class="btn btn-large btn-hover-animation-switch btn-dark-gray btn-round-edge btn-box-shadow me-15px xs-mb-10px"><span><span class="btn-text">Talk to Our AI Agent Development Experts</span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span></span></a></div></div>
-<div class="col-lg-6 rv"><div class="ig2" id="igVis"><div class="ig2-stage" id="igStage"><div class="ig2-dots"></div><div class="ig2-ring"></div><div class="ig2-back"></div><div class="ig2-frame"><img src="images/service-14.png" alt="AI agent development" onerror="this.parentNode.classList.add('noimg')"><div class="ig2-ph"><i class="bi bi-image"></i>Add your image here<small>images/ai-agent.jpg</small></div></div><div class="ig2-badge"><b>20+</b><span>Projects<br>delivered</span></div><div class="ig-chip c1"><span><i class="bi bi-lightbulb"></i></span><div><b>Think</b><small>Understands intent</small></div></div><div class="ig-chip c2"><span><i class="bi bi-lightning-charge-fill"></i></span><div><b>Act</b><small>Uses connected tools</small></div></div><div class="ig-chip c3"><span><i class="bi bi-gear-fill"></i></span><div><b>Automate</b><small>Multi-step workflows</small></div></div></div></div></div></div></div></section><section><div class="container"><div class="row align-items-center"><div class="col-lg-6 rv mb-5"><span class="fs-14 text-uppercase fw-700 mb-15px d-block ls-1px text-base-color">Understand the Basics</span><h2 class="fw-800 text-dark-gray ls-minus-1px mb-4">What Is an AI Agent?</h2>
-<p class="text-muted">An AI agent is a software system that can understand a goal or request, reason through a task, use available tools or information, and take actions within defined boundaries.</p>
-<p class="text-muted">Unlike a basic chatbot that primarily responds to messages, an AI agent can be designed to perform tasks across connected systems. The exact capabilities depend on the business process, integrations, permissions and rules defined for the agent.</p>
-<p class="mb-0 text-muted">This makes AI agents particularly useful for businesses looking to combine conversational AI, automation and software integration.</p></div>
-<div class="col-lg-6 rv"><div class="bg-white p-40px sm-p-30px border-radius-6px box-shadow-large border-top border-4 border-color-base-color"><h5 class="fw-700 text-dark-gray mb-20px fs-22">An AI customer-service agent could:</h5><ol class="list-idx"><li><b class="text-base-color me-10px">1.</b>Receive a customer's request.</li><li><b class="text-base-color me-10px">2.</b>Understand the intent.</li><li><b class="text-base-color me-10px">3.</b>Retrieve relevant information.</li><li><b class="text-base-color me-10px">4.</b>Check information from an integrated system.</li><li><b class="text-base-color me-10px">5.</b>Determine the next appropriate action.</li><li><b class="text-base-color me-10px">6.</b>Update a connected system when authorized.</li><li><b class="text-base-color me-10px">7.</b>Respond to the customer.</li></ol></div></div></div></div></section>
-<section class="bg-very-light-gray pb-80px" id="services"><div class="container"><div class="text-center mb-50px rv"><span class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">AI Agent Use Cases</span><h2 class="fw-800 text-dark-gray ls-minus-1px">How Can AI Agents Help Your Business?</h2></div><p class="text-center fs-18 w-60 lg-w-90 mx-auto mb-50px">AI agents can be developed for different business functions depending on where intelligent task execution can create value.</p><div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center"><div class="col rv"><div class="svc"><span class="no">01</span><div class="ic"><i class="bi bi-headset"></i></div><h6 class="fw-700 text-dark-gray">Customer Support</h6><p class="mb-0">An AI agent can understand customer requests, retrieve information and assist with support workflows. It can handle routine interactions and escalate complex situations to human teams when required.</p></div></div><div class="col rv"><div class="svc"><span class="no">02</span><div class="ic"><i class="bi bi-graph-up-arrow"></i></div><h6 class="fw-700 text-dark-gray">Lead Qualification</h6><p class="mb-0">AI agents can interact with prospects, collect relevant information, qualify leads based on defined criteria and pass suitable leads to sales teams or connected CRM systems.</p></div></div><div class="col rv"><div class="svc"><span class="no">03</span><div class="ic"><i class="bi bi-person-workspace"></i></div><h6 class="fw-700 text-dark-gray">Internal Business Assistance</h6><p class="mb-0">Employees can interact with an AI agent to find information, summarize documents, answer internal questions or initiate approved workflows.</p></div></div><div class="col rv"><div class="svc"><span class="no">04</span><div class="ic"><i class="bi bi-journal-bookmark"></i></div><h6 class="fw-700 text-dark-gray">Knowledge Management</h6><p class="mb-0">AI agents can help users access information from approved business knowledge sources, documents and databases, making internal information easier to retrieve.</p></div></div><div class="col rv"><div class="svc"><span class="no">05</span><div class="ic"><i class="bi bi-gear-wide-connected"></i></div><h6 class="fw-700 text-dark-gray">Workflow Automation</h6><p class="mb-0">AI agents can assist with multi-step business processes by interpreting requests, calling connected tools and performing defined actions.</p></div></div><div class="col rv"><div class="svc"><span class="no">06</span><div class="ic"><i class="bi bi-calendar-check"></i></div><h6 class="fw-700 text-dark-gray">Appointment & Enquiry Management</h6><p class="mb-0">AI agents can assist with enquiries, collect customer information and connect with appropriate systems for scheduling or follow-up workflows.</p></div></div><div class="col rv"><div class="svc"><span class="no">07</span><div class="ic"><i class="bi bi-cart"></i></div><h6 class="fw-700 text-dark-gray">E-commerce Assistance</h6><p class="mb-0">AI agents can help customers discover products, answer product-related questions, assist with order enquiries and support post-purchase interactions.</p></div></div></div></div></section>
-<section><div class="container"><div class="text-center mb-40px rv"><span class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">What Is the Difference?</span><h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agent vs AI Chatbot</h2><p class="fs-18 w-60 lg-w-90 mx-auto mb-0">AI agents and AI chatbots are related but are not the same thing. Switch between them and see the same customer question handled both ways.</p></div>
-<div class="vs rv"><div class="vs-tabs"><button class="on" data-m="bot"><i class="bi bi-chat-dots"></i> AI Chatbot</button><button data-m="agent"><i class="bi bi-robot"></i> AI Agent</button></div>
-<div class="row g-0"><div class="col-lg-6"><div class="vs-screen" id="vsScreen"></div></div><div class="col-lg-6"><div class="vs-side" id="vsSide"></div></div></div></div>
-<p class="text-center mt-30px mb-0">The appropriate solution depends on what your business actually needs. In some projects, an AI chatbot may be sufficient. In others, combining conversational AI with agent capabilities and business automation may create a more useful solution.</p><div class="text-center mt-30px"><a href="demo-marketing-contact.html" class="btn btn-large btn-hover-animation-switch btn-dark-gray btn-round-edge btn-box-shadow"><span><span class="btn-text">Need Help Choosing? Talk to Our AI Experts</span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span></span></a></div></div></section>
-<section class="dark-band"><div class="container"><div class="text-center mb-30px rv"><h2 class="fw-800 ls-minus-1px">What Can Our AI Agents Do?</h2><p class="fs-18 w-60 lg-w-90 mx-auto mb-0">We develop custom AI agents based on specific business processes and technical requirements. Depending on the use case, an AI agent can be designed to:</p></div>
-<div class="hub rv" id="hub"><div class="hub-ring"></div><div class="hub-core"><i class="bi bi-robot"></i><b>AI Agent</b></div><div class="hub-n"><em>01</em>Understand natural-language requests</div><div class="hub-n"><em>02</em>Retrieve information from approved knowledge sources</div><div class="hub-n"><em>03</em>Search documents and business data</div><div class="hub-n"><em>04</em>Use connected APIs and software tools</div><div class="hub-n"><em>05</em>Trigger defined workflows</div><div class="hub-n"><em>06</em>Update information in connected systems</div><div class="hub-n"><em>07</em>Qualify and route leads</div><div class="hub-n"><em>08</em>Assist customers and employees</div><div class="hub-n"><em>09</em>Summarize information</div><div class="hub-n"><em>10</em>Process structured or unstructured information</div><div class="hub-n"><em>11</em>Coordinate multi-step tasks</div><div class="hub-n"><em>12</em>Escalate requests to human teams</div><div class="hub-n"><em>13</em>Work within predefined rules and permissions</div></div>
-<p class="text-center mt-30px mb-0 opacity-8">The agent's capabilities should always be determined by the business objective, security requirements and systems it is authorized to access.</p></div></section>
-<section class="pt-90px"><div class="container"><div class="text-center mb-50px rv"><h2 class="fw-800 text-dark-gray ls-minus-1px">Custom AI Agent Development</h2><span class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">Built Around Your Business, Not a Generic Template</span></div><p class="text-center fs-18 w-70 lg-w-90 mx-auto mb-40px">Every business has different processes, systems and requirements. A sales team may need an agent that qualifies leads. A healthcare organization may need an information assistant based on approved content. An e-commerce business may want an intelligent shopping assistant. An internal operations team may need an agent that interacts with multiple business applications. AD Soft Technologies develops custom AI agents around these individual requirements. Our development process can involve:</p><div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center"><div class="col rv"><div class="svc"><span class="no">01</span><div class="ic"><i class="bi bi-diagram-2"></i></div><h6 class="fw-700 text-dark-gray">Business Process Analysis</h6><p class="mb-0">We understand what the agent needs to accomplish and where it fits into your existing workflow.</p></div></div><div class="col rv"><div class="svc"><span class="no">02</span><div class="ic"><i class="bi bi-cpu"></i></div><h6 class="fw-700 text-dark-gray">AI & Architecture Planning</h6><p class="mb-0">We identify the appropriate AI approach, tools, integrations and system architecture.</p></div></div><div class="col rv"><div class="svc"><span class="no">03</span><div class="ic"><i class="bi bi-book"></i></div><h6 class="fw-700 text-dark-gray">Knowledge Integration</h6><p class="mb-0">Where required, we connect agents with approved business information, documents, knowledge bases or other relevant data sources.</p></div></div><div class="col rv"><div class="svc"><span class="no">04</span><div class="ic"><i class="bi bi-plug"></i></div><h6 class="fw-700 text-dark-gray">Tool & API Integration</h6><p class="mb-0">Agents can be connected with selected APIs, databases, CRM systems, business applications and other tools where appropriate.</p></div></div><div class="col rv"><div class="svc"><span class="no">05</span><div class="ic"><i class="bi bi-signpost-split"></i></div><h6 class="fw-700 text-dark-gray">Workflow Design</h6><p class="mb-0">We define what the agent can do, what actions require authorization and when human intervention should occur.</p></div></div><div class="col rv"><div class="svc"><span class="no">06</span><div class="ic"><i class="bi bi-bug"></i></div><h6 class="fw-700 text-dark-gray">Testing & Optimization</h6><p class="mb-0">We test the agent across different scenarios and refine its responses, workflows and integrations.</p></div></div><div class="col rv"><div class="svc"><span class="no">07</span><div class="ic"><i class="bi bi-rocket-takeoff"></i></div><h6 class="fw-700 text-dark-gray">Deployment & Support</h6><p class="mb-0">After deployment, the solution can be monitored, improved and expanded as your business requirements evolve.</p></div></div></div></div></section>
-<section class="bg-very-light-gray"><div class="container"><div class="row align-items-center"><div class="col-lg-6 rv"><h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agents for Existing Business Systems</h2><span class="fs-18 text-base-color fw-600 d-block font-style-italic mb-15px">Make Your Existing Software More Intelligent</span>
-<p>Many businesses already use CRM platforms, ERP systems, websites, mobile applications, databases and custom software. You don't necessarily need to replace those systems to introduce AI agents. An AI agent can potentially act as an intelligent layer between users and existing business systems.</p>
-<p>A customer could ask the agent for information, while the agent retrieves approved information from an existing system and responds accordingly. Similarly, an employee could ask an internal AI agent to retrieve information or initiate an approved workflow without manually navigating multiple applications.</p>
-<p>AD Soft Technologies can help evaluate your existing technology and identify where AI agent integration may be appropriate.</p><a href="ai-integration.html" class="btn btn-large btn-hover-animation-switch btn-dark-gray btn-round-edge btn-box-shadow"><span><span class="btn-text">Explore AI Integration Services</span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span></span></a></div>
-<div class="col-lg-6 rv mt-40px"><div class="pipe"><div class="pipe-line"><i></i></div><div class="pn"><span><i class="bi bi-person"></i></span><b>Customer</b></div><div class="pn ag"><span><i class="bi bi-robot"></i></span><b>AI Agent</b></div><div class="pn"><span><i class="bi bi-hdd-network"></i></span><b>Business System</b></div><div class="pn ag"><span><i class="bi bi-robot"></i></span><b>AI Agent</b></div><div class="pn"><span><i class="bi bi-person-check"></i></span><b>Customer</b></div></div><p class="text-center text-muted mt-30px mb-0 fs-15">The agent fetches approved information from your existing system and replies, with no rebuild needed.</p></div></div></div></section>
-<section class="pb-80px"><div class="container"><div class="text-center mb-50px rv"><h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agent Development Process</h2><span class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">From Business Requirement to Intelligent Agent</span></div><div class="tl"><div class="st on"><div class="n">01</div><h6 class="fw-700 text-dark-gray mb-5px">Discover</h6><p class="mb-0">We understand your business objectives, users, workflows and existing systems.</p></div><div class="st on"><div class="n">02</div><h6 class="fw-700 text-dark-gray mb-5px">Define the Use Case</h6><p class="mb-0">We identify exactly what the AI agent should accomplish and define the boundaries of its responsibilities.</p></div><div class="st on"><div class="n">03</div><h6 class="fw-700 text-dark-gray mb-5px">Design</h6><p class="mb-0">We plan the agent architecture, interactions, knowledge sources, tools, integrations and workflow logic.</p></div><div class="st on"><div class="n">04</div><h6 class="fw-700 text-dark-gray mb-5px">Develop</h6><p class="mb-0">Our team develops the AI agent and connects the required models, APIs, databases, tools and business systems.</p></div><div class="st on"><div class="n">05</div><h6 class="fw-700 text-dark-gray mb-5px">Test</h6><p class="mb-0">We test the agent against expected scenarios, edge cases, workflow conditions and defined permissions.</p></div><div class="st on"><div class="n">06</div><h6 class="fw-700 text-dark-gray mb-5px">Deploy</h6><p class="mb-0">The solution is integrated into the required environment and made available to intended users.</p></div><div class="st on"><div class="n">07</div><h6 class="fw-700 text-dark-gray mb-5px">Monitor & Improve</h6><p class="mb-0">AI agents can be continuously refined based on usage, business requirements, feedback and changing workflows.</p></div></div></div></section>
-<section class="bg-very-light-gray"><div class="container"><div class="text-center mb-50px rv"><h2 class="fw-800 text-dark-gray ls-minus-1px">Where Can AI Agents Be Used?</h2></div><p class="text-center fs-18 mb-40px">AI agents can be applied across many business functions.</p><div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 justify-content-center"><div class="col rv"><div class="uc"><i class="bi bi-graph-up-arrow"></i><h6 class="fw-700 text-dark-gray mt-15px">Sales</h6><p class="mb-0">Lead qualification, enquiry handling, prospect assistance and sales workflow support.</p></div></div><div class="col rv"><div class="uc"><i class="bi bi-headset"></i><h6 class="fw-700 text-dark-gray mt-15px">Customer Service</h6><p class="mb-0">Customer questions, information retrieval, support workflows and escalation.</p></div></div><div class="col rv"><div class="uc"><i class="bi bi-gear-wide-connected"></i><h6 class="fw-700 text-dark-gray mt-15px">Operations</h6><p class="mb-0">Task automation, internal requests, workflow execution and information retrieval.</p></div></div><div class="col rv"><div class="uc"><i class="bi bi-people"></i><h6 class="fw-700 text-dark-gray mt-15px">Human Resources</h6><p class="mb-0">Employee assistance, policy information and internal HR workflows.</p></div></div><div class="col rv"><div class="uc"><i class="bi bi-cash-coin"></i><h6 class="fw-700 text-dark-gray mt-15px">Finance & Administration</h6><p class="mb-0">Information retrieval, document-related workflows and repetitive administrative processes, subject to appropriate controls and authorization.</p></div></div><div class="col rv"><div class="uc"><i class="bi bi-cart"></i><h6 class="fw-700 text-dark-gray mt-15px">E-commerce</h6><p class="mb-0">Product discovery, customer assistance, order-related enquiries and shopping support.</p></div></div><div class="col rv"><div class="uc"><i class="bi bi-mortarboard"></i><h6 class="fw-700 text-dark-gray mt-15px">Education</h6><p class="mb-0">Student assistance, information retrieval, administrative support and learning-related workflows.</p></div></div></div><p class="text-center mt-30px mb-0">The appropriate use case depends on your organization's processes, data, systems and compliance requirements.</p></div></section>
-<section><div class="container"><div class="text-center mb-50px rv"><h3 class="fw-800 text-dark-gray ls-minus-1px">Why Choose AD Soft Technologies for AI Agent Development?</h3><span class="fs-18 text-base-color fw-600 d-block font-style-italic mb-15px">AI Development Backed by Software Engineering Experience</span><p class="fs-18 w-70 lg-w-95 mx-auto mb-0">Developing an AI agent is not just about connecting an AI model to a chat interface. A production-ready solution may require APIs, authentication, databases, business logic, integrations, user interfaces, monitoring and security controls. This is where our software development background becomes important.</p></div><div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center"><div class="col mb-30px rv"><div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center"><div class="ico3d"><i class="bi bi-trophy"></i></div><h6 class="fw-600 text-dark-gray mb-10px">20+ Projects Delivered</h6><p class="mb-0">Our team has completed more than 20 projects across different business requirements and technology environments.</p></div></div><div class="col mb-30px rv"><div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center"><div class="ico3d"><i class="bi bi-globe-europe-africa"></i></div><h6 class="fw-600 text-dark-gray mb-10px">International Experience</h6><p class="mb-0">We have experience working with clients in India, Europe and the USA, providing exposure to different project requirements and business environments.</p></div></div><div class="col mb-30px rv"><div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center"><div class="ico3d"><i class="bi bi-layers"></i></div><h6 class="fw-600 text-dark-gray mb-10px">AI + Software Development</h6><p class="mb-0">We combine AI capabilities with web, mobile and custom software development, allowing us to build complete solutions around AI agents.</p></div></div><div class="col mb-30px rv"><div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center"><div class="ico3d"><i class="bi bi-sliders"></i></div><h6 class="fw-600 text-dark-gray mb-10px">Custom Architecture</h6><p class="mb-0">We design the solution based on the specific requirements rather than forcing every business into the same architecture.</p></div></div><div class="col mb-30px rv"><div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center"><div class="ico3d"><i class="bi bi-plug"></i></div><h6 class="fw-600 text-dark-gray mb-10px">Integration Capability</h6><p class="mb-0">Where required, we can connect AI agents with existing software, APIs, databases and business workflows.</p></div></div><div class="col mb-30px rv"><div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center"><div class="ico3d"><i class="bi bi-compass"></i></div><h6 class="fw-600 text-dark-gray mb-10px">Business-First Approach</h6><p class="mb-0">We start with the business problem and desired outcome before deciding what type of AI agent should be developed.</p></div></div></div></div></section>
-<section class="bg-very-light-gray"><div class="container"><div class="row justify-content-center"><div class="col-lg-9 rv"><div class="bg-white p-40px sm-p-30px h-100 border-radius-6px box-shadow-large border-top border-4 border-color-base-color"><h5 class="fw-700 text-dark-gray mb-20px fs-22">Is an AI Agent Right for Your Business?</h5><p class="fw-600 mb-15px">An AI agent may be worth exploring if your business has:</p><ul class="list-idx mb-25px"><li><i class="bi bi-lightning-charge-fill"></i>Repetitive tasks that require human intervention</li><li><i class="bi bi-lightning-charge-fill"></i>Large volumes of customer or employee enquiries</li><li><i class="bi bi-lightning-charge-fill"></i>Multiple systems that users frequently need to interact with</li><li><i class="bi bi-lightning-charge-fill"></i>Complex information-retrieval requirements</li><li><i class="bi bi-lightning-charge-fill"></i>Repetitive lead qualification processes</li><li><i class="bi bi-lightning-charge-fill"></i>Manual workflow steps</li><li><i class="bi bi-lightning-charge-fill"></i>High volumes of documents or information</li><li><i class="bi bi-lightning-charge-fill"></i>A need for intelligent assistance within existing software</li></ul><p class="mb-10px">However, not every problem requires an AI agent. Sometimes a traditional automation workflow, API integration, chatbot or custom software feature may be more appropriate.</p><p class="mb-0 fw-600 text-dark-gray">Our role is to help identify the right technology for the problem, not simply recommend an AI agent because it is a newer technology.</p></div></div></div></div></section>
-<section><div class="container"><div class="text-center mb-50px rv"><span class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Got Questions?</span><h3 class="fw-800 text-dark-gray ls-minus-1px">Frequently Asked Questions</h3></div><div class="row"><div class="col-lg-6 md-mb-30px"><div class="accordion accordion-style-02" id="faq-accordion-left" data-active-icon="icon-feather-minus" data-inactive-icon="icon-feather-plus"><div class="accordion-item active-accordion"><div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="true" data-bs-parent="#faq-accordion-left"><div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-minus"></i><span class="fw-600 fs-17 ls-minus-05px">1. What is AI agent development?</span></div></a></div><div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#faq-accordion-left"><div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>AI agent development involves designing and building software agents that can understand requests, reason through defined tasks, access approved information, use connected tools and perform actions within specified boundaries.</p></div></div></div><div class="accordion-item"><div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" data-bs-parent="#faq-accordion-left"><div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">2. What is the difference between an AI agent and an AI chatbot?</span></div></a></div><div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left"><div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>An AI chatbot primarily focuses on conversational interactions, while an AI agent can be designed to use tools, access systems and perform tasks. Some solutions can combine chatbot and agent capabilities.</p></div></div></div><div class="accordion-item"><div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" data-bs-parent="#faq-accordion-left"><div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">3. What business tasks can an AI agent automate?</span></div></a></div><div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left"><div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>Depending on the system and permissions, AI agents can assist with customer support, lead qualification, information retrieval, document workflows, internal requests, scheduling, business processes and other repetitive tasks.</p></div></div></div><div class="accordion-item"><div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" data-bs-parent="#faq-accordion-left"><div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">4. Can an AI agent connect to our existing software?</span></div></a></div><div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left"><div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>Yes. AI agents can potentially connect with existing software through APIs, databases and other integrations. The exact approach depends on your system architecture and security requirements.</p></div></div></div><div class="accordion-item"><div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#" data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false" data-bs-parent="#faq-accordion-left"><div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">5. Can you build a custom AI agent for our business?</span></div></a></div><div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left"><div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>Yes. AD Soft Technologies develops custom AI agents based on specific business processes, use cases, integrations and user requirements.</p></div></div></div></div></div><div class="col-lg-6"><div class="accordion accordion-style-02" id="faq-accordion-right" data-active-icon="icon-feather-minus" data-inactive-icon="icon-feather-plus"><div class="accordion-item"><div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#" data-bs-toggle="collapse" data-bs-target="#faq-6" aria-expanded="false" data-bs-parent="#faq-accordion-right"><div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">6. Can AI agents work with our CRM or ERP?</span></div></a></div><div id="faq-6" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right"><div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>Potentially, yes. If your CRM or ERP provides appropriate APIs or integration capabilities, an AI agent can potentially interact with selected functions. Access should be limited according to business permissions and security requirements.</p></div></div></div><div class="accordion-item"><div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#" data-bs-toggle="collapse" data-bs-target="#faq-7" aria-expanded="false" data-bs-parent="#faq-accordion-right"><div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">7. Can an AI agent use our company's documents and knowledge?</span></div></a></div><div id="faq-7" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right"><div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>Yes. AI agents can potentially be connected to approved documents, knowledge bases and other information sources so they can retrieve relevant information. The implementation approach depends on the type, volume and structure of your data.</p></div></div></div><div class="accordion-item"><div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#" data-bs-toggle="collapse" data-bs-target="#faq-8" aria-expanded="false" data-bs-parent="#faq-accordion-right"><div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">8. Do AI agents replace human employees?</span></div></a></div><div id="faq-8" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right"><div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>AI agents are generally better viewed as tools that can assist employees and automate suitable tasks. Businesses should define which activities can be automated and which require human review, judgment or approval.</p></div></div></div><div class="accordion-item"><div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#" data-bs-toggle="collapse" data-bs-target="#faq-9" aria-expanded="false" data-bs-parent="#faq-accordion-right"><div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">9. How much does AI agent development cost?</span></div></a></div><div id="faq-9" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right"><div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>The cost depends on the complexity of the agent, required integrations, AI capabilities, data sources, user interface, security requirements and deployment environment. A simple informational agent and a multi-system business agent can have very different development requirements.</p></div></div></div><div class="accordion-item"><div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#" data-bs-toggle="collapse" data-bs-target="#faq-10" aria-expanded="false" data-bs-parent="#faq-accordion-right"><div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">10. How do we start an AI agent development project?</span></div></a></div><div id="faq-10" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right"><div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>Start by explaining the business problem or workflow you want to improve. AD Soft Technologies can analyze the requirement, determine whether an AI agent is appropriate and propose a suitable development and integration approach.</p></div></div></div></div></div></div></div></section>
-<section class="pb-90px mb-50px"><div class="container"><div class="row justify-content-center"><div class="col-xl-10"><div class="bg-dark-gray p-60px lg-p-40px sm-p-30px border-radius-8px box-shadow-extra-large text-center"><span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Let's Build Together</span><h3 class="fw-800 text-white ls-minus-1px mb-20px">Build Your Custom AI Agent With AD Soft Technologies</h3>
-<p class="fs-18 text-light-opacity mb-15px w-90 mx-auto sm-w-100">Your business may not need another basic chatbot. It may need an intelligent system that can understand requests, access information, interact with tools and help execute real business tasks.</p>
-<p class="text-light-opacity mb-15px w-90 mx-auto sm-w-100">AD Soft Technologies can help you explore, design, develop and integrate a custom AI agent around your business requirements. With 20+ projects delivered and experience across India, Europe and the USA, we combine software engineering expertise with modern AI capabilities to create practical, business-focused AI solutions.</p>
-<span class="d-block fw-600 text-white mb-30px fs-18 font-style-italic">Have an AI agent idea or a repetitive business process you'd like to automate?</span>
-<div class="d-flex flex-wrap justify-content-center gap-3"><a href="demo-marketing-contact.html" class="btn btn-large btn-hover-animation-switch btn-base-color text-white btn-round-edge btn-box-shadow"><span class="text-white"><span class="btn-text text-white">Talk to Our AI Agent Development Experts</span><span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span></span></a><a href="demo-marketing-contact.html" class="btn btn-large btn-hover-animation-switch btn-transparent-white-light btn-round-edge"><span><span class="btn-text">Start Your AI Project</span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span></span></a></div></div></div></div></div></section><footer class="bg-dark-gray background-position-center-top" style="background-image:url('images/demo-marketing-footer-dot.svg')"><div class="container footer-dark text-center text-sm-start pt-5"><div class="row mb-5">
-<div class="col-lg-3 col-md-6"><a href="index.html" class="footer-logo mb-20px d-flex align-items-center"><img src="images/logo.png" alt="AD Soft Technologies" class="me-10px" style="height:60px;width:auto"><span class="text-white fw-700 fs-16 text-nowrap">AD SOFT TECHNOLOGIES</span></a><p>We are a Kerala based IT startup, which undertakes all kinds of AI solution, IT services like Website development, Android/iOS App development, custom Software development etc.</p></div>
-<div class="col-lg-3 col-md-6"><span class="fs-16 fw-500 d-block text-white mb-15px">Our Clients</span><ul class="p-0 m-0 list-unstyled"><li class="mb-8px"><a href="https://www.germanacademytr.com/" target="_blank" rel="noopener">German Academy</a></li><li class="mb-8px"><a href="https://prohealthclinic.org/" target="_blank" rel="noopener">ProHealth Clinic</a></li><li class="mb-8px"><a href="https://labacabs.com/" target="_blank" rel="noopener">LaBa Cabs</a></li><li class="mb-8px"><a href="https://www.mindfullysustainable.co.uk/" target="_blank" rel="noopener">Mindfully Sustainable</a></li><li class="mb-8px"><a href="https://ibworldwideacademy.com/" target="_blank" rel="noopener">IB WorldWide Academy</a></li><li class="mb-8px"><a href="https://radiomediavillage.com/" target="_blank" rel="noopener">Radio Media Village</a></li></ul></div>
-<div class="col-lg-3 col-md-6"><span class="fs-16 fw-500 d-block text-white mb-15px">Additional Pages</span><ul class="p-0 m-0 list-unstyled"><li class="mb-8px"><a href="https://www.adsofttechnologies.com/about.html">About Us</a></li><li class="mb-8px"><a href="https://www.adsofttechnologies.com/services.html">Our Services</a></li><li class="mb-8px"><a href="https://www.adsofttechnologies.com/contact.html">Contact Us</a></li><li class="mb-8px"><a href="https://www.adsofttechnologies.com/contact#">Privacy Policy</a></li></ul></div>
-<div class="col-lg-3 col-md-6"><span class="fs-16 fw-500 d-block text-white mb-15px">Contact Us</span><p>2nd Floor, Puthenpurackal (H), Puthenpurackal Lane, Judgimukku, Thrikkakkara, Ernakulam, Kerala</p><a href="mailto:info@adsofttechnologies.com" class="text-white">info@adsofttechnologies.com</a></div></div>
-<div class="row footer-bottom border-top border-color-transparent-white-light pt-30px g-0"><div class="col-12 text-center"><p class="fs-15">&copy; 2026 <a href="https://www.adsofttechnologies.com" target="_blank" rel="noopener" class="text-white fw-500">AD Soft Technologies</a>. All rights reserved.</p></div></div></div></footer><div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a></div>
-<script src="js/jquery.js"></script><script src="js/vendors.min.js"></script><script src="js/main.js"></script><script>(function(){var t=document.getElementById('typer'),w=["AI Agent Development Services for Businesses"],wi=0,ci=0,del=false;
-function tick(){var s=w[wi];t.textContent=s.slice(0,ci);if(!del&&ci===s.length){del=true;return setTimeout(tick,1800)}if(del&&ci===0){del=false;wi=(wi+1)%w.length}ci+=del?-1:1;setTimeout(tick,del?28:60)}tick();
-var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})})();</script><script>(function(){var s=document.getElementById('vsScreen'),d=document.getElementById('vsSide');if(!s)return;
-var M={bot:{s:'<div class="vb u">Where is my order?</div><div class="vb a">Your order is currently being processed.</div>',d:'<h4 class="fw-800 text-dark-gray">Answers the question</h4><p>Primarily designed to communicate with users through conversational interactions. It can answer questions, provide information and assist with predefined conversations.</p><div><span class="tag">Conversation</span><span class="tag">Predefined replies</span></div>'},
-agent:{s:'<div class="vb u">Where is my order?</div><div class="tr"><i class="bi bi-check-circle-fill"></i>Understood intent: order status</div><div class="tr"><i class="bi bi-check-circle-fill"></i>Checked the order system</div><div class="vb a">Your order is currently being processed. I checked the order system and found that it is expected to ship tomorrow. Would you like me to update your delivery preference?<br><span class="vq">Update delivery preference</span></div>',d:'<h4 class="fw-800 text-dark-gray">Answers, then acts</h4><p>Goes beyond conversation by interacting with tools and systems, retrieving information, making decisions within defined boundaries and executing tasks.</p><div><span class="tag">Tools &amp; APIs</span><span class="tag">Live system data</span><span class="tag">Task execution</span><span class="tag">Defined boundaries</span></div>'}};
-function set(m){s.innerHTML=M[m].s;d.innerHTML=M[m].d;document.querySelectorAll('.vs-tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.m===m)})}
-document.querySelectorAll('.vs-tabs button').forEach(function(b){b.onclick=function(){set(b.dataset.m)}});set('bot');
-var hub=document.getElementById('hub');if(hub){var n=hub.querySelectorAll('.hub-n');n.forEach(function(e,i){var a=(i/n.length)*2*Math.PI-Math.PI/2;e.style.left=(50+39*Math.cos(a))+'%';e.style.top=(50+43*Math.sin(a))+'%'})}})();</script><script>(function(){var v=document.getElementById('igVis'),s=document.getElementById('igStage');if(!v||matchMedia('(max-width:991px)').matches)return;v.addEventListener('mousemove',function(e){var r=v.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;s.style.setProperty('--ry',x*14+'deg');s.style.setProperty('--rx',-y*10+'deg')});v.addEventListener('mouseleave',function(){s.style.removeProperty('--rx');s.style.removeProperty('--ry')})})();</script></body></html>
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <title>AI Agent Development Services for Businesses | AD Soft Technologies</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description"
+        content="AD Soft Technologies builds custom AI agents that interpret requests, use connected tools and automate multi-step business tasks, for clients in India, Europe and the USA.">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/vendors.min.css" />
+    <link rel="stylesheet" href="css/icon.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="demos/marketing/marketing.css" />
+    <style>
+        :root {
+            --g: #559643;
+            --g-d: #3f7431;
+            --g-l: #94b92f
+        }
+
+        .text-base-color,
+        .btn-base-color {
+            color: var(--g) !important
+        }
+
+        .bg-base-color {
+            background-color: var(--g) !important
+        }
+
+        .btn-base-color {
+            background: var(--g) !important
+        }
+
+        section {
+            padding-top: 30px
+        }
+
+        .ai-hero {
+            position: relative;
+            overflow: hidden;
+            background: rgba(102, 243, 199, .14) url('images/demo-marketing-dot.svg');
+            padding: 150px 0 90px
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: .55;
+            animation: blob 14s ease-in-out infinite
+        }
+
+        .b1 {
+            width: 380px;
+            height: 380px;
+            background: #c6e06a;
+            top: -80px;
+            right: 8%
+        }
+
+        .b2 {
+            width: 320px;
+            height: 320px;
+            background: #66f3c7;
+            bottom: -100px;
+            left: 5%
+        }
+
+        @keyframes blob {
+            50% {
+                transform: translate(40px, 30px) scale(1.15)
+            }
+        }
+
+        .chat {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 30px 60px rgba(60, 90, 20, .25);
+            padding: 22px;
+            max-width: 400px;
+            margin-left: auto
+        }
+
+        .chat .m {
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            max-width: 85%;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: pop .5s forwards
+        }
+
+        .chat .u {
+            background: #eef6e4
+        }
+
+        .chat .a {
+            background: var(--g);
+            color: #fff;
+            margin-left: auto
+        }
+
+        .chat .m:nth-child(2) {
+            animation-delay: .8s
+        }
+
+        .chat .m:nth-child(3) {
+            animation-delay: 2s
+        }
+
+        .chat .m:nth-child(4) {
+            animation-delay: 3.2s
+        }
+
+        .chat .m:nth-child(5) {
+            animation-delay: 4.4s
+        }
+
+        @keyframes pop {
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .dots span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #fff;
+            margin: 0 2px;
+            animation: dt 1s infinite
+        }
+
+        .dots span:nth-child(2) {
+            animation-delay: .2s
+        }
+
+        .dots span:nth-child(3) {
+            animation-delay: .4s
+        }
+
+        @keyframes dt {
+            50% {
+                transform: translateY(-4px);
+                opacity: .5
+            }
+        }
+
+        .blink {
+            animation: bl 1s steps(2) infinite
+        }
+
+        @keyframes bl {
+            50% {
+                opacity: 0
+            }
+        }
+
+        .mq {
+            overflow: hidden;
+            white-space: nowrap;
+            background: var(--g);
+            padding: 16px 0;
+            transform: rotate(-1.2deg);
+            margin: 50px -20px 10px
+        }
+
+        .mq div {
+            display: inline-block;
+            animation: mq 40s linear infinite;
+            color: #fff;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 1px
+        }
+
+        .mq b {
+            margin: 0 26px;
+            opacity: .6
+        }
+
+        @keyframes mq {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .svc {
+            position: relative;
+            background: #fff;
+            border-radius: 16px;
+            padding: 34px 30px;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, .07);
+            transition: .35s
+        }
+
+        .svc:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(85, 150, 67, .2)
+        }
+
+        .svc .ic {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            background: #eef6e4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px
+        }
+
+        .svc .ic i {
+            font-size: 28px;
+            color: var(--g)
+        }
+
+        .svc .no {
+            position: absolute;
+            right: 18px;
+            top: 20px;
+            font-size: 70px;
+            font-weight: 800;
+            opacity: .06
+        }
+
+        .pick {
+            border-left: 4px solid var(--g);
+            background: #fff;
+            border-radius: 0 12px 12px 0;
+            padding: 24px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .05)
+        }
+
+        .uc {
+            background: #fff;
+            border-radius: 14px;
+            padding: 26px;
+            height: 100%;
+            border: 1px solid #e6efe0;
+            transition: .3s
+        }
+
+        .uc:hover {
+            border-color: var(--g);
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(85, 150, 67, .18)
+        }
+
+        .uc i {
+            font-size: 30px;
+            color: var(--g)
+        }
+
+        .dark-band {
+            background: #1c2a17;
+            color: #c9d6c3;
+            padding: 90px 0
+        }
+
+        .dark-band h2,
+        .dark-band h3 {
+            color: #fff
+        }
+
+        .chip {
+            display: inline-flex;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(148, 185, 47, .4);
+            color: #fff;
+            border-radius: 40px;
+            padding: 10px 18px;
+            margin: 6px;
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 12px
+        }
+
+        .flow span {
+            background: #fff;
+            border: 1px solid #dbe8d2;
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-weight: 700
+        }
+
+        .flow .ag {
+            background: var(--g);
+            color: #fff
+        }
+
+        .flow i {
+            color: var(--g)
+        }
+
+        .ico3d {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 22px;
+            border-radius: 24%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: linear-gradient(145deg, #c6e06a, #94b92f 55%, #6f8f1f);
+            box-shadow: inset 0 2px 0 rgba(255, 255, 255, .55), inset 0 -5px 10px rgba(0, 0, 0, .18), 0 6px 0 #5d7a17, 0 18px 30px rgba(60, 90, 20, .35)
+        }
+
+        .ico3d i {
+            font-size: 28px
+        }
+
+        .card-idx {
+            transition: transform .35s
+        }
+
+        .card-idx:hover {
+            transform: translateY(-8px)
+        }
+
+        .list-idx {
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+
+        .list-idx li {
+            display: flex;
+            padding: 10px 0;
+            border-bottom: 1px solid #ededed
+        }
+
+        .list-idx li:last-child {
+            border: 0
+        }
+
+        .list-idx li i {
+            color: var(--g);
+            margin-right: 12px;
+            margin-top: 4px
+        }
+
+        .tl {
+            position: relative;
+            max-width: 900px;
+            margin: auto
+        }
+
+        .tl:before {
+            content: "";
+            position: absolute;
+            left: 29px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #dbe8d2
+        }
+
+        .st {
+            position: relative;
+            padding-left: 90px;
+            margin-bottom: 34px
+        }
+
+        .st .n {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--g);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            box-shadow: 0 0 0 10px rgba(85, 150, 67, .15)
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity .8s, transform .8s
+        }
+
+        .rv.in {
+            opacity: 1;
+            transform: none
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
+            }
+
+            .rv {
+                opacity: 1;
+                transform: none
+            }
+
+            .chat .m {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .vs {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 30px 70px rgba(60, 90, 20, .15);
+            overflow: hidden;
+            border: 1px solid #dbe8d2
+        }
+
+        .vs-tabs {
+            display: flex;
+            background: #eef6e4;
+            padding: 8px;
+            gap: 8px
+        }
+
+        .vs-tabs button {
+            flex: 1;
+            border: 0;
+            background: transparent;
+            padding: 14px;
+            border-radius: 16px;
+            font-weight: 700;
+            color: #555;
+            transition: .3s
+        }
+
+        .vs-tabs button.on {
+            background: var(--g);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(85, 150, 67, .35)
+        }
+
+        .vs-screen {
+            padding: 30px;
+            background: #f7faf3;
+            min-height: 380px
+        }
+
+        .vs-side {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .vs-screen>* {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: pop .5s forwards
+        }
+
+        .vs-screen>:nth-child(2) {
+            animation-delay: .6s
+        }
+
+        .vs-screen>:nth-child(3) {
+            animation-delay: 1.3s
+        }
+
+        .vs-screen>:nth-child(4) {
+            animation-delay: 2s
+        }
+
+        .vs-screen>:nth-child(5) {
+            animation-delay: 2.7s
+        }
+
+        .vs-screen>:nth-child(6) {
+            animation-delay: 3.4s
+        }
+
+        .vb {
+            padding: 12px 16px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            max-width: 88%;
+            font-size: 15px
+        }
+
+        .vb.u {
+            background: #fff;
+            border: 1px solid #dbe8d2
+        }
+
+        .vb.a {
+            background: var(--g);
+            color: #fff;
+            margin-left: auto
+        }
+
+        .tr {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--g-d);
+            background: rgba(148, 185, 47, .14);
+            border-radius: 10px;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            max-width: 88%
+        }
+
+        .vq {
+            display: inline-block;
+            margin: 4px 6px 0 0;
+            padding: 6px 12px;
+            border-radius: 30px;
+            background: #fff;
+            color: var(--g-d);
+            font-weight: 700;
+            font-size: 13px
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 30px;
+            background: #eef6e4;
+            color: var(--g-d);
+            font-weight: 700;
+            font-size: 13px;
+            margin: 0 6px 8px 0
+        }
+
+        .hub {
+            position: relative;
+            height: 640px;
+            max-width: 1100px;
+            margin: auto
+        }
+
+        .hub-ring {
+            position: absolute;
+            left: 12%;
+            right: 12%;
+            top: 12%;
+            bottom: 12%;
+            border: 2px dashed rgba(148, 185, 47, .4);
+            border-radius: 50%;
+            animation: spin 40s linear infinite
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .hub-core {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 170px;
+            height: 170px;
+            margin: -85px 0 0 -85px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: linear-gradient(145deg, #c6e06a, #94b92f 50%, var(--g));
+            box-shadow: 0 0 0 16px rgba(148, 185, 47, .14), 0 0 0 36px rgba(148, 185, 47, .07), 0 0 70px rgba(148, 185, 47, .6);
+            animation: cp 3s ease-in-out infinite
+        }
+
+        .hub-core i {
+            font-size: 46px
+        }
+
+        .hub-core b {
+            font-size: 18px
+        }
+
+        @keyframes cp {
+            50% {
+                transform: scale(1.06)
+            }
+        }
+
+        .hub-n {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 190px;
+            padding: 10px 14px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(148, 185, 47, .45);
+            color: #fff;
+            font-size: 13.5px;
+            font-weight: 600;
+            line-height: 1.35;
+            transition: .3s;
+            backdrop-filter: blur(4px)
+        }
+
+        .hub-n em {
+            display: block;
+            font-style: normal;
+            color: var(--g-l);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px
+        }
+
+        .hub-n:hover {
+            background: var(--g);
+            transform: translate(-50%, -50%) scale(1.08);
+            z-index: 3
+        }
+
+        @media(max-width:991px) {
+            .hub {
+                height: auto;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center
+            }
+
+            .hub-n {
+                position: static;
+                transform: none !important;
+                width: calc(50% - 10px)
+            }
+
+            .hub-core,
+            .hub-ring {
+                display: none
+            }
+        }
+
+        .pipe {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0
+        }
+
+        .pipe-line {
+            position: absolute;
+            left: 8%;
+            right: 8%;
+            top: 50px;
+            height: 3px;
+            background: repeating-linear-gradient(90deg, #b9d3ac 0 8px, transparent 8px 14px)
+        }
+
+        .pipe-line i {
+            position: absolute;
+            top: -6px;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--g);
+            box-shadow: 0 0 14px var(--g);
+            animation: trv 4s linear infinite
+        }
+
+        @keyframes trv {
+            to {
+                left: calc(100% - 15px)
+            }
+        }
+
+        .pn {
+            position: relative;
+            text-align: center;
+            width: 20%
+        }
+
+        .pn span {
+            display: flex;
+            margin: 0 auto 10px;
+            width: 62px;
+            height: 62px;
+            border-radius: 24%;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: var(--g);
+            font-size: 26px;
+            box-shadow: 0 6px 0 #cfe0b6, 0 14px 24px rgba(60, 90, 20, .18)
+        }
+
+        .pn.ag span {
+            color: #fff;
+            background: linear-gradient(145deg, #c6e06a, #94b92f 55%, #6f8f1f);
+            box-shadow: 0 6px 0 #5d7a17, 0 14px 30px rgba(60, 90, 20, .4);
+            animation: cp 2.4s ease-in-out infinite
+        }
+
+        .pn b {
+            font-size: 13px;
+            color: #232323
+        }
+
+        .btn.btn-base-color,
+        .btn.btn-base-color:hover,
+        .btn.btn-base-color span {
+            color: #fff !important
+        }
+
+        .ig {
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 40px
+        }
+
+        .ig-bgdots {
+            position: absolute;
+            right: -60px;
+            top: 40px;
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(#94b92f 2px, transparent 2px) 0 0/22px 22px;
+            opacity: .3
+        }
+
+        .ig .container {
+            position: relative
+        }
+
+        .ig-pill {
+            display: inline-block;
+            background: #eef6e4;
+            color: var(--g-d);
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 40px;
+            padding: 7px 16px;
+            margin-bottom: 18px
+        }
+
+        .ig-h {
+            font-size: 2.6rem;
+            line-height: 1.2;
+            margin-bottom: 20px
+        }
+
+        .ig-grad {
+            background: linear-gradient(90deg, var(--g-d), var(--g-l), var(--g-d));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: igs 5s linear infinite
+        }
+
+        @keyframes igs {
+            to {
+                background-position: 200% center
+            }
+        }
+
+        .ig-note {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: #fff;
+            border-left: 4px solid var(--g);
+            border-radius: 0 14px 14px 0;
+            padding: 18px 20px;
+            box-shadow: 0 10px 30px rgba(60, 90, 20, .1)
+        }
+
+        .ig-note>i {
+            font-size: 26px;
+            color: var(--g)
+        }
+
+        .ig2 {
+            position: relative;
+            height: 560px;
+            max-width: 520px;
+            margin: auto;
+            perspective: 1200px
+        }
+
+        .ig2-stage {
+            position: absolute;
+            inset: 0;
+            transform-style: preserve-3d;
+            transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+            transition: transform .25s ease-out
+        }
+
+        .ig2-back {
+            position: absolute;
+            left: 8%;
+            top: 6%;
+            width: 84%;
+            height: 88%;
+            border-radius: 36px 36px 140px 36px;
+            background: linear-gradient(145deg, #c6e06a, #94b92f 55%, #559643);
+            transform: translate(28px, 26px) rotate(4deg)
+        }
+
+        .ig2-dots {
+            position: absolute;
+            right: -6px;
+            top: -14px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(#94b92f 2.5px, transparent 2.5px) 0 0/18px 18px;
+            opacity: .55
+        }
+
+        .ig2-ring {
+            position: absolute;
+            left: -34px;
+            bottom: -24px;
+            width: 190px;
+            height: 190px;
+            border: 2px dashed #94b92f;
+            border-radius: 50%;
+            animation: spin 22s linear infinite
+        }
+
+        .ig2-frame {
+            position: absolute;
+            left: 4%;
+            top: 2%;
+            width: 84%;
+            height: 88%;
+            border-radius: 36px 36px 140px 36px;
+            overflow: hidden;
+            background: #eef6e4;
+            border: 8px solid #fff;
+            box-shadow: 0 30px 70px rgba(60, 90, 20, .3);
+            transform: translateZ(30px)
+        }
+
+        .ig2-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 1.2s
+        }
+
+        .ig2-frame:hover img {
+            transform: scale(1.07)
+        }
+
+        .ig2-frame:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(28, 42, 23, .45), transparent 45%);
+            pointer-events: none
+        }
+
+        .ig2-ph {
+            display: none;
+            position: absolute;
+            inset: 0;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 6px;
+            color: var(--g-d);
+            font-weight: 700;
+            background: repeating-linear-gradient(45deg, #eef6e4 0 14px, #e4f0d8 14px 28px)
+        }
+
+        .ig2-ph i {
+            font-size: 54px
+        }
+
+        .ig2-ph small {
+            font-weight: 500;
+            opacity: .7
+        }
+
+        .noimg .ig2-ph {
+            display: flex
+        }
+
+        .noimg img {
+            display: none
+        }
+
+        .ig2-badge {
+            position: absolute;
+            left: -18px;
+            bottom: 80px;
+            background: #1c2a17;
+            color: #fff;
+            border-radius: 20px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .3);
+            transform: translateZ(90px);
+            animation: igc 5s ease-in-out infinite
+        }
+
+        .ig2-badge b {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--g-l);
+            line-height: 1
+        }
+
+        .ig2-badge span {
+            font-size: 13px;
+            line-height: 1.3;
+            color: #c9d6c3
+        }
+
+        .ig-chip {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, .96);
+            border: 1px solid #dbe8d2;
+            border-radius: 16px;
+            padding: 10px 14px;
+            box-shadow: 0 14px 34px rgba(60, 90, 20, .22);
+            animation: igc 5s ease-in-out infinite;
+            transform: translateZ(90px)
+        }
+
+        .ig-chip span {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #c6e06a, #94b92f 55%, #6f8f1f);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 0 #5d7a17
+        }
+
+        .ig-chip b {
+            display: block;
+            font-size: 14px;
+            color: #232323;
+            line-height: 1.2
+        }
+
+        .ig-chip small {
+            font-size: 12px;
+            color: #6b7a63
+        }
+
+        @keyframes igc {
+            50% {
+                margin-top: -14px
+            }
+        }
+
+        .ig-chip.c1 {
+            left: -26px;
+            top: 50px
+        }
+
+        .ig-chip.c2 {
+            right: -30px;
+            top: 200px;
+            animation-delay: -1.5s
+        }
+
+        .ig-chip.c3 {
+            right: 6px;
+            bottom: 30px;
+            animation-delay: -3s
+        }
+
+        @media(max-width:991px) {
+            .ig-h {
+                font-size: 2rem
+            }
+
+            .ig2 {
+                transform: scale(.88)
+            }
+        }
+
+        @media(max-width:575px) {
+            .ig2 {
+                height: 520px;
+                max-width: 100%;
+                transform: scale(.82);
+                transform-origin: top center;
+                margin-bottom: -70px
+            }
+
+            .ig-chip.c1 {
+                left: -6px
+            }
+
+            .ig-chip.c2 {
+                right: -6px
+            }
+
+            .ig2-badge {
+                left: -4px
+            }
+        }
+    </style>
+</head>
+
+<body data-mobile-nav-style="classic" class="custom-cursor">
+    <div class="cursor-page-inner">
+        <div class="circle-cursor circle-cursor-inner"></div>
+        <div class="circle-cursor circle-cursor-outer"></div>
+    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg header-light header-transparent bg-transparent disable-fixed">
+            <div class="container-fluid">
+                <div class="col-auto me-lg-0 me-auto"><a class="navbar-brand d-flex align-items-center"
+                        href="index.html"><img src="images/logo.png" alt="AD Soft Technologies" class="default-logo"
+                            style="max-height:70px;"><img src="images/logo.png" alt="AD Soft Technologies"
+                            class="alt-logo"><img src="images/logo.png" alt="AD Soft Technologies"
+                            class="mobile-logo"><span class="ms-15px text-dark-gray fw-800 ls-1px text-nowrap"
+                            style="font-size:16px;">AD SOFT TECHNOLOGIES</span></a></div>
+                <div class="col menu-order position-static"><button class="navbar-toggler float-start" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                        aria-label="Toggle navigation"><span class="navbar-toggler-line"></span><span
+                            class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span><span
+                            class="navbar-toggler-line"></span></button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a href="index.html" class="nav-link text-nowrap">Home</a></li>
+                            <li class="nav-item"><a href="demo-marketing-about.html" class="nav-link text-nowrap">About
+                                    Us</a></li>
+                                         <li class="nav-item dropdown simple-dropdown"><a href="ai-solutions.html"
+    class="nav-link text-nowrap text-base-color">AI Solutions</a><i
+    class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown"
+    aria-expanded="false"></i>
+<ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
+  <li><a href="ai-agent-developemnt.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
+  <li><a href="ai-chatbot-developemt.html"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
+  <li><a href="ai-automation.html"><i class="fa-solid fa-bolt"></i>AI Automation</a></li>
+  <li><a href="ai-integration.html"><i class="fa-solid fa-diagram-project"></i>AI Integration</a></li>
+  <li><a href="ai-adoption-and-consulting.html"><i class="fa-solid fa-chart-line"></i>AI Adoption &amp; Consulting</a></li>
+</ul>
+</li>
+                            <li class="nav-item"><a href="#" class="nav-link text-nowrap">Software Development</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-nowrap">Business Solutions</a></li>
+                            <li class="nav-item"><a href="demo-marketing-case-studies.html"
+                                    class="nav-link text-nowrap">Our Work</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-nowrap">AI Insights</a></li>
+                            <li class="nav-item"><a href="demo-marketing-contact.html"
+                                    class="nav-link text-nowrap">Contact</a></li>
+                                    
+                        </ul>
+                    </div>
+                </div>
+                
+                    <!-- Right Social Icons -->
+<div class="col-auto text-end">
+    <div class="header-icon"> 
+        <div class="header-social-icon icon">
+            <a href="http://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="http://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="http://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+    </div>  
+</div>
+            </div>
+            
+        </nav>
+    </header>
+    <section class="ai-hero" id="hero">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="container position-relative" style="z-index:4">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <span
+                        class="d-inline-block bg-white border-radius-100px ps-20px pe-20px fs-14 fw-600 text-base-color mb-20px box-shadow-large">●
+                        AI Agent Development Services for Businesses</span>
+                    <h1 class="fs-50 md-fs-40 sm-fs-32 text-dark-gray lh-60 md-lh-46 fw-800 ls-minus-2px mb-20px"><span
+                            id="typer"></span><span class="blink text-base-color">|</span></h1>
+                    <p class="mb-30px">AD Soft Technologies provides custom AI agent development services for businesses
+                        looking to automate workflows, improve customer experiences, assist employees and build
+                        intelligent digital products.</p>
+                    <a href="demo-marketing-contact.html"
+                        class="btn btn-large btn-hover-animation-switch btn-dark-gray btn-round-edge btn-box-shadow me-15px xs-mb-10px"><span><span
+                                class="btn-text">Talk to Our AI Agent Development Experts</span><span
+                                class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span><span
+                                class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span></span></a><a
+                        href="demo-marketing-contact.html"
+                        class="btn btn-large btn-white fw-600 btn-round-edge btn-box-shadow me-15px xs-mb-10px">Discuss
+                        Your AI Agent Idea</a>
+                </div>
+                <div class="col-lg-5 mt-50px lg-mt-0 d-none d-lg-block">
+                    <div class="chat" aria-hidden="true">
+                        <div class="d-flex align-items-center mb-15px"><b class="text-dark-gray">AD Soft AI
+                                Agent</b><span class="ms-auto fs-12 text-base-color">● online</span></div>
+                        <div class="m u">Where is my order?</div>
+                        <div class="m a">Your order is currently being processed. I checked the order system and it is
+                            expected to ship tomorrow.</div>
+                        <div class="m u">Okay, thanks.</div>
+                        <div class="m a">Would you like me to update your delivery preference? <span
+                                class="dots"><span></span><span></span><span></span></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="mq" aria-hidden="true">
+        <div><span>AI
+                AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>AI
+                AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>AI
+                AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>AI
+                AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>AI
+                AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>AI
+                AGENTS</span><b>✦</b><span>TOOLS</span><b>✦</b><span>WORKFLOWS</span><b>✦</b><span>INTEGRATION</span><b>✦</b>
+        </div>
+    </div>
+    <section class="ig">
+        <div class="ig-bgdots"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5 rv in"><span class="ig-pill"><i class="bi bi-stars"></i> Custom AI
+                        Agent Development</span>
+                    <h2 class="fw-800 text-dark-gray ls-minus-1px ig-h">Build Intelligent AI Agents That Can <br> <span
+                            class="ig-grad">Think, Act and Automate</span></h2>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 rv mb-5 mb-lg-0 ig-left">
+                    <p class="fs-18 text-dark-gray">AI is moving beyond simple question-and-answer chatbots. Businesses
+                        can now use AI agents to <b>interpret requests, access information, interact with software
+                            systems, use connected tools</b> and perform multi-step tasks within defined business rules.
+                    </p>
+                    <p>AD Soft Technologies provides custom AI agent development services for businesses looking to
+                        automate workflows, improve customer experiences, assist employees and build intelligent digital
+                        products.</p>
+                    <p>We design AI agents around your actual business requirements rather than offering a
+                        one-size-fits-all solution. Whether you need an AI agent for customer support, lead management,
+                        internal operations, knowledge retrieval, workflow automation or an AI-powered application, we
+                        can help you plan, develop and integrate the right solution.</p>
+                    <div class="ig-note"><i class="bi bi-trophy-fill"></i>
+                        <p class="mb-0">With <b>20+ projects delivered</b> and experience working with clients in
+                            <b>India, Europe and the USA</b>, our team combines software development expertise with
+                            modern AI technologies to build practical and scalable AI solutions.</p>
+                    </div>
+                    <div class="mt-30px"><a href="demo-marketing-contact.html"
+                            class="btn btn-large btn-hover-animation-switch btn-dark-gray btn-round-edge btn-box-shadow me-15px xs-mb-10px"><span><span
+                                    class="btn-text">Talk to Our AI Agent Development Experts</span><span
+                                    class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span><span
+                                    class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 rv">
+                    <div class="ig2" id="igVis">
+                        <div class="ig2-stage" id="igStage">
+                            <div class="ig2-dots"></div>
+                            <div class="ig2-ring"></div>
+                            <div class="ig2-back"></div>
+                            <div class="ig2-frame"><img src="images/service-14.png" alt="AI agent development"
+                                    onerror="this.parentNode.classList.add('noimg')">
+                                <div class="ig2-ph"><i class="bi bi-image"></i>Add your image
+                                    here<small>images/ai-agent.jpg</small></div>
+                            </div>
+                            <div class="ig2-badge"><b>20+</b><span>Projects<br>delivered</span></div>
+                            <div class="ig-chip c1"><span><i class="bi bi-lightbulb"></i></span>
+                                <div><b>Think</b><small>Understands intent</small></div>
+                            </div>
+                            <div class="ig-chip c2"><span><i class="bi bi-lightning-charge-fill"></i></span>
+                                <div><b>Act</b><small>Uses connected tools</small></div>
+                            </div>
+                            <div class="ig-chip c3"><span><i class="bi bi-gear-fill"></i></span>
+                                <div><b>Automate</b><small>Multi-step workflows</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 rv mb-5"><span
+                        class="fs-14 text-uppercase fw-700 mb-15px d-block ls-1px text-base-color">Understand the
+                        Basics</span>
+                    <h2 class="fw-800 text-dark-gray ls-minus-1px mb-4">What Is an AI Agent?</h2>
+                    <p class="text-muted">An AI agent is a software system that can understand a goal or request, reason
+                        through a task, use available tools or information, and take actions within defined boundaries.
+                    </p>
+                    <p class="text-muted">Unlike a basic chatbot that primarily responds to messages, an AI agent can be
+                        designed to perform tasks across connected systems. The exact capabilities depend on the
+                        business process, integrations, permissions and rules defined for the agent.</p>
+                    <p class="mb-0 text-muted">This makes AI agents particularly useful for businesses looking to
+                        combine conversational AI, automation and software integration.</p>
+                </div>
+                <div class="col-lg-6 rv">
+                    <div
+                        class="bg-white p-40px sm-p-30px border-radius-6px box-shadow-large border-top border-4 border-color-base-color">
+                        <h5 class="fw-700 text-dark-gray mb-20px fs-22">An AI customer-service agent could:</h5>
+                        <ol class="list-idx">
+                            <li><b class="text-base-color me-10px">1.</b>Receive a customer's request.</li>
+                            <li><b class="text-base-color me-10px">2.</b>Understand the intent.</li>
+                            <li><b class="text-base-color me-10px">3.</b>Retrieve relevant information.</li>
+                            <li><b class="text-base-color me-10px">4.</b>Check information from an integrated system.
+                            </li>
+                            <li><b class="text-base-color me-10px">5.</b>Determine the next appropriate action.</li>
+                            <li><b class="text-base-color me-10px">6.</b>Update a connected system when authorized.</li>
+                            <li><b class="text-base-color me-10px">7.</b>Respond to the customer.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-very-light-gray pb-80px" id="services">
+        <div class="container">
+            <div class="text-center mb-50px rv"><span
+                    class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">AI Agent Use Cases</span>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">How Can AI Agents Help Your Business?</h2>
+            </div>
+            <p class="text-center fs-18 w-60 lg-w-90 mx-auto mb-50px">AI agents can be developed for different business
+                functions depending on where intelligent task execution can create value.</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+                <div class="col rv">
+                    <div class="svc"><span class="no">01</span>
+                        <div class="ic"><i class="bi bi-headset"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Customer Support</h6>
+                        <p class="mb-0">An AI agent can understand customer requests, retrieve information and assist
+                            with support workflows. It can handle routine interactions and escalate complex situations
+                            to human teams when required.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">02</span>
+                        <div class="ic"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Lead Qualification</h6>
+                        <p class="mb-0">AI agents can interact with prospects, collect relevant information, qualify
+                            leads based on defined criteria and pass suitable leads to sales teams or connected CRM
+                            systems.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">03</span>
+                        <div class="ic"><i class="bi bi-person-workspace"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Internal Business Assistance</h6>
+                        <p class="mb-0">Employees can interact with an AI agent to find information, summarize
+                            documents, answer internal questions or initiate approved workflows.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">04</span>
+                        <div class="ic"><i class="bi bi-journal-bookmark"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Knowledge Management</h6>
+                        <p class="mb-0">AI agents can help users access information from approved business knowledge
+                            sources, documents and databases, making internal information easier to retrieve.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">05</span>
+                        <div class="ic"><i class="bi bi-gear-wide-connected"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Workflow Automation</h6>
+                        <p class="mb-0">AI agents can assist with multi-step business processes by interpreting
+                            requests, calling connected tools and performing defined actions.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">06</span>
+                        <div class="ic"><i class="bi bi-calendar-check"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Appointment & Enquiry Management</h6>
+                        <p class="mb-0">AI agents can assist with enquiries, collect customer information and connect
+                            with appropriate systems for scheduling or follow-up workflows.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">07</span>
+                        <div class="ic"><i class="bi bi-cart"></i></div>
+                        <h6 class="fw-700 text-dark-gray">E-commerce Assistance</h6>
+                        <p class="mb-0">AI agents can help customers discover products, answer product-related
+                            questions, assist with order enquiries and support post-purchase interactions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="text-center mb-40px rv"><span
+                    class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">What Is the
+                    Difference?</span>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agent vs AI Chatbot</h2>
+                <p class="fs-18 w-60 lg-w-90 mx-auto mb-0">AI agents and AI chatbots are related but are not the same
+                    thing. Switch between them and see the same customer question handled both ways.</p>
+            </div>
+            <div class="vs rv">
+                <div class="vs-tabs"><button class="on" data-m="bot"><i class="bi bi-chat-dots"></i> AI
+                        Chatbot</button><button data-m="agent"><i class="bi bi-robot"></i> AI Agent</button></div>
+                <div class="row g-0">
+                    <div class="col-lg-6">
+                        <div class="vs-screen" id="vsScreen"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="vs-side" id="vsSide"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-30px mb-0">The appropriate solution depends on what your business actually needs.
+                In some projects, an AI chatbot may be sufficient. In others, combining conversational AI with agent
+                capabilities and business automation may create a more useful solution.</p>
+            <div class="text-center mt-30px"><a href="demo-marketing-contact.html"
+                    class="btn btn-large btn-hover-animation-switch btn-dark-gray btn-round-edge btn-box-shadow"><span><span
+                            class="btn-text">Need Help Choosing? Talk to Our AI Experts</span><span class="btn-icon"><i
+                                class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i
+                                class="feather icon-feather-arrow-right"></i></span></span></a></div>
+        </div>
+    </section>
+    <section class="dark-band">
+        <div class="container">
+            <div class="text-center mb-30px rv">
+                <h2 class="fw-800 ls-minus-1px">What Can Our AI Agents Do?</h2>
+                <p class="fs-18 w-60 lg-w-90 mx-auto mb-0">We develop custom AI agents based on specific business
+                    processes and technical requirements. Depending on the use case, an AI agent can be designed to:</p>
+            </div>
+            <div class="hub rv" id="hub">
+                <div class="hub-ring"></div>
+                <div class="hub-core"><i class="bi bi-robot"></i><b>AI Agent</b></div>
+                <div class="hub-n"><em>01</em>Understand natural-language requests</div>
+                <div class="hub-n"><em>02</em>Retrieve information from approved knowledge sources</div>
+                <div class="hub-n"><em>03</em>Search documents and business data</div>
+                <div class="hub-n"><em>04</em>Use connected APIs and software tools</div>
+                <div class="hub-n"><em>05</em>Trigger defined workflows</div>
+                <div class="hub-n"><em>06</em>Update information in connected systems</div>
+                <div class="hub-n"><em>07</em>Qualify and route leads</div>
+                <div class="hub-n"><em>08</em>Assist customers and employees</div>
+                <div class="hub-n"><em>09</em>Summarize information</div>
+                <div class="hub-n"><em>10</em>Process structured or unstructured information</div>
+                <div class="hub-n"><em>11</em>Coordinate multi-step tasks</div>
+                <div class="hub-n"><em>12</em>Escalate requests to human teams</div>
+                <div class="hub-n"><em>13</em>Work within predefined rules and permissions</div>
+            </div>
+            <p class="text-center mt-30px mb-0 opacity-8">The agent's capabilities should always be determined by the
+                business objective, security requirements and systems it is authorized to access.</p>
+        </div>
+    </section>
+    <section class="pt-90px">
+        <div class="container">
+            <div class="text-center mb-50px rv">
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">Custom AI Agent Development</h2><span
+                    class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">Built Around Your Business,
+                    Not a Generic Template</span>
+            </div>
+            <p class="text-center fs-18 w-70 lg-w-90 mx-auto mb-40px">Every business has different processes, systems
+                and requirements. A sales team may need an agent that qualifies leads. A healthcare organization may
+                need an information assistant based on approved content. An e-commerce business may want an intelligent
+                shopping assistant. An internal operations team may need an agent that interacts with multiple business
+                applications. AD Soft Technologies develops custom AI agents around these individual requirements. Our
+                development process can involve:</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+                <div class="col rv">
+                    <div class="svc"><span class="no">01</span>
+                        <div class="ic"><i class="bi bi-diagram-2"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Business Process Analysis</h6>
+                        <p class="mb-0">We understand what the agent needs to accomplish and where it fits into your
+                            existing workflow.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">02</span>
+                        <div class="ic"><i class="bi bi-cpu"></i></div>
+                        <h6 class="fw-700 text-dark-gray">AI & Architecture Planning</h6>
+                        <p class="mb-0">We identify the appropriate AI approach, tools, integrations and system
+                            architecture.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">03</span>
+                        <div class="ic"><i class="bi bi-book"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Knowledge Integration</h6>
+                        <p class="mb-0">Where required, we connect agents with approved business information, documents,
+                            knowledge bases or other relevant data sources.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">04</span>
+                        <div class="ic"><i class="bi bi-plug"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Tool & API Integration</h6>
+                        <p class="mb-0">Agents can be connected with selected APIs, databases, CRM systems, business
+                            applications and other tools where appropriate.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">05</span>
+                        <div class="ic"><i class="bi bi-signpost-split"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Workflow Design</h6>
+                        <p class="mb-0">We define what the agent can do, what actions require authorization and when
+                            human intervention should occur.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">06</span>
+                        <div class="ic"><i class="bi bi-bug"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Testing & Optimization</h6>
+                        <p class="mb-0">We test the agent across different scenarios and refine its responses, workflows
+                            and integrations.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="svc"><span class="no">07</span>
+                        <div class="ic"><i class="bi bi-rocket-takeoff"></i></div>
+                        <h6 class="fw-700 text-dark-gray">Deployment & Support</h6>
+                        <p class="mb-0">After deployment, the solution can be monitored, improved and expanded as your
+                            business requirements evolve.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-very-light-gray">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 rv">
+                    <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agents for Existing Business Systems</h2><span
+                        class="fs-18 text-base-color fw-600 d-block font-style-italic mb-15px">Make Your Existing
+                        Software More Intelligent</span>
+                    <p>Many businesses already use CRM platforms, ERP systems, websites, mobile applications, databases
+                        and custom software. You don't necessarily need to replace those systems to introduce AI agents.
+                        An AI agent can potentially act as an intelligent layer between users and existing business
+                        systems.</p>
+                    <p>A customer could ask the agent for information, while the agent retrieves approved information
+                        from an existing system and responds accordingly. Similarly, an employee could ask an internal
+                        AI agent to retrieve information or initiate an approved workflow without manually navigating
+                        multiple applications.</p>
+                    <p>AD Soft Technologies can help evaluate your existing technology and identify where AI agent
+                        integration may be appropriate.</p><a href="ai-integration.html"
+                        class="btn btn-large btn-hover-animation-switch btn-dark-gray btn-round-edge btn-box-shadow"><span><span
+                                class="btn-text">Explore AI Integration Services</span><span class="btn-icon"><i
+                                    class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i
+                                    class="feather icon-feather-arrow-right"></i></span></span></a>
+                </div>
+                <div class="col-lg-6 rv mt-40px">
+                    <div class="pipe">
+                        <div class="pipe-line"><i></i></div>
+                        <div class="pn"><span><i class="bi bi-person"></i></span><b>Customer</b></div>
+                        <div class="pn ag"><span><i class="bi bi-robot"></i></span><b>AI Agent</b></div>
+                        <div class="pn"><span><i class="bi bi-hdd-network"></i></span><b>Business System</b></div>
+                        <div class="pn ag"><span><i class="bi bi-robot"></i></span><b>AI Agent</b></div>
+                        <div class="pn"><span><i class="bi bi-person-check"></i></span><b>Customer</b></div>
+                    </div>
+                    <p class="text-center text-muted mt-30px mb-0 fs-15">The agent fetches approved information from
+                        your existing system and replies, with no rebuild needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pb-80px">
+        <div class="container">
+            <div class="text-center mb-50px rv">
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agent Development Process</h2><span
+                    class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">From Business Requirement to
+                    Intelligent Agent</span>
+            </div>
+            <div class="tl">
+                <div class="st on">
+                    <div class="n">01</div>
+                    <h6 class="fw-700 text-dark-gray mb-5px">Discover</h6>
+                    <p class="mb-0">We understand your business objectives, users, workflows and existing systems.</p>
+                </div>
+                <div class="st on">
+                    <div class="n">02</div>
+                    <h6 class="fw-700 text-dark-gray mb-5px">Define the Use Case</h6>
+                    <p class="mb-0">We identify exactly what the AI agent should accomplish and define the boundaries of
+                        its responsibilities.</p>
+                </div>
+                <div class="st on">
+                    <div class="n">03</div>
+                    <h6 class="fw-700 text-dark-gray mb-5px">Design</h6>
+                    <p class="mb-0">We plan the agent architecture, interactions, knowledge sources, tools, integrations
+                        and workflow logic.</p>
+                </div>
+                <div class="st on">
+                    <div class="n">04</div>
+                    <h6 class="fw-700 text-dark-gray mb-5px">Develop</h6>
+                    <p class="mb-0">Our team develops the AI agent and connects the required models, APIs, databases,
+                        tools and business systems.</p>
+                </div>
+                <div class="st on">
+                    <div class="n">05</div>
+                    <h6 class="fw-700 text-dark-gray mb-5px">Test</h6>
+                    <p class="mb-0">We test the agent against expected scenarios, edge cases, workflow conditions and
+                        defined permissions.</p>
+                </div>
+                <div class="st on">
+                    <div class="n">06</div>
+                    <h6 class="fw-700 text-dark-gray mb-5px">Deploy</h6>
+                    <p class="mb-0">The solution is integrated into the required environment and made available to
+                        intended users.</p>
+                </div>
+                <div class="st on">
+                    <div class="n">07</div>
+                    <h6 class="fw-700 text-dark-gray mb-5px">Monitor & Improve</h6>
+                    <p class="mb-0">AI agents can be continuously refined based on usage, business requirements,
+                        feedback and changing workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-very-light-gray">
+        <div class="container">
+            <div class="text-center mb-50px rv">
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">Where Can AI Agents Be Used?</h2>
+            </div>
+            <p class="text-center fs-18 mb-40px">AI agents can be applied across many business functions.</p>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 justify-content-center">
+                <div class="col rv">
+                    <div class="uc"><i class="bi bi-graph-up-arrow"></i>
+                        <h6 class="fw-700 text-dark-gray mt-15px">Sales</h6>
+                        <p class="mb-0">Lead qualification, enquiry handling, prospect assistance and sales workflow
+                            support.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="uc"><i class="bi bi-headset"></i>
+                        <h6 class="fw-700 text-dark-gray mt-15px">Customer Service</h6>
+                        <p class="mb-0">Customer questions, information retrieval, support workflows and escalation.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="uc"><i class="bi bi-gear-wide-connected"></i>
+                        <h6 class="fw-700 text-dark-gray mt-15px">Operations</h6>
+                        <p class="mb-0">Task automation, internal requests, workflow execution and information
+                            retrieval.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="uc"><i class="bi bi-people"></i>
+                        <h6 class="fw-700 text-dark-gray mt-15px">Human Resources</h6>
+                        <p class="mb-0">Employee assistance, policy information and internal HR workflows.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="uc"><i class="bi bi-cash-coin"></i>
+                        <h6 class="fw-700 text-dark-gray mt-15px">Finance & Administration</h6>
+                        <p class="mb-0">Information retrieval, document-related workflows and repetitive administrative
+                            processes, subject to appropriate controls and authorization.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="uc"><i class="bi bi-cart"></i>
+                        <h6 class="fw-700 text-dark-gray mt-15px">E-commerce</h6>
+                        <p class="mb-0">Product discovery, customer assistance, order-related enquiries and shopping
+                            support.</p>
+                    </div>
+                </div>
+                <div class="col rv">
+                    <div class="uc"><i class="bi bi-mortarboard"></i>
+                        <h6 class="fw-700 text-dark-gray mt-15px">Education</h6>
+                        <p class="mb-0">Student assistance, information retrieval, administrative support and
+                            learning-related workflows.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-30px mb-0">The appropriate use case depends on your organization's processes, data,
+                systems and compliance requirements.</p>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="text-center mb-50px rv">
+                <h3 class="fw-800 text-dark-gray ls-minus-1px">Why Choose AD Soft Technologies for AI Agent Development?
+                </h3><span class="fs-18 text-base-color fw-600 d-block font-style-italic mb-15px">AI Development Backed
+                    by Software Engineering Experience</span>
+                <p class="fs-18 w-70 lg-w-95 mx-auto mb-0">Developing an AI agent is not just about connecting an AI
+                    model to a chat interface. A production-ready solution may require APIs, authentication, databases,
+                    business logic, integrations, user interfaces, monitoring and security controls. This is where our
+                    software development background becomes important.</p>
+            </div>
+            <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center">
+                <div class="col mb-30px rv">
+                    <div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+                        <div class="ico3d"><i class="bi bi-trophy"></i></div>
+                        <h6 class="fw-600 text-dark-gray mb-10px">20+ Projects Delivered</h6>
+                        <p class="mb-0">Our team has completed more than 20 projects across different business
+                            requirements and technology environments.</p>
+                    </div>
+                </div>
+                <div class="col mb-30px rv">
+                    <div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+                        <div class="ico3d"><i class="bi bi-globe-europe-africa"></i></div>
+                        <h6 class="fw-600 text-dark-gray mb-10px">International Experience</h6>
+                        <p class="mb-0">We have experience working with clients in India, Europe and the USA, providing
+                            exposure to different project requirements and business environments.</p>
+                    </div>
+                </div>
+                <div class="col mb-30px rv">
+                    <div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+                        <div class="ico3d"><i class="bi bi-layers"></i></div>
+                        <h6 class="fw-600 text-dark-gray mb-10px">AI + Software Development</h6>
+                        <p class="mb-0">We combine AI capabilities with web, mobile and custom software development,
+                            allowing us to build complete solutions around AI agents.</p>
+                    </div>
+                </div>
+                <div class="col mb-30px rv">
+                    <div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+                        <div class="ico3d"><i class="bi bi-sliders"></i></div>
+                        <h6 class="fw-600 text-dark-gray mb-10px">Custom Architecture</h6>
+                        <p class="mb-0">We design the solution based on the specific requirements rather than forcing
+                            every business into the same architecture.</p>
+                    </div>
+                </div>
+                <div class="col mb-30px rv">
+                    <div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+                        <div class="ico3d"><i class="bi bi-plug"></i></div>
+                        <h6 class="fw-600 text-dark-gray mb-10px">Integration Capability</h6>
+                        <p class="mb-0">Where required, we can connect AI agents with existing software, APIs, databases
+                            and business workflows.</p>
+                    </div>
+                </div>
+                <div class="col mb-30px rv">
+                    <div class="card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+                        <div class="ico3d"><i class="bi bi-compass"></i></div>
+                        <h6 class="fw-600 text-dark-gray mb-10px">Business-First Approach</h6>
+                        <p class="mb-0">We start with the business problem and desired outcome before deciding what type
+                            of AI agent should be developed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-very-light-gray">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 rv">
+                    <div
+                        class="bg-white p-40px sm-p-30px h-100 border-radius-6px box-shadow-large border-top border-4 border-color-base-color">
+                        <h5 class="fw-700 text-dark-gray mb-20px fs-22">Is an AI Agent Right for Your Business?</h5>
+                        <p class="fw-600 mb-15px">An AI agent may be worth exploring if your business has:</p>
+                        <ul class="list-idx mb-25px">
+                            <li><i class="bi bi-lightning-charge-fill"></i>Repetitive tasks that require human
+                                intervention</li>
+                            <li><i class="bi bi-lightning-charge-fill"></i>Large volumes of customer or employee
+                                enquiries</li>
+                            <li><i class="bi bi-lightning-charge-fill"></i>Multiple systems that users frequently need
+                                to interact with</li>
+                            <li><i class="bi bi-lightning-charge-fill"></i>Complex information-retrieval requirements
+                            </li>
+                            <li><i class="bi bi-lightning-charge-fill"></i>Repetitive lead qualification processes</li>
+                            <li><i class="bi bi-lightning-charge-fill"></i>Manual workflow steps</li>
+                            <li><i class="bi bi-lightning-charge-fill"></i>High volumes of documents or information</li>
+                            <li><i class="bi bi-lightning-charge-fill"></i>A need for intelligent assistance within
+                                existing software</li>
+                        </ul>
+                        <p class="mb-10px">However, not every problem requires an AI agent. Sometimes a traditional
+                            automation workflow, API integration, chatbot or custom software feature may be more
+                            appropriate.</p>
+                        <p class="mb-0 fw-600 text-dark-gray">Our role is to help identify the right technology for the
+                            problem, not simply recommend an AI agent because it is a newer technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="text-center mb-50px rv"><span
+                    class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Got Questions?</span>
+                <h3 class="fw-800 text-dark-gray ls-minus-1px">Frequently Asked Questions</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 md-mb-30px">
+                    <div class="accordion accordion-style-02" id="faq-accordion-left"
+                        data-active-icon="icon-feather-minus" data-inactive-icon="icon-feather-plus">
+                        <div class="accordion-item active-accordion">
+                            <div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="true"
+                                    data-bs-parent="#faq-accordion-left">
+                                    <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                                            class="feather icon-feather-minus"></i><span
+                                            class="fw-600 fs-17 ls-minus-05px">1. What is AI agent development?</span>
+                                    </div>
+                                </a></div>
+                            <div id="faq-1" class="accordion-collapse collapse show"
+                                data-bs-parent="#faq-accordion-left">
+                                <div
+                                    class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                                    <p>AI agent development involves designing and building software agents that can
+                                        understand requests, reason through defined tasks, access approved information,
+                                        use connected tools and perform actions within specified boundaries.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false"
+                                    data-bs-parent="#faq-accordion-left">
+                                    <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                                            class="feather icon-feather-plus"></i><span
+                                            class="fw-600 fs-17 ls-minus-05px">2. What is the difference between an AI
+                                            agent and an AI chatbot?</span></div>
+                                </a></div>
+                            <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
+                                <div
+                                    class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                                    <p>An AI chatbot primarily focuses on conversational interactions, while an AI agent
+                                        can be designed to use tools, access systems and perform tasks. Some solutions
+                                        can combine chatbot and agent capabilities.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false"
+                                    data-bs-parent="#faq-accordion-left">
+                                    <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                                            class="feather icon-feather-plus"></i><span
+                                            class="fw-600 fs-17 ls-minus-05px">3. What business tasks can an AI agent
+                                            automate?</span></div>
+                                </a></div>
+                            <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
+                                <div
+                                    class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                                    <p>Depending on the system and permissions, AI agents can assist with customer
+                                        support, lead qualification, information retrieval, document workflows, internal
+                                        requests, scheduling, business processes and other repetitive tasks.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false"
+                                    data-bs-parent="#faq-accordion-left">
+                                    <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                                            class="feather icon-feather-plus"></i><span
+                                            class="fw-600 fs-17 ls-minus-05px">4. Can an AI agent connect to our
+                                            existing software?</span></div>
+                                </a></div>
+                            <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
+                                <div
+                                    class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                                    <p>Yes. AI agents can potentially connect with existing software through APIs,
+                                        databases and other integrations. The exact approach depends on your system
+                                        architecture and security requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false"
+                                    data-bs-parent="#faq-accordion-left">
+                                    <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                                            class="feather icon-feather-plus"></i><span
+                                            class="fw-600 fs-17 ls-minus-05px">5. Can you build a custom AI agent for
+                                            our business?</span></div>
+                                </a></div>
+                            <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
+                                <div
+                                    class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                                    <p>Yes. AD Soft Technologies develops custom AI agents based on specific business
+                                        processes, use cases, integrations and user requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="accordion accordion-style-02" id="faq-accordion-right"
+                        data-active-icon="icon-feather-minus" data-inactive-icon="icon-feather-plus">
+                        <div class="accordion-item">
+                            <div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-6" aria-expanded="false"
+                                    data-bs-parent="#faq-accordion-right">
+                                    <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                                            class="feather icon-feather-plus"></i><span
+                                            class="fw-600 fs-17 ls-minus-05px">6. Can AI agents work with our CRM or
+                                            ERP?</span></div>
+                                </a></div>
+                            <div id="faq-6" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
+                                <div
+                                    class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                                    <p>Potentially, yes. If your CRM or ERP provides appropriate APIs or integration
+                                        capabilities, an AI agent can potentially interact with selected functions.
+                                        Access should be limited according to business permissions and security
+                                        requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-7" aria-expanded="false"
+                                    data-bs-parent="#faq-accordion-right">
+                                    <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                                            class="feather icon-feather-plus"></i><span
+                                            class="fw-600 fs-17 ls-minus-05px">7. Can an AI agent use our company's
+                                            documents and knowledge?</span></div>
+                                </a></div>
+                            <div id="faq-7" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
+                                <div
+                                    class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                                    <p>Yes. AI agents can potentially be connected to approved documents, knowledge
+                                        bases and other information sources so they can retrieve relevant information.
+                                        The implementation approach depends on the type, volume and structure of your
+                                        data.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-8" aria-expanded="false"
+                                    data-bs-parent="#faq-accordion-right">
+                                    <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                                            class="feather icon-feather-plus"></i><span
+                                            class="fw-600 fs-17 ls-minus-05px">8. Do AI agents replace human
+                                            employees?</span></div>
+                                </a></div>
+                            <div id="faq-8" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
+                                <div
+                                    class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                                    <p>AI agents are generally better viewed as tools that can assist employees and
+                                        automate suitable tasks. Businesses should define which activities can be
+                                        automated and which require human review, judgment or approval.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-9" aria-expanded="false"
+                                    data-bs-parent="#faq-accordion-right">
+                                    <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                                            class="feather icon-feather-plus"></i><span
+                                            class="fw-600 fs-17 ls-minus-05px">9. How much does AI agent development
+                                            cost?</span></div>
+                                </a></div>
+                            <div id="faq-9" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
+                                <div
+                                    class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                                    <p>The cost depends on the complexity of the agent, required integrations, AI
+                                        capabilities, data sources, user interface, security requirements and deployment
+                                        environment. A simple informational agent and a multi-system business agent can
+                                        have very different development requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header border-bottom border-color-extra-medium-gray"><a href="#"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-10" aria-expanded="false"
+                                    data-bs-parent="#faq-accordion-right">
+                                    <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                                            class="feather icon-feather-plus"></i><span
+                                            class="fw-600 fs-17 ls-minus-05px">10. How do we start an AI agent
+                                            development project?</span></div>
+                                </a></div>
+                            <div id="faq-10" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
+                                <div
+                                    class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                                    <p>Start by explaining the business problem or workflow you want to improve. AD Soft
+                                        Technologies can analyze the requirement, determine whether an AI agent is
+                                        appropriate and propose a suitable development and integration approach.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pb-90px mb-50px">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div
+                        class="bg-dark-gray p-60px lg-p-40px sm-p-30px border-radius-8px box-shadow-extra-large text-center">
+                        <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Let's Build
+                            Together</span>
+                        <h3 class="fw-800 text-white ls-minus-1px mb-20px">Build Your Custom AI Agent With AD Soft
+                            Technologies</h3>
+                        <p class="fs-18 text-light-opacity mb-15px w-90 mx-auto sm-w-100">Your business may not need
+                            another basic chatbot. It may need an intelligent system that can understand requests,
+                            access information, interact with tools and help execute real business tasks.</p>
+                        <p class="text-light-opacity mb-15px w-90 mx-auto sm-w-100">AD Soft Technologies can help you
+                            explore, design, develop and integrate a custom AI agent around your business requirements.
+                            With 20+ projects delivered and experience across India, Europe and the USA, we combine
+                            software engineering expertise with modern AI capabilities to create practical,
+                            business-focused AI solutions.</p>
+                        <span class="d-block fw-600 text-white mb-30px fs-18 font-style-italic">Have an AI agent idea or
+                            a repetitive business process you'd like to automate?</span>
+                        <div class="d-flex flex-wrap justify-content-center gap-3"><a href="demo-marketing-contact.html"
+                                class="btn btn-large btn-hover-animation-switch btn-base-color text-white btn-round-edge btn-box-shadow"><span
+                                    class="text-white"><span class="btn-text text-white">Talk to Our AI Agent
+                                        Development Experts</span><span class="btn-icon text-white"><i
+                                            class="feather icon-feather-arrow-right"></i></span><span
+                                        class="btn-icon text-white"><i
+                                            class="feather icon-feather-arrow-right"></i></span></span></a><a
+                                href="demo-marketing-contact.html"
+                                class="btn btn-large btn-hover-animation-switch btn-transparent-white-light btn-round-edge"><span><span
+                                        class="btn-text">Start Your AI Project</span><span class="btn-icon"><i
+                                            class="feather icon-feather-arrow-right"></i></span><span
+                                        class="btn-icon"><i
+                                            class="feather icon-feather-arrow-right"></i></span></span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark-gray background-position-center-top"
+        style="background-image:url('images/demo-marketing-footer-dot.svg')">
+        <div class="container footer-dark text-center text-sm-start pt-5">
+            <div class="row mb-5">
+                <div class="col-lg-3 col-md-6"><a href="index.html"
+                        class="footer-logo mb-20px d-flex align-items-center"><img src="images/logo.png"
+                            alt="AD Soft Technologies" class="me-10px" style="height:60px;width:auto"><span
+                            class="text-white fw-700 fs-16 text-nowrap">AD SOFT TECHNOLOGIES</span></a>
+                    <p>We are a Kerala based IT startup, which undertakes all kinds of AI solution, IT services like
+                        Website development, Android/iOS App development, custom Software development etc.</p>
+                </div>
+                <div class="col-lg-3 col-md-6"><span class="fs-16 fw-500 d-block text-white mb-15px">Our Clients</span>
+                    <ul class="p-0 m-0 list-unstyled">
+                        <li class="mb-8px"><a href="https://www.germanacademytr.com/" target="_blank"
+                                rel="noopener">German Academy</a></li>
+                        <li class="mb-8px"><a href="https://prohealthclinic.org/" target="_blank"
+                                rel="noopener">ProHealth Clinic</a></li>
+                        <li class="mb-8px"><a href="https://labacabs.com/" target="_blank" rel="noopener">LaBa Cabs</a>
+                        </li>
+                        <li class="mb-8px"><a href="https://www.mindfullysustainable.co.uk/" target="_blank"
+                                rel="noopener">Mindfully Sustainable</a></li>
+                        <li class="mb-8px"><a href="https://ibworldwideacademy.com/" target="_blank" rel="noopener">IB
+                                WorldWide Academy</a></li>
+                        <li class="mb-8px"><a href="https://radiomediavillage.com/" target="_blank" rel="noopener">Radio
+                                Media Village</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6"><span class="fs-16 fw-500 d-block text-white mb-15px">Additional
+                        Pages</span>
+                    <ul class="p-0 m-0 list-unstyled">
+                        <li class="mb-8px"><a href="https://www.adsofttechnologies.com/about.html">About Us</a></li>
+                        <li class="mb-8px"><a href="https://www.adsofttechnologies.com/services.html">Our Services</a>
+                        </li>
+                        <li class="mb-8px"><a href="https://www.adsofttechnologies.com/contact.html">Contact Us</a></li>
+                        <li class="mb-8px"><a href="https://www.adsofttechnologies.com/contact#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6"><span class="fs-16 fw-500 d-block text-white mb-15px">Contact Us</span>
+                    <p>2nd Floor, Puthenpurackal (H), Puthenpurackal Lane, Judgimukku, Thrikkakkara, Ernakulam, Kerala
+                    </p><a href="mailto:info@adsofttechnologies.com" class="text-white">info@adsofttechnologies.com</a>
+                </div>
+            </div>
+            <div class="row footer-bottom border-top border-color-transparent-white-light pt-30px g-0">
+                <div class="col-12 text-center">
+                    <p class="fs-15">&copy; 2026 <a href="https://www.adsofttechnologies.com" target="_blank"
+                            rel="noopener" class="text-white fw-500">AD Soft Technologies</a>. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span
+                class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/vendors.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>(function () {
+            var t = document.getElementById('typer'), w = ["AI Agent Development Services for Businesses"], wi = 0, ci = 0, del = false;
+            function tick() { var s = w[wi]; t.textContent = s.slice(0, ci); if (!del && ci === s.length) { del = true; return setTimeout(tick, 1800) } if (del && ci === 0) { del = false; wi = (wi + 1) % w.length } ci += del ? -1 : 1; setTimeout(tick, del ? 28 : 60) } tick();
+            var io = new IntersectionObserver(function (e) { e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target) } }) }, { threshold: .15 }); document.querySelectorAll('.rv').forEach(function (el) { io.observe(el) })
+        })();</script>
+    <script>(function () {
+            var s = document.getElementById('vsScreen'), d = document.getElementById('vsSide'); if (!s) return;
+            var M = {
+                bot: { s: '<div class="vb u">Where is my order?</div><div class="vb a">Your order is currently being processed.</div>', d: '<h4 class="fw-800 text-dark-gray">Answers the question</h4><p>Primarily designed to communicate with users through conversational interactions. It can answer questions, provide information and assist with predefined conversations.</p><div><span class="tag">Conversation</span><span class="tag">Predefined replies</span></div>' },
+                agent: { s: '<div class="vb u">Where is my order?</div><div class="tr"><i class="bi bi-check-circle-fill"></i>Understood intent: order status</div><div class="tr"><i class="bi bi-check-circle-fill"></i>Checked the order system</div><div class="vb a">Your order is currently being processed. I checked the order system and found that it is expected to ship tomorrow. Would you like me to update your delivery preference?<br><span class="vq">Update delivery preference</span></div>', d: '<h4 class="fw-800 text-dark-gray">Answers, then acts</h4><p>Goes beyond conversation by interacting with tools and systems, retrieving information, making decisions within defined boundaries and executing tasks.</p><div><span class="tag">Tools &amp; APIs</span><span class="tag">Live system data</span><span class="tag">Task execution</span><span class="tag">Defined boundaries</span></div>' }
+            };
+            function set(m) { s.innerHTML = M[m].s; d.innerHTML = M[m].d; document.querySelectorAll('.vs-tabs button').forEach(function (b) { b.classList.toggle('on', b.dataset.m === m) }) }
+            document.querySelectorAll('.vs-tabs button').forEach(function (b) { b.onclick = function () { set(b.dataset.m) } }); set('bot');
+            var hub = document.getElementById('hub'); if (hub) { var n = hub.querySelectorAll('.hub-n'); n.forEach(function (e, i) { var a = (i / n.length) * 2 * Math.PI - Math.PI / 2; e.style.left = (50 + 39 * Math.cos(a)) + '%'; e.style.top = (50 + 43 * Math.sin(a)) + '%' }) }
+        })();</script>
+    <script>(function () { var v = document.getElementById('igVis'), s = document.getElementById('igStage'); if (!v || matchMedia('(max-width:991px)').matches) return; v.addEventListener('mousemove', function (e) { var r = v.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; s.style.setProperty('--ry', x * 14 + 'deg'); s.style.setProperty('--rx', -y * 10 + 'deg') }); v.addEventListener('mouseleave', function () { s.style.removeProperty('--rx'); s.style.removeProperty('--ry') }) })();</script>
+</body>
+
+</html>

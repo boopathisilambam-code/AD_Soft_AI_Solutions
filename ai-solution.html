@@ -1,900 +1,2377 @@
 <!doctype html>
 <html class="no-js" lang="en">
+
 <head>
-<title>AI Solutions for Businesses in Kerala | AI Agents, Chatbots &amp; Automation | AD Soft Technologies</title>
-<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0" />
-<meta name="description" content="AD Soft Technologies builds AI agents, AI chatbots, AI automation, AI integration and AI adoption consulting for businesses in Kerala, India, Europe and the USA.">
-<link rel="shortcut icon" href="images/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/vendors.min.css"/><link rel="stylesheet" href="css/icon.min.css"/>
-<link rel="stylesheet" href="css/style.css"/><link rel="stylesheet" href="css/responsive.css"/>
-<link rel="stylesheet" href="demos/marketing/marketing.css" />
-<style>
-:root{--g:#559643;--g-d:#3f7431;--g-l:#94b92f;--g-t:rgba(102,243,199,.14)}
-.text-base-color,.btn-base-color{color:var(--g)!important}.bg-base-color{background-color:var(--g)!important}
-section{padding-top:30px}
-/* scroll progress bar */
-#sp{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--g-l),var(--g));z-index:9999}
-/* HERO */
-.ai-hero{position:relative;overflow:hidden;background:var(--g-t);padding:150px 0 90px;background-image: url('images/demo-marketing-dot.svg')}
-.ai-hero .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:blob 14s ease-in-out infinite}
-.b1{width:380px;height:380px;background:#c6e06a;top:-80px;right:8%}.b2{width:320px;height:320px;background:#66f3c7;bottom:-100px;left:5%;animation-delay:-6s}
-@keyframes blob{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.15)}}
-.neural{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
-.neural line{stroke:var(--g);stroke-width:1;stroke-dasharray:4 6;animation:dash 6s linear infinite}
-.neural circle{fill:var(--g);animation:pulse 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-@keyframes dash{to{stroke-dashoffset:-100}}@keyframes pulse{50%{transform:scale(1.9);opacity:.4}}
-/* 3D floating icons */
-.fi{position:absolute;width:74px;height:74px;border-radius:24%;display:flex;align-items:center;justify-content:center;color:#fff;z-index:2;
-background:linear-gradient(145deg,#c6e06a,#94b92f 55%,#6f8f1f);box-shadow:inset 0 2px 0 rgba(255,255,255,.55),inset 0 -5px 10px rgba(0,0,0,.18),0 6px 0 #5d7a17,0 18px 30px rgba(60,90,20,.35);
-animation:fl 5s ease-in-out infinite;transition:transform .25s ease-out}
-.fi.lt{color:#6f8f1f;background:linear-gradient(145deg,#fff,#eef6e4);box-shadow:inset 0 2px 0 #fff,0 6px 0 #cfe0b6,0 18px 30px rgba(60,90,20,.22)}
-.fi i{font-size:30px}.fi.sm{width:54px;height:54px}.fi.sm i{font-size:22px}
-@keyframes fl{0%,100%{margin-top:0;rotate:-6deg}50%{margin-top:-16px;rotate:6deg}}
-@media(max-width:991px){.hero-fi{display:none}}
-/* chat mock */
-.chat{background:#fff;border-radius:18px;box-shadow:0 30px 60px rgba(60,90,20,.25);padding:22px;max-width:400px;margin-left:auto;position:relative;z-index:3}
-.chat .m{padding:10px 14px;border-radius:14px;font-size:14px;margin-bottom:10px;max-width:85%;opacity:0;transform:translateY(12px);animation:pop .5s forwards}
-.chat .u{background:#eef6e4;color:#333}.chat .a{background:var(--g);color:#fff;margin-left:auto}
-.chat .m:nth-child(2){animation-delay:.8s}.chat .m:nth-child(3){animation-delay:2s}.chat .m:nth-child(4){animation-delay:3.2s}.chat .m:nth-child(5){animation-delay:4.4s}
-@keyframes pop{to{opacity:1;transform:none}}
-.dots span{display:inline-block;width:6px;height:6px;border-radius:50%;background:#fff;margin:0 2px;animation:dt 1s infinite}.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
-@keyframes dt{50%{transform:translateY(-4px);opacity:.5}}
-.blink{animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
-/* stats strip */
-.strip{margin-top:-45px;position:relative;z-index:5}
-.strip .box{background:#fff;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.1);padding:26px 10px}
-/* marquee */
-.mq{overflow:hidden;white-space:nowrap;background:var(--g);padding:16px 0;transform:rotate(-1.2deg);margin:50px -20px 10px}
-.mq div{display:inline-block;animation:mq 30s linear infinite;color:#fff;font-weight:700;font-size:20px;letter-spacing:1px}
-.mq b{margin:0 26px;opacity:.6}@keyframes mq{to{transform:translateX(-50%)}}
-/* service cards */
-.svc{position:relative;background:#fff;border-radius:16px;padding:34px 30px;height:100%;overflow:hidden;box-shadow:0 10px 35px rgba(0,0,0,.07);transition:transform .35s,box-shadow .35s;transform-style:preserve-3d}
-.svc:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--g),var(--g-l));transform:translateY(101%);transition:transform .45s;z-index:0}
-.svc:hover:before{transform:none}.svc>*{position:relative;z-index:1;transition:color .3s}.svc:hover>*,.svc:hover h6,.svc:hover a,.svc:hover li{color:#fff!important}
-.svc .ic{width:64px;height:64px;border-radius:20px;background:#eef6e4;display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:.4s}
-.svc:hover .ic{background:rgba(255,255,255,.2);transform:rotate(-8deg) scale(1.1)}.svc .ic i{font-size:28px;color:var(--g)}.svc:hover .ic i{color:#fff}
-.svc ul{list-style:none;padding:0;margin:0 0 18px}.svc li{font-size:14px;margin-bottom:6px}.svc li:before{content:"✓ ";color:var(--g);font-weight:700}.svc:hover li:before{color:#fff}
-.svc .no{position:absolute;right:18px;top:35px;font-size:70px;font-weight:800;opacity:.06;z-index:0}
-/* pick-the-right-solution */
-.pick{border-left:4px solid var(--g);background:#fff;border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:16px;box-shadow:0 8px 25px rgba(0,0,0,.05);transition:.3s}
-.pick:hover{transform:translateX(10px);box-shadow:0 12px 30px rgba(85,150,67,.2)}
-/* use-case tiles */
-.uc{background:#fff;border-radius:14px;padding:26px;height:100%;border:1px solid #e6efe0;transition:.3s;position:relative;overflow:hidden}
-.uc:hover{border-color:var(--g);transform:translateY(-8px);box-shadow:0 18px 40px rgba(85,150,67,.18)}
-.uc i{font-size:30px;color:var(--g);display:inline-block;transition:.4s}.uc:hover i{transform:scale(1.25) rotate(10deg)}
-/* dark benefits */
-.dark-band{background:#1c2a17;color:#c9d6c3;position:relative;overflow:hidden;padding:90px 0}
-.dark-band h3,.dark-band h6{color:#fff}
-.ben{padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:14px;height:100%;background:rgba(255,255,255,.04);transition:.35s}
-.ben:hover{background:rgba(148,185,47,.16);border-color:var(--g-l);transform:translateY(-6px)}
-.ben i{color:var(--g-l);font-size:26px}
-.modern-floating-card {
-        background: #ffffff;
-        border-radius: 16px;
-        padding: 20px 25px;
-        margin-top:40px;
-        margin-bottom: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-        border: 1px solid rgba(0, 0, 0, 0.02);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        animation: floatUpAndDown 6s ease-in-out infinite;
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-        position: relative;
-        overflow: hidden;
+  <title>AI Solutions for Businesses in Kerala | AI Agents, Chatbots &amp; Automation | AD Soft Technologies</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="description"
+    content="AD Soft Technologies builds AI agents, AI chatbots, AI automation, AI integration and AI adoption consulting for businesses in Kerala, India, Europe and the USA.">
+  <link rel="shortcut icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/vendors.min.css" />
+  <link rel="stylesheet" href="css/icon.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="demos/marketing/marketing.css" />
+  <style>
+    :root {
+      --g: #559643;
+      --g-d: #3f7431;
+      --g-l: #94b92f;
+      --g-t: rgba(102, 243, 199, .14)
     }
-    
+
+    .text-base-color,
+    .btn-base-color {
+      color: var(--g) !important
+    }
+
+    .bg-base-color {
+      background-color: var(--g) !important
+    }
+
+    section {
+      padding-top: 30px
+    }
+
+    /* scroll progress bar */
+    #sp {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0;
+      background: linear-gradient(90deg, var(--g-l), var(--g));
+      z-index: 9999
+    }
+
+    /* HERO */
+    .ai-hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--g-t);
+      padding: 150px 0 90px;
+      background-image: url('images/demo-marketing-dot.svg')
+    }
+
+    .ai-hero .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: .55;
+      animation: blob 14s ease-in-out infinite
+    }
+
+    .b1 {
+      width: 380px;
+      height: 380px;
+      background: #c6e06a;
+      top: -80px;
+      right: 8%
+    }
+
+    .b2 {
+      width: 320px;
+      height: 320px;
+      background: #66f3c7;
+      bottom: -100px;
+      left: 5%;
+      animation-delay: -6s
+    }
+
+    @keyframes blob {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(40px, 30px) scale(1.15)
+      }
+    }
+
+    .neural {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .5;
+      pointer-events: none
+    }
+
+    .neural line {
+      stroke: var(--g);
+      stroke-width: 1;
+      stroke-dasharray: 4 6;
+      animation: dash 6s linear infinite
+    }
+
+    .neural circle {
+      fill: var(--g);
+      animation: pulse 2.4s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center
+    }
+
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -100
+      }
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.9);
+        opacity: .4
+      }
+    }
+
+    /* 3D floating icons */
+    .fi {
+      position: absolute;
+      width: 74px;
+      height: 74px;
+      border-radius: 24%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      z-index: 2;
+      background: linear-gradient(145deg, #c6e06a, #94b92f 55%, #6f8f1f);
+      box-shadow: inset 0 2px 0 rgba(255, 255, 255, .55), inset 0 -5px 10px rgba(0, 0, 0, .18), 0 6px 0 #5d7a17, 0 18px 30px rgba(60, 90, 20, .35);
+      animation: fl 5s ease-in-out infinite;
+      transition: transform .25s ease-out
+    }
+
+    .fi.lt {
+      color: #6f8f1f;
+      background: linear-gradient(145deg, #fff, #eef6e4);
+      box-shadow: inset 0 2px 0 #fff, 0 6px 0 #cfe0b6, 0 18px 30px rgba(60, 90, 20, .22)
+    }
+
+    .fi i {
+      font-size: 30px
+    }
+
+    .fi.sm {
+      width: 54px;
+      height: 54px
+    }
+
+    .fi.sm i {
+      font-size: 22px
+    }
+
+    @keyframes fl {
+
+      0%,
+      100% {
+        margin-top: 0;
+        rotate: -6deg
+      }
+
+      50% {
+        margin-top: -16px;
+        rotate: 6deg
+      }
+    }
+
+    @media(max-width:991px) {
+      .hero-fi {
+        display: none
+      }
+    }
+
+    /* chat mock */
+    .chat {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 30px 60px rgba(60, 90, 20, .25);
+      padding: 22px;
+      max-width: 400px;
+      margin-left: auto;
+      position: relative;
+      z-index: 3
+    }
+
+    .chat .m {
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      max-width: 85%;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: pop .5s forwards
+    }
+
+    .chat .u {
+      background: #eef6e4;
+      color: #333
+    }
+
+    .chat .a {
+      background: var(--g);
+      color: #fff;
+      margin-left: auto
+    }
+
+    .chat .m:nth-child(2) {
+      animation-delay: .8s
+    }
+
+    .chat .m:nth-child(3) {
+      animation-delay: 2s
+    }
+
+    .chat .m:nth-child(4) {
+      animation-delay: 3.2s
+    }
+
+    .chat .m:nth-child(5) {
+      animation-delay: 4.4s
+    }
+
+    @keyframes pop {
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .dots span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      margin: 0 2px;
+      animation: dt 1s infinite
+    }
+
+    .dots span:nth-child(2) {
+      animation-delay: .2s
+    }
+
+    .dots span:nth-child(3) {
+      animation-delay: .4s
+    }
+
+    @keyframes dt {
+      50% {
+        transform: translateY(-4px);
+        opacity: .5
+      }
+    }
+
+    .blink {
+      animation: bl 1s steps(2) infinite
+    }
+
+    @keyframes bl {
+      50% {
+        opacity: 0
+      }
+    }
+
+    /* stats strip */
+    .strip {
+      margin-top: -45px;
+      position: relative;
+      z-index: 5
+    }
+
+    .strip .box {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .1);
+      padding: 26px 10px
+    }
+
+    /* marquee */
+    .mq {
+      overflow: hidden;
+      white-space: nowrap;
+      background: var(--g);
+      padding: 16px 0;
+      transform: rotate(-1.2deg);
+      margin: 50px -20px 10px
+    }
+
+    .mq div {
+      display: inline-block;
+      animation: mq 30s linear infinite;
+      color: #fff;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 1px
+    }
+
+    .mq b {
+      margin: 0 26px;
+      opacity: .6
+    }
+
+    @keyframes mq {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* service cards */
+    .svc {
+      position: relative;
+      background: #fff;
+      border-radius: 16px;
+      padding: 34px 30px;
+      height: 100%;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, .07);
+      transition: transform .35s, box-shadow .35s;
+      transform-style: preserve-3d
+    }
+
+    .svc:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--g), var(--g-l));
+      transform: translateY(101%);
+      transition: transform .45s;
+      z-index: 0
+    }
+
+    .svc:hover:before {
+      transform: none
+    }
+
+    .svc>* {
+      position: relative;
+      z-index: 1;
+      transition: color .3s
+    }
+
+    .svc:hover>*,
+    .svc:hover h6,
+    .svc:hover a,
+    .svc:hover li {
+      color: #fff !important
+    }
+
+    .svc .ic {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      background: #eef6e4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: .4s
+    }
+
+    .svc:hover .ic {
+      background: rgba(255, 255, 255, .2);
+      transform: rotate(-8deg) scale(1.1)
+    }
+
+    .svc .ic i {
+      font-size: 28px;
+      color: var(--g)
+    }
+
+    .svc:hover .ic i {
+      color: #fff
+    }
+
+    .svc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px
+    }
+
+    .svc li {
+      font-size: 14px;
+      margin-bottom: 6px
+    }
+
+    .svc li:before {
+      content: "✓ ";
+      color: var(--g);
+      font-weight: 700
+    }
+
+    .svc:hover li:before {
+      color: #fff
+    }
+
+    .svc .no {
+      position: absolute;
+      right: 18px;
+      top: 35px;
+      font-size: 70px;
+      font-weight: 800;
+      opacity: .06;
+      z-index: 0
+    }
+
+    /* pick-the-right-solution */
+    .pick {
+      border-left: 4px solid var(--g);
+      background: #fff;
+      border-radius: 0 12px 12px 0;
+      padding: 18px 22px;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .05);
+      transition: .3s
+    }
+
+    .pick:hover {
+      transform: translateX(10px);
+      box-shadow: 0 12px 30px rgba(85, 150, 67, .2)
+    }
+
+    /* use-case tiles */
+    .uc {
+      background: #fff;
+      border-radius: 14px;
+      padding: 26px;
+      height: 100%;
+      border: 1px solid #e6efe0;
+      transition: .3s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .uc:hover {
+      border-color: var(--g);
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(85, 150, 67, .18)
+    }
+
+    .uc i {
+      font-size: 30px;
+      color: var(--g);
+      display: inline-block;
+      transition: .4s
+    }
+
+    .uc:hover i {
+      transform: scale(1.25) rotate(10deg)
+    }
+
+    /* dark benefits */
+    .dark-band {
+      background: #1c2a17;
+      color: #c9d6c3;
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0
+    }
+
+    .dark-band h3,
+    .dark-band h6 {
+      color: #fff
+    }
+
+    .ben {
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 14px;
+      height: 100%;
+      background: rgba(255, 255, 255, .04);
+      transition: .35s
+    }
+
+    .ben:hover {
+      background: rgba(148, 185, 47, .16);
+      border-color: var(--g-l);
+      transform: translateY(-6px)
+    }
+
+    .ben i {
+      color: var(--g-l);
+      font-size: 26px
+    }
+
+    .modern-floating-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px 25px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.02);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: floatUpAndDown 6s ease-in-out infinite;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      position: relative;
+      overflow: hidden;
+    }
+
     /* Left Green Accent Line on Hover */
     .modern-floating-card::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 4px;
-        background: #4CAF50; /* Base Color */
-        transform: scaleY(0);
-        transition: transform 0.4s ease;
-        transform-origin: bottom;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background: #4CAF50;
+      /* Base Color */
+      transform: scaleY(0);
+      transition: transform 0.4s ease;
+      transform-origin: bottom;
     }
 
     .modern-floating-card:hover {
-        animation-play-state: paused;
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 20px 50px rgba(76, 175, 80, 0.15);
-        border-color: rgba(76, 175, 80, 0.2);
+      animation-play-state: paused;
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(76, 175, 80, 0.15);
+      border-color: rgba(76, 175, 80, 0.2);
     }
-    
+
     .modern-floating-card:hover::before {
-        transform: scaleY(1);
+      transform: scaleY(1);
     }
 
     /* Staggered animation delays & margins for a zigzag layout */
-    .modern-floating-card:nth-child(1) { animation-delay: 0.0s; margin-right: 30px; }
-    .modern-floating-card:nth-child(2) { animation-delay: 1.2s; margin-left: 30px; }
-    .modern-floating-card:nth-child(3) { animation-delay: 2.4s; margin-right: 30px; }
-    .modern-floating-card:nth-child(4) { animation-delay: 3.6s; margin-left: 30px; }
-    .modern-floating-card:nth-child(5) { animation-delay: 4.8s; margin-right: 30px; }
+    .modern-floating-card:nth-child(1) {
+      animation-delay: 0.0s;
+      margin-right: 30px;
+    }
+
+    .modern-floating-card:nth-child(2) {
+      animation-delay: 1.2s;
+      margin-left: 30px;
+    }
+
+    .modern-floating-card:nth-child(3) {
+      animation-delay: 2.4s;
+      margin-right: 30px;
+    }
+
+    .modern-floating-card:nth-child(4) {
+      animation-delay: 3.6s;
+      margin-left: 30px;
+    }
+
+    .modern-floating-card:nth-child(5) {
+      animation-delay: 4.8s;
+      margin-right: 30px;
+    }
 
     @keyframes floatUpAndDown {
-        0% { transform: translateY(0); }
-        50% { transform: translateY(-17px); }
-        100% { transform: translateY(0); }
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-17px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
     }
 
     .icon-wrapper {
-        flex-shrink: 0;
-        width: 45px;
-        height: 45px;
-        background: rgba(76, 175, 80, 0.1);
-        color: #4CAF50;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.25rem;
+      flex-shrink: 0;
+      width: 45px;
+      height: 45px;
+      background: rgba(76, 175, 80, 0.1);
+      color: #4CAF50;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
     }
-    
+
     .card-text-content p {
-        margin: 0;
-        font-size: 1rem;
-        line-height: 1.6;
-        color: #6c757d;
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #6c757d;
     }
+
     /* ---------- 3D benefits (uses your green palette) ---------- */
-.b3d{perspective:1300px;perspective-origin:50% 20%;padding:10px 0 20px}
-.b3d-plane{position:relative;display:grid;grid-template-columns:repeat(3,1fr);transform-style:preserve-3d;
-  transform:rotateX(var(--rx,20deg)) rotateY(var(--ry,-12deg));transition:transform .25s ease-out;will-change:transform}
-/* glowing floor under the whole plane */
-.b3d-plane::before{content:"";position:absolute;inset:8% 4% -6%;transform:translateZ(-90px);
-  background:radial-gradient(ellipse at 50% 60%,rgba(148,185,47,.32),rgba(85,150,67,.10) 55%,transparent 75%);filter:blur(30px);pointer-events:none}
-.b3d-item{position:relative;padding:46px 34px 42px;transform-style:preserve-3d;
-  border-top:1px dashed rgba(148,185,47,.35);border-left:1px dashed rgba(148,185,47,.35)}
-.b3d-item:nth-child(3n+1){border-left:0}
-.b3d-item:nth-child(-n+3){border-top:0}
-/* depth wave: columns sit at different heights above the plane */
-.b3d-item:nth-child(3n+2){transform:translateZ(28px)}
-.b3d-item:nth-child(3n){transform:translateZ(56px)}
-/* chunky 3D icon block, same language as your .fi icons */
-.b3d-ico{display:flex;align-items:center;justify-content:center;width:68px;height:68px;border-radius:24%;color:#fff;
-  background:linear-gradient(145deg,#c6e06a,#94b92f 55%,#6f8f1f);
-  box-shadow:inset 0 2px 0 rgba(255,255,255,.55),inset 0 -5px 10px rgba(0,0,0,.18),0 6px 0 #5d7a17,0 22px 30px rgba(0,0,0,.45);
-  transform:translateZ(60px) rotate(-6deg);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
-  animation:b3dfl 5s ease-in-out infinite}
-.b3d-item:nth-child(even) .b3d-ico{animation-delay:-2.2s}
-.b3d-ico i{font-size:28px}
-@keyframes b3dfl{50%{margin-top:-10px}}
-.b3d-item h6{margin:26px 0 8px;font-size:20px;font-weight:700;color:#fff;transform:translateZ(36px);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
-.b3d-item p{margin:0;max-width:30ch;color:#c9d6c3;transform:translateZ(18px)}
-.b3d-item:hover .b3d-ico{transform:translateZ(120px) rotate(4deg) scale(1.1);box-shadow:inset 0 2px 0 rgba(255,255,255,.55),inset 0 -5px 10px rgba(0,0,0,.18),0 6px 0 #5d7a17,0 50px 50px rgba(148,185,47,.35)}
-.b3d-item:hover h6{transform:translateZ(70px)}
-@media (max-width:991px){
-  .b3d-plane{grid-template-columns:repeat(2,1fr);transform:rotateX(10deg) rotateY(-5deg)}
-  .b3d-item:nth-child(n){transform:none;border-left:1px dashed rgba(148,185,47,.35);border-top:1px dashed rgba(148,185,47,.35)}
-  .b3d-item:nth-child(2n+1){border-left:0}
-  .b3d-item:nth-child(-n+2){border-top:0}
-}
-@media (max-width:575px){
-  .b3d{perspective:none}
-  .b3d-plane{grid-template-columns:1fr;transform:none!important}
-  .b3d-plane::before{display:none}
-  .b3d-item:nth-child(n){border-left:0;border-top:1px dashed rgba(148,185,47,.35);padding:28px 6px}
-  .b3d-item:first-child{border-top:0}
-  .b3d-ico,.b3d-item h6,.b3d-item p{transform:none!important}
-}
-/* ---------- 3D layer stack: AI sits on top of what the business already runs ---------- */
-.eb{perspective:1600px;perspective-origin:50% 25%;height:680px;display:flex;align-items:center;justify-content:center}
-.eb-stack{position:relative;width:340px;height:220px;transform-style:preserve-3d;top:130px;
-  transform:rotateX(var(--rx,58deg)) rotateZ(var(--rz,-24deg));transition:transform .3s ease-out;will-change:transform}
-.eb-lay{position:absolute;inset:0;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;
-  background:#fff;border:1px solid #dbe8d2;transform:translateZ(var(--z));transform-style:preserve-3d;
-  box-shadow:0 7px 0 #cfe0b6,0 30px 40px rgba(60,90,20,.18);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.eb-lay b{font-size:15px;font-weight:700;color:#232323}
-.eb-lay small{display:block;font-size:12.5px;color:#6b7a63;margin-top:2px}
-.eb-ic{display:flex;gap:10px}
-.eb-ic i{width:40px;height:40px;border-radius:12px;background:#eef6e4;color:var(--g);display:flex;align-items:center;justify-content:center;font-size:18px}
-.eb-lay:nth-child(1){--z:0px;background:#f3f8ee}
-.eb-lay:nth-child(2){--z:115px}
-.eb-lay:nth-child(3){--z:230px}
-/* the AI layer */
-.eb-lay.ai{--z:350px;background:linear-gradient(145deg,#c6e06a,#94b92f 45%,var(--g));border-color:#c6e06a;
-  box-shadow:0 8px 0 #3f7431,0 0 70px rgba(148,185,47,.65),0 40px 50px rgba(60,90,20,.3)}
-.eb-lay.ai b,.eb-lay.ai small{color:#fff}
-.eb-lay.ai .eb-ic i{background:rgba(255,255,255,.22);color:#fff}
-.eb-lay.ai .core{font-size:34px;font-weight:800;color:#fff;letter-spacing:1px;animation:ebp 2.6s ease-in-out infinite}
-@keyframes ebp{50%{text-shadow:0 0 22px #fff;opacity:.85}}
-/* light beam dropping through the stack */
-.eb-beam{position:absolute;left:50%;top:50%;width:3px;height:350px;margin-left:-1.5px;transform-origin:top center;transform:rotateX(90deg);
-  background:linear-gradient(to top,rgba(148,185,47,.95),rgba(148,185,47,0));animation:ebb 2.6s ease-in-out infinite}
-@keyframes ebb{50%{opacity:.35}}
-/* hover: layers spread apart so you can see each one */
-.eb:hover .eb-lay:nth-child(2){--z:150px}.eb:hover .eb-lay:nth-child(3){--z:300px}.eb:hover .eb-lay.ai{--z:460px}
-/* floor shadow */
-.eb-stack::before{content:"";position:absolute;inset:-6%;transform:translateZ(-30px);border-radius:30px;background:radial-gradient(closest-side,rgba(85,150,67,.28),transparent);filter:blur(18px)}
- 
-.eb-pts{list-style:none;padding:0;margin:24px 0 24px}
-.eb-pts li{display:flex;align-items:center;gap:12px;padding:9px 0;font-weight:600;color:#232323;border-bottom:1px dashed #cfe0b6}
-.eb-pts li i{color:var(--g);font-size:18px}
-.eb-pts li:last-child{border-bottom:0}
- 
-@media (max-width:991px){.eb{height:560px;transform:scale(.85)}}
-@media (max-width:575px){
-  .eb{perspective:none;height:auto;transform:none;display:block}
-  .eb-stack{width:100%;height:auto;transform:none!important;display:flex;flex-direction:column-reverse;gap:14px;top:0;}
-  .eb-stack::before,.eb-beam{display:none}
-  .eb-lay,.eb-lay:nth-child(n){position:relative;inset:auto;transform:none!important;min-height:110px}
-}
-/* same chunky green icon as the index hero (.hero-tech-icon), reused in cards */
-.ico3d{width:68px;height:68px;margin:0 auto 22px;border-radius:24%;display:flex;align-items:center;justify-content:center;color:#fff;
-  background:linear-gradient(145deg,#c6e06a 0%,#94b92f 55%,#6f8f1f 100%);
-  box-shadow:inset 0 2px 0 rgba(255,255,255,.55),inset 0 -5px 10px rgba(0,0,0,.18),0 6px 0 #5d7a17,0 18px 30px rgba(60,90,20,.35);
-  transition:transform .4s cubic-bezier(.2,.8,.2,1)}
-.ico3d i{font-size:28px;line-height:1;filter:drop-shadow(0 2px 2px rgba(0,0,0,.2))}
-.card-idx{transition:transform .35s ease,box-shadow .35s ease}
-.card-idx:hover{transform:translateY(-8px)}
-.card-idx:hover .ico3d{transform:perspective(400px) rotateX(8deg) rotateY(-14deg) translateY(-4px)}
-.list-idx{list-style:none;padding:0;margin:0}
-.list-idx li{display:flex;align-items:flex-start;padding:10px 0;border-bottom:1px solid #ededed}
-.list-idx li:last-child{border-bottom:0}
-.list-idx li i{color:#559643;margin-right:12px;margin-top:4px;flex-shrink:0}
-@media(prefers-reduced-motion:reduce){.card-idx,.ico3d{transition:none}.card-idx:hover{transform:none}}
-/* timeline */
-.tl{position:relative;max-width:900px;margin:auto}
-.tl:before{content:"";position:absolute;left:29px;top:0;bottom:0;width:3px;background:#dbe8d2}
-.tl .prog{position:absolute;left:29px;top:0;width:3px;height:0;background:var(--g);transition:height .2s}
-.st{position:relative;padding-left:90px;margin-bottom:34px;opacity:.35;transition:.5s}.st.on{opacity:1}
-.st .n{position:absolute;left:0;top:0;width:60px;height:60px;border-radius:50%;background:#fff;border:3px solid var(--g);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--g);transition:.4s;z-index:1}
-.st.on .n{background:var(--g);color:#fff;box-shadow:0 0 0 10px rgba(85,150,67,.15)}
-/* existing tech chips */
-.chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #dbe8d2;border-radius:40px;padding:10px 18px;margin:6px;font-weight:600;font-size:14px;animation:fl2 4s ease-in-out infinite}
-.chip i{color:var(--g)}@keyframes fl2{50%{transform:translateY(-8px)}}
-.orbit{position:relative;width:340px;height:340px;margin:auto}
-.orbit .core{position:absolute;inset:110px;border-radius:50%;background:linear-gradient(145deg,var(--g-l),var(--g-d));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:26px;box-shadow:0 0 0 14px rgba(85,150,67,.12),0 0 0 30px rgba(85,150,67,.07)}
-.orbit .ring{position:absolute;inset:0;border:2px dashed #b9d3ac;border-radius:50%;animation:spin 24s linear infinite}
-.orbit .ring i{position:absolute;width:48px;height:48px;background:#fff;border-radius:50%;box-shadow:0 8px 20px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;color:var(--g);font-size:20px;animation:spin 24s linear infinite reverse}
-@keyframes spin{to{transform:rotate(360deg)}}
-/* reveal */
-.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
-.cta-box{background:linear-gradient(120deg,#2a4a20,var(--g-d),var(--g));border-radius:20px;padding:70px 40px;position:relative;overflow:hidden;color:#fff;text-align:center}
-.cta-box h3{color:#fff}.cta-box .fi{opacity:.9}
-.acc-fix .accordion-title{padding:16px 0}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
-</style>
+    .b3d {
+      perspective: 1300px;
+      perspective-origin: 50% 20%;
+      padding: 10px 0 20px
+    }
+
+    .b3d-plane {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      transform-style: preserve-3d;
+      transform: rotateX(var(--rx, 20deg)) rotateY(var(--ry, -12deg));
+      transition: transform .25s ease-out;
+      will-change: transform
+    }
+
+    /* glowing floor under the whole plane */
+    .b3d-plane::before {
+      content: "";
+      position: absolute;
+      inset: 8% 4% -6%;
+      transform: translateZ(-90px);
+      background: radial-gradient(ellipse at 50% 60%, rgba(148, 185, 47, .32), rgba(85, 150, 67, .10) 55%, transparent 75%);
+      filter: blur(30px);
+      pointer-events: none
+    }
+
+    .b3d-item {
+      position: relative;
+      padding: 46px 34px 42px;
+      transform-style: preserve-3d;
+      border-top: 1px dashed rgba(148, 185, 47, .35);
+      border-left: 1px dashed rgba(148, 185, 47, .35)
+    }
+
+    .b3d-item:nth-child(3n+1) {
+      border-left: 0
+    }
+
+    .b3d-item:nth-child(-n+3) {
+      border-top: 0
+    }
+
+    /* depth wave: columns sit at different heights above the plane */
+    .b3d-item:nth-child(3n+2) {
+      transform: translateZ(28px)
+    }
+
+    .b3d-item:nth-child(3n) {
+      transform: translateZ(56px)
+    }
+
+    /* chunky 3D icon block, same language as your .fi icons */
+    .b3d-ico {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 68px;
+      height: 68px;
+      border-radius: 24%;
+      color: #fff;
+      background: linear-gradient(145deg, #c6e06a, #94b92f 55%, #6f8f1f);
+      box-shadow: inset 0 2px 0 rgba(255, 255, 255, .55), inset 0 -5px 10px rgba(0, 0, 0, .18), 0 6px 0 #5d7a17, 0 22px 30px rgba(0, 0, 0, .45);
+      transform: translateZ(60px) rotate(-6deg);
+      transition: transform .4s cubic-bezier(.2, .8, .2, 1), box-shadow .4s;
+      animation: b3dfl 5s ease-in-out infinite
+    }
+
+    .b3d-item:nth-child(even) .b3d-ico {
+      animation-delay: -2.2s
+    }
+
+    .b3d-ico i {
+      font-size: 28px
+    }
+
+    @keyframes b3dfl {
+      50% {
+        margin-top: -10px
+      }
+    }
+
+    .b3d-item h6 {
+      margin: 26px 0 8px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      transform: translateZ(36px);
+      transition: transform .4s cubic-bezier(.2, .8, .2, 1)
+    }
+
+    .b3d-item p {
+      margin: 0;
+      max-width: 30ch;
+      color: #c9d6c3;
+      transform: translateZ(18px)
+    }
+
+    .b3d-item:hover .b3d-ico {
+      transform: translateZ(120px) rotate(4deg) scale(1.1);
+      box-shadow: inset 0 2px 0 rgba(255, 255, 255, .55), inset 0 -5px 10px rgba(0, 0, 0, .18), 0 6px 0 #5d7a17, 0 50px 50px rgba(148, 185, 47, .35)
+    }
+
+    .b3d-item:hover h6 {
+      transform: translateZ(70px)
+    }
+
+    @media (max-width:991px) {
+      .b3d-plane {
+        grid-template-columns: repeat(2, 1fr);
+        transform: rotateX(10deg) rotateY(-5deg)
+      }
+
+      .b3d-item:nth-child(n) {
+        transform: none;
+        border-left: 1px dashed rgba(148, 185, 47, .35);
+        border-top: 1px dashed rgba(148, 185, 47, .35)
+      }
+
+      .b3d-item:nth-child(2n+1) {
+        border-left: 0
+      }
+
+      .b3d-item:nth-child(-n+2) {
+        border-top: 0
+      }
+    }
+
+    @media (max-width:575px) {
+      .b3d {
+        perspective: none
+      }
+
+      .b3d-plane {
+        grid-template-columns: 1fr;
+        transform: none !important
+      }
+
+      .b3d-plane::before {
+        display: none
+      }
+
+      .b3d-item:nth-child(n) {
+        border-left: 0;
+        border-top: 1px dashed rgba(148, 185, 47, .35);
+        padding: 28px 6px
+      }
+
+      .b3d-item:first-child {
+        border-top: 0
+      }
+
+      .b3d-ico,
+      .b3d-item h6,
+      .b3d-item p {
+        transform: none !important
+      }
+    }
+
+    /* ---------- 3D layer stack: AI sits on top of what the business already runs ---------- */
+    .eb {
+      perspective: 1600px;
+      perspective-origin: 50% 25%;
+      height: 680px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .eb-stack {
+      position: relative;
+      width: 340px;
+      height: 220px;
+      transform-style: preserve-3d;
+      top: 130px;
+      transform: rotateX(var(--rx, 58deg)) rotateZ(var(--rz, -24deg));
+      transition: transform .3s ease-out;
+      will-change: transform
+    }
+
+    .eb-lay {
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #fff;
+      border: 1px solid #dbe8d2;
+      transform: translateZ(var(--z));
+      transform-style: preserve-3d;
+      box-shadow: 0 7px 0 #cfe0b6, 0 30px 40px rgba(60, 90, 20, .18);
+      transition: transform .5s cubic-bezier(.2, .8, .2, 1)
+    }
+
+    .eb-lay b {
+      font-size: 15px;
+      font-weight: 700;
+      color: #232323
+    }
+
+    .eb-lay small {
+      display: block;
+      font-size: 12.5px;
+      color: #6b7a63;
+      margin-top: 2px
+    }
+
+    .eb-ic {
+      display: flex;
+      gap: 10px
+    }
+
+    .eb-ic i {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #eef6e4;
+      color: var(--g);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px
+    }
+
+    .eb-lay:nth-child(1) {
+      --z: 0px;
+      background: #f3f8ee
+    }
+
+    .eb-lay:nth-child(2) {
+      --z: 115px
+    }
+
+    .eb-lay:nth-child(3) {
+      --z: 230px
+    }
+
+    /* the AI layer */
+    .eb-lay.ai {
+      --z: 350px;
+      background: linear-gradient(145deg, #c6e06a, #94b92f 45%, var(--g));
+      border-color: #c6e06a;
+      box-shadow: 0 8px 0 #3f7431, 0 0 70px rgba(148, 185, 47, .65), 0 40px 50px rgba(60, 90, 20, .3)
+    }
+
+    .eb-lay.ai b,
+    .eb-lay.ai small {
+      color: #fff
+    }
+
+    .eb-lay.ai .eb-ic i {
+      background: rgba(255, 255, 255, .22);
+      color: #fff
+    }
+
+    .eb-lay.ai .core {
+      font-size: 34px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 1px;
+      animation: ebp 2.6s ease-in-out infinite
+    }
+
+    @keyframes ebp {
+      50% {
+        text-shadow: 0 0 22px #fff;
+        opacity: .85
+      }
+    }
+
+    /* light beam dropping through the stack */
+    .eb-beam {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 3px;
+      height: 350px;
+      margin-left: -1.5px;
+      transform-origin: top center;
+      transform: rotateX(90deg);
+      background: linear-gradient(to top, rgba(148, 185, 47, .95), rgba(148, 185, 47, 0));
+      animation: ebb 2.6s ease-in-out infinite
+    }
+
+    @keyframes ebb {
+      50% {
+        opacity: .35
+      }
+    }
+
+    /* hover: layers spread apart so you can see each one */
+    .eb:hover .eb-lay:nth-child(2) {
+      --z: 150px
+    }
+
+    .eb:hover .eb-lay:nth-child(3) {
+      --z: 300px
+    }
+
+    .eb:hover .eb-lay.ai {
+      --z: 460px
+    }
+
+    /* floor shadow */
+    .eb-stack::before {
+      content: "";
+      position: absolute;
+      inset: -6%;
+      transform: translateZ(-30px);
+      border-radius: 30px;
+      background: radial-gradient(closest-side, rgba(85, 150, 67, .28), transparent);
+      filter: blur(18px)
+    }
+
+    .eb-pts {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 24px
+    }
+
+    .eb-pts li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 0;
+      font-weight: 600;
+      color: #232323;
+      border-bottom: 1px dashed #cfe0b6
+    }
+
+    .eb-pts li i {
+      color: var(--g);
+      font-size: 18px
+    }
+
+    .eb-pts li:last-child {
+      border-bottom: 0
+    }
+
+    @media (max-width:991px) {
+      .eb {
+        height: 560px;
+        transform: scale(.85)
+      }
+    }
+
+    @media (max-width:575px) {
+      .eb {
+        perspective: none;
+        height: auto;
+        transform: none;
+        display: block
+      }
+
+      .eb-stack {
+        width: 100%;
+        height: auto;
+        transform: none !important;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 14px;
+        top: 0;
+      }
+
+      .eb-stack::before,
+      .eb-beam {
+        display: none
+      }
+
+      .eb-lay,
+      .eb-lay:nth-child(n) {
+        position: relative;
+        inset: auto;
+        transform: none !important;
+        min-height: 110px
+      }
+    }
+
+    /* same chunky green icon as the index hero (.hero-tech-icon), reused in cards */
+    .ico3d {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 22px;
+      border-radius: 24%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: linear-gradient(145deg, #c6e06a 0%, #94b92f 55%, #6f8f1f 100%);
+      box-shadow: inset 0 2px 0 rgba(255, 255, 255, .55), inset 0 -5px 10px rgba(0, 0, 0, .18), 0 6px 0 #5d7a17, 0 18px 30px rgba(60, 90, 20, .35);
+      transition: transform .4s cubic-bezier(.2, .8, .2, 1)
+    }
+
+    .ico3d i {
+      font-size: 28px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .2))
+    }
+
+    .card-idx {
+      transition: transform .35s ease, box-shadow .35s ease
+    }
+
+    .card-idx:hover {
+      transform: translateY(-8px)
+    }
+
+    .card-idx:hover .ico3d {
+      transform: perspective(400px) rotateX(8deg) rotateY(-14deg) translateY(-4px)
+    }
+
+    .list-idx {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    .list-idx li {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid #ededed
+    }
+
+    .list-idx li:last-child {
+      border-bottom: 0
+    }
+
+    .list-idx li i {
+      color: #559643;
+      margin-right: 12px;
+      margin-top: 4px;
+      flex-shrink: 0
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      .card-idx,
+      .ico3d {
+        transition: none
+      }
+
+      .card-idx:hover {
+        transform: none
+      }
+    }
+
+    /* timeline */
+    .tl {
+      position: relative;
+      max-width: 900px;
+      margin: auto
+    }
+
+    .tl:before {
+      content: "";
+      position: absolute;
+      left: 29px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #dbe8d2
+    }
+
+    .tl .prog {
+      position: absolute;
+      left: 29px;
+      top: 0;
+      width: 3px;
+      height: 0;
+      background: var(--g);
+      transition: height .2s
+    }
+
+    .st {
+      position: relative;
+      padding-left: 90px;
+      margin-bottom: 34px;
+      opacity: .35;
+      transition: .5s
+    }
+
+    .st.on {
+      opacity: 1
+    }
+
+    .st .n {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--g);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: var(--g);
+      transition: .4s;
+      z-index: 1
+    }
+
+    .st.on .n {
+      background: var(--g);
+      color: #fff;
+      box-shadow: 0 0 0 10px rgba(85, 150, 67, .15)
+    }
+
+    /* existing tech chips */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 1px solid #dbe8d2;
+      border-radius: 40px;
+      padding: 10px 18px;
+      margin: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      animation: fl2 4s ease-in-out infinite
+    }
+
+    .chip i {
+      color: var(--g)
+    }
+
+    @keyframes fl2 {
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    .orbit {
+      position: relative;
+      width: 340px;
+      height: 340px;
+      margin: auto
+    }
+
+    .orbit .core {
+      position: absolute;
+      inset: 110px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--g-l), var(--g-d));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 26px;
+      box-shadow: 0 0 0 14px rgba(85, 150, 67, .12), 0 0 0 30px rgba(85, 150, 67, .07)
+    }
+
+    .orbit .ring {
+      position: absolute;
+      inset: 0;
+      border: 2px dashed #b9d3ac;
+      border-radius: 50%;
+      animation: spin 24s linear infinite
+    }
+
+    .orbit .ring i {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--g);
+      font-size: 20px;
+      animation: spin 24s linear infinite reverse
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    /* reveal */
+    .rv {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .8s, transform .8s
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: none
+    }
+
+    .cta-box {
+      background: linear-gradient(120deg, #2a4a20, var(--g-d), var(--g));
+      border-radius: 20px;
+      padding: 70px 40px;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      text-align: center
+    }
+
+    .cta-box h3 {
+      color: #fff
+    }
+
+    .cta-box .fi {
+      opacity: .9
+    }
+
+    .acc-fix .accordion-title {
+      padding: 16px 0
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        animation: none !important;
+        transition: none !important
+      }
+
+      .rv {
+        opacity: 1;
+        transform: none
+      }
+    }
+  </style>
 </head>
+
 <body data-mobile-nav-style="classic" class="custom-cursor">
-<div id="sp"></div>
-<div class="cursor-page-inner"><div class="circle-cursor circle-cursor-inner"></div><div class="circle-cursor circle-cursor-outer"></div></div>
+  <div id="sp"></div>
+  <div class="cursor-page-inner">
+    <div class="circle-cursor circle-cursor-inner"></div>
+    <div class="circle-cursor circle-cursor-outer"></div>
+  </div>
 
-<header>
-<nav class="navbar navbar-expand-lg header-light header-transparent bg-transparent disable-fixed">
-<div class="container-fluid">
-<div class="col-auto me-lg-0 me-auto"><a class="navbar-brand d-flex align-items-center" href="index.html">
-<img src="images/logo.png" alt="AD Soft Technologies" class="default-logo" style="max-height:70px;"><img src="images/logo.png" alt="AD Soft Technologies" class="alt-logo"><img src="images/logo.png" alt="AD Soft Technologies" class="mobile-logo">
-<span class="ms-15px d-flex flex-column text-dark-gray fw-800 lh-20 ls-1px text-nowrap" style="font-size:16px;"><span>AD SOFT TECHNOLOGIES</span></span></a></div>
-<div class="col menu-order position-static">
-<button class="navbar-toggler float-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span></button>
-<div class="collapse navbar-collapse justify-content-center" id="navbarNav"><ul class="navbar-nav">
-<li class="nav-item"><a href="index.html" class="nav-link text-nowrap">Home</a></li>
-<li class="nav-item"><a href="demo-marketing-about.html" class="nav-link text-nowrap">About Us</a></li>
-<li class="nav-item dropdown simple-dropdown"><a href="ai-solutions.html" class="nav-link text-nowrap text-base-color">AI Solutions</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-<ul class="dropdown-menu" aria-labelledby="dAI" style="min-width:270px;"><li><a href="ai-agent-developemnt.html">AI Agent Development</a></li><li><a href="ai-chatbot-developemt.html">AI Chatbot Development</a></li><li><a href="ai-automation.html">AI Automation</a></li><li><a href="ai-integration.html">AI Integration</a></li><li><a href="ai-consulting.html">AI Adoption &amp; Consulting</a></li></ul></li>
-<li class="nav-item dropdown simple-dropdown"><a href="#" class="nav-link text-nowrap">Software Development</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dSW" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-<ul class="dropdown-menu" aria-labelledby="dSW" style="min-width:330px;"><li><a href="#">Website Development</a></li><li><a href="#">Mobile App Development</a></li><li><a href="#">Custom Software Development</a></li><li><a href="#">Software Modification &amp; Modernization</a></li></ul></li>
-<li class="nav-item dropdown simple-dropdown"><a href="#" class="nav-link text-nowrap">Business Solutions</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dBS" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-<ul class="dropdown-menu" aria-labelledby="dBS" style="min-width:260px;"><li><a href="#">Business Automation</a></li><li><a href="#">Digital Transformation</a></li><li><a href="#">Branding</a></li><li><a href="#">Business Services</a></li></ul></li>
-<li class="nav-item"><a href="demo-marketing-case-studies.html" class="nav-link text-nowrap">Our Work</a></li>
-<li class="nav-item"><a href="#" class="nav-link text-nowrap">AI Insights</a></li>
-<li class="nav-item"><a href="demo-marketing-contact.html" class="nav-link text-nowrap">Contact</a></li>
-</ul></div></div>
-<div class="col-auto text-end"><div class="header-icon"><div class="header-social-icon icon"><a href="http://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="http://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="http://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></div></div></div>
-</div></nav>
-</header>
-
-<!-- HERO -->
-<section class="ai-hero" id="hero">
-
-<span class="fi sm hero-fi" data-d="-35" style="right:3%;top:16%;animation-delay:-2s"><i class="bi bi-cpu"></i></span>
-<div class="container position-relative" style="z-index:4">
-<div class="row align-items-center">
-<div class="col-lg-7">
-<span class="d-inline-block bg-white border-radius-100px ps-20px pe-20px fs-14 fw-600 text-base-color mb-20px box-shadow-large">● AI Solutions for Businesses</span>
-<h1 class="fs-55 lg-fs-50 md-fs-40 sm-fs-32 text-dark-gray lh-60 md-lh-46 fw-800 ls-minus-2px mb-20px"><span id="typer"></span><span class="blink text-base-color">|</span></h1>
-<p class="fs-18 w-85 lg-w-100 mb-30px">AD Soft Technologies helps businesses in Kerala and international markets explore, develop and integrate practical AI into their operations and digital products, from AI agents and chatbots to automation and adoption consulting.</p>
-<a href="demo-marketing-contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-15px xs-mb-10px"><span><span class="btn-text">Talk to Our AI Experts</span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span></span></a>
-<a href="demo-marketing-contact.html" class="btn btn-large btn-white btn-round-edge btn-box-shadow fw-600">Discuss Your AI Requirement</a>
-</div>
-<div class="col-lg-5 mt-50px lg-mt-0 d-none d-lg-block">
-<div class="chat" aria-hidden="true">
-<div class="d-flex align-items-center mb-15px"><span class="fi sm" style="position:static;width:42px;height:42px;animation:none"><i class="bi bi-robot" style="font-size:18px"></i></span><b class="ms-10px text-dark-gray">AD Soft AI Agent</b><span class="ms-auto fs-12 text-base-color">● online</span></div>
-<div class="m u">Where can AI help my business?</div>
-<div class="m a">Tell me what eats your team's time. I'll map it to an agent, chatbot or automation.</div>
-<div class="m u">Enquiries, follow-ups and reports.</div>
-<div class="m a">Great fit for automation. <span class="dots"><span></span><span></span><span></span></span></div>
-</div></div>
-</div></div>
-</section>
-
-
-
-<div class="mq" aria-hidden="true"><div><span>AI AGENTS</span><b>✦</b><span>CHATBOTS</span><b>✦</b><span>AUTOMATION</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>CONSULTING</span><b>✦</b><span>AI AGENTS</span><b>✦</b><span>CHATBOTS</span><b>✦</b><span>AUTOMATION</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>CONSULTING</span><b>✦</b><span>AI AGENTS</span><b>✦</b><span>CHATBOTS</span><b>✦</b><span>AUTOMATION</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>CONSULTING</span><b>✦</b></div></div>
-
-<section class="overflow-hidden"> 
-    <div class="container">
-        
-        <!-- Top Centered Heading Section -->
-        <div class="row justify-content-center mb-5">
-            <div class="col-lg-8 text-center" data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 0, "easing": "easeOutQuad" }'>
-                <span class="fs-14 text-uppercase fw-700 mb-15px d-block ls-1px" style="color: #4CAF50;">AI Solutions for Businesses</span>
-                <h2 class="fw-700 text-dark-gray ls-minus-1px mb-0" style="font-size: 2.8rem; line-height: 1.2;">
-                    Build Smarter. Automate Faster. Grow with AI.
-                </h2>
-            </div>
+  <header>
+    <nav class="navbar navbar-expand-lg header-light header-transparent bg-transparent disable-fixed">
+      <div class="container-fluid">
+        <div class="col-auto me-lg-0 me-auto"><a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="images/logo.png" alt="AD Soft Technologies" class="default-logo" style="max-height:70px;"><img
+              src="images/logo.png" alt="AD Soft Technologies" class="alt-logo"><img src="images/logo.png"
+              alt="AD Soft Technologies" class="mobile-logo">
+            <span class="ms-15px d-flex flex-column text-dark-gray fw-800 lh-20 ls-1px text-nowrap"
+              style="font-size:16px;"><span>AD SOFT TECHNOLOGIES</span></span></a></div>
+        <div class="col menu-order position-static">
+          <button class="navbar-toggler float-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-line"></span><span
+              class="navbar-toggler-line"></span><span class="navbar-toggler-line"></span><span
+              class="navbar-toggler-line"></span></button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a href="index.html" class="nav-link text-nowrap">Home</a></li>
+              <li class="nav-item"><a href="demo-marketing-about.html" class="nav-link text-nowrap">About Us</a></li>
+             <li class="nav-item dropdown simple-dropdown"><a href="ai-solutions.html"
+    class="nav-link text-nowrap text-base-color">AI Solutions</a><i
+    class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown"
+    aria-expanded="false"></i>
+<ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
+  <li><a href="ai-agent-developemnt.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
+  <li><a href="ai-chatbot-developemt.html"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
+  <li><a href="ai-automation.html"><i class="fa-solid fa-bolt"></i>AI Automation</a></li>
+  <li><a href="ai-integration.html"><i class="fa-solid fa-diagram-project"></i>AI Integration</a></li>
+  <li><a href="ai-adoption-and-consulting.html"><i class="fa-solid fa-chart-line"></i>AI Adoption &amp; Consulting</a></li>
+</ul>
+</li>
+              <li class="nav-item dropdown simple-dropdown"><a href="#" class="nav-link text-nowrap">Software
+                  Development</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dSW" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <ul class="dropdown-menu" aria-labelledby="dSW" style="min-width:330px;">
+                  <li><a href="#">Website Development</a></li>
+                  <li><a href="#">Mobile App Development</a></li>
+                  <li><a href="#">Custom Software Development</a></li>
+                  <li><a href="#">Software Modification &amp; Modernization</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown simple-dropdown"><a href="#" class="nav-link text-nowrap">Business
+                  Solutions</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dBS" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <ul class="dropdown-menu" aria-labelledby="dBS" style="min-width:260px;">
+                  <li><a href="#">Business Automation</a></li>
+                  <li><a href="#">Digital Transformation</a></li>
+                  <li><a href="#">Branding</a></li>
+                  <li><a href="#">Business Services</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a href="demo-marketing-case-studies.html" class="nav-link text-nowrap">Our Work</a>
+              </li>
+              <li class="nav-item"><a href="#" class="nav-link text-nowrap">AI Insights</a></li>
+              <li class="nav-item"><a href="demo-marketing-contact.html" class="nav-link text-nowrap">Contact</a></li>
+            </ul>
+          </div>
         </div>
-
-        <!-- Image and Text Content Section -->
-        <div class="row align-items-center">  
-            <div class="col-lg-6 col-md-11 offset-lg-0 offset-md-1 position-relative md-mb-20px"> 
-                <figure class="position-relative m-0 text-center" data-anime='{ "effect": "slide", "color": "#fff2ef", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                    <img src="images/why-03.png" alt="AI Solutions">
-                </figure>
-            </div>
-            
-            <div class="col-xl-5 offset-xl-1 col-lg-6" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'> 
-                
-                <p class="w-95 md-w-100 mb-10px text-muted" style="font-size: 1.05rem; line-height: 1.7;">
-                    Artificial intelligence is changing how businesses interact with customers, manage operations and build digital products. But adopting AI successfully is not simply about adding a chatbot or using the latest AI model. Businesses need to identify the right use cases, choose appropriate technologies and integrate AI into workflows where it can create measurable value.
-                </p>
-                
-                <p class="w-95 md-w-100 mb-10px"><strong>AD Soft Technologies</strong> provides AI solutions for businesses in Kerala and international markets, helping organizations explore, develop and integrate practical AI technologies into their existing operations and digital products.</p>
-                <p class="w-95 md-w-100 mb-10px">From<strong> AI agent development and AI chatbot development to AI automation, AI integration and AI adoption consulting</strong> we help businesses move from an AI idea to a working solution.</p>
-                <p class="w-95 md-w-100 mb-10px">With<strong> 20+ projects delivered</strong>and experience working with clients in <strong> India, Europe and the USA,</strong> our approach combines software development experience with modern AI capabilities to build solutions around real business requirements.</p>
-
-               
-
-                <!-- Buttons placed on a single line -->
-                <div class="d-flex align-items-center mt-4">
-                    <a href="#" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-4">
-                        <span> 
-                            <span class="btn-text">Talk to Our AI Experts</span>
-                            <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
-                            <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
-                        </span>
-                    </a>
-                    <a href="#" class="btn btn-link btn-hover-animation-switch btn-extra-large text-dark-gray fw-600 p-0">
-                        <span>
-                            <span class="btn-text">Discuss Your AI Requirement</span>
-                            <span class="btn-icon"><i class="bi bi-caret-right-fill"></i></span>
-                            <span class="btn-icon"><i class="bi bi-caret-right-fill"></i></span>
-                        </span> 
-                    </a>
-                </div>
-            </div>
+        <div class="col-auto text-end">
+          <div class="header-icon">
+            <div class="header-social-icon icon"><a href="http://www.facebook.com" target="_blank"><i
+                  class="fa-brands fa-facebook-f"></i></a><a href="http://www.instagram.com" target="_blank"><i
+                  class="fa-brands fa-instagram"></i></a><a href="http://www.twitter.com" target="_blank"><i
+                  class="fa-brands fa-twitter"></i></a></div>
+          </div>
         </div>
         
-        
-    </div>
-
-</section>
-<!-- STATS -->
-<section class="strip pb-0 py-5">
-    <div class="container">
-        <!-- 'align-items-stretch' um 'g-4' um upayogichittundu gap-num equal height-num vendi -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center rv align-items-stretch">
-            
-            <div class="col">
-                <div class="box h-100 d-flex flex-column justify-content-center p-4 bg-white rounded shadow-sm border-0">
-                    <h3 class="fw-800 text-success mb-2" style="font-size: 3rem;"><span class="cnt" data-to="20">20</span>+</h3>
-                    <p class="mb-0 fw-600 text-muted">Projects delivered</p>
-                </div>
-            </div>
-            
-            <div class="col">
-                <div class="box h-100 d-flex flex-column justify-content-center p-4 bg-white rounded shadow-sm border-0">
-                    <h3 class="fw-800 text-success mb-2" style="font-size: 3rem;"><span class="cnt" data-to="3">3</span></h3>
-                    <p class="mb-0 fw-600 text-muted">Regions: India, Europe, USA</p>
-                </div>
-            </div>
-            
-            <div class="col">
-                <div class="box h-100 d-flex flex-column justify-content-center p-4 bg-white rounded shadow-sm border-0">
-                    <h3 class="fw-800 text-success mb-2" style="font-size: 3rem;"><span class="cnt" data-to="5">5</span></h3>
-                    <p class="mb-0 fw-600 text-muted">AI service lines</p>
-                </div>
-            </div>
-            
-            <div class="col">
-                <div class="box h-100 d-flex flex-column justify-content-center p-4 bg-white rounded shadow-sm border-0">
-                    <h3 class="fw-800 text-success mb-2" style="font-size: 3rem;">1<sup style="font-size: 1.5rem;">st</sup></h3>
-                    <p class="mb-0 fw-600 text-muted">Business problem, then technology</p>
-                </div>
-            </div>
-            
+                    <!-- Right Social Icons -->
+<div class="col-auto text-end">
+    <div class="header-icon"> 
+        <div class="header-social-icon icon">
+            <a href="http://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="http://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="http://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
         </div>
-    </div>
-</section>
-
-<!-- WHAT ARE AI SOLUTIONS -->
-<section class="py-5 overflow-hidden">
-    <div class="container">
-        <div class="row align-items-center">
-            
-            <!-- Left Column: Text Content -->
-            <div class="col-lg-5 rv mb-5 mb-lg-0 pe-lg-5">
-                <span class="fs-14 text-uppercase fw-700 mb-15px d-block ls-1px" style="color: #4CAF50;">Discover The Potential</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px mb-4" style="font-size: 2.5rem; line-height: 1.2;">
-                    What are AI solutions for businesses?
-                </h2>
-                <p class="mb-4 text-muted" style="font-size: 1.05rem; line-height: 1.7;">
-                    AI solutions are software systems that use artificial intelligence to perform tasks that traditionally need human input: understanding natural language, analyzing information, answering questions, generating content, making recommendations or supporting business workflows.
-                </p>
-                <p class="mb-0 text-muted" style="font-size: 1.05rem; line-height: 1.7;">
-                    Depending on the requirement, that may be a customer-facing chatbot, an internal assistant, an AI agent that performs tasks, an automated workflow, an AI feature inside existing software, or a custom AI application. The right one depends on what the business is trying to achieve, so our approach starts with the business problem rather than the technology.
-                </p>
-            </div>
-            
-            <!-- Right Column: Floating Cards -->
-            <div class="col-lg-7 rv position-relative">
-                
-                <div class="modern-floating-card">
-                    <div class="icon-wrapper"><i class="bi bi-chat-dots-fill"></i></div>
-                    <div class="card-text-content">
-                        <b class="text-dark-gray d-block mb-1 fs-18">Large volume of customer enquiries?</b>
-                        <p>An <span style="color: #4CAF50;" class="fw-700">AI chatbot</span> may be the right start.</p>
-                    </div>
-                </div>
-
-                <div class="modern-floating-card">
-                    <div class="icon-wrapper"><i class="bi bi-gear-fill"></i></div>
-                    <div class="card-text-content">
-                        <b class="text-dark-gray d-block mb-1 fs-18">Repetitive operational tasks?</b>
-                        <p><span style="color: #4CAF50;" class="fw-700">AI automation</span> can reduce the manual load.</p>
-                    </div>
-                </div>
-
-                <div class="modern-floating-card">
-                    <div class="icon-wrapper"><i class="bi bi-robot"></i></div>
-                    <div class="card-text-content">
-                        <b class="text-dark-gray d-block mb-1 fs-18">Need multi-step tasks done by an AI system?</b>
-                        <p>That's where an <span style="color: #4CAF50;" class="fw-700">AI agent</span> comes in.</p>
-                    </div>
-                </div>
-
-                <div class="modern-floating-card">
-                    <div class="icon-wrapper"><i class="bi bi-code-slash"></i></div>
-                    <div class="card-text-content">
-                        <b class="text-dark-gray d-block mb-1 fs-18">Already have software?</b>
-                        <p><span style="color: #4CAF50;" class="fw-700">AI integration</span> adds intelligence to it.</p>
-                    </div>
-                </div>
-
-                <div class="modern-floating-card">
-                    <div class="icon-wrapper"><i class="bi bi-lightbulb-fill"></i></div>
-                    <div class="card-text-content">
-                        <b class="text-dark-gray d-block mb-1 fs-18">Know AI matters but not where to begin?</b>
-                        <p><span style="color: #4CAF50;" class="fw-700">AI adoption consulting</span> maps the way.</p>
-                    </div>
-                </div>
-
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-<!-- SERVICES -->
-<section class="bg-very-light-gray pb-80px" id="services"><div class="container">
-<div class="text-center mb-50px rv"><span class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Our AI Solutions</span><h2 class="fw-800 text-dark-gray ls-minus-1px">Five ways we put AI to work</h2></div>
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-<div class="col rv" id="agents"><div class="svc tilt"><span class="no">01</span><div class="ic"><i class="bi bi-robot"></i></div><h6 class="fw-700 text-dark-gray">AI Agent Development</h6><p>Build agents that do more than chat: understand requests, use connected tools, access approved information and perform defined tasks around your workflows.</p><ul><li>Customer interactions</li><li>Lead qualification</li><li>Information retrieval</li><li>Task and workflow execution</li></ul><a href="ai-agent-developemnt.html" class="fw-600 text-dark-gray">Explore AI Agent Development →</a></div></div>
-<div class="col rv" id="chatbots"><div class="svc tilt"><span class="no">02</span><div class="ic"><i class="bi bi-chat-dots"></i></div><h6 class="fw-700 text-dark-gray">AI Chatbot Development</h6><p>Intelligent conversations for customers and teams across websites, apps and digital channels, connected to approved business information where useful.</p><ul><li>Customer support and FAQs</li><li>Lead generation</li><li>Internal employee help</li><li>Appointment and enquiry flows</li></ul><a href="ai-chatbot-developemnt.html" class="fw-600 text-dark-gray">Explore AI Chatbot Development →</a></div></div>
-<div class="col rv" id="automation"><div class="svc tilt"><span class="no">03</span><div class="ic"><i class="bi bi-cpu"></i></div><h6 class="fw-700 text-dark-gray">AI Automation</h6><p>Turn repetitive processes into intelligent workflows by combining AI with software workflows and system integrations.</p><ul><li>Data entry and documents</li><li>Lead management</li><li>Notifications and reporting</li><li>Customer communication</li></ul><a href="ai-automation.html" class="fw-600 text-dark-gray">Explore AI Automation →</a></div></div>
-<div class="col rv" id="integration"><div class="svc tilt"><span class="no">04</span><div class="ic"><i class="bi bi-diagram-3"></i></div><h6 class="fw-700 text-dark-gray">AI Integration</h6><p>No need to rebuild. We add AI to what you already run, after first understanding your technology and requirements.</p><ul><li>Websites and mobile apps</li><li>CRM and business platforms</li><li>Custom software and internal tools</li><li>Support systems and workflows</li></ul><a href="#" class="fw-600 text-dark-gray">Explore AI Integration →</a></div></div>
-<div class="col rv" id="consulting"><div class="svc tilt"><span class="no">05</span><div class="ic"><i class="bi bi-lightbulb"></i></div><h6 class="fw-700 text-dark-gray">AI Adoption &amp; Consulting</h6><p>Find where AI can create real value. We evaluate your processes and build a practical plan, not one driven by what's trending.</p><ul><li>Which processes suit AI</li><li>What can be automated</li><li>Data and system needs</li><li>What to implement first</li></ul><a href="#" class="fw-600 text-dark-gray">Explore AI Adoption &amp; Consulting →</a></div></div>
-</div></div></section>
-
-<!-- USE CASES -->
-<section><div class="container">
-<div class="text-center mb-50px rv"><h2 class="fw-800 text-dark-gray ls-minus-1px">How can AI help your business?</h2><p class="fs-18 w-60 lg-w-90 mx-auto">AI can be applied across many parts of an organization. The right opportunity depends on your processes, customers, data, existing technology and objectives.</p></div>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-<div class="col rv"><div class="uc"><i class="bi bi-headset"></i><h6 class="fw-700 text-dark-gray mt-15px">Customer Support</h6><p class="mb-0">Assistants and chatbots answer common questions and support service workflows.</p></div></div>
-<div class="col rv"><div class="uc"><i class="bi bi-graph-up-arrow"></i><h6 class="fw-700 text-dark-gray mt-15px">Sales &amp; Lead Management</h6><p class="mb-0">Lead qualification, enquiry handling, follow-ups and customer communication.</p></div></div>
-<div class="col rv"><div class="uc"><i class="bi bi-gear-wide-connected"></i><h6 class="fw-700 text-dark-gray mt-15px">Business Operations</h6><p class="mb-0">Automation that cuts repetitive tasks and connects different business systems.</p></div></div>
-<div class="col rv"><div class="uc"><i class="bi bi-file-earmark-text"></i><h6 class="fw-700 text-dark-gray mt-15px">Document Processing</h6><p class="mb-0">Extract, organize and retrieve information from documents and knowledge sources.</p></div></div>
-<div class="col rv"><div class="uc"><i class="bi bi-journal-bookmark"></i><h6 class="fw-700 text-dark-gray mt-15px">Internal Knowledge</h6><p class="mb-0">Help employees find information from approved internal resources faster.</p></div></div>
-<div class="col rv"><div class="uc"><i class="bi bi-bar-chart-line"></i><h6 class="fw-700 text-dark-gray mt-15px">Reporting &amp; BI</h6><p class="mb-0">Analyze information, generate summaries and support reporting workflows.</p></div></div>
-<div class="col rv"><div class="uc"><i class="bi bi-phone"></i><h6 class="fw-700 text-dark-gray mt-15px">Digital Products</h6><p class="mb-0">Build AI into websites, mobile apps and custom software for smarter experiences.</p></div></div>
-<div class="col rv"><div class="uc" style="background:var(--g);color:#fff"><i class="bi bi-stars" style="color:#fff"></i><h6 class="fw-700 text-white mt-15px">Your use case?</h6><p class="mb-0 text-white">Tell us the challenge and we'll work out if AI fits.</p></div></div>
-</div></div></section>
-
-
-<section class="dark-band mt-50px" style="padding-top:90px"><span class="fi sm" style="right:6%;top:40px"><i class="bi bi-lightning-charge"></i></span><span class="fi lt sm" style="left:4%;bottom:40px;animation-delay:-2s"><i class="bi bi-bar-chart"></i></span>
-<div class="container position-relative">
-  <div class="text-center mb-50px rv"><h3 class="fw-800 ls-minus-1px">Why should businesses adopt AI?</h3><p class="fs-18">AI adoption should have a clear business purpose. The potential benefits include:</p></div>
- 
-  <div class="b3d" id="b3d">
-    <div class="b3d-plane" id="b3dPlane">
-      <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-hourglass-split"></i></span><h6>Reduced Manual Work</h6><p>Automate repetitive activities so employees can focus on higher-value work.</p></div>
-      <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-chat-heart"></i></span><h6>Faster Customer Responses</h6><p>Immediate responses to common questions and requests.</p></div>
-      <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-speedometer2"></i></span><h6>Improved Efficiency</h6><p>Connect systems and automate multi-step workflows.</p></div>
-      <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-search"></i></span><h6>Better Access to Information</h6><p>Make relevant business information easier to find and understand.</p></div>
-      <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-magic"></i></span><h6>Enhanced Digital Experiences</h6><p>Add intelligent features to websites, apps and software products.</p></div>
-      <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-arrows-angle-expand"></i></span><h6>Scalable Operations</h6><p>Handle growing workloads without proportional manual effort.</p></div>
-    </div>
-  </div>
- 
-  <p class="text-center mt-40px mb-0 opacity-8">AI is not automatically the right answer for every problem. Success depends on the right use case, technology, data, integrations and workflows.</p>
-</div></section>
-
-<section class="pt-90px"><div class="container"><div class="row align-items-center">
-<div class="col-lg-5 rv">
-  <h2 class="fw-800 text-dark-gray ls-minus-1px">AI for Your Existing Business</h2>
-    <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block">You Don't Have to Start From Zero</span>
-
-  <p>One of the most practical ways for an established business to adopt AI is to enhance the technology it already uses. Instead of replacing these systems, AI capabilities can potentially be integrated into them.</p>
-  <ul class="eb-pts">
-    <li><i class="bi bi-globe"></i>Business website &amp; mobile apps</li>
-    <li><i class="bi bi-boxes"></i>CRM &amp; ERP</li>
-    <li><i class="bi bi-headset"></i>Support platforms &amp; e-commerce</li>
-    <li><i class="bi bi-hdd-network"></i>Databases &amp; APIs</li>
-  </ul>
-  <p class="mb-0">We combine AI development and software engineering to evaluate your technology and find where AI enhances it, so adoption happens within the context of your existing operations.</p>
+    </div>  
 </div>
- 
-<div class="col-lg-7 mt-50px mt-lg-0">
-  <div class="eb" id="eb" aria-hidden="true">
-    <div class="eb-stack" id="ebStack">
-      <div class="eb-lay"><div class="eb-ic"><i class="bi bi-database"></i><i class="bi bi-hdd-network"></i></div><div><b>Databases &amp; APIs</b><small>Your data stays where it is</small></div></div>
-      <div class="eb-lay"><div class="eb-ic"><i class="bi bi-person-lines-fill"></i><i class="bi bi-boxes"></i><i class="bi bi-headset"></i></div><div><b>CRM, ERP &amp; support</b><small>Your business systems</small></div></div>
-      <div class="eb-lay"><div class="eb-ic"><i class="bi bi-globe"></i><i class="bi bi-phone"></i><i class="bi bi-cart"></i></div><div><b>Website, apps &amp; e-commerce</b><small>What your customers use</small></div></div>
-      <div class="eb-lay ai"><div class="core">AI</div><div><b>AI layer added on top</b><small>Agents, chatbots and automation</small></div></div>
-      <div class="eb-beam"></div>
-    </div>
-  </div>
-</div>
-</div></div></section>
+      </div>
+    </nav>
+  </header>
 
-<!-- PROCESS -->
-<section class="bg-very-light-gray pb-80px"><div class="container">
-<div class="text-center mb-60px rv"><h2 class="fw-800 text-dark-gray ls-minus-1px">Our Approach to AI Development
-</h2>
-<span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block">From Business Problem to AI Solution
-</span>
+  <!-- HERO -->
+  <section class="ai-hero" id="hero">
 
-<p class="fs-18">A structured approach that keeps the AI solution aligned with the actual business requirement.</p></div>
-<div class="tl" id="tl"><div class="prog" id="prog"></div>
-<div class="st"><div class="n">01</div><h6 class="fw-700 text-dark-gray mb-5px">Discover</h6><p class="mb-0">We understand your business, users, processes, objectives and existing technology.</p></div>
-<div class="st"><div class="n">02</div><h6 class="fw-700 text-dark-gray mb-5px">Identify</h6><p class="mb-0">We identify potential AI use cases and where AI can provide practical value.</p></div>
-<div class="st"><div class="n">03</div><h6 class="fw-700 text-dark-gray mb-5px">Evaluate</h6><p class="mb-0">We assess technical requirements, integrations, data, workflows and implementation considerations.</p></div>
-<div class="st"><div class="n">04</div><h6 class="fw-700 text-dark-gray mb-5px">Design</h6><p class="mb-0">We define the AI solution, user experience, workflow and technology architecture.</p></div>
-<div class="st"><div class="n">05</div><h6 class="fw-700 text-dark-gray mb-5px">Develop &amp; Integrate</h6><p class="mb-0">We build the solution and connect it with the required applications, APIs, databases or business systems.</p></div>
-<div class="st"><div class="n">06</div><h6 class="fw-700 text-dark-gray mb-5px">Test &amp; Deploy</h6><p class="mb-0">The solution is tested, refined and prepared for real-world implementation.</p></div>
-<div class="st"><div class="n">07</div><h6 class="fw-700 text-dark-gray mb-5px">Improve</h6><p class="mb-0">AI solutions evolve. We enhance functionality, improve workflows and add capabilities as your requirements develop.</p></div>
-</div></div></section>
-
-
-<!-- start section : Why choose -->
-<section>
-  <div class="container">
-    <div class="row justify-content-center mb-5 md-mb-40px">
-      <div class="col-xl-8 col-lg-9 text-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-        <h3 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Why Choose AD Soft Technologies for AI?</h3>
-        <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block mb-15px">AI Backed by Real Software Engineering</span>
-        <p class="fs-18 mb-0">AI solutions rarely exist alone. They need websites, apps, databases, APIs, authentication and cloud infrastructure around them. That's where our software development experience helps.</p>
+    <span class="fi sm hero-fi" data-d="-35" style="right:3%;top:16%;animation-delay:-2s"><i
+        class="bi bi-cpu"></i></span>
+    <div class="container position-relative" style="z-index:4">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span
+            class="d-inline-block bg-white border-radius-100px ps-20px pe-20px fs-14 fw-600 text-base-color mb-20px box-shadow-large">●
+            AI Solutions for Businesses</span>
+          <h1 class="fs-55 lg-fs-50 md-fs-40 sm-fs-32 text-dark-gray lh-60 md-lh-46 fw-800 ls-minus-2px mb-20px"><span
+              id="typer"></span><span class="blink text-base-color">|</span></h1>
+          <p class="fs-18 w-85 lg-w-100 mb-30px">AD Soft Technologies helps businesses in Kerala and international
+            markets explore, develop and integrate practical AI into their operations and digital products, from AI
+            agents and chatbots to automation and adoption consulting.</p>
+          <a href="demo-marketing-contact.html"
+            class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-15px xs-mb-10px"><span><span
+                class="btn-text">Talk to Our AI Experts</span><span class="btn-icon"><i
+                  class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i
+                  class="feather icon-feather-arrow-right"></i></span></span></a>
+          <a href="demo-marketing-contact.html"
+            class="btn btn-large btn-white btn-round-edge btn-box-shadow fw-600">Discuss Your AI Requirement</a>
+        </div>
+        <div class="col-lg-5 mt-50px lg-mt-0 d-none d-lg-block">
+          <div class="chat" aria-hidden="true">
+            <div class="d-flex align-items-center mb-15px"><span class="fi sm"
+                style="position:static;width:42px;height:42px;animation:none"><i class="bi bi-robot"
+                  style="font-size:18px"></i></span><b class="ms-10px text-dark-gray">AD Soft AI Agent</b><span
+                class="ms-auto fs-12 text-base-color">● online</span></div>
+            <div class="m u">Where can AI help my business?</div>
+            <div class="m a">Tell me what eats your team's time. I'll map it to an agent, chatbot or automation.</div>
+            <div class="m u">Enquiries, follow-ups and reports.</div>
+            <div class="m a">Great fit for automation. <span class="dots"><span></span><span></span><span></span></span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
- 
-    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-      <div class="col mb-30px"><div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
-        <div class="ico3d"><i class="bi bi-trophy"></i></div>
-        <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">20+ Projects Delivered</h6>
-        <p class="mb-0">Completed across different business requirements and digital product categories.</p></div></div>
-      <div class="col mb-30px"><div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
-        <div class="ico3d"><i class="bi bi-globe-europe-africa"></i></div>
-        <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">International Experience</h6>
-        <p class="mb-0">Clients in India, Europe and the USA, with exposure to different business environments.</p></div></div>
-      <div class="col mb-30px"><div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
-        <div class="ico3d"><i class="bi bi-layers"></i></div>
-        <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">AI + Software Capability</h6>
-        <p class="mb-0">Complete digital solutions rather than isolated AI features.</p></div></div>
-      <div class="col mb-30px"><div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
-        <div class="ico3d"><i class="bi bi-sliders"></i></div>
-        <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">Custom Approach</h6>
-        <p class="mb-0">Built around your processes, users, requirements and objectives.</p></div></div>
-      <div class="col mb-30px"><div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
-        <div class="ico3d"><i class="bi bi-compass"></i></div>
-        <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">Practical AI Adoption</h6>
-        <p class="mb-0">Meaningful value over technology recommended just because it's new.</p></div></div>
-      <div class="col mb-30px"><div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
-        <div class="ico3d"><i class="bi bi-arrow-repeat"></i></div>
-        <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">End-to-End Support</h6>
-        <p class="mb-0">Discovery and planning through development, integration, deployment and improvements.</p></div></div>
-    </div>
- 
-    <!-- Who can benefit / When to consider -->
-    <div class="row row-cols-1 row-cols-lg-2 mt-50px" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-      <div class="col mb-30px"><div class="bg-white p-40px sm-p-30px h-100 border-radius-6px box-shadow-large border-top border-4 border-color-base-color">
-        <h5 class="fw-700 text-dark-gray mb-20px fs-22">Who Can Benefit From Our AI Solutions?</h5>
-        <ul class="list-idx mb-25px">
-        <p class="mb-15px fw-600 ">Our AI services can be adapted for different types of organizations, including:</p>
-          <li><i class="feather icon-feather-check"></i>Startups developing AI-powered products</li>
-          <li><i class="feather icon-feather-check"></i>Small and medium-sized businesses exploring automation</li>
-          <li><i class="feather icon-feather-check"></i>Established businesses looking to modernize operations</li>
-          <li><i class="feather icon-feather-check"></i>Companies with existing software that want to add AI</li>
-          <li><i class="feather icon-feather-check"></i>Organizations improving customer support</li>
-          <li><i class="feather icon-feather-check"></i>Businesses with repetitive operational workflows</li>
-          <li><i class="feather icon-feather-check"></i>Companies building new websites, mobile applications or software products</li>
-        </ul>
-        <p class="mb-0 fw-600 text-dark-gray">The important factor is not the size of the business. It is whether there is a genuine business problem that AI or automation can help solve.</p>
-      </div></div>
-      <div class="col mb-30px"><div class="bg-white p-40px sm-p-30px h-100 border-radius-6px box-shadow-large border-top border-4 border-color-base-color">
-        <h5 class="fw-700 text-dark-gray mb-20px fs-22">When Should Your Business Consider AI?</h5>
-        <ul class="list-idx mb-25px">
-            <p class="mb-15px fw-600 ">You may want to explore AI if your business regularly faces challenges such as:</p>
-          <li><i class="bi bi-lightning-charge-fill"></i>Employees spend too long on repetitive tasks</li>
-          <li><i class="bi bi-lightning-charge-fill"></i>Large volumes of customer enquiries</li>
-          <li><i class="bi bi-lightning-charge-fill"></i>Difficulty finding information quickly</li>
-          <li><i class="bi bi-lightning-charge-fill"></i>Manual document or data processing</li>
-          <li><i class="bi bi-lightning-charge-fill"></i>Repetitive reporting and slow responses</li>
-          <li><i class="bi bi-lightning-charge-fill"></i>Multiple disconnected business systems</li>
-          <li><i class="bi bi-lightning-charge-fill"></i>Existing software that could be smarter</li>
-          <li><i class="bi bi-lightning-charge-fill"></i>A need to scale operations efficiently</li>
-        </ul>
-        <p class="mb-0 fw-600 text-dark-gray">If you recognize one or more of these challenges, an AI assessment can help determine whether AI is actually the right solution.</p>
-      </div></div>
+  </section>
+
+
+
+  <div class="mq" aria-hidden="true">
+    <div><span>AI
+        AGENTS</span><b>✦</b><span>CHATBOTS</span><b>✦</b><span>AUTOMATION</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>CONSULTING</span><b>✦</b><span>AI
+        AGENTS</span><b>✦</b><span>CHATBOTS</span><b>✦</b><span>AUTOMATION</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>CONSULTING</span><b>✦</b><span>AI
+        AGENTS</span><b>✦</b><span>CHATBOTS</span><b>✦</b><span>AUTOMATION</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>CONSULTING</span><b>✦</b>
     </div>
   </div>
-</section>
-<!-- end section -->
- 
-<!-- Replace your whole FAQ <section> with this -->
-<section class="bg-very-light-gray">
-  <div class="container">
-    <div class="row justify-content-center mb-5 md-mb-40px">
-      <div class="col-xl-8 col-lg-9 text-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-        <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Got Questions?</span>
-        <h3 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Frequently Asked Questions About AI Solutions</h3>
-        <p class="fs-18 mb-0">Clear answers about our AI agents, chatbots, automation, integration and consulting services.</p>
+
+  <section class="overflow-hidden">
+    <div class="container">
+
+      <!-- Top Centered Heading Section -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center"
+          data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 0, "easing": "easeOutQuad" }'>
+          <span class="fs-14 text-uppercase fw-700 mb-15px d-block ls-1px" style="color: #4CAF50;">AI Solutions for
+            Businesses</span>
+          <h2 class="fw-700 text-dark-gray ls-minus-1px mb-0" style="font-size: 2.8rem; line-height: 1.2;">
+            Build Smarter. Automate Faster. Grow with AI.
+          </h2>
+        </div>
       </div>
+
+      <!-- Image and Text Content Section -->
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-11 offset-lg-0 offset-md-1 position-relative md-mb-20px">
+          <figure class="position-relative m-0 text-center"
+            data-anime='{ "effect": "slide", "color": "#fff2ef", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+            <img src="images/why-03.png" alt="AI Solutions">
+          </figure>
+        </div>
+
+        <div class="col-xl-5 offset-xl-1 col-lg-6"
+          data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+
+          <p class="w-95 md-w-100 mb-10px text-muted" style="font-size: 1.05rem; line-height: 1.7;">
+            Artificial intelligence is changing how businesses interact with customers, manage operations and build
+            digital products. But adopting AI successfully is not simply about adding a chatbot or using the latest AI
+            model. Businesses need to identify the right use cases, choose appropriate technologies and integrate AI
+            into workflows where it can create measurable value.
+          </p>
+
+          <p class="w-95 md-w-100 mb-10px"><strong>AD Soft Technologies</strong> provides AI solutions for businesses in
+            Kerala and international markets, helping organizations explore, develop and integrate practical AI
+            technologies into their existing operations and digital products.</p>
+          <p class="w-95 md-w-100 mb-10px">From<strong> AI agent development and AI chatbot development to AI
+              automation, AI integration and AI adoption consulting</strong> we help businesses move from an AI idea to
+            a working solution.</p>
+          <p class="w-95 md-w-100 mb-10px">With<strong> 20+ projects delivered</strong>and experience working with
+            clients in <strong> India, Europe and the USA,</strong> our approach combines software development
+            experience with modern AI capabilities to build solutions around real business requirements.</p>
+
+
+
+          <!-- Buttons placed on a single line -->
+          <div class="d-flex align-items-center mt-4">
+            <a href="#"
+              class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-4">
+              <span>
+                <span class="btn-text">Talk to Our AI Experts</span>
+                <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
+                <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
+              </span>
+            </a>
+            <a href="#" class="btn btn-link btn-hover-animation-switch btn-extra-large text-dark-gray fw-600 p-0">
+              <span>
+                <span class="btn-text">Discuss Your AI Requirement</span>
+                <span class="btn-icon"><i class="bi bi-caret-right-fill"></i></span>
+                <span class="btn-icon"><i class="bi bi-caret-right-fill"></i></span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
     </div>
 
-    <!-- Two-column equal height -->
-    <div class="row align-items-stretch">
+  </section>
+  <!-- STATS -->
+  <section class="strip pb-0 py-5">
+    <div class="container">
+      <!-- 'align-items-stretch' um 'g-4' um upayogichittundu gap-num equal height-num vendi -->
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center rv align-items-stretch">
 
-      <!-- Left column: FAQ 1-5 -->
-      <div class="col-lg-6 md-mb-30px d-flex flex-column">
-        <div class="accordion accordion-style-02 h-100 d-flex flex-column justify-content-between" id="faq-accordion-left" data-active-icon="icon-feather-minus" data-inactive-icon="icon-feather-plus">
+        <div class="col">
+          <div class="box h-100 d-flex flex-column justify-content-center p-4 bg-white rounded shadow-sm border-0">
+            <h3 class="fw-800 text-success mb-2" style="font-size: 3rem;"><span class="cnt" data-to="20">20</span>+</h3>
+            <p class="mb-0 fw-600 text-muted">Projects delivered</p>
+          </div>
+        </div>
 
-          <div class="accordion-item active-accordion">
-            <div class="accordion-header border-bottom border-color-extra-medium-gray">
-              <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="true" data-bs-parent="#faq-accordion-left">
-                <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-minus"></i><span class="fw-600 fs-17 ls-minus-05px">1. What AI solutions does AD Soft Technologies provide?</span></div>
-              </a>
-            </div>
-            <div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#faq-accordion-left">
-              <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>AD Soft Technologies provides AI agent development, AI chatbot development, AI automation, AI integration and AI adoption and consulting services. We can also incorporate AI capabilities into websites, mobile applications and custom software.</p></div>
+        <div class="col">
+          <div class="box h-100 d-flex flex-column justify-content-center p-4 bg-white rounded shadow-sm border-0">
+            <h3 class="fw-800 text-success mb-2" style="font-size: 3rem;"><span class="cnt" data-to="3">3</span></h3>
+            <p class="mb-0 fw-600 text-muted">Regions: India, Europe, USA</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="box h-100 d-flex flex-column justify-content-center p-4 bg-white rounded shadow-sm border-0">
+            <h3 class="fw-800 text-success mb-2" style="font-size: 3rem;"><span class="cnt" data-to="5">5</span></h3>
+            <p class="mb-0 fw-600 text-muted">AI service lines</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="box h-100 d-flex flex-column justify-content-center p-4 bg-white rounded shadow-sm border-0">
+            <h3 class="fw-800 text-success mb-2" style="font-size: 3rem;">1<sup style="font-size: 1.5rem;">st</sup></h3>
+            <p class="mb-0 fw-600 text-muted">Business problem, then technology</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT ARE AI SOLUTIONS -->
+  <section class="py-5 overflow-hidden">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <!-- Left Column: Text Content -->
+        <div class="col-lg-5 rv mb-5 mb-lg-0 pe-lg-5">
+          <span class="fs-14 text-uppercase fw-700 mb-15px d-block ls-1px" style="color: #4CAF50;">Discover The
+            Potential</span>
+          <h2 class="fw-800 text-dark-gray ls-minus-1px mb-4" style="font-size: 2.5rem; line-height: 1.2;">
+            What are AI solutions for businesses?
+          </h2>
+          <p class="mb-4 text-muted" style="font-size: 1.05rem; line-height: 1.7;">
+            AI solutions are software systems that use artificial intelligence to perform tasks that traditionally need
+            human input: understanding natural language, analyzing information, answering questions, generating content,
+            making recommendations or supporting business workflows.
+          </p>
+          <p class="mb-0 text-muted" style="font-size: 1.05rem; line-height: 1.7;">
+            Depending on the requirement, that may be a customer-facing chatbot, an internal assistant, an AI agent that
+            performs tasks, an automated workflow, an AI feature inside existing software, or a custom AI application.
+            The right one depends on what the business is trying to achieve, so our approach starts with the business
+            problem rather than the technology.
+          </p>
+        </div>
+
+        <!-- Right Column: Floating Cards -->
+        <div class="col-lg-7 rv position-relative">
+
+          <div class="modern-floating-card">
+            <div class="icon-wrapper"><i class="bi bi-chat-dots-fill"></i></div>
+            <div class="card-text-content">
+              <b class="text-dark-gray d-block mb-1 fs-18">Large volume of customer enquiries?</b>
+              <p>An <span style="color: #4CAF50;" class="fw-700">AI chatbot</span> may be the right start.</p>
             </div>
           </div>
 
-          <div class="accordion-item">
-            <div class="accordion-header border-bottom border-color-extra-medium-gray">
-              <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" data-bs-parent="#faq-accordion-left">
-                <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">2. How can AI help a small or medium-sized business?</span></div>
-              </a>
-            </div>
-            <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
-              <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>AI can help businesses automate repetitive processes, improve customer support, assist employees, process information and enhance digital products. The most suitable use cases depend on the individual business and its existing workflows.</p></div>
+          <div class="modern-floating-card">
+            <div class="icon-wrapper"><i class="bi bi-gear-fill"></i></div>
+            <div class="card-text-content">
+              <b class="text-dark-gray d-block mb-1 fs-18">Repetitive operational tasks?</b>
+              <p><span style="color: #4CAF50;" class="fw-700">AI automation</span> can reduce the manual load.</p>
             </div>
           </div>
 
-          <div class="accordion-item">
-            <div class="accordion-header border-bottom border-color-extra-medium-gray">
-              <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" data-bs-parent="#faq-accordion-left">
-                <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">3. Do we need to replace our existing software to adopt AI?</span></div>
-              </a>
-            </div>
-            <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
-              <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>No. In many situations, AI can be integrated with existing websites, applications, CRM systems, ERP platforms, APIs and custom software. The appropriate approach depends on the current technology architecture and business requirements.</p></div>
+          <div class="modern-floating-card">
+            <div class="icon-wrapper"><i class="bi bi-robot"></i></div>
+            <div class="card-text-content">
+              <b class="text-dark-gray d-block mb-1 fs-18">Need multi-step tasks done by an AI system?</b>
+              <p>That's where an <span style="color: #4CAF50;" class="fw-700">AI agent</span> comes in.</p>
             </div>
           </div>
 
-          <div class="accordion-item">
-            <div class="accordion-header border-bottom border-color-extra-medium-gray">
-              <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" data-bs-parent="#faq-accordion-left">
-                <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">4. What is the difference between AI automation and AI agents?</span></div>
-              </a>
-            </div>
-            <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
-              <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>AI automation generally focuses on automating predefined workflows or repetitive processes. AI agents can be designed to interpret requests, make decisions within defined boundaries, use tools and perform multiple steps to accomplish a task. Some solutions combine both approaches.</p></div>
+          <div class="modern-floating-card">
+            <div class="icon-wrapper"><i class="bi bi-code-slash"></i></div>
+            <div class="card-text-content">
+              <b class="text-dark-gray d-block mb-1 fs-18">Already have software?</b>
+              <p><span style="color: #4CAF50;" class="fw-700">AI integration</span> adds intelligence to it.</p>
             </div>
           </div>
 
-          <div class="accordion-item">
-            <div class="accordion-header border-bottom border-color-transparent">
-              <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false" data-bs-parent="#faq-accordion-left">
-                <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">5. Can you develop a custom AI chatbot for our business?</span></div>
-              </a>
-            </div>
-            <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
-              <div class="accordion-body last-paragraph-no-margin border-bottom border-color-transparent"><p>Yes. We can develop AI chatbots based on specific business requirements and integrate them with appropriate knowledge sources, applications or workflows where required.</p></div>
+          <div class="modern-floating-card">
+            <div class="icon-wrapper"><i class="bi bi-lightbulb-fill"></i></div>
+            <div class="card-text-content">
+              <b class="text-dark-gray d-block mb-1 fs-18">Know AI matters but not where to begin?</b>
+              <p><span style="color: #4CAF50;" class="fw-700">AI adoption consulting</span> maps the way.</p>
             </div>
           </div>
 
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="bg-very-light-gray pb-80px" id="services">
+    <div class="container">
+      <div class="text-center mb-50px rv"><span
+          class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Our AI Solutions</span>
+        <h2 class="fw-800 text-dark-gray ls-minus-1px">Five ways we put AI to work</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+        <div class="col rv" id="agents">
+          <div class="svc tilt"><span class="no">01</span>
+            <div class="ic"><i class="bi bi-robot"></i></div>
+            <h6 class="fw-700 text-dark-gray">AI Agent Development</h6>
+            <p>Build agents that do more than chat: understand requests, use connected tools, access approved
+              information and perform defined tasks around your workflows.</p>
+            <ul>
+              <li>Customer interactions</li>
+              <li>Lead qualification</li>
+              <li>Information retrieval</li>
+              <li>Task and workflow execution</li>
+            </ul><a href="ai-agent-developemnt.html" class="fw-600 text-dark-gray">Explore AI Agent Development →</a>
+          </div>
+        </div>
+        <div class="col rv" id="chatbots">
+          <div class="svc tilt"><span class="no">02</span>
+            <div class="ic"><i class="bi bi-chat-dots"></i></div>
+            <h6 class="fw-700 text-dark-gray">AI Chatbot Development</h6>
+            <p>Intelligent conversations for customers and teams across websites, apps and digital channels, connected
+              to approved business information where useful.</p>
+            <ul>
+              <li>Customer support and FAQs</li>
+              <li>Lead generation</li>
+              <li>Internal employee help</li>
+              <li>Appointment and enquiry flows</li>
+            </ul><a href="ai-chatbot-developemnt.html" class="fw-600 text-dark-gray">Explore AI Chatbot Development
+              →</a>
+          </div>
+        </div>
+        <div class="col rv" id="automation">
+          <div class="svc tilt"><span class="no">03</span>
+            <div class="ic"><i class="bi bi-cpu"></i></div>
+            <h6 class="fw-700 text-dark-gray">AI Automation</h6>
+            <p>Turn repetitive processes into intelligent workflows by combining AI with software workflows and system
+              integrations.</p>
+            <ul>
+              <li>Data entry and documents</li>
+              <li>Lead management</li>
+              <li>Notifications and reporting</li>
+              <li>Customer communication</li>
+            </ul><a href="ai-automation.html" class="fw-600 text-dark-gray">Explore AI Automation →</a>
+          </div>
+        </div>
+        <div class="col rv" id="integration">
+          <div class="svc tilt"><span class="no">04</span>
+            <div class="ic"><i class="bi bi-diagram-3"></i></div>
+            <h6 class="fw-700 text-dark-gray">AI Integration</h6>
+            <p>No need to rebuild. We add AI to what you already run, after first understanding your technology and
+              requirements.</p>
+            <ul>
+              <li>Websites and mobile apps</li>
+              <li>CRM and business platforms</li>
+              <li>Custom software and internal tools</li>
+              <li>Support systems and workflows</li>
+            </ul><a href="#" class="fw-600 text-dark-gray">Explore AI Integration →</a>
+          </div>
+        </div>
+        <div class="col rv" id="consulting">
+          <div class="svc tilt"><span class="no">05</span>
+            <div class="ic"><i class="bi bi-lightbulb"></i></div>
+            <h6 class="fw-700 text-dark-gray">AI Adoption &amp; Consulting</h6>
+            <p>Find where AI can create real value. We evaluate your processes and build a practical plan, not one
+              driven by what's trending.</p>
+            <ul>
+              <li>Which processes suit AI</li>
+              <li>What can be automated</li>
+              <li>Data and system needs</li>
+              <li>What to implement first</li>
+            </ul><a href="#" class="fw-600 text-dark-gray">Explore AI Adoption &amp; Consulting →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section>
+    <div class="container">
+      <div class="text-center mb-50px rv">
+        <h2 class="fw-800 text-dark-gray ls-minus-1px">How can AI help your business?</h2>
+        <p class="fs-18 w-60 lg-w-90 mx-auto">AI can be applied across many parts of an organization. The right
+          opportunity depends on your processes, customers, data, existing technology and objectives.</p>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+        <div class="col rv">
+          <div class="uc"><i class="bi bi-headset"></i>
+            <h6 class="fw-700 text-dark-gray mt-15px">Customer Support</h6>
+            <p class="mb-0">Assistants and chatbots answer common questions and support service workflows.</p>
+          </div>
+        </div>
+        <div class="col rv">
+          <div class="uc"><i class="bi bi-graph-up-arrow"></i>
+            <h6 class="fw-700 text-dark-gray mt-15px">Sales &amp; Lead Management</h6>
+            <p class="mb-0">Lead qualification, enquiry handling, follow-ups and customer communication.</p>
+          </div>
+        </div>
+        <div class="col rv">
+          <div class="uc"><i class="bi bi-gear-wide-connected"></i>
+            <h6 class="fw-700 text-dark-gray mt-15px">Business Operations</h6>
+            <p class="mb-0">Automation that cuts repetitive tasks and connects different business systems.</p>
+          </div>
+        </div>
+        <div class="col rv">
+          <div class="uc"><i class="bi bi-file-earmark-text"></i>
+            <h6 class="fw-700 text-dark-gray mt-15px">Document Processing</h6>
+            <p class="mb-0">Extract, organize and retrieve information from documents and knowledge sources.</p>
+          </div>
+        </div>
+        <div class="col rv">
+          <div class="uc"><i class="bi bi-journal-bookmark"></i>
+            <h6 class="fw-700 text-dark-gray mt-15px">Internal Knowledge</h6>
+            <p class="mb-0">Help employees find information from approved internal resources faster.</p>
+          </div>
+        </div>
+        <div class="col rv">
+          <div class="uc"><i class="bi bi-bar-chart-line"></i>
+            <h6 class="fw-700 text-dark-gray mt-15px">Reporting &amp; BI</h6>
+            <p class="mb-0">Analyze information, generate summaries and support reporting workflows.</p>
+          </div>
+        </div>
+        <div class="col rv">
+          <div class="uc"><i class="bi bi-phone"></i>
+            <h6 class="fw-700 text-dark-gray mt-15px">Digital Products</h6>
+            <p class="mb-0">Build AI into websites, mobile apps and custom software for smarter experiences.</p>
+          </div>
+        </div>
+        <div class="col rv">
+          <div class="uc" style="background:var(--g);color:#fff"><i class="bi bi-stars" style="color:#fff"></i>
+            <h6 class="fw-700 text-white mt-15px">Your use case?</h6>
+            <p class="mb-0 text-white">Tell us the challenge and we'll work out if AI fits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="dark-band mt-50px" style="padding-top:90px"><span class="fi sm" style="right:6%;top:40px"><i
+        class="bi bi-lightning-charge"></i></span><span class="fi lt sm"
+      style="left:4%;bottom:40px;animation-delay:-2s"><i class="bi bi-bar-chart"></i></span>
+    <div class="container position-relative">
+      <div class="text-center mb-50px rv">
+        <h3 class="fw-800 ls-minus-1px">Why should businesses adopt AI?</h3>
+        <p class="fs-18">AI adoption should have a clear business purpose. The potential benefits include:</p>
       </div>
 
-      <!-- Right column: FAQ 6-10 -->
-      <div class="col-lg-6 d-flex flex-column">
-        <div class="accordion accordion-style-02 h-100 d-flex flex-column justify-content-between" id="faq-accordion-right" data-active-icon="icon-feather-minus" data-inactive-icon="icon-feather-plus">
-
-          <div class="accordion-item">
-            <div class="accordion-header border-bottom border-color-extra-medium-gray">
-              <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-6" aria-expanded="false" data-bs-parent="#faq-accordion-right">
-                <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">6. Can AI be integrated into an existing website or mobile app?</span></div>
-              </a>
-            </div>
-            <div id="faq-6" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
-              <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>Yes. AI functionality can potentially be integrated into existing websites and mobile applications through APIs, backend services and other appropriate technologies. We evaluate the existing system before recommending an implementation approach.</p></div>
-            </div>
+      <div class="b3d" id="b3d">
+        <div class="b3d-plane" id="b3dPlane">
+          <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-hourglass-split"></i></span>
+            <h6>Reduced Manual Work</h6>
+            <p>Automate repetitive activities so employees can focus on higher-value work.</p>
           </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header border-bottom border-color-extra-medium-gray">
-              <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-7" aria-expanded="false" data-bs-parent="#faq-accordion-right">
-                <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">7. How do we know which AI solution is right for us?</span></div>
-              </a>
-            </div>
-            <div id="faq-7" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
-              <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>The right solution depends on your business objective. A customer-support requirement may benefit from a chatbot, while a multi-step operational workflow may require an AI agent or automation. Our AI Adoption &amp; Consulting service can help identify suitable opportunities.</p></div>
-            </div>
+          <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-chat-heart"></i></span>
+            <h6>Faster Customer Responses</h6>
+            <p>Immediate responses to common questions and requests.</p>
           </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header border-bottom border-color-extra-medium-gray">
-              <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-8" aria-expanded="false" data-bs-parent="#faq-accordion-right">
-                <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">8. Do you provide AI consulting before development?</span></div>
-              </a>
-            </div>
-            <div id="faq-8" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
-              <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>Yes. AI Adoption &amp; Consulting can help businesses identify AI opportunities, evaluate use cases, prioritize projects and develop a practical implementation roadmap before development begins.</p></div>
-            </div>
+          <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-speedometer2"></i></span>
+            <h6>Improved Efficiency</h6>
+            <p>Connect systems and automate multi-step workflows.</p>
           </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header border-bottom border-color-extra-medium-gray">
-              <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-9" aria-expanded="false" data-bs-parent="#faq-accordion-right">
-                <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">9. Does AD Soft Technologies work with international clients?</span></div>
-              </a>
-            </div>
-            <div id="faq-9" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
-              <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray"><p>Yes. AD Soft Technologies has completed projects for clients in India and has experience working with clients in Europe and the USA.</p></div>
-            </div>
+          <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-search"></i></span>
+            <h6>Better Access to Information</h6>
+            <p>Make relevant business information easier to find and understand.</p>
           </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header border-bottom border-color-transparent">
-              <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-10" aria-expanded="false" data-bs-parent="#faq-accordion-right">
-                <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">10. How can we get started with an AI project?</span></div>
-              </a>
-            </div>
-            <div id="faq-10" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
-              <div class="accordion-body last-paragraph-no-margin border-bottom border-color-transparent"><p>Start by sharing your business challenge, existing system or AI idea with our team. We can understand your requirements, discuss potential approaches and determine whether AI, automation, software development or integration is the most appropriate solution.</p></div>
-            </div>
+          <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-magic"></i></span>
+            <h6>Enhanced Digital Experiences</h6>
+            <p>Add intelligent features to websites, apps and software products.</p>
           </div>
-
+          <div class="b3d-item"><span class="b3d-ico"><i class="bi bi-arrows-angle-expand"></i></span>
+            <h6>Scalable Operations</h6>
+            <p>Handle growing workloads without proportional manual effort.</p>
+          </div>
         </div>
       </div>
 
+      <p class="text-center mt-40px mb-0 opacity-8">AI is not automatically the right answer for every problem. Success
+        depends on the right use case, technology, data, integrations and workflows.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Keep this empty hidden div ONLY so your old FAQ script (getElementById('faq')) doesn't throw an error.
+  <section class="pt-90px">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5 rv">
+          <h2 class="fw-800 text-dark-gray ls-minus-1px">AI for Your Existing Business</h2>
+          <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block">You Don't Have to Start From
+            Zero</span>
+
+          <p>One of the most practical ways for an established business to adopt AI is to enhance the technology it
+            already uses. Instead of replacing these systems, AI capabilities can potentially be integrated into them.
+          </p>
+          <ul class="eb-pts">
+            <li><i class="bi bi-globe"></i>Business website &amp; mobile apps</li>
+            <li><i class="bi bi-boxes"></i>CRM &amp; ERP</li>
+            <li><i class="bi bi-headset"></i>Support platforms &amp; e-commerce</li>
+            <li><i class="bi bi-hdd-network"></i>Databases &amp; APIs</li>
+          </ul>
+          <p class="mb-0">We combine AI development and software engineering to evaluate your technology and find where
+            AI enhances it, so adoption happens within the context of your existing operations.</p>
+        </div>
+
+        <div class="col-lg-7 mt-50px mt-lg-0">
+          <div class="eb" id="eb" aria-hidden="true">
+            <div class="eb-stack" id="ebStack">
+              <div class="eb-lay">
+                <div class="eb-ic"><i class="bi bi-database"></i><i class="bi bi-hdd-network"></i></div>
+                <div><b>Databases &amp; APIs</b><small>Your data stays where it is</small></div>
+              </div>
+              <div class="eb-lay">
+                <div class="eb-ic"><i class="bi bi-person-lines-fill"></i><i class="bi bi-boxes"></i><i
+                    class="bi bi-headset"></i></div>
+                <div><b>CRM, ERP &amp; support</b><small>Your business systems</small></div>
+              </div>
+              <div class="eb-lay">
+                <div class="eb-ic"><i class="bi bi-globe"></i><i class="bi bi-phone"></i><i class="bi bi-cart"></i>
+                </div>
+                <div><b>Website, apps &amp; e-commerce</b><small>What your customers use</small></div>
+              </div>
+              <div class="eb-lay ai">
+                <div class="core">AI</div>
+                <div><b>AI layer added on top</b><small>Agents, chatbots and automation</small></div>
+              </div>
+              <div class="eb-beam"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="bg-very-light-gray pb-80px">
+    <div class="container">
+      <div class="text-center mb-60px rv">
+        <h2 class="fw-800 text-dark-gray ls-minus-1px">Our Approach to AI Development
+        </h2>
+        <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block">From Business Problem to AI Solution
+        </span>
+
+        <p class="fs-18">A structured approach that keeps the AI solution aligned with the actual business requirement.
+        </p>
+      </div>
+      <div class="tl" id="tl">
+        <div class="prog" id="prog"></div>
+        <div class="st">
+          <div class="n">01</div>
+          <h6 class="fw-700 text-dark-gray mb-5px">Discover</h6>
+          <p class="mb-0">We understand your business, users, processes, objectives and existing technology.</p>
+        </div>
+        <div class="st">
+          <div class="n">02</div>
+          <h6 class="fw-700 text-dark-gray mb-5px">Identify</h6>
+          <p class="mb-0">We identify potential AI use cases and where AI can provide practical value.</p>
+        </div>
+        <div class="st">
+          <div class="n">03</div>
+          <h6 class="fw-700 text-dark-gray mb-5px">Evaluate</h6>
+          <p class="mb-0">We assess technical requirements, integrations, data, workflows and implementation
+            considerations.</p>
+        </div>
+        <div class="st">
+          <div class="n">04</div>
+          <h6 class="fw-700 text-dark-gray mb-5px">Design</h6>
+          <p class="mb-0">We define the AI solution, user experience, workflow and technology architecture.</p>
+        </div>
+        <div class="st">
+          <div class="n">05</div>
+          <h6 class="fw-700 text-dark-gray mb-5px">Develop &amp; Integrate</h6>
+          <p class="mb-0">We build the solution and connect it with the required applications, APIs, databases or
+            business systems.</p>
+        </div>
+        <div class="st">
+          <div class="n">06</div>
+          <h6 class="fw-700 text-dark-gray mb-5px">Test &amp; Deploy</h6>
+          <p class="mb-0">The solution is tested, refined and prepared for real-world implementation.</p>
+        </div>
+        <div class="st">
+          <div class="n">07</div>
+          <h6 class="fw-700 text-dark-gray mb-5px">Improve</h6>
+          <p class="mb-0">AI solutions evolve. We enhance functionality, improve workflows and add capabilities as your
+            requirements develop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- start section : Why choose -->
+  <section>
+    <div class="container">
+      <div class="row justify-content-center mb-5 md-mb-40px">
+        <div class="col-xl-8 col-lg-9 text-center"
+          data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+          <h3 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Why Choose AD Soft Technologies for AI?</h3>
+          <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block mb-15px">AI Backed by Real Software
+            Engineering</span>
+          <p class="fs-18 mb-0">AI solutions rarely exist alone. They need websites, apps, databases, APIs,
+            authentication and cloud infrastructure around them. That's where our software development experience helps.
+          </p>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center"
+        data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+        <div class="col mb-30px">
+          <div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+            <div class="ico3d"><i class="bi bi-trophy"></i></div>
+            <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">20+ Projects Delivered</h6>
+            <p class="mb-0">Completed across different business requirements and digital product categories.</p>
+          </div>
+        </div>
+        <div class="col mb-30px">
+          <div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+            <div class="ico3d"><i class="bi bi-globe-europe-africa"></i></div>
+            <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">International Experience</h6>
+            <p class="mb-0">Clients in India, Europe and the USA, with exposure to different business environments.</p>
+          </div>
+        </div>
+        <div class="col mb-30px">
+          <div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+            <div class="ico3d"><i class="bi bi-layers"></i></div>
+            <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">AI + Software Capability</h6>
+            <p class="mb-0">Complete digital solutions rather than isolated AI features.</p>
+          </div>
+        </div>
+        <div class="col mb-30px">
+          <div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+            <div class="ico3d"><i class="bi bi-sliders"></i></div>
+            <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">Custom Approach</h6>
+            <p class="mb-0">Built around your processes, users, requirements and objectives.</p>
+          </div>
+        </div>
+        <div class="col mb-30px">
+          <div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+            <div class="ico3d"><i class="bi bi-compass"></i></div>
+            <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">Practical AI Adoption</h6>
+            <p class="mb-0">Meaningful value over technology recommended just because it's new.</p>
+          </div>
+        </div>
+        <div class="col mb-30px">
+          <div class="feature-box card-idx p-40px h-100 bg-white border-radius-6px box-shadow-large text-center">
+            <div class="ico3d"><i class="bi bi-arrow-repeat"></i></div>
+            <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">End-to-End Support</h6>
+            <p class="mb-0">Discovery and planning through development, integration, deployment and improvements.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Who can benefit / When to consider -->
+      <div class="row row-cols-1 row-cols-lg-2 mt-50px"
+        data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+        <div class="col mb-30px">
+          <div
+            class="bg-white p-40px sm-p-30px h-100 border-radius-6px box-shadow-large border-top border-4 border-color-base-color">
+            <h5 class="fw-700 text-dark-gray mb-20px fs-22">Who Can Benefit From Our AI Solutions?</h5>
+            <ul class="list-idx mb-25px">
+              <p class="mb-15px fw-600 ">Our AI services can be adapted for different types of organizations, including:
+              </p>
+              <li><i class="feather icon-feather-check"></i>Startups developing AI-powered products</li>
+              <li><i class="feather icon-feather-check"></i>Small and medium-sized businesses exploring automation</li>
+              <li><i class="feather icon-feather-check"></i>Established businesses looking to modernize operations</li>
+              <li><i class="feather icon-feather-check"></i>Companies with existing software that want to add AI</li>
+              <li><i class="feather icon-feather-check"></i>Organizations improving customer support</li>
+              <li><i class="feather icon-feather-check"></i>Businesses with repetitive operational workflows</li>
+              <li><i class="feather icon-feather-check"></i>Companies building new websites, mobile applications or
+                software products</li>
+            </ul>
+            <p class="mb-0 fw-600 text-dark-gray">The important factor is not the size of the business. It is whether
+              there is a genuine business problem that AI or automation can help solve.</p>
+          </div>
+        </div>
+        <div class="col mb-30px">
+          <div
+            class="bg-white p-40px sm-p-30px h-100 border-radius-6px box-shadow-large border-top border-4 border-color-base-color">
+            <h5 class="fw-700 text-dark-gray mb-20px fs-22">When Should Your Business Consider AI?</h5>
+            <ul class="list-idx mb-25px">
+              <p class="mb-15px fw-600 ">You may want to explore AI if your business regularly faces challenges such as:
+              </p>
+              <li><i class="bi bi-lightning-charge-fill"></i>Employees spend too long on repetitive tasks</li>
+              <li><i class="bi bi-lightning-charge-fill"></i>Large volumes of customer enquiries</li>
+              <li><i class="bi bi-lightning-charge-fill"></i>Difficulty finding information quickly</li>
+              <li><i class="bi bi-lightning-charge-fill"></i>Manual document or data processing</li>
+              <li><i class="bi bi-lightning-charge-fill"></i>Repetitive reporting and slow responses</li>
+              <li><i class="bi bi-lightning-charge-fill"></i>Multiple disconnected business systems</li>
+              <li><i class="bi bi-lightning-charge-fill"></i>Existing software that could be smarter</li>
+              <li><i class="bi bi-lightning-charge-fill"></i>A need to scale operations efficiently</li>
+            </ul>
+            <p class="mb-0 fw-600 text-dark-gray">If you recognize one or more of these challenges, an AI assessment can
+              help determine whether AI is actually the right solution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end section -->
+
+  <!-- Replace your whole FAQ <section> with this -->
+  <section class="bg-very-light-gray">
+    <div class="container">
+      <div class="row justify-content-center mb-5 md-mb-40px">
+        <div class="col-xl-8 col-lg-9 text-center"
+          data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+          <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Got Questions?</span>
+          <h3 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Frequently Asked Questions About AI Solutions</h3>
+          <p class="fs-18 mb-0">Clear answers about our AI agents, chatbots, automation, integration and consulting
+            services.</p>
+        </div>
+      </div>
+
+      <!-- Two-column equal height -->
+      <div class="row align-items-stretch">
+
+        <!-- Left column: FAQ 1-5 -->
+        <div class="col-lg-6 md-mb-30px d-flex flex-column">
+          <div class="accordion accordion-style-02 h-100 d-flex flex-column justify-content-between"
+            id="faq-accordion-left" data-active-icon="icon-feather-minus" data-inactive-icon="icon-feather-plus">
+
+            <div class="accordion-item active-accordion">
+              <div class="accordion-header border-bottom border-color-extra-medium-gray">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="true"
+                  data-bs-parent="#faq-accordion-left">
+                  <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                      class="feather icon-feather-minus"></i><span class="fw-600 fs-17 ls-minus-05px">1. What AI
+                      solutions does AD Soft Technologies provide?</span></div>
+                </a>
+              </div>
+              <div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#faq-accordion-left">
+                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                  <p>AD Soft Technologies provides AI agent development, AI chatbot development, AI automation, AI
+                    integration and AI adoption and consulting services. We can also incorporate AI capabilities into
+                    websites, mobile applications and custom software.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header border-bottom border-color-extra-medium-gray">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false"
+                  data-bs-parent="#faq-accordion-left">
+                  <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                      class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">2. How can AI help
+                      a small or medium-sized business?</span></div>
+                </a>
+              </div>
+              <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
+                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                  <p>AI can help businesses automate repetitive processes, improve customer support, assist employees,
+                    process information and enhance digital products. The most suitable use cases depend on the
+                    individual business and its existing workflows.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header border-bottom border-color-extra-medium-gray">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false"
+                  data-bs-parent="#faq-accordion-left">
+                  <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                      class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">3. Do we need to
+                      replace our existing software to adopt AI?</span></div>
+                </a>
+              </div>
+              <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
+                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                  <p>No. In many situations, AI can be integrated with existing websites, applications, CRM systems, ERP
+                    platforms, APIs and custom software. The appropriate approach depends on the current technology
+                    architecture and business requirements.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header border-bottom border-color-extra-medium-gray">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false"
+                  data-bs-parent="#faq-accordion-left">
+                  <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                      class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">4. What is the
+                      difference between AI automation and AI agents?</span></div>
+                </a>
+              </div>
+              <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
+                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                  <p>AI automation generally focuses on automating predefined workflows or repetitive processes. AI
+                    agents can be designed to interpret requests, make decisions within defined boundaries, use tools
+                    and perform multiple steps to accomplish a task. Some solutions combine both approaches.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header border-bottom border-color-transparent">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false"
+                  data-bs-parent="#faq-accordion-left">
+                  <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                      class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">5. Can you develop
+                      a custom AI chatbot for our business?</span></div>
+                </a>
+              </div>
+              <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-left">
+                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-transparent">
+                  <p>Yes. We can develop AI chatbots based on specific business requirements and integrate them with
+                    appropriate knowledge sources, applications or workflows where required.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right column: FAQ 6-10 -->
+        <div class="col-lg-6 d-flex flex-column">
+          <div class="accordion accordion-style-02 h-100 d-flex flex-column justify-content-between"
+            id="faq-accordion-right" data-active-icon="icon-feather-minus" data-inactive-icon="icon-feather-plus">
+
+            <div class="accordion-item">
+              <div class="accordion-header border-bottom border-color-extra-medium-gray">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-6" aria-expanded="false"
+                  data-bs-parent="#faq-accordion-right">
+                  <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                      class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">6. Can AI be
+                      integrated into an existing website or mobile app?</span></div>
+                </a>
+              </div>
+              <div id="faq-6" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
+                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                  <p>Yes. AI functionality can potentially be integrated into existing websites and mobile applications
+                    through APIs, backend services and other appropriate technologies. We evaluate the existing system
+                    before recommending an implementation approach.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header border-bottom border-color-extra-medium-gray">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-7" aria-expanded="false"
+                  data-bs-parent="#faq-accordion-right">
+                  <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                      class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">7. How do we know
+                      which AI solution is right for us?</span></div>
+                </a>
+              </div>
+              <div id="faq-7" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
+                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                  <p>The right solution depends on your business objective. A customer-support requirement may benefit
+                    from a chatbot, while a multi-step operational workflow may require an AI agent or automation. Our
+                    AI Adoption &amp; Consulting service can help identify suitable opportunities.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header border-bottom border-color-extra-medium-gray">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-8" aria-expanded="false"
+                  data-bs-parent="#faq-accordion-right">
+                  <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                      class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">8. Do you provide
+                      AI consulting before development?</span></div>
+                </a>
+              </div>
+              <div id="faq-8" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
+                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                  <p>Yes. AI Adoption &amp; Consulting can help businesses identify AI opportunities, evaluate use
+                    cases, prioritize projects and develop a practical implementation roadmap before development begins.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header border-bottom border-color-extra-medium-gray">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-9" aria-expanded="false"
+                  data-bs-parent="#faq-accordion-right">
+                  <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                      class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">9. Does AD Soft
+                      Technologies work with international clients?</span></div>
+                </a>
+              </div>
+              <div id="faq-9" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
+                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
+                  <p>Yes. AD Soft Technologies has completed projects for clients in India and has experience working
+                    with clients in Europe and the USA.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header border-bottom border-color-transparent">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-10" aria-expanded="false"
+                  data-bs-parent="#faq-accordion-right">
+                  <div class="accordion-title mb-0 position-relative text-dark-gray py-15px"><i
+                      class="feather icon-feather-plus"></i><span class="fw-600 fs-17 ls-minus-05px">10. How can we get
+                      started with an AI project?</span></div>
+                </a>
+              </div>
+              <div id="faq-10" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-right">
+                <div class="accordion-body last-paragraph-no-margin border-bottom border-color-transparent">
+                  <p>Start by sharing your business challenge, existing system or AI idea with our team. We can
+                    understand your requirements, discuss potential approaches and determine whether AI, automation,
+                    software development or integration is the most appropriate solution.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Keep this empty hidden div ONLY so your old FAQ script (getElementById('faq')) doesn't throw an error.
      Once you delete the old FAQ JS (from "var F=[" to "document.getElementById('faq').innerHTML=h;"), remove this too. -->
-<div id="faq" class="d-none"></div>
- 
-<!-- start section : CTA (same dark box as index) -->
-<section class="pb-90px mb-50px">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-xl-10">
-        <div class="bg-dark-gray p-60px lg-p-40px sm-p-30px border-radius-8px box-shadow-extra-large text-center position-relative overflow-hidden">
-          <div class="position-absolute right-minus-50px bottom-minus-50px w-200px h-200px bg-base-color opacity-2 rounded-circle"></div>
-          <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Let's Build Together</span>
-          <h3 class="fw-800 text-white ls-minus-1px mb-20px">Not Sure Which AI Solution You Need?</h3>
-          <p class="fs-18 text-light-opacity mb-15px w-90 mx-auto sm-w-100">You don't have to arrive with a technical specification. Tell us about your business, current processes and challenges, and we'll help identify whether the answer is an AI agent, chatbot, automation, integration or custom software.</p>
-          <span class="d-block fw-600 text-white mb-30px fs-18 font-style-italic">Find the technology that solves the problem, not a problem for the technology.</span>
-          <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
-            <a href="demo-marketing-contact.html" class="btn btn-large btn-base-color text-white btn-hover-animation-switch btn-round-edge btn-box-shadow">
-              <span class="text-white"><span class="btn-text text-white">Talk to Our AI Experts</span><span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span></span>
-            </a>
-            <a href="demo-marketing-contact.html" class="btn btn-large btn-transparent-white-light btn-hover-animation-switch btn-round-edge">
-              <span><span class="btn-text">Start Your Project</span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span></span>
-            </a>
+  <div id="faq" class="d-none"></div>
+
+  <!-- start section : CTA (same dark box as index) -->
+  <section class="pb-90px mb-50px">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-10">
+          <div
+            class="bg-dark-gray p-60px lg-p-40px sm-p-30px border-radius-8px box-shadow-extra-large text-center position-relative overflow-hidden">
+            <div
+              class="position-absolute right-minus-50px bottom-minus-50px w-200px h-200px bg-base-color opacity-2 rounded-circle">
+            </div>
+            <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Let's Build Together</span>
+            <h3 class="fw-800 text-white ls-minus-1px mb-20px">Not Sure Which AI Solution You Need?</h3>
+            <p class="fs-18 text-light-opacity mb-15px w-90 mx-auto sm-w-100">You don't have to arrive with a technical
+              specification. Tell us about your business, current processes and challenges, and we'll help identify
+              whether the answer is an AI agent, chatbot, automation, integration or custom software.</p>
+            <span class="d-block fw-600 text-white mb-30px fs-18 font-style-italic">Find the technology that solves the
+              problem, not a problem for the technology.</span>
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
+              <a href="demo-marketing-contact.html"
+                class="btn btn-large btn-base-color text-white btn-hover-animation-switch btn-round-edge btn-box-shadow">
+                <span class="text-white"><span class="btn-text text-white">Talk to Our AI Experts</span><span
+                    class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span><span
+                    class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span></span>
+              </a>
+              <a href="demo-marketing-contact.html"
+                class="btn btn-large btn-transparent-white-light btn-hover-animation-switch btn-round-edge">
+                <span><span class="btn-text">Start Your Project</span><span class="btn-icon"><i
+                      class="feather icon-feather-arrow-right"></i></span><span class="btn-icon"><i
+                      class="feather icon-feather-arrow-right"></i></span></span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- FOOTER -->
-<footer class="bg-dark-gray background-position-center-top" style="background-image:url('images/demo-marketing-footer-dot.svg')">
-<div class="container overlap-section"><div class="row g-0 justify-content-center align-items-center bg-base-color border-radius-6px ps-7 pe-7 pt-4 pb-4 lg-p-30px sm-p-20px mb-7">
-<div class="col-lg-5 col-md-9 text-center text-lg-start md-mb-20px"><h4 class="text-white fw-600 mb-0 ls-minus-1px">Let's talk about how we can transform your business!</h4></div>
-<div class="col-auto col-lg-6 icon-with-text-style-08 offset-lg-1"><div class="feature-box feature-box-left-icon-middle overflow-hidden"><div class="feature-box-icon feature-box-icon-rounded w-80px h-80px rounded-circle bg-dark-gray-transparent-light me-25px lg-me-20px"><i class="bi bi-envelope icon-very-medium text-white"></i></div><div class="feature-box-content last-paragraph-no-margin"><span class="text-white fs-18 lh-22 mb-5px d-block">Have a project in mind?</span><h6 class="d-inline-block fw-600 mb-0 text-nowrap"><a href="mailto:info@adsofttechnologies.com" class="text-dark-gray text-decoration-line-bottom-medium text-white-hover">info@adsofttechnologies.com</a></h6></div></div></div>
-</div></div>
-<div class="container footer-dark text-center text-sm-start"><div class="row mb-5 sm-mb-30px">
-<div class="col-lg-3 col-md-6 col-sm-6 d-flex flex-column last-paragraph-no-margin md-mb-35px pe-15px"><a href="index.html" class="footer-logo mb-20px d-flex align-items-center"><img src="images/logo.png" alt="AD Soft Technologies" class="me-10px" style="height:60px;width:auto;flex-shrink:0;"><span class="text-white fw-700 fs-16 ls-0px text-nowrap">AD SOFT TECHNOLOGIES</span></a>
-<p class="w-90 lg-w-95 xs-w-60 xs-mx-auto mb-15px">We are a Kerala based IT startup, which undertakes all kinds of AI solution, IT services like Website development, Android/iOS App development, custom Software development etc.</p>
-<div class="d-flex align-items-center justify-content-center justify-content-sm-start flex-wrap gap-3 mt-auto"><span class="text-white fw-500"><i class="bi bi-geo-alt me-10px align-middle"></i>India | USA</span><div class="d-flex gap-2"><a href="https://www.facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook" class="d-flex align-items-center justify-content-center w-40px h-40px rounded-circle border border-color-transparent-white-light text-white"><i class="bi bi-facebook fs-16"></i></a><a href="https://www.instagram.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Instagram" class="d-flex align-items-center justify-content-center w-40px h-40px rounded-circle border border-color-transparent-white-light text-white"><i class="bi bi-instagram fs-16"></i></a></div></div></div>
-<div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin md-mb-35px"><span class="fs-16 fw-500 d-block text-white mb-15px">Our Clients</span><ul class="p-0 m-0 list-unstyled"><li class="mb-8px"><a href="https://www.germanacademytr.com/" target="_blank" rel="noopener">German Academy</a></li><li class="mb-8px"><a href="https://prohealthclinic.org/" target="_blank" rel="noopener">ProHealth Clinic</a></li><li class="mb-8px"><a href="https://labacabs.com/" target="_blank" rel="noopener">LaBa Cabs</a></li><li class="mb-8px"><a href="https://www.mindfullysustainable.co.uk/" target="_blank" rel="noopener">Mindfully Sustainable</a></li><li class="mb-8px"><a href="https://ibworldwideacademy.com/" target="_blank" rel="noopener">IB WorldWide Academy</a></li><li class="mb-8px"><a href="https://radiomediavillage.com/" target="_blank" rel="noopener">Radio Media Village</a></li></ul></div>
-<div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin xs-mb-35px"><span class="fs-16 fw-500 d-block text-white mb-15px">Additional Pages</span><ul class="p-0 m-0 list-unstyled"><li class="mb-8px"><a href="https://www.adsofttechnologies.com/about.html">About Us</a></li><li class="mb-8px"><a href="https://www.adsofttechnologies.com/services.html">Our Services</a></li><li class="mb-8px"><a href="https://www.adsofttechnologies.com/contact.html">Contact Us</a></li><li class="mb-8px"><a href="https://www.adsofttechnologies.com/contact#">Privacy Policy</a></li></ul></div>
-<div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin"><span class="fs-16 fw-500 d-block text-white mb-15px">Contact Us</span><p class="w-90 lg-w-95 xs-w-60 xs-mx-auto mb-15px">2nd Floor, Puthenpurackal (H), Puthenpurackal Lane, Judgimukku, Thrikkakkara, Ernakulam, Kerala</p><a href="https://www.adsofttechnologies.com/contact.html" class="btn btn-small btn-base-color text-white btn-round-edge btn-hover-animation-switch"><span class="text-white"><span class="btn-text text-white">Send Message</span><span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span></span></a></div>
-</div>
-<div class="row align-items-center footer-bottom border-top border-color-transparent-white-light pt-30px g-0"><div class="col-12 last-paragraph-no-margin text-center"><p class="fs-15">&copy; 2026 <a href="https://www.adsofttechnologies.com" target="_blank" rel="noopener" class="text-base-color text-white-hover fw-500 text-decoration-line-bottom">AD Soft Technologies</a>. All rights reserved.</p></div></div>
-</div></footer>
+  </section>
+  <!-- FOOTER -->
+  <footer class="bg-dark-gray background-position-center-top"
+    style="background-image:url('images/demo-marketing-footer-dot.svg')">
+    <div class="container overlap-section">
+      <div
+        class="row g-0 justify-content-center align-items-center bg-base-color border-radius-6px ps-7 pe-7 pt-4 pb-4 lg-p-30px sm-p-20px mb-7">
+        <div class="col-lg-5 col-md-9 text-center text-lg-start md-mb-20px">
+          <h4 class="text-white fw-600 mb-0 ls-minus-1px">Let's talk about how we can transform your business!</h4>
+        </div>
+        <div class="col-auto col-lg-6 icon-with-text-style-08 offset-lg-1">
+          <div class="feature-box feature-box-left-icon-middle overflow-hidden">
+            <div
+              class="feature-box-icon feature-box-icon-rounded w-80px h-80px rounded-circle bg-dark-gray-transparent-light me-25px lg-me-20px">
+              <i class="bi bi-envelope icon-very-medium text-white"></i></div>
+            <div class="feature-box-content last-paragraph-no-margin"><span
+                class="text-white fs-18 lh-22 mb-5px d-block">Have a project in mind?</span>
+              <h6 class="d-inline-block fw-600 mb-0 text-nowrap"><a href="mailto:info@adsofttechnologies.com"
+                  class="text-dark-gray text-decoration-line-bottom-medium text-white-hover">info@adsofttechnologies.com</a>
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-dark text-center text-sm-start">
+      <div class="row mb-5 sm-mb-30px">
+        <div class="col-lg-3 col-md-6 col-sm-6 d-flex flex-column last-paragraph-no-margin md-mb-35px pe-15px"><a
+            href="index.html" class="footer-logo mb-20px d-flex align-items-center"><img src="images/logo.png"
+              alt="AD Soft Technologies" class="me-10px" style="height:60px;width:auto;flex-shrink:0;"><span
+              class="text-white fw-700 fs-16 ls-0px text-nowrap">AD SOFT TECHNOLOGIES</span></a>
+          <p class="w-90 lg-w-95 xs-w-60 xs-mx-auto mb-15px">We are a Kerala based IT startup, which undertakes all
+            kinds of AI solution, IT services like Website development, Android/iOS App development, custom Software
+            development etc.</p>
+          <div
+            class="d-flex align-items-center justify-content-center justify-content-sm-start flex-wrap gap-3 mt-auto">
+            <span class="text-white fw-500"><i class="bi bi-geo-alt me-10px align-middle"></i>India | USA</span>
+            <div class="d-flex gap-2"><a href="https://www.facebook.com/YOUR_PAGE" target="_blank" rel="noopener"
+                aria-label="Facebook"
+                class="d-flex align-items-center justify-content-center w-40px h-40px rounded-circle border border-color-transparent-white-light text-white"><i
+                  class="bi bi-facebook fs-16"></i></a><a href="https://www.instagram.com/YOUR_PAGE" target="_blank"
+                rel="noopener" aria-label="Instagram"
+                class="d-flex align-items-center justify-content-center w-40px h-40px rounded-circle border border-color-transparent-white-light text-white"><i
+                  class="bi bi-instagram fs-16"></i></a></div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin md-mb-35px"><span
+            class="fs-16 fw-500 d-block text-white mb-15px">Our Clients</span>
+          <ul class="p-0 m-0 list-unstyled">
+            <li class="mb-8px"><a href="https://www.germanacademytr.com/" target="_blank" rel="noopener">German
+                Academy</a></li>
+            <li class="mb-8px"><a href="https://prohealthclinic.org/" target="_blank" rel="noopener">ProHealth
+                Clinic</a></li>
+            <li class="mb-8px"><a href="https://labacabs.com/" target="_blank" rel="noopener">LaBa Cabs</a></li>
+            <li class="mb-8px"><a href="https://www.mindfullysustainable.co.uk/" target="_blank"
+                rel="noopener">Mindfully Sustainable</a></li>
+            <li class="mb-8px"><a href="https://ibworldwideacademy.com/" target="_blank" rel="noopener">IB WorldWide
+                Academy</a></li>
+            <li class="mb-8px"><a href="https://radiomediavillage.com/" target="_blank" rel="noopener">Radio Media
+                Village</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin xs-mb-35px"><span
+            class="fs-16 fw-500 d-block text-white mb-15px">Additional Pages</span>
+          <ul class="p-0 m-0 list-unstyled">
+            <li class="mb-8px"><a href="https://www.adsofttechnologies.com/about.html">About Us</a></li>
+            <li class="mb-8px"><a href="https://www.adsofttechnologies.com/services.html">Our Services</a></li>
+            <li class="mb-8px"><a href="https://www.adsofttechnologies.com/contact.html">Contact Us</a></li>
+            <li class="mb-8px"><a href="https://www.adsofttechnologies.com/contact#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin"><span
+            class="fs-16 fw-500 d-block text-white mb-15px">Contact Us</span>
+          <p class="w-90 lg-w-95 xs-w-60 xs-mx-auto mb-15px">2nd Floor, Puthenpurackal (H), Puthenpurackal Lane,
+            Judgimukku, Thrikkakkara, Ernakulam, Kerala</p><a href="https://www.adsofttechnologies.com/contact.html"
+            class="btn btn-small btn-base-color text-white btn-round-edge btn-hover-animation-switch"><span
+              class="text-white"><span class="btn-text text-white">Send Message</span><span
+                class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span><span
+                class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span></span></a>
+        </div>
+      </div>
+      <div class="row align-items-center footer-bottom border-top border-color-transparent-white-light pt-30px g-0">
+        <div class="col-12 last-paragraph-no-margin text-center">
+          <p class="fs-15">&copy; 2026 <a href="https://www.adsofttechnologies.com" target="_blank" rel="noopener"
+              class="text-base-color text-white-hover fw-500 text-decoration-line-bottom">AD Soft Technologies</a>. All
+            rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a></div>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/vendors.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
-<script>
-(function(){
+  <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span
+        class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a></div>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/vendors.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script>
+    (function () {
 
 
-/* typing headline */
-var t=document.getElementById('typer'),w=["Build smarter with practical AI.","Automate faster, skip the busywork.","Grow with AI that fits your business."],wi=0,ci=0,del=false;
-function tick(){var s=w[wi];t.textContent=s.slice(0,ci);if(!del&&ci===s.length){del=true;return setTimeout(tick,1800)}if(del&&ci===0){del=false;wi=(wi+1)%w.length}ci+=del?-1:1;setTimeout(tick,del?28:60)}tick();
+      /* typing headline */
+      var t = document.getElementById('typer'), w = ["Build smarter with practical AI.", "Automate faster, skip the busywork.", "Grow with AI that fits your business."], wi = 0, ci = 0, del = false;
+      function tick() { var s = w[wi]; t.textContent = s.slice(0, ci); if (!del && ci === s.length) { del = true; return setTimeout(tick, 1800) } if (del && ci === 0) { del = false; wi = (wi + 1) % w.length } ci += del ? -1 : 1; setTimeout(tick, del ? 28 : 60) } tick();
 
-/* scroll reveal + counters */
-var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');x.target.querySelectorAll('.cnt').forEach(count);io.unobserve(x.target)}})},{threshold:.15});
-document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
-function count(n){var to=+n.dataset.to,c=0,s=Math.max(1,Math.ceil(to/30));var iv=setInterval(function(){c=Math.min(to,c+s);n.textContent=c;if(c>=to)clearInterval(iv)},40)}
+      /* scroll reveal + counters */
+      var io = new IntersectionObserver(function (e) { e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); x.target.querySelectorAll('.cnt').forEach(count); io.unobserve(x.target) } }) }, { threshold: .15 });
+      document.querySelectorAll('.rv').forEach(function (el, i) { el.style.transitionDelay = (i % 4) * 90 + 'ms'; io.observe(el) });
+      function count(n) { var to = +n.dataset.to, c = 0, s = Math.max(1, Math.ceil(to / 30)); var iv = setInterval(function () { c = Math.min(to, c + s); n.textContent = c; if (c >= to) clearInterval(iv) }, 40) }
 
-/* scroll progress bar + timeline fill */
-var sp=document.getElementById('sp'),tl=document.getElementById('tl'),pr=document.getElementById('prog'),st=[].slice.call(document.querySelectorAll('.st'));
-function onS(){var d=document.documentElement;sp.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
-var r=tl.getBoundingClientRect(),vh=innerHeight,p=Math.min(Math.max((vh*.6-r.top)/r.height,0),1);pr.style.height=(p*100)+'%';
-st.forEach(function(s){s.classList.toggle('on',s.getBoundingClientRect().top<vh*.65)})}
-addEventListener('scroll',onS,{passive:true});onS();
+      /* scroll progress bar + timeline fill */
+      var sp = document.getElementById('sp'), tl = document.getElementById('tl'), pr = document.getElementById('prog'), st = [].slice.call(document.querySelectorAll('.st'));
+      function onS() {
+        var d = document.documentElement; sp.style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%';
+        var r = tl.getBoundingClientRect(), vh = innerHeight, p = Math.min(Math.max((vh * .6 - r.top) / r.height, 0), 1); pr.style.height = (p * 100) + '%';
+        st.forEach(function (s) { s.classList.toggle('on', s.getBoundingClientRect().top < vh * .65) })
+      }
+      addEventListener('scroll', onS, { passive: true }); onS();
 
-/* hero floating icons react to the mouse */
-var hero=document.getElementById('hero');
-hero.addEventListener('mousemove',function(e){var x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);
-hero.querySelectorAll('.fi').forEach(function(f){var d=+f.dataset.d||20;f.style.transform='translate('+x*d+'px,'+y*d+'px)'})});
+      /* hero floating icons react to the mouse */
+      var hero = document.getElementById('hero');
+      hero.addEventListener('mousemove', function (e) {
+        var x = (e.clientX / innerWidth - .5), y = (e.clientY / innerHeight - .5);
+        hero.querySelectorAll('.fi').forEach(function (f) { var d = +f.dataset.d || 20; f.style.transform = 'translate(' + x * d + 'px,' + y * d + 'px)' })
+      });
 
-/* 3D tilt on service cards */
-document.querySelectorAll('.tilt').forEach(function(c){
-c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(800px) rotateY('+x*8+'deg) rotateX('+-y*8+'deg) translateY(-6px)'});
-c.addEventListener('mouseleave',function(){c.style.transform=''})});
-})();
-</script>
-<script>
-/* mouse tilt for the benefits plane */
-(function(){
-  var s=document.getElementById('b3d'),p=document.getElementById('b3dPlane');
-  if(!s||!p||matchMedia('(max-width:575px)').matches)return;
-  s.addEventListener('mousemove',function(e){
-    var r=s.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-    p.style.setProperty('--ry',(-12+x*16)+'deg');p.style.setProperty('--rx',(20-y*12)+'deg');
-  });
-  s.addEventListener('mouseleave',function(){p.style.removeProperty('--rx');p.style.removeProperty('--ry');});
-})();
-</script>
-<script>
-/* gentle mouse tilt for the layer stack */
-(function(){
-  var s=document.getElementById('eb'),p=document.getElementById('ebStack');
-  if(!s||!p||matchMedia('(max-width:575px)').matches)return;
-  s.addEventListener('mousemove',function(e){
-    var r=s.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-    p.style.setProperty('--rz',(-24+x*22)+'deg');p.style.setProperty('--rx',(58-y*14)+'deg');
-  });
-  s.addEventListener('mouseleave',function(){p.style.removeProperty('--rx');p.style.removeProperty('--rz');});
-})();
-</script>
- 
+      /* 3D tilt on service cards */
+      document.querySelectorAll('.tilt').forEach(function (c) {
+        c.addEventListener('mousemove', function (e) { var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.style.transform = 'perspective(800px) rotateY(' + x * 8 + 'deg) rotateX(' + -y * 8 + 'deg) translateY(-6px)' });
+        c.addEventListener('mouseleave', function () { c.style.transform = '' })
+      });
+    })();
+  </script>
+  <script>
+    /* mouse tilt for the benefits plane */
+    (function () {
+      var s = document.getElementById('b3d'), p = document.getElementById('b3dPlane');
+      if (!s || !p || matchMedia('(max-width:575px)').matches) return;
+      s.addEventListener('mousemove', function (e) {
+        var r = s.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        p.style.setProperty('--ry', (-12 + x * 16) + 'deg'); p.style.setProperty('--rx', (20 - y * 12) + 'deg');
+      });
+      s.addEventListener('mouseleave', function () { p.style.removeProperty('--rx'); p.style.removeProperty('--ry'); });
+    })();
+  </script>
+  <script>
+    /* gentle mouse tilt for the layer stack */
+    (function () {
+      var s = document.getElementById('eb'), p = document.getElementById('ebStack');
+      if (!s || !p || matchMedia('(max-width:575px)').matches) return;
+      s.addEventListener('mousemove', function (e) {
+        var r = s.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        p.style.setProperty('--rz', (-24 + x * 22) + 'deg'); p.style.setProperty('--rx', (58 - y * 14) + 'deg');
+      });
+      s.addEventListener('mouseleave', function () { p.style.removeProperty('--rx'); p.style.removeProperty('--rz'); });
+    })();
+  </script>
+
 </body>
+
 </html>
