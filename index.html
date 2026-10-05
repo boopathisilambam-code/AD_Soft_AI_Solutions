@@ -150,7 +150,23 @@
     @media (prefers-reduced-motion: reduce) {
         .hero-ribbon polygon { animation: none; }
     }
-
+/* Moving dots on hero background */
+section[style*="demo-marketing-dot.svg"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(85, 150, 67, .35) 1.4px, transparent 1.6px);
+    background-size: 26px 26px;
+    animation: hero-dots-move 18s linear infinite;
+}
+@keyframes hero-dots-move {
+    to { background-position: 260px 260px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    section[style*="demo-marketing-dot.svg"]::before { animation: none; }
+}
     
 </style>
     </head>
@@ -196,8 +212,8 @@
                                 <li class="nav-item"><a href="demo-marketing-about.html" class="nav-link text-nowrap">About Us</a></li>
 
                                 <!-- 3. AI SOLUTIONS (Dropdown) -->
-                                             <li class="nav-item dropdown simple-dropdown"><a href="ai-solutions.html"
-    class="nav-link text-nowrap text-base-color">AI Solutions</a><i
+                                             <li class="nav-item dropdown simple-dropdown"><a href="ai-solution.html"
+    class="nav-link text-nowrap ">AI Solutions</a><i
     class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown"
     aria-expanded="false"></i>
 <ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
@@ -273,14 +289,14 @@
                     <span id="typing-text"></span><span class="blinking-cursor">•</span>
                 </h1>
                 
-                <!-- Tag Line (H2 Tag) -->
-                <h2 class="fs-16 lg-fs-14 text-uppercase text-base-color fw-700 mb-40px d-block ls-1px" data-anime='{ "opacity": [0, 1], "translateX": [-100, 0], "duration": 1000, "delay": 2000, "easing": "easeOutCubic" }'>
-                    Build Smarter. Automate Faster. Grow with Technology.
-                </h2>
+               <!-- Tag Line (H2 Tag) -->
+<h2 class="fs-16 lg-fs-14 text-uppercase text-base-color fw-700 mb-40px d-block ls-1px" data-anime='{ "opacity": [0, 1], "translateX": [-100, 0], "duration": 1000, "delay": 4000, "easing": "easeOutCubic" }'>
+    Build Smarter. Automate Faster. Grow with Technology.
+</h2>
                 
-                <!-- Buttons -->
-                <div data-anime='{ "el": "childs", "opacity": [0, 1], "translateX": [-100, 0], "staggervalue": -200, "duration": 1000, "delay": 2500, "easing": "easeOutCubic" }'>
-                    <a href="#" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-20px fw-400 xs-mt-10px xs-mb-10px d-inline-block">
+<!-- Buttons -->
+<div data-anime='{ "el": "childs", "opacity": [0, 1], "translateX": [-100, 0], "staggervalue": -200, "duration": 1000, "delay": 4500, "easing": "easeOutCubic" }'>
+    <a href="#" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-20px fw-400 xs-mt-10px xs-mb-10px d-inline-block">
                         <span> 
                             <span class="btn-text">Talk to Our AI & Software Experts</span>
                             <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
