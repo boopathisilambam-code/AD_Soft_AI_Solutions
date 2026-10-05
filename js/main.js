@@ -4030,7 +4030,7 @@ function initMap() {
 document.addEventListener("DOMContentLoaded", function() {
                 const text = "AI-Powered Software Development &\nBusiness Automation Company in Kerala";
                 let index = 0;
-                const speed = 50; 
+                const speed = 60; 
                 
                 function typeWriter() {
                     if (index < text.length) {
