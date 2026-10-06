@@ -2249,6 +2249,43 @@
         .eq>[class*=col-]>.pic {
             flex: 1
         }
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: clip
+        }
+
+        .rv,
+        [data-fx] .rv {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important
+        }
+
+        .blob,
+        .animation-float,
+        .animation-float-small,
+        .fi,
+        .hub-ring,
+        .hub-core,
+        .pn.ag span,
+        .pipe-line i,
+        .ig-chip,
+        .neural line,
+        .neural circle,
+        .dots span {
+            animation: none !important
+        }
+
+        .svc:hover,
+        .bn:hover,
+        .hub-n:hover,
+        .wk:hover,
+        .tb.on,
+        .bn:nth-child(5) {
+            transform: none !important
+        }
     </style>
 </head>
 
@@ -2277,7 +2314,7 @@
                             <li class="nav-item"><a href="demo-marketing-about.html" class="nav-link text-nowrap">About
                                     Us</a></li>
                                         <li class="nav-item dropdown simple-dropdown"><a href="ai-solution.html"
-    class="nav-link text-nowrap text-base-color">AI Solutions</a><i
+    class="nav-link text-nowrap ">AI Solutions</a><i
     class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown"
     aria-expanded="false"></i>
 <ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
@@ -2343,7 +2380,7 @@
                         <div class="m a">Let me check our working hours for you.</div>
                         <div class="m u">Can I visit your office this weekend?</div>
                         <div class="m a">Sure, I can guide you to the next step. <span
-                                class="dots"><span></span><span></span><span></span></span></div>
+                                class="dots"><span></span><span></span></span></div>
                     </div>
                 </div>
             </div>
