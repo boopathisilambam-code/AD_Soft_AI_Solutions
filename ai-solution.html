@@ -57,6 +57,16 @@
       background-image: url('images/demo-marketing-dot.svg')
     }
 
+    .ai-hero h1 {
+      min-height: 120px
+    }
+
+    @media(max-width:991px) {
+      .ai-hero h1 {
+        min-height: 92px
+      }
+    }
+
     .ai-hero .blob {
       position: absolute;
       border-radius: 50%;
@@ -680,7 +690,7 @@
 
     @keyframes b3dfl {
       50% {
-        margin-top: -10px
+        translate: 0 -10px
       }
     }
 
@@ -778,8 +788,7 @@
       transform-style: preserve-3d;
       top: 130px;
       transform: rotateX(var(--rx, 58deg)) rotateZ(var(--rz, -24deg));
-      transition: transform .3s ease-out;
-      will-change: transform
+      transition: transform .3s ease-out
     }
 
     .eb-lay {
@@ -894,7 +903,6 @@
       }
     }
 
-    /* hover: layers spread apart so you can see each one */
     .eb:hover .eb-lay:nth-child(2) {
       --z: 150px
     }
@@ -1234,6 +1242,12 @@
         transform: none
       }
     }
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip
+    }
   </style>
 </head>
 
@@ -1309,17 +1323,6 @@
                   class="fa-brands fa-twitter"></i></a></div>
           </div>
         </div>
-        
-                    <!-- Right Social Icons -->
-<div class="col-auto text-end">
-    <div class="header-icon"> 
-        <div class="header-social-icon icon">
-            <a href="http://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="http://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="http://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-        </div>
-    </div>  
-</div>
       </div>
     </nav>
   </header>
@@ -2315,11 +2318,12 @@
     (function () {
 
 
-      /* typing headline */
-      var t = document.getElementById('typer'), w = ["Build smarter with practical AI.", "Automate faster, skip the busywork.", "Grow with AI that fits your business."], wi = 0, ci = 0, del = false;
-      function tick() { var s = w[wi]; t.textContent = s.slice(0, ci); if (!del && ci === s.length) { del = true; return setTimeout(tick, 1800) } if (del && ci === 0) { del = false; wi = (wi + 1) % w.length } ci += del ? -1 : 1; setTimeout(tick, del ? 28 : 60) } tick();
-
       /* scroll reveal + counters */
+        /* typing headline */
+        var t = document.getElementById('typer'), w = ["Build smarter with practical AI.", "Automate faster, skip the busywork.", "Grow with AI that fits your business."], wi = 0, ci = 0, del = false;
+        function tick() { var s = w[wi]; t.textContent = s.slice(0, ci); if (!del && ci === s.length) { del = true; return setTimeout(tick, 1800) } if (del && ci === 0) { del = false; wi = (wi + 1) % w.length } ci += del ? -1 : 1; setTimeout(tick, del ? 28 : 60) } tick();
+
+        /* scroll reveal + counters */
       var io = new IntersectionObserver(function (e) { e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); x.target.querySelectorAll('.cnt').forEach(count); io.unobserve(x.target) } }) }, { threshold: .15 });
       document.querySelectorAll('.rv').forEach(function (el, i) { el.style.transitionDelay = (i % 4) * 90 + 'ms'; io.observe(el) });
       function count(n) { var to = +n.dataset.to, c = 0, s = Math.max(1, Math.ceil(to / 30)); var iv = setInterval(function () { c = Math.min(to, c + s); n.textContent = c; if (c >= to) clearInterval(iv) }, 40) }
@@ -2345,6 +2349,7 @@
         c.addEventListener('mousemove', function (e) { var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.style.transform = 'perspective(800px) rotateY(' + x * 8 + 'deg) rotateX(' + -y * 8 + 'deg) translateY(-6px)' });
         c.addEventListener('mouseleave', function () { c.style.transform = '' })
       });
+
     })();
   </script>
   <script>
