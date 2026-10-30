@@ -4143,6 +4143,15 @@ document.addEventListener("DOMContentLoaded", function() {
 (function () {
   if (document.querySelector('.ad-middle-dark-section')) return;
 
+  var businessPages = [
+    'business-automation.html',
+    'digital-transformation.html',
+    'branding.html',
+    'business-services.html'
+  ];
+  var currentPage = window.location.pathname.split('/').pop().toLowerCase();
+  if (businessPages.indexOf(currentPage) !== -1) return;
+
   var sections = Array.prototype.filter.call(
     document.querySelectorAll('body section'),
     function (section) {

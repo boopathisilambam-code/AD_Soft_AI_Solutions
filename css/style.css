@@ -19756,6 +19756,27 @@ footer .footer-navbar .nav-item:last-child a {
   box-shadow: none;
 }
 
+.au {
+  background-color: #1c2a17 !important;
+  color: #d7d7d7;
+}
+
+.au h1,
+.au h2,
+.au h3,
+.au h4,
+.au h5,
+.au h6,
+.au .eyebrow {
+  color: #ffffff !important;
+}
+
+.au p,
+.au li,
+.au small {
+  color: #d7d7d7 !important;
+}
+
 .ad-middle-dark-section .text-dark-gray,
 .ad-middle-dark-section h1,
 .ad-middle-dark-section h2,
