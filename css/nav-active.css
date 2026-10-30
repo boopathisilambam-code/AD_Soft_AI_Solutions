@@ -3,7 +3,7 @@
  
 /* Selected sub page inside the dropdown: same light-green look as hover */
 header .navbar .navbar-nav .dropdown-menu li.nav-current > a{
-  background:#eef7ea;
+  background:#B5D65A;
   color:var(--nav-active) !important;
   font-weight:600;
   border-radius:12px;
