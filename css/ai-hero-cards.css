@@ -1,0 +1,27 @@
+.ai-hero .chat,
+.ai-hero .wk {
+    transform: perspective(1200px) rotateY(-8deg) rotateX(3deg);
+    transform-origin: center;
+    transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+}
+
+@media (hover: hover) and (min-width: 992px) {
+    .ai-hero .chat:hover,
+    .ai-hero .wk:hover {
+        transform: perspective(1200px) rotateY(0) rotateX(0) translateY(-6px);
+    }
+}
+
+@media (max-width: 991px) {
+    .ai-hero .chat,
+    .ai-hero .wk {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ai-hero .chat,
+    .ai-hero .wk {
+        transition: none;
+    }
+}

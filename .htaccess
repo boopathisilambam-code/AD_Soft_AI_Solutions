@@ -1,0 +1,16 @@
+RewriteEngine On
+DirectoryIndex index.html
+Options -MultiViews
+
+# 1. Ungaloda local subfolder path-ai inge base-ah set pannurom:
+RewriteBase /ad_soft_tech/
+
+# 2. Oru file (.html illamal) request pannum pothu, actual .html file-ai background-il load seyyum
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# 3. User browser-il .html-oda type panninal clean URL-ku (subfolder path-oda) redirect aagum
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\s/+ad_soft_tech/(.+)\.html\s [NC]
+RewriteRule ^(.+)\.html$ /ad_soft_tech/$1 [R=301,L]

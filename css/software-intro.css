@@ -1,0 +1,111 @@
+.software-intro-row {
+    --bs-gutter-x: 2rem;
+    align-items: stretch;
+}
+
+.software-intro-visual {
+    display: flex;
+    align-items: stretch;
+}
+
+.software-intro-image {
+    width: min(100%, 520px);
+    height: 550px;
+    min-height: 500px;
+    flex: 1 1 auto;
+    margin-inline: auto !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.software-intro-image > img {
+    display: block;
+    width: 100%;
+    height: 550px;
+    min-height: 0;
+    flex: 1 1 auto;
+    object-fit: cover;
+}
+
+.software-intro-image figcaption img {
+    width: min(60vw, 300px);
+    height: auto;
+}
+
+.software-intro-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.software-intro-copy {
+    margin-bottom: 24px !important;
+}
+
+.software-intro-copy p:last-child {
+    margin-bottom: 0;
+}
+
+.software-intro-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.software-intro-actions .btn {
+    margin: 0 !important;
+    white-space: normal;
+    text-align: center;
+}
+
+.wd-hero {
+    padding-top: clamp(140px, 18vh, 190px) !important;
+    padding-bottom: clamp(70px, 10vh, 100px) !important;
+}
+
+@media (min-width: 1200px) {
+    .software-intro-actions {
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .software-intro-actions .btn {
+        flex: 0 1 auto;
+        padding: 12px 14px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 991px) {
+    .wd-hero {
+        padding-top: 125px !important;
+        padding-bottom: 70px !important;
+    }
+
+    .software-intro-row {
+        --bs-gutter-x: 1.5rem;
+        align-items: center;
+    }
+
+    .software-intro-visual {
+        display: block;
+    }
+
+    .software-intro-content {
+        height: auto;
+    }
+
+    .software-intro-image {
+        height: 500px;
+        min-height: 0;
+        flex: 0 0 auto;
+    }
+
+    .software-intro-image > img {
+        height: auto;
+        flex: 0 0 auto;
+    }
+}

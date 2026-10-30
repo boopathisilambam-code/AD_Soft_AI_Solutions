@@ -1,15 +1,52 @@
 ﻿<!doctype html>
 <html class="no-js" lang="en">
     <head>
-        <title>Crafto - The Multipurpose HTML5 Template</title>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XHQDJE0KPP');
+        </script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="author" content="ThemeZaa">
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta name="description" content="Elevate your online presence with Crafto - a modern, versatile, multipurpose Bootstrap 5 responsive HTML5, SCSS template using highly creative 56+ ready demos.">
+        <!-- ========================================== -->
+    <!-- SEO META TAGS & FAVICON (AI & AUTOMATION)  -->
+    <!-- ========================================== -->
+    <title>AI-Powered Software Development & Automation Company | AD Soft Technologies</title>
+    <meta name="description" content="AD Soft Technologies is a premier AI-powered software development and business automation company based in Kerala, India. We build smart AI agents, chatbots, web & mobile applications, and custom automated workflows for global enterprises.">
+    <meta name="keywords" content="AI-Powered Software Development, Business Automation Company, AI Development Company Kerala, Software Development, AI Agents, AI Chatbots, Custom Software, Web Development, Mobile App Development, AD Soft Technologies">
+    <meta name="author" content="AD Soft Technologies">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.adsofttechnologies.com/index.html">
+
+    <!-- ========================================== -->
+    <!-- OPEN GRAPH (OG) / SOCIAL MEDIA TAGS        -->
+    <!-- ========================================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AD Soft Technologies">
+    <meta property="og:title" content="AI-Powered Software Development & Automation Company | AD Soft Technologies">
+    <meta property="og:description" content="Build smarter, automate faster. We deliver cutting-edge AI solutions, custom software development, and digital automation workflows across India, Europe, and the USA.">
+    <meta property="og:url" content="https://www.adsofttechnologies.com/index.html">
+    <meta property="og:image" content="https://www.adsofttechnologies.com/images/logo.png">
+    <meta property="og:locale" content="en_US">
+
+    <!-- ========================================== -->
+    <!-- TWITTER CARD TAGS                          -->
+    <!-- ========================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI-Powered Software Development & Automation Company">
+    <meta name="twitter:description" content="Expert AI solutions, software development, and business automation services by AD Soft Technologies.">
+    <meta name="twitter:image" content="https://www.adsofttechnologies.com/images/logo.png">
+
         <!-- favicon icon -->
-        <link rel="shortcut icon" href="images/favicon.png">
-        <link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
+<link rel="shortcut icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/logo.png">
+            <link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
         <!-- google fonts preconnect -->
@@ -21,6 +58,52 @@
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/responsive.css"/>
         <link rel="stylesheet" href="demos/marketing/marketing.css" />
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "AD Soft Technologies",
+      "image": "https://www.adsofttechnologies.com/images/logo.png",
+      "@id": "https://www.adsofttechnologies.com/",
+      "url": "https://www.adsofttechnologies.com/",
+      "telephone": "",
+      "email": "info@adsofttechnologies.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2nd Floor, Puthenpurackal (H), Puthenpurackal Lane, Judgimukku, Thrikkakkara",
+        "addressLocality": "Ernakulam",
+        "addressRegion": "Kerala",
+        "postalCode": "682021",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.0159,
+        "longitude": 76.3419
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/",
+        "https://www.instagram.com/",
+        "https://www.twitter.com/"
+      ],
+      "priceRange": "$$",
+      "description": "AD Soft Technologies is an AI-powered software development and business automation company specializing in AI agents, web apps, mobile apps, and enterprise modernization."
+    }
+    </script>
+       
      <style>
     /* Hero section background shading replacement to light green #559643 with low opacity */
     .bg-gradient-black-green, 
@@ -39,11 +122,572 @@
     section{
         padding-top:30px;
     }
+
+    /* Hero ribbon: back arm behind the image, front arm over it */
+    /* Sized from the hero height so the front ribbon (which reaches ~114% of the
+       image height at the screen edge) leaves the hero only at the bottom-right corner */
+    .hero-visual-wrap {
+        position: absolute;
+        top: 100px;
+        height: calc((100% - 100px) / 1.12);
+        right: 1%;
+    }
+    .hero-visual {
+        position: relative;
+        height: 100%;
+        aspect-ratio: 1080 / 1358;
+    }
+    .hero-visual .hero-person {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        /* Hide everything below the front ribbon's lower edge, so she emerges from the ribbon */
+        clip-path: polygon(0 0, 100% 0, 100% 110.3%, 0 85%);
+    }
+    @media (max-width: 1199px) {
+        .hero-visual-wrap { right: -6%; }
+    }
+
+    /* Floating 3D tech icons beside the hero image (positions in % of the image box) */
+    .hero-tech-icon {
+        position: absolute;
+        z-index: 3;
+        width: 16%;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 24%;
+        color: #fff;
+        background: linear-gradient(145deg, #c6e06a 0%, #94b92f 55%, #6f8f1f 100%);
+        box-shadow:
+            inset 0 2px 0 rgba(255, 255, 255, 0.55),
+            inset 0 -5px 10px rgba(0, 0, 0, 0.18),
+            0 6px 0 #5d7a17,
+            0 18px 30px rgba(60, 90, 20, 0.35);
+        animation: hero-icon-float 5s ease-in-out infinite;
+        pointer-events: none;
+    }
+    .hero-tech-icon-light {
+        color: #6f8f1f;
+        background: linear-gradient(145deg, #ffffff 0%, #eef6e4 100%);
+        box-shadow:
+            inset 0 2px 0 #ffffff,
+            inset 0 -5px 10px rgba(0, 0, 0, 0.06),
+            0 6px 0 #cfe0b6,
+            0 18px 30px rgba(60, 90, 20, 0.22);
+    }
+    .hero-tech-icon-sm {
+        width: 12%;
+    }
+    .hero-tech-icon i {
+        font-size: clamp(16px, 3.8vh, 38px);
+        line-height: 1;
+        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+    }
+    .hero-tech-icon-sm i {
+        font-size: clamp(13px, 2.9vh, 28px);
+    }
+    @keyframes hero-icon-float {
+        0%, 100% { transform: perspective(400px) translateY(0) rotateX(8deg) rotateY(-14deg); }
+        50% { transform: perspective(400px) translateY(-14px) rotateX(-6deg) rotateY(14deg); }
+    }
+    @media (max-width: 1199px) {
+        .hero-tech-icon { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .hero-tech-icon { animation: none; }
+    }
+    @media (max-width: 991px) {
+        .hero-visual-wrap { right: -22%; }
+    }
+    .hero-ribbon {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+    }
+    .hero-ribbon-back {
+        z-index: 0;
+    }
+    .hero-ribbon-front {
+        z-index: 2;
+        filter: drop-shadow(0 -6px 14px rgba(0, 0, 0, 0.12));
+    }
+    .hero-ribbon polygon {
+        transform-box: fill-box;
+        transform-origin: 0 50%;
+        animation: hero-ribbon-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+    }
+    .hero-ribbon-front polygon {
+        animation-delay: 0.6s;
+    }
+    @keyframes hero-ribbon-in {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .hero-ribbon polygon { animation: none; }
+    }
+/* Responsive homepage hero banner */
+@media (max-width: 991px) {
+    body.home-page .home-hero {
+        min-height: calc(100svh - 74px) !important;
+        height: calc(100svh - 74px) !important;
+        padding-top: 32px !important;
+        padding-bottom: 36px !important;
+    }
+    .home-hero .container,
+    .home-hero .container > .row {
+        min-height: inherit;
+    }
+    .home-hero .col-xl-7 {
+        height: auto !important;
+        justify-content: flex-start !important;
+        padding-top: 30px;
+        margin-top: 0 !important;
+    }
+    .home-hero h1 {
+        font-size: clamp(38px, 10vw, 50px) !important;
+        line-height: 1.08 !important;
+        margin-top: 12px !important;
+        margin-bottom: 18px !important;
+    }
+    .home-hero h2 {
+        line-height: 1.5;
+        margin-bottom: 24px !important;
+    }
+    .home-hero .btn {
+        width: 100%;
+        margin-right: 0 !important;
+        justify-content: center;
+    }
+}
+@media (max-width: 575px) {
+    body.home-page .home-hero {
+        min-height: calc(100svh - 68px) !important;
+        height: calc(100svh - 68px) !important;
+    }
+    .home-hero .col-xl-7 {
+        padding-top: 18px;
+    }
+    .home-hero h1 {
+        font-size: 40px !important;
+        letter-spacing: -1.5px;
+    }
+    .home-hero h2 {
+        max-width: 330px;
+        font-size: 15px !important;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .home-page .blinking-cursor { animation: none; }
+}
+
+/* Moving dots on hero background */
+section[style*="demo-marketing-dot.svg"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(85, 150, 67, .35) 1.4px, transparent 1.6px);
+    background-size: 26px 26px;
+    animation: hero-dots-move 18s linear infinite;
     
-    
+}
+@keyframes hero-dots-move {
+    to { background-position: 260px 260px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    section[style*="demo-marketing-dot.svg"]::before { animation: none; }
+}
+
+@media (min-width: 992px) {
+    .home-page .portfolio-simple > .grid-item {
+        display: flex;
+    }
+    .home-page .portfolio-simple .portfolio-box {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+    }
+    .home-page .portfolio-simple .portfolio-image {
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+    }
+    .home-page .portfolio-simple .portfolio-image a,
+    .home-page .portfolio-simple .portfolio-image img {
+        width: 100%;
+        height: 100%;
+    }
+    .home-page .portfolio-simple .portfolio-image img {
+        display: block;
+        object-fit: cover;
+    }
+    .home-page .portfolio-simple .portfolio-caption {
+        height: 90px;
+        min-height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        white-space: nowrap !important;
+    }
+    .home-page .portfolio-simple .portfolio-caption > a,
+    .home-page .portfolio-simple .portfolio-caption > div {
+        flex: 0 0 auto;
+    }
+}
+
+/* Keep the homepage content within the viewport across narrower devices. */
+.home-page {
+    overflow-x: hidden;
+}
+.home-page img {
+    max-width: 100%;
+}
+.home-page h1,
+.home-page h2,
+.home-page h3,
+.home-page h4,
+.home-page h5,
+.home-page h6,
+.home-page p {
+    overflow-wrap: break-word;
+}
+.home-page .btn {
+    max-width: 100%;
+    white-space: normal;
+}
+.home-page .portfolio-caption {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+}
+.home-page .mobile-menu-social {
+    display: none;
+}
+.home-page .client-logo-marquee {
+    overflow: hidden;
+    padding: 18px 0;
+}
+.home-page .client-logo-track,
+.home-page .client-logo-group {
+    display: flex;
+    align-items: center;
+    width: max-content;
+}
+.home-page .client-logo-track {
+    animation: client-logo-scroll 28s linear infinite;
+}
+.home-page .client-logo-marquee:hover .client-logo-track {
+    animation-play-state: paused;
+}
+.home-page .client-logo-group {
+    flex-shrink: 0;
+    gap: clamp(36px, 7vw, 96px);
+    padding-right: clamp(36px, 7vw, 96px);
+}
+.home-page .client-logo-group a {
+    display: flex;
+    flex: 0 0 150px;
+    align-items: center;
+    justify-content: center;
+    height: 82px;
+}
+.home-page .client-logo-group img {
+    display: block;
+    width: auto;
+    max-width: 150px;
+    max-height: 70px;
+    object-fit: contain;
+}
+@keyframes client-logo-scroll {
+    to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .home-page .client-logo-track {
+        animation: none;
+    }
+}
+
+@media (max-width: 1199px) {
+    .home-page header .navbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    .home-page header .navbar > .container-fluid {
+        position: relative;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center;
+        min-height: 76px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .home-page header .navbar > .container-fluid > .col-auto:first-child {
+        flex: 1 1 auto;
+        min-width: 0;
+        margin-right: 0 !important;
+    }
+    .home-page header .navbar-brand {
+        min-width: 0;
+    }
+    .home-page header .navbar > .container-fluid > .col.menu-order {
+        position: static;
+        flex: 0 0 0;
+        width: 0;
+        padding: 0;
+    }
+    .home-page header .header-icon {
+        display: none;
+    }
+    .home-page header .navbar > .container-fluid > .col-auto.text-end {
+        display: none;
+    }
+    .home-page header .navbar-toggler {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        z-index: 2;
+        display: flex !important;
+        float: none !important;
+        margin: 0;
+        transform: translateY(-50%);
+    }
+    .home-page header .navbar-collapse {
+        position: absolute;
+        z-index: 20;
+        top: 100%;
+        right: 0;
+        left: 0;
+        width: 100%;
+        display: block !important;
+        max-height: calc(100vh - 76px);
+        overflow-y: auto;
+        padding: 12px 20px;
+        background: #fff;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+    .home-page header .navbar-collapse:not(.show) {
+        display: none !important;
+    }
+    .home-page header .navbar-nav .nav-link {
+        white-space: normal !important;
+    }
+    .home-page header .navbar-nav .dropdown-menu {
+        width: 100%;
+        padding: 8px 12px;
+    }
+    .home-page .mobile-menu-social {
+        display: flex;
+        gap: 20px;
+        padding: 14px 0 4px;
+        margin-top: 8px;
+        border-top: 1px solid #e8e8e8;
+    }
+    .home-page .mobile-menu-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #e8e8e8;
+        border-radius: 50%;
+        color: #232323;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    .home-page .home-hero {
+        height: auto !important;
+        min-height: 0 !important;
+        margin-top: 0 !important;
+        padding: calc(76px + 36px) 0 48px !important;
+    }
+    .home-page .home-hero.ipad-top-space-margin {
+        margin-top: 0 !important;
+    }
+    .home-page .home-hero > .container,
+    .home-page .home-hero > .container > .row {
+        height: auto !important;
+    }
+    .home-page .home-hero > .container > .row > .col-xl-7 {
+        width: 100%;
+        height: auto !important;
+        margin-top: 0 !important;
+    }
+    .home-page .home-hero h1 {
+        margin-top: 0 !important;
+        font-size: clamp(2.25rem, 6vw, 3rem);
+        line-height: 1.12;
+    }
+    .home-page .home-hero h2 {
+        margin-bottom: 24px;
+    }
+    .home-page .home-hero > .container > .row > .col-xl-5 {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .home-page header .navbar > .container-fluid {
+        min-height: 64px;
+    }
+    .home-page header .navbar-brand {
+        max-width: calc(100vw - 90px);
+        padding: 10px 0;
+    }
+    .home-page header .navbar-brand > img.mobile-logo {
+        flex: 0 0 auto;
+        max-width: 34px;
+        max-height: 34px;
+        object-fit: contain;
+    }
+    .home-page header .navbar-brand > span {
+        overflow: hidden;
+        white-space: nowrap !important;
+        text-overflow: ellipsis;
+        font-size: clamp(10px, 3.2vw, 13px) !important;
+        letter-spacing: 0;
+    }
+    .home-page header .navbar-toggler {
+        right: 12px;
+    }
+    .home-page header .navbar-collapse {
+        max-height: calc(100vh - 64px);
+    }
+    .home-page .home-hero {
+        padding: calc(64px + 24px) 0 36px !important;
+    }
+    .home-page .home-hero h1 {
+        font-size: clamp(2rem, 9vw, 2.75rem);
+        line-height: 1.12;
+        letter-spacing: -0.04em;
+    }
+    .home-page .home-hero [data-anime] {
+        max-width: 100%;
+    }
+    .home-page .home-hero .btn {
+        display: block;
+        width: 100%;
+        margin: 0 0 12px !important;
+        text-align: center;
+    }
+    .home-page .portfolio-caption {
+        padding-top: 16px !important;
+        padding-bottom: 20px !important;
+        font-size: 14px;
+    }
+    .home-page .portfolio-caption .separator-line-1px {
+        display: none !important;
+    }
+    .home-page .feature-box.p-30px,
+    .home-page .bg-white.p-30px,
+    .home-page .bg-white.p-40px {
+        padding: 20px !important;
+    }
+    .home-page .review-style-05 .d-flex.align-items-center {
+        align-items: flex-start !important;
+        padding: 20px !important;
+    }
+    .home-page .review-style-05 .border-top {
+        padding-right: 20px !important;
+        padding-left: 20px !important;
+    }
+    .home-page .review-star-icon {
+        float: none !important;
+        display: block;
+        margin-top: 6px;
+    }
+    .home-page footer .overlap-section .row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .home-page footer .overlap-section .feature-box {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    .home-page footer .overlap-section .feature-box-icon {
+        margin: 0 0 14px !important;
+    }
+    .home-page footer .footer-logo {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .home-page footer .footer-logo span {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 400px) {
+    .home-page .container,
+    .home-page .container-fluid {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+    .home-page .home-hero h1 {
+        font-size: 2rem;
+    }
+    .home-page .client-logo-marquee {
+        padding: 8px 0;
+    }
+    .home-page .client-logo-group {
+        gap: 28px;
+        padding-right: 28px;
+    }
+    .home-page .client-logo-group a {
+        flex-basis: 118px;
+        height: 68px;
+    }
+    .home-page .client-logo-group img {
+        max-width: 118px;
+        max-height: 58px;
+    }
+    .home-page .home-hero .btn {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+}
+
+
+    /* Tappable bubble-style filter tabs */
+    .portfolio-filter{gap:12px;flex-wrap:wrap}
+    .portfolio-filter li,.portfolio-filter li:first-child,.portfolio-filter li:last-child{padding:0}
+    .portfolio-filter li a{
+        display:inline-block;padding:10px 24px;border-radius:40px;
+        background:#eef7ea;border:1.5px solid #d3e6cb;color:#2f4a28;font-weight:600;
+        box-shadow:0 3px 8px rgba(85,150,67,.12);cursor:pointer;
+        transition:transform .2s,background .2s,color .2s,box-shadow .2s,border-color .2s;
+    }
+    .portfolio-filter li:hover a,.portfolio-filter li:focus a{
+        background:#dcefd3;border-color:#559643;color:#1f3a1a;
+        transform:translateY(-2px);box-shadow:0 8px 16px rgba(85,150,67,.25);
+    }
+    .portfolio-filter li.active a{
+        background:#559643;border-color:#559643;color:#fff;
+        box-shadow:0 8px 16px rgba(85,150,67,.35);
+    }
+    .portfolio-filter li a:active{transform:translateY(0) scale(.97)}
+    @media(max-width:575px){.portfolio-filter li a{padding:8px 16px;font-size:14px}}
 </style>
-    </head>
-    <body data-mobile-nav-style="classic" class="custom-cursor">
+    <link rel="stylesheet" href="css/nav-active.css">
+</head>
+    <body data-mobile-nav-style="classic" class="custom-cursor home-page">
         <!-- start cursor -->
         <div class="cursor-page-inner">
             <div class="circle-cursor circle-cursor-inner"></div>
@@ -82,55 +726,58 @@
                                 <li class="nav-item"><a href="index.html" class="nav-link text-nowrap">Home</a></li>
 
                                 <!-- 2. ABOUT US -->
-                                <li class="nav-item"><a href="demo-marketing-about.html" class="nav-link text-nowrap">About Us</a></li>
+                                <li class="nav-item"><a href="about.html" class="nav-link text-nowrap">About Us</a></li>
 
                                 <!-- 3. AI SOLUTIONS (Dropdown) -->
-                                <li class="nav-item dropdown simple-dropdown">
-                                    <a href="#" class="nav-link text-nowrap">AI Solutions</a>
-                                    <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownAI" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownAI" style="min-width: 270px;">
-                                        <li><a href="#">AI Agent Development</a></li>
-                                        <li><a href="#">AI Chatbot Development</a></li>
-                                        <li><a href="#">AI Automation</a></li>
-                                        <li><a href="#">AI Integration</a></li>
-                                        <li><a href="#">AI Adoption & Consulting</a></li>
-                                    </ul>
-                                </li>
+                                             <li class="nav-item dropdown simple-dropdown"><a href="ai-solution.html"
+    class="nav-link text-nowrap ">AI Solutions</a><i
+    class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown"
+    aria-expanded="false"></i>
+<ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
+  <li><a href="ai-agent-developemnt.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
+  <li><a href="ai-chatbot-developemt.html"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
+  <li><a href="ai-automation.html"><i class="fa-solid fa-bolt"></i>AI Automation</a></li>
+  <li><a href="ai-integration.html"><i class="fa-solid fa-diagram-project"></i>AI Integration</a></li>
+  <li><a href="ai-adoption-and-consulting.html"><i class="fa-solid fa-chart-line"></i>AI Adoption &amp; Consulting</a></li>
+</ul>
+</li>
 
                                 <!-- 4. SOFTWARE DEVELOPMENT (Dropdown) -->
                                 <li class="nav-item dropdown simple-dropdown">
                                     <a href="#" class="nav-link text-nowrap">Software Development</a>
                                     <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownSoftware" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownSoftware" style="min-width: 330px;">
-                                        <li><a href="#">Website Development</a></li>
-                                        <li><a href="#">Mobile App Development</a></li>
-                                        <li><a href="#">Custom Software Development</a></li>
-                                        <li><a href="#">Software Modification & Modernization</a></li>
+                                    <ul class="dropdown-menu ai-dropdown software-dropdown" aria-labelledby="navbarDropdownSoftware">
+                                        <li><a href="website-development.html"><i class="fa-solid fa-globe"></i>Website Development</a></li>
+                                        <li><a href="mobile-app-development.html"><i class="fa-solid fa-mobile-screen-button"></i>Mobile App Development</a></li>
+                                        <li><a href="custom-software-development.html"><i class="fa-solid fa-code"></i>Custom Software Development</a></li>
+                                        <li><a href="software-modification-modernization.html"><i class="fa-solid fa-arrows-rotate"></i>Software Modification &amp; Modernization</a></li>
                                     </ul>
                                 </li>
 
-                                <!-- 5. BUSINESS SOLUTIONS (Dropdown) -->
-                                <li class="nav-item dropdown simple-dropdown">
-                                    <a href="#" class="nav-link text-nowrap">Business Solutions</a>
-                                    <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownBusiness" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownBusiness" style="min-width: 260px;">
-                                        <li><a href="#">Business Automation</a></li>
-                                        <li><a href="#">Digital Transformation</a></li>
-                                        <li><a href="#">Branding</a></li>
-                                        <li><a href="#">Business Services</a></li>
-                                    </ul>
-                                </li>
+                                              <li class="nav-item dropdown simple-dropdown"><a href="#" class="nav-link text-nowrap">Business Solutions</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dBS" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+<ul class="dropdown-menu ai-dropdown" aria-labelledby="dBS">
+  <li><a href="business-automation.html"><i class="fa-solid fa-gears"></i>Business Automation</a></li>
+  <li><a href="digital-transformation.html"><i class="fa-solid fa-chart-line"></i>Digital Transformation</a></li>
+  <li><a href="branding.html"><i class="fa-solid fa-palette"></i>Branding</a></li>
+  <li><a href="business-services.html"><i class="fa-solid fa-briefcase"></i>Business Services</a></li>
+</ul></li>
 
                                 <!-- 6. OUR WORK -->
-                                <li class="nav-item"><a href="demo-marketing-case-studies.html" class="nav-link text-nowrap">Our Work</a></li>
+                                <li class="nav-item"><a href="our-work.html" class="nav-link text-nowrap">Our Work</a></li>
 
                                 <!-- 7. AI INSIGHTS -->
-                                <li class="nav-item"><a href="#" class="nav-link text-nowrap">AI Insights</a></li>
+                               <li class="nav-item"><a href="ai-insights.html" class="nav-link text-nowrap">AI Insights</a></li>
 
                                 <!-- 8. CONTACT -->
-                                <li class="nav-item"><a href="demo-marketing-contact.html" class="nav-link text-nowrap">Contact</a></li>
+                                <li class="nav-item"><a href="contact.html" class="nav-link text-nowrap">Contact</a></li>
+
                             </ul>
-                        </div>
+                                    <div class="mobile-menu-social" aria-label="Social media">
+                                        <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                                        <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                                        <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
                     </div>
 
                     <!-- Right Social Icons -->
@@ -149,7 +796,7 @@
             <!-- end navigation -->
         </header>
         <!-- end header -->
-    <section class="p-0 full-screen md-h-600px sm-h-600px ipad-top-space-margin background-position-center-top position-relative lg-overflow-hidden" style="background-image: url('images/demo-marketing-dot.svg')">
+    <section class="home-hero p-0 full-screen md-h-600px sm-h-600px ipad-top-space-margin background-position-center-top position-relative overflow-hidden" style="background-image: url('images/demo-marketing-dot.svg')">
     <div class="bg-gradient-black-green position-absolute left-0px top-0px h-100 w-100 z-index-minus-1"></div>
     <div class="container h-100">
         <div class="row align-items-center h-100">
@@ -161,32 +808,31 @@
                     <span id="typing-text"></span><span class="blinking-cursor">•</span>
                 </h1>
                 
-                <!-- Tag Line (H2 Tag) -->
-                <h2 class="fs-16 lg-fs-14 text-uppercase text-base-color fw-700 mb-40px d-block ls-1px" data-anime='{ "opacity": [0, 1], "translateX": [-100, 0], "duration": 1000, "delay": 2000, "easing": "easeOutCubic" }'>
-                    Build Smarter. Automate Faster. Grow with Technology.
-                </h2>
+               <!-- Tag Line (H2 Tag) -->
+<h2 class="fs-16 lg-fs-14 text-uppercase text-base-color fw-700 mb-40px d-block ls-1px" data-anime='{ "opacity": [0, 1], "translateX": [-100, 0], "duration": 1000, "delay": 0, "easing": "easeOutCubic" }'>    Build Smarter. Automate Faster. Grow with Technology.
+</h2>
                 
-                <!-- Buttons -->
-                <div data-anime='{ "el": "childs", "opacity": [0, 1], "translateX": [-100, 0], "staggervalue": -200, "duration": 1000, "delay": 2500, "easing": "easeOutCubic" }'>
-                    <a href="#" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-20px fw-400 xs-mt-10px xs-mb-10px d-inline-block">
+<!-- Buttons -->
+<div data-anime='{ "el": "childs", "opacity": [0, 1], "translateX": [-100, 0], "staggervalue": 0, "duration": 1000, "delay": 0, "easing": "easeOutCubic" }'>    <a href="contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-20px fw-400 xs-mt-10px xs-mb-10px d-inline-block">
                         <span> 
                             <span class="btn-text">Talk to Our AI & Software Experts</span>
                             <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
                             <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
                         </span>
                     </a>
-                    <a href="#" class="btn btn-large btn-white btn-round-edge btn-box-shadow fw-600 xs-mt-10px xs-mb-10px d-inline-block">
+                    <a href="business-services.html" class="btn btn-large btn-white btn-round-edge btn-box-shadow fw-600 xs-mt-10px xs-mb-10px d-inline-block">
                         Explore Our Solutions
                     </a>
                 </div>
                 
             </div>
             
-            <!-- Right Side Images -->
-            <div class="col-xl-5 col-lg-4 col-md-2 align-self-end d-none d-md-inline-block">
-                <div class="position-absolute right-0px bottom-minus-90px xxl-bottom-minus-30px md-bottom-minus-35px md-right-minus-250px lg-right-minus-150px w-50 xl-w-55 lg-w-65 md-w-75 overflow-hidden">
-                    <img src="images/home .png" class="w-100" alt="" data-anime='{ "opacity": [0, 1], "translateX": [100, 0], "duration": 1000, "delay": 200, "easing": "easeOutQuad" }'>
-                </div>
+           <!-- Right Side Images -->
+                            <div class="col-xl-5 col-lg-4 col-md-2 align-self-end d-none d-md-inline-block">
+                                <div class="position-absolute right-0px bottom-minus-90px xxl-bottom-minus-30px md-bottom-minus-35px md-right-minus-250px lg-right-minus-150px w-50 xl-w-55 lg-w-65 md-w-75 overflow-hidden">
+                                    <img src="images/home .png" class="w-100" alt="" data-anime='{ "opacity": [0, 1], "translateX": [100, 0], "duration": 1000, "delay": 200, "easing": "easeOutQuad" }'>
+                                </div>
+                            </div>
 
             </div>
         </div> 
@@ -200,32 +846,23 @@
                         <span class="fs-22 mb-0 text-dark-gray fw-500 ls-minus-1px"> <span class="fw-700">20+ </span> Projects delivered Across<span class="fw-700"> India & USA </span></span>
                     </div>
                 </div>
-                <div class="row row-cols-1 row-cols-lg-5 row-cols-sm-3 row-cols-xs-2 clients-style-08 justify-content-center" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,0.5], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                    <!-- start client item -->
-                    <div class="col client-box text-center md-mb-40px">
-                        <a href="#"><img src="images/pr13.png" class="h-70px" alt=""></a>
+                <div class="client-logo-marquee" aria-label="Our clients">
+                    <div class="client-logo-track">
+                        <div class="client-logo-group">
+                            <a href="#" aria-label="Client logo"><img src="images/pr13.png" alt=""></a>
+                            <a href="#" aria-label="Client logo"><img src="images/pr6.png" alt=""></a>
+                            <a href="#" aria-label="Client logo"><img src="images/pr14.png" alt=""></a>
+                            <a href="#" aria-label="Client logo"><img src="images/hori-logo.png" alt=""></a>
+                            <a href="#" aria-label="Client logo"><img src="images/logo 170X170.webp" alt=""></a>
+                        </div>
+                        <div class="client-logo-group" aria-hidden="true">
+                            <a href="#" tabindex="-1"><img src="images/pr13.png" alt=""></a>
+                            <a href="#" tabindex="-1"><img src="images/pr6.png" alt=""></a>
+                            <a href="#" tabindex="-1"><img src="images/pr14.png" alt=""></a>
+                            <a href="#" tabindex="-1"><img src="images/hori-logo.png" alt=""></a>
+                            <a href="#" tabindex="-1"><img src="images/logo 170X170.webp" alt=""></a>
+                        </div>
                     </div>
-                    <!-- end client item -->
-                    <!-- start client item -->
-                    <div class="col client-box text-center md-mb-40px">
-                        <a href="#"><img src="images/pr6.png" class="h-60px" alt=""></a>
-                    </div>
-                    <!-- end client item -->
-                    <!-- start client item -->
-                    <div class="col client-box text-center md-mb-40px">
-                        <a href="#"><img src="images/pr14.png" class="h-60px" alt=""></a>
-                    </div>
-                    <!-- end client item -->
-                    <!-- start client item -->
-                    <div class="col client-box text-center xs-mb-40px">
-                        <a href="#"><img src="images/hori-logo.png" class="h-60px" alt=""></a>
-                    </div> 
-                    <!-- end client item -->
-                    <!-- start client item -->
-                    <div class="col client-box text-center">
-                        <a href="#"><img src="images/logo 170X170.webp" class="h-60px" alt=""></a>
-                    </div> 
-                    <!-- end client item -->
                 </div>
             </div>
         </section>
@@ -248,7 +885,7 @@
                     
                     <!-- Left Side: Image -->
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px text-center"> 
-                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#fff2ef", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
                             <!-- Image size reduced using w-80 -->
                             <img src="images/about-1.png" class="w-80 sm-w-100 border-radius-6px" alt="AD Soft Technologies">
                             
@@ -271,7 +908,7 @@
                         
                         <!-- Buttons -->
                         <div class="mt-20px d-sm-flex align-items-center">
-                            <a href="demo-marketing-contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-20px xs-mb-15px fw-400 text-nowrap">
+                            <a href="contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-20px xs-mb-15px fw-400 text-nowrap">
                                 <span> 
                                     <span class="btn-text">Talk to Our AI & Software Experts</span>
                                     <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -368,10 +1005,10 @@
                             <li class="grid-item ai-solutions transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="#"><img src="images/service-1.png" alt="" /></a>
+                                        <a href="ai-agent-developemnt.html"><img src="images/service-1.png" alt="" /></a>
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="#" class="text-dark-gray text-dark-gray-hover fw-600">AI Agent Development</a>
+                                        <a href="ai-agent-developemnt.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Agent Development</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">AI Solutions</div>
                                     </div>
@@ -382,10 +1019,10 @@
                             <li class="grid-item ai-solutions transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="#"><img src="images/service-2.png" alt="" /></a> 
+                                        <a href="ai-chatbot-developemt.html"><img src="images/service-2.png" alt="" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="#" class="text-dark-gray text-dark-gray-hover fw-600">AI Chatbot Development</a>
+                                        <a href="ai-chatbot-developemt.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Chatbot Development</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">AI Solutions</div>
                                     </div>
@@ -396,10 +1033,10 @@
                             <li class="grid-item ai-solutions transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="#"><img src="images/service-3.png" alt="" /></a> 
+                                        <a href="ai-automation.html"><img src="images/service-3.png" alt="" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="#" class="text-dark-gray text-dark-gray-hover fw-600">AI Automation</a>
+                                        <a href="ai-automation.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Automation</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">AI Solutions</div>
                                     </div>
@@ -410,10 +1047,10 @@
                             <li class="grid-item ai-solutions transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="#"><img src="images/service-4.png" alt="" /></a> 
+                                        <a href="ai-integration.html"><img src="images/service-4.png" alt="" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="#" class="text-dark-gray text-dark-gray-hover fw-600">AI Integration</a>
+                                        <a href="ai-integration.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Integration</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">AI Solutions</div>
                                     </div>
@@ -424,10 +1061,10 @@
                             <li class="grid-item ai-solutions transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="#"><img src="images/service-5.png" alt="" /></a> 
+                                        <a href="ai-adoption-and-consulting.html"><img src="images/service-5.png" alt="" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="#" class="text-dark-gray text-dark-gray-hover fw-600">AI Consulting</a>
+                                        <a href="ai-adoption-and-consulting.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Consulting</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">AI Solutions</div>
                                     </div>
@@ -438,10 +1075,10 @@
                             <li class="grid-item software transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="#"><img src="images/service-6.png" alt="" /></a>
+                                        <a href="website-development.html"><img src="images/service-6.png" alt="" /></a>
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="#" class="text-dark-gray text-dark-gray-hover fw-600">Website Development</a>
+                                        <a href="website-development.html" class="text-dark-gray text-dark-gray-hover fw-600">Website Development</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">Software Development</div>
                                     </div>
@@ -452,10 +1089,10 @@
                             <li class="grid-item software transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="#"><img src="images/service-7.png" alt="" /></a> 
+                                        <a href="mobile-app-development.html"><img src="images/service-7.png" alt="" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="#" class="text-dark-gray text-dark-gray-hover fw-600">Android & iOS App</a>
+                                        <a href="mobile-app-development.html" class="text-dark-gray text-dark-gray-hover fw-600">Android & iOS App</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">Software Development</div>
                                     </div>
@@ -466,10 +1103,10 @@
                             <li class="grid-item software transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="#"><img src="images/service-8.png" alt="" /></a> 
+                                        <a href="custom-software-development.html"><img src="images/service-8.png" alt="" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="#" class="text-dark-gray text-dark-gray-hover fw-600">Custom Software</a>
+                                        <a href="custom-software-development.html" class="text-dark-gray text-dark-gray-hover fw-600">Custom Software</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">Software Development</div>
                                     </div>
@@ -480,10 +1117,10 @@
                             <li class="grid-item software transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="#"><img src="images/service-9.png" alt="" /></a> 
+                                        <a href="software-modification-modernization.html"><img src="images/service-9.png" alt="" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="#" class="text-dark-gray text-dark-gray-hover fw-600">Software Modernization</a>
+                                        <a href="software-modification-modernization.html" class="text-dark-gray text-dark-gray-hover fw-600">Software Modernization</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">Software Development</div>
                                     </div>
@@ -494,10 +1131,10 @@
                             <li class="grid-item business transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="#"><img src="images/service-10.png" alt="" /></a> 
+                                        <a href="business-automation.html"><img src="images/service-10.png" alt="" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="#" class="text-dark-gray text-dark-gray-hover fw-600">Business Automation</a>
+                                        <a href="business-automation.html" class="text-dark-gray text-dark-gray-hover fw-600">Business Automation</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">Business Solutions</div>
                                     </div>
@@ -684,7 +1321,7 @@
                 <!-- Content and Image Row -->
                 <div class="row align-items-center justify-content-md-center">
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px text-center order-lg-2">
-                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#fff2ef", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
+                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
                             <img src="images/why-01.png" class="w-90 sm-w-100 border-radius-6px" alt="Upgrade what you already have">
                         </figure>
                     </div>
@@ -694,7 +1331,7 @@
                             <p class="mb-15px">For example, an existing website can be connected to an AI chatbot. A business application can be enhanced with an AI assistant. Internal documents can be connected to a knowledge-based assistant, and existing workflows can be connected with AI-powered automation.</p>
                             <p>Our approach is to first understand your existing technology and business processes, and then determine where AI integration, automation or software modernization makes the most sense — so you can adopt AI progressively instead of treating digital transformation as an all-or-nothing project.</p>
                         </div>
-                        <a href="demo-marketing-contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow">
+                        <a href="contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow">
                             <span>
                                 <span class="btn-text">Talk to Our AI & Software Team</span>
                                 <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -791,7 +1428,7 @@
                 <!-- Content and Image Row -->
                 <div class="row align-items-center justify-content-md-center">
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px text-center">
-                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#fff2ef", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
                             <img src="images/why-02.png" class="w-90 sm-w-100 border-radius-6px" alt="Business Automation & Digital Transformation">
                         </figure>
                     </div>
@@ -848,7 +1485,7 @@
                 <div class="row align-items-center mb-6 xs-mb-12 justify-content-md-center"> 
                     <!-- Left Side Image Layout -->
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px"> 
-                        <figure class="position-relative m-0 text-center" data-anime='{ "effect": "slide", "color": "#fff2ef", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
+                        <figure class="position-relative m-0 text-center" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
                             <img src="images/why-04.png" class="border-radius-6px w-100" alt="">
                             <figcaption class="position-absolute bottom-60px right-0px" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 800, "delay": 1000, "staggervalue": 300, "easing": "easeOutQuad" }'> 
                                 <img src="images/about-2.png" class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
@@ -978,7 +1615,7 @@
                             </div>
                         </div>
 
-                        <a href="demo-marketing-contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow">
+                        <a href="contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow">
                             <span> 
                                 <span class="btn-text">Talk to our team</span>
                                 <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1080,7 +1717,7 @@
                 <!-- Call to Action Button -->
                 <div class="row justify-content-center mt-4">
                     <div class="col-12 text-center">
-                        <a href="demo-marketing-contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow">
+                        <a href="contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow">
                             <span>
                                 <span class="btn-text">Start Your Project With Us</span>
                                 <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1170,7 +1807,7 @@
                 <!-- Action Button -->
                 <div class="row justify-content-center mt-5">
                     <div class="col-12 text-center">
-                        <a href="demo-marketing-projects.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow">
+                        <a href="our-work.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow">
                             <span>
                                 <span class="btn-text">View Our Work</span>
                                 <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1194,7 +1831,7 @@
                         <p class="fs-18 mb-20px">You don't need to know whether you need an AI agent, chatbot, automation workflow or custom software before contacting us.</p>
                         <p class="mb-30px">Our team can evaluate your requirements and help identify where AI, automation, software development or integration can provide the most practical solution.</p>
                         
-                        <a href="demo-marketing-contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow">
+                        <a href="contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow">
                             <span>
                                 <span class="btn-text">Talk to Our AI & Software Team</span>
                                 <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1456,7 +2093,7 @@
                                 <span class="d-block fw-600 text-white mb-20px fs-18 font-style-italic">Have a business challenge or technology idea? Let's discuss it.</span>
                                 <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
                                    <!-- Primary Button -->
-<a href="demo-marketing-contact.html" class="btn btn-large btn-base-color text-white btn-hover-animation-switch btn-round-edge btn-box-shadow">
+<a href="contact.html" class="btn btn-large btn-base-color text-white btn-hover-animation-switch btn-round-edge btn-box-shadow">
     <span class="text-white">
         <span class="btn-text text-white">Start Your Project</span>
         <span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1464,7 +2101,7 @@
     </span>
 </a>
                                     <!-- Secondary Button -->
-                                    <a href="demo-marketing-contact.html" class="btn btn-large btn-transparent-white-light btn-hover-animation-switch btn-round-edge">
+                                    <a href="contact.html" class="btn btn-large btn-transparent-white-light btn-hover-animation-switch btn-round-edge">
                                         <span>
                                             <span class="btn-text">Contact AD Soft Technologies</span>
                                             <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1663,7 +2300,7 @@
                 <div class="row">
                     <div class="col-12 text-center" data-anime='{ "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
                         <div class="bg-white border border-color-extra-medium-gray box-shadow-extra-large fw-700 text-dark-gray text-uppercase border-radius-30px ps-20px pe-20px fs-12 me-10px sm-m-5px d-inline-block align-middle">Hurray</div>
-                        <div class="text-dark-gray fs-18 d-block d-sm-inline-block">Let's make something great work together. <a href="demo-marketing-contact.html" class="text-dark-gray ls-minus-05px text-decoration-line-bottom fw-600">Got a project in mind?</a></div>
+                        <div class="text-dark-gray fs-18 d-block d-sm-inline-block">Let's make something great work together. <a href="contact.html" class="text-dark-gray ls-minus-05px text-decoration-line-bottom fw-600">Got a project in mind?</a></div>
                     </div>
                 </div>
             </div> 
@@ -1727,22 +2364,20 @@
                 </ul>
             </div>
 
-            <!-- Column 3: Additional Pages -->
-            <div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin xs-mb-35px"> 
-                <span class="fs-16 fw-500 d-block text-white mb-15px">Additional Pages</span>
-                <ul class="p-0 m-0 list-unstyled">
-                    <li class="mb-8px"><a href="https://www.adsofttechnologies.com/about.html">About Us</a></li>
-                    <li class="mb-8px"><a href="https://www.adsofttechnologies.com/services.html">Our Services</a></li>
-                    <li class="mb-8px"><a href="https://www.adsofttechnologies.com/contact.html">Contact Us</a></li>
-                    <li class="mb-8px"><a href="https://www.adsofttechnologies.com/contact#">Privacy Policy</a></li>
-                </ul>
-            </div>
-
+<div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin xs-mb-35px">
+<span class="fs-16 fw-500 d-block text-white mb-15px">Additional Pages</span>
+<ul class="p-0 m-0 list-unstyled">
+<li class="mb-8px"><a href="about.html">About Us</a></li>
+<li class="mb-8px"><a href="ai-solution.html">Our Services</a></li>
+<li class="mb-8px"><a href="contact.html">Contact Us</a></li>
+<li class="mb-8px"><a href="contact.html">Privacy Policy</a></li>
+</ul>
+</div>
             <!-- Column 4: Contact Us -->
             <div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin">
                 <span class="fs-16 fw-500 d-block text-white mb-15px">Contact Us</span> 
                 <p class="w-90 lg-w-95 xs-w-60 xs-mx-auto mb-15px">2nd Floor, Puthenpurackal (H), Puthenpurackal Lane, Judgimukku, Thrikkakkara, Ernakulam, Kerala</p>
-                <a href="https://www.adsofttechnologies.com/contact.html" class="btn btn-small btn-base-color text-white btn-round-edge btn-hover-animation-switch">
+                <a href="contact.html" class="btn btn-small btn-base-color text-white btn-round-edge btn-hover-animation-switch">
                     <span class="text-white">
                         <span class="btn-text text-white">Send Message</span>
                         <span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1864,5 +2499,6 @@
     });
 })();
 </script>
-    </body>
+    <script src="js/nav-active.js"></script>
+</body>
 </html>

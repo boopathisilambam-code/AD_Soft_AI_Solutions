@@ -34,11 +34,10 @@ Table of contents
 /* ===================================
     01. Google font
 ====================================== */
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 :root {
-  --alt-font: "Plus Jakarta Sans", sans-serif;
-  --primary-font: "Inter", sans-serif;
+  --alt-font: "Poppins", sans-serif;
+  --primary-font: "Poppins", sans-serif;
 }
 /* ===================================
     02. CSS color variable
@@ -103,6 +102,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
   word-break: break-word;
   -webkit-font-smoothing: antialiased;
+}
+body,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6,
+body p,
+body a,
+body button,
+body input,
+body textarea,
+body select,
+body label,
+body span,
+body li,
+body td,
+body th {
+  font-family: "Poppins", sans-serif;
 }
 section {
   padding-top: 55px;
@@ -7231,6 +7250,73 @@ header.sticky .navbar.disable-fixed {
   -webkit-transform: translateY(0);
   transform: translateY(0);
   box-shadow: none;
+}
+
+/* Keep the shared navigation visible at the top while the page scrolls. */
+header .navbar.disable-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--white) !important;
+  box-shadow: 0 2px 12px rgba(35, 35, 35, 0.08);
+}
+header:not(.sticky) .navbar.disable-fixed {
+  background-color: var(--white) !important;
+}
+
+header .navbar.disable-fixed > .container-fluid {
+  width: 100%;
+  max-width: 100%;
+}
+
+header.sticky .navbar.disable-fixed {
+  background-color: var(--white);
+  box-shadow: 0 8px 24px rgba(35, 35, 35, 0.12);
+}
+
+header.sticky.sticky-active .navbar.disable-fixed .default-logo {
+  visibility: visible;
+  opacity: 1;
+  width: auto;
+  max-height: 70px;
+}
+
+header.sticky.sticky-active .navbar.disable-fixed .alt-logo {
+  visibility: visible;
+  opacity: 1;
+  width: 0;
+}
+
+@media (min-width: 992px) {
+  header,
+  header .navbar.disable-fixed {
+    z-index: 1000;
+  }
+
+  header .navbar .navbar-nav .simple-dropdown {
+    position: relative;
+  }
+
+  header .navbar .navbar-nav .simple-dropdown > .dropdown-menu {
+    left: 0;
+    top: 100%;
+    width: min(340px, calc(100vw - 30px));
+    max-width: calc(100vw - 30px);
+    padding: 22px 0;
+    z-index: 1001;
+  }
+
+  header .navbar .navbar-nav .simple-dropdown > .dropdown-menu li {
+    padding: 0 22px;
+  }
+
+  header .navbar .navbar-nav .simple-dropdown > .dropdown-menu li a {
+    white-space: normal;
+    line-height: 1.45;
+  }
 }
 
 /* Navbar */
@@ -19602,4 +19688,336 @@ footer .footer-navbar .nav-item:last-child a {
 }
 .footer-demo img {
   max-height: 55px !important;
+}
+
+/* Stable typing headlines across all AI and software pages */
+.ai-hero h1,
+.wd-hero h1,
+.custom-software-hero h1 {
+  min-height: 120px;
+  line-height: 1.2;
+}
+
+.ai-hero h1 #typer,
+.wd-hero h1 #wd-typing-text,
+.custom-software-hero h1 #software-typing-text {
+  display: inline;
+  min-height: 0;
+  min-width: 0;
+}
+
+.wd-hero h1,
+.wd-hero h1 .blinking-cursor {
+  height: auto;
+  overflow: visible;
+}
+
+.ai-hero h1 .blink,
+.blinking-cursor {
+  display: inline;
+  width: auto;
+  min-width: 0;
+  margin-left: 1px;
+  vertical-align: baseline;
+  white-space: nowrap;
+  animation: bl 1s steps(2) infinite;
+}
+
+@keyframes bl {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .ai-hero h1,
+  .wd-hero h1,
+  .custom-software-hero h1 {
+    min-height: 92px;
+  }
+}
+
+/* One dark middle content section across every page */
+:root {
+  --ad-dark-section-color: #1c2a17;
+}
+
+.ad-middle-dark-section {
+  position: relative;
+  left: 50%;
+  margin: 28px 0;
+  width: 100vw;
+  max-width: 100vw;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: var(--ad-dark-section-color) !important;
+  margin-left: -50vw;
+  margin-right: 0;
+  box-shadow: none;
+}
+
+.ad-middle-dark-section .text-dark-gray,
+.ad-middle-dark-section h1,
+.ad-middle-dark-section h2,
+.ad-middle-dark-section h3,
+.ad-middle-dark-section h4,
+.ad-middle-dark-section h5,
+.ad-middle-dark-section h6 {
+  color: #ffffff !important;
+}
+
+.ad-middle-dark-section p,
+.ad-middle-dark-section li {
+  color: #d7d7d7;
+}
+.ad-middle-dark-section button{
+  background-color: var(--dark-gray);
+}
+
+.ad-middle-dark-section .eyebrow,
+.ad-middle-dark-section .text-base-color {
+  color: #559643 !important;
+}
+
+.ad-middle-dark-section a:not(.btn) {
+  color: #8bcf70;
+}
+
+.ad-middle-dark-section .card-idx,
+.ad-middle-dark-section .feature-box,
+.ad-middle-dark-section .bg-white {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.ad-middle-dark-section .card-idx h5,
+.ad-middle-dark-section .card-idx h6,
+.ad-middle-dark-section .feature-box h5,
+.ad-middle-dark-section .feature-box h6 {
+  color: #ffffff !important;
+}
+
+/* Keep interactive card text readable when the section uses the dark treatment. */
+.ad-middle-dark-section .xi .xt {
+  color: #232323 !important;
+}
+
+.ad-middle-dark-section .xi.on .xt,
+.ad-middle-dark-section .xi.on .xd {
+  color: #ffffff !important;
+}
+
+.ad-middle-dark-section .xi.on .xn {
+  color: #e3f2b0 !important;
+  opacity: 0.7;
+}
+
+.ad-middle-dark-section .xi:not(.on) .xn {
+  color: #559643 !important;
+  opacity: 1;
+}
+
+.ad-middle-dark-section .xi.on .xic {
+  color: #ffffff !important;
+}
+
+/* Nested light cards must retain dark text inside a dark section. */
+.ad-middle-dark-section .bg-white,
+.ad-middle-dark-section .card,
+.ad-middle-dark-section .lane,
+.ad-middle-dark-section .er > div,
+.ad-middle-dark-section .panel,
+.ad-middle-dark-section .box,
+.ad-middle-dark-section .box-item {
+  color: var(--dark-gray);
+}
+
+.ad-middle-dark-section .bg-white *,
+.ad-middle-dark-section .card *,
+.ad-middle-dark-section .lane *,
+.ad-middle-dark-section .er > div *,
+.ad-middle-dark-section .panel *,
+.ad-middle-dark-section .box *,
+.ad-middle-dark-section .box-item * {
+  text-shadow: none;
+}
+
+.ad-middle-dark-section .bg-white p,
+.ad-middle-dark-section .bg-white span,
+.ad-middle-dark-section .card p,
+.ad-middle-dark-section .card span,
+.ad-middle-dark-section .lane p,
+.ad-middle-dark-section .lane span,
+.ad-middle-dark-section .er > div p,
+.ad-middle-dark-section .er > div span {
+  color: #717580 !important;
+}
+
+.ad-middle-dark-section .bg-white h1,
+.ad-middle-dark-section .bg-white h2,
+.ad-middle-dark-section .bg-white h3,
+.ad-middle-dark-section .bg-white h4,
+.ad-middle-dark-section .bg-white h5,
+.ad-middle-dark-section .bg-white h6,
+.ad-middle-dark-section .card h1,
+.ad-middle-dark-section .card h2,
+.ad-middle-dark-section .card h3,
+.ad-middle-dark-section .card h4,
+.ad-middle-dark-section .card h5,
+.ad-middle-dark-section .card h6,
+.ad-middle-dark-section .lane h1,
+.ad-middle-dark-section .lane h2,
+.ad-middle-dark-section .lane h3,
+.ad-middle-dark-section .lane h4,
+.ad-middle-dark-section .lane h5,
+.ad-middle-dark-section .lane h6,
+.ad-middle-dark-section .lane .text-dark-gray,
+.ad-middle-dark-section .er > div h1,
+.ad-middle-dark-section .er > div h2,
+.ad-middle-dark-section .er > div h3,
+.ad-middle-dark-section .er > div h4,
+.ad-middle-dark-section .er > div h5,
+.ad-middle-dark-section .er > div h6,
+.ad-middle-dark-section .panel h6,
+.ad-middle-dark-section .box h6,
+.ad-middle-dark-section .box-item h6 {
+  color: #232323 !important;
+}
+
+/* Adoption-system chips and inline labels. */
+.ad-middle-dark-section .ch,
+.ad-middle-dark-section .chn .ch,
+.ad-middle-dark-section .tag,
+.ad-middle-dark-section .badge {
+  color: #232323 !important;
+}
+
+.ad-middle-dark-section .ch.ai,
+.ad-middle-dark-section .tag.ai {
+  color: #ffffff !important;
+}
+
+/* Readiness and assessment cards preserve their intended light-card text. */
+.ad-middle-dark-section .gbox,
+.ad-middle-dark-section .gbox * {
+  text-shadow: none;
+}
+
+.ad-middle-dark-section .gbox {
+  background: #ffffff !important;
+  color: #232323 !important;
+}
+
+.ad-middle-dark-section .gbox h5,
+.ad-middle-dark-section .gbox p {
+  color: #232323 !important;
+}
+
+.ad-middle-dark-section .gauge .val,
+.ad-middle-dark-section .gauge .val span,
+.ad-middle-dark-section .gauge .val small {
+  color: #559643 !important;
+}
+
+.ad-middle-dark-section .sg {
+  background: #ffffff !important;
+  color: #232323 !important;
+}
+
+.ad-middle-dark-section .sg span.t,
+.ad-middle-dark-section .sg.t,
+.ad-middle-dark-section .sg *:not(.bx2):not(.bi) {
+  color: #232323 !important;
+}
+
+.ad-middle-dark-section .sg.on span.t,
+.ad-middle-dark-section .sg.on {
+  color: #232323 !important;
+}
+
+/* Light callouts and generic white surfaces need local dark text. */
+.ad-middle-dark-section .callout,
+.ad-middle-dark-section .callout p,
+.ad-middle-dark-section .quote,
+.ad-middle-dark-section .quote p,
+.ad-middle-dark-section .note-bar,
+.ad-middle-dark-section .note-bar p {
+  color: #232323 !important;
+}
+
+/* Dark callouts inside changed sections must keep their white text. */
+.ad-middle-dark-section .simplify,
+.ad-middle-dark-section .simplify p {
+  color: #ffffff !important;
+}
+
+.ad-middle-dark-section .simplify strong {
+  color: #e3f2b0 !important;
+}
+
+/* Cover other light Bootstrap/content cards across pages. */
+.ad-middle-dark-section .bg-very-light-gray,
+.ad-middle-dark-section .bg-light-gray,
+.ad-middle-dark-section .bg-white,
+.ad-middle-dark-section .bg-extra-light-gray {
+  color: #232323;
+}
+
+.ad-middle-dark-section .bg-very-light-gray h1,
+.ad-middle-dark-section .bg-very-light-gray h2,
+.ad-middle-dark-section .bg-very-light-gray h3,
+.ad-middle-dark-section .bg-very-light-gray h4,
+.ad-middle-dark-section .bg-very-light-gray h5,
+.ad-middle-dark-section .bg-very-light-gray h6,
+.ad-middle-dark-section .bg-light-gray h1,
+.ad-middle-dark-section .bg-light-gray h2,
+.ad-middle-dark-section .bg-light-gray h3,
+.ad-middle-dark-section .bg-light-gray h4,
+.ad-middle-dark-section .bg-light-gray h5,
+.ad-middle-dark-section .bg-light-gray h6,
+.ad-middle-dark-section .bg-extra-light-gray h1,
+.ad-middle-dark-section .bg-extra-light-gray h2,
+.ad-middle-dark-section .bg-extra-light-gray h3,
+.ad-middle-dark-section .bg-extra-light-gray h4,
+.ad-middle-dark-section .bg-extra-light-gray h5,
+.ad-middle-dark-section .bg-extra-light-gray h6 {
+  color: #232323 !important;
+}
+
+@media (max-width: 767px) {
+  .ad-middle-dark-section {
+    margin: 18px 0;
+    border-radius: 0;
+  }
+}
+
+/* Consistent spacing between every content section across all pages. */
+body section:not([class*="hero"]):not(.page-title):not(.full-screen) {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+}
+
+.ad-middle-dark-section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+}
+
+@media (max-width: 991px) {
+  body section:not([class*="hero"]):not(.page-title):not(.full-screen),
+  .ad-middle-dark-section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  body section:not([class*="hero"]):not(.page-title):not(.full-screen),
+  .ad-middle-dark-section {
+    padding-top: 45px !important;
+    padding-bottom: 45px !important;
+  }
 }

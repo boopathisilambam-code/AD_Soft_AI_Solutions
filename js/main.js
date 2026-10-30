@@ -306,6 +306,9 @@
 
     // Open menu on hover
     $('.dropdown').on('mouseenter touchstart', function (e) {
+        if (getWindowWidth() < 1200) {
+            return;
+        }
         var _this = $(this);
         _this.siblings('.dropdown').removeClass('open');
         _this.parents('.navbar-nav').siblings('.navbar-nav').find('.dropdown').removeClass('open');
@@ -329,6 +332,9 @@
             }
         }
     }).on('mouseleave', function (e) {
+        if (getWindowWidth() < 1200) {
+            return;
+        }
         var _this = $(this);
         _this.removeClass('menu-left');
         _this.removeClass('open');
@@ -350,6 +356,52 @@
             _this.parent().addClass('active');
             _this.parents('li.dropdown').addClass('active');
             _this.parents('li.menu-item').addClass('active');
+        }
+    });
+
+    var currentFile = (window.location.pathname.split('/').pop() || 'index.html').replace(/\.html$/, '');
+    var softwarePages = [
+        'website-development',
+        'mobile-app-development',
+        'custom-software-development',
+        'software-modification-modernization'
+    ];
+    var aiPages = [
+        'ai-agent-developemnt',
+        'ai-chatbot-developemt',
+        'ai-automation',
+        'ai-integration',
+        'ai-adoption-and-consulting'
+    ];
+    var businessPages = [
+        'business-automation',
+        'digital-transformation',
+        'branding',
+        'business-services'
+    ];
+
+    $('.navbar-nav .dropdown').each(function () {
+        var $dropdown = $(this);
+        var dropdownLinks = $dropdown.find('.dropdown-menu a').map(function () {
+            return $(this).attr('href').replace(/\.html$/, '').replace(/^.*\//, '');
+        }).get();
+
+        var isActiveGroup = false;
+        var dropdownText = $.trim($dropdown.children('.nav-link').text());
+
+        if (dropdownText === 'Software Development') {
+            isActiveGroup = softwarePages.indexOf(currentFile) !== -1;
+        } else if (dropdownText === 'AI Solutions') {
+            isActiveGroup = aiPages.indexOf(currentFile) !== -1;
+        } else if (dropdownText === 'Business Solutions') {
+            isActiveGroup = businessPages.indexOf(currentFile) !== -1;
+        } else {
+            isActiveGroup = dropdownLinks.indexOf(currentFile) !== -1;
+        }
+
+        if (isActiveGroup) {
+            $dropdown.addClass('active');
+            $dropdown.children('.nav-link').addClass('active');
         }
     });
 
@@ -518,28 +570,11 @@
         }
     }
 
-    // Without link
-    $('.nav-item  .nav-link').on('click', function (e) {
-        var submenuLenth = $(this).closest('.dropdown').find('.dropdown').length;
-
-        if ($(window).width() < 992 && $(this).closest('.dropdown').length > 0) {
-            var HasClass = $(this).closest('.nav-item').find('.dropdown-menu').hasClass('show');
-            if ($(this).closest('.nav-item').find('.dropdown-menu').hasClass('show')) {
-                $(this).closest('.nav-item').find('.dropdown-menu').removeClass('show')
-                $(this).closest('.nav-item').find('.dropdown-toggle').removeClass('show')
-            } else {
-                $('.navbar-nav').find('.dropdown-menu').removeClass('show');
-                $('.navbar-nav').find('.dropdown-toggle').removeClass('show');
-                $(this).closest('.nav-item').find('.dropdown-menu').addClass('show')
-                $(this).closest('.nav-item').find('.dropdown-toggle').addClass('show')
-            }
-        }
-    });
-
     $(window).resize(function () {
-        if ($(window).width() > 991) {
+        if ($(window).width() >= 1200) {
             $('.navbar-nav').find('.dropdown-menu').removeClass('show');
             $('.navbar-nav').find('.dropdown-toggle').removeClass('show');
+            $('.navbar-nav').find('.dropdown-toggle').attr('aria-expanded', 'false');
         }
     });
 
@@ -3828,6 +3863,41 @@
 
 })(jQuery);
 
+document.addEventListener('click', function (event) {
+  if (window.innerWidth >= 1200 || !event.target.closest) return;
+
+  var trigger = event.target.closest('.simple-dropdown > .nav-link, .simple-dropdown > .dropdown-toggle');
+  if (!trigger) return;
+
+  var dropdown = trigger.parentElement;
+  var menu = dropdown.querySelector('.dropdown-menu');
+  var toggle = dropdown.querySelector('.dropdown-toggle');
+  if (!menu || !toggle) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+  if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+
+  var shouldOpen = !menu.classList.contains('show');
+  document.querySelectorAll('.navbar-nav .simple-dropdown').forEach(function (item) {
+    item.classList.remove('open');
+    item.querySelectorAll('.dropdown-menu').forEach(function (itemMenu) {
+      itemMenu.classList.remove('show');
+    });
+    item.querySelectorAll('.dropdown-toggle').forEach(function (itemToggle) {
+      itemToggle.classList.remove('show');
+      itemToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  if (shouldOpen) {
+    dropdown.classList.add('open');
+    menu.classList.add('show');
+    toggle.classList.add('show');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+}, true);
+
 /* ===================================
  Google map
  ====================================== */
@@ -4030,15 +4100,17 @@ function initMap() {
 document.addEventListener("DOMContentLoaded", function() {
                 const text = "AI-Powered Software Development &\nBusiness Automation Company in Kerala";
                 let index = 0;
-                const speed = 50; 
+                const speed = 60; 
                 
                 function typeWriter() {
+                    const target = document.getElementById("typing-text");
+                    if (!target) return;
                     if (index < text.length) {
                         let char = text.charAt(index);
                         if (char === '\n') {
-                            document.getElementById("typing-text").innerHTML += "<br>";
+                            target.innerHTML += "<br>";
                         } else {
-                            document.getElementById("typing-text").innerHTML += char;
+                            target.innerHTML += char;
                         }
                         index++;
                         setTimeout(typeWriter, speed);
@@ -4047,3 +4119,42 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 setTimeout(typeWriter, 500); 
             });
+
+(function () {
+  if (window.innerWidth >= 992) return;
+
+  var nav = document.querySelector('header .navbar.disable-fixed');
+  if (!nav || nav.querySelector('.mobile-menu-social')) return;
+
+  var socialLinks = nav.querySelectorAll('.header-social-icon a');
+  var collapse = nav.querySelector('.navbar-collapse');
+  if (!socialLinks.length || !collapse) return;
+
+  var mobileSocial = document.createElement('div');
+  mobileSocial.className = 'mobile-menu-social';
+  mobileSocial.setAttribute('aria-label', 'Social media');
+  Array.prototype.forEach.call(socialLinks, function (link) {
+    mobileSocial.appendChild(link.cloneNode(true));
+  });
+  collapse.appendChild(mobileSocial);
+})();
+
+/* Apply the dark middle section color to one content section on every page. */
+(function () {
+  if (document.querySelector('.ad-middle-dark-section')) return;
+
+  var sections = Array.prototype.filter.call(
+    document.querySelectorAll('body section'),
+    function (section) {
+      return !section.classList.contains('wd-hero') &&
+        !section.classList.contains('ai-hero') &&
+        !section.classList.contains('home-hero') &&
+        !section.closest('footer');
+    }
+  );
+
+  if (sections.length < 3) return;
+
+  var middleIndex = Math.floor(sections.length / 2);
+  sections[middleIndex].classList.add('ad-middle-dark-section');
+})();
