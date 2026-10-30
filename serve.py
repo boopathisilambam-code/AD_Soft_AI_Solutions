@@ -42,6 +42,20 @@ class LocalSiteHandler(SimpleHTTPRequestHandler):
                 self.end_headers()
                 return
 
+        # /about/ -> /about  (trailing slash irundha css/js relative paths break aagum)
+        if len(path) > 1 and path.endswith("/"):
+            stripped = path.rstrip("/")
+            target = os.path.join(os.getcwd(), stripped.lstrip("/"))
+            if not os.path.isdir(target) and os.path.isfile(target + ".html"):
+                clean_path = stripped
+                if parsed.query:
+                    clean_path += "?" + parsed.query
+                self.send_response(301)
+                self.send_header("Location", clean_path)
+                self.send_header("Content-Length", "0")
+                self.end_headers()
+                return
+
         file_path = os.path.normpath(os.path.join(os.getcwd(), relative_path))
         root = os.path.abspath(os.getcwd()) + os.sep
         file_path_absolute = os.path.abspath(file_path)

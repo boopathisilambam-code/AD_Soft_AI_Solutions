@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="css/icon.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/nav-active.css">
     <link rel="stylesheet" href="demos/marketing/marketing.css" />
     <link rel="stylesheet" href="css/ai-hero-cards.css" />
     <!-- SCHEMA MARKUP -->
@@ -2342,12 +2343,13 @@
     <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span
                 class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a>
     </div>
-    <script src="js/jquery.js"></script>
-    <script src="js/vendors.min.js"></script>
-    <script src="js/main.js"></script>
+ <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/vendors.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+          <script src="js/nav-active.js"></script>
     <script>(function () {
-            var t = document.getElementById('typer'), s = "AI Adoption & Consulting Services for Businesses", ci = 0, del = false;
-            function tick() { t.textContent = s.slice(0, ci); if (!del && ci === s.length) { del = true; return setTimeout(tick, 2200) } if (del && ci === 0) del = false; ci += del ? -1 : 1; setTimeout(tick, del ? 28 : 60) } tick();
+            var t = document.getElementById('typer'), s = "AI Adoption & Consulting Services for Businesses", ci = 0;
+            if (t) { function tick() { t.textContent = s.slice(0, ci); ci++; if (ci <= s.length) setTimeout(tick, 45); } tick(); }
             var bar = document.createElement('div'); bar.id = 'sp3'; document.body.appendChild(bar);
             var io = new IntersectionObserver(function (e) { e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target) } }) }, { rootMargin: '0px 0px -60px 0px' });
             document.querySelectorAll('section').forEach(function (sc) { sc.querySelectorAll('.rv').forEach(function (e, k) { e.style.transitionDelay = (k % 4) * 90 + 'ms'; io.observe(e) }); sc.querySelectorAll('.ovc,.pt,.ig3,.wc,.bgc,.ck').forEach(function (e, k) { e.style.animationDelay = (k % 8) * 80 + 'ms' }) });
