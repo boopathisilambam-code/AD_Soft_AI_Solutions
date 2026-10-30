@@ -46,6 +46,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/vendors.min.css"><link rel="stylesheet" href="css/icon.min.css">
 <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css">
+         <link rel="stylesheet" href="css/nav-active.css">
 <link rel="stylesheet" href="demos/marketing/marketing.css">
 <link rel="stylesheet" href="css/software-intro.css">
 <!-- ========================================== -->
@@ -77,9 +78,9 @@
 .wd-hero{min-height:100vh;display:flex;align-items:center;padding-top:110px!important;background:radial-gradient(circle at 80% 20%,rgba(148,185,47,.25),transparent 45%),#e6faf1}
 .wd-hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#55964340 1.2px,transparent 1.2px);background-size:26px 26px;animation:drift 20s linear infinite}
 @keyframes drift{to{background-position:260px 260px}}
-.wd-hero h1{min-height:120px;font-size:clamp(34px,4.3vw,55px);font-weight:800;letter-spacing:-2px;line-height:1.1;color:var(--d)}
+.wd-hero h1{height:auto;min-height:132px;font-size:clamp(34px,4.3vw,55px);font-weight:800;letter-spacing:-2px;line-height:1.1;color:var(--d)}
 .wd-hero h1 #wd-typing-text{white-space:pre-line}
-@media(max-width:991px){.wd-hero h1{min-height:92px}}
+@media(max-width:991px){.wd-hero h1{height:auto;min-height:100px}}
 .wd-hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--g),var(--g2),var(--g));background-size:200%;-webkit-background-clip:text;color:transparent;animation:shine 4s linear infinite}
 @keyframes shine{to{background-position:200%}}
 .browser{position:relative;background:#fff;border-radius:16px;box-shadow:0 40px 80px rgba(60,90,20,.25);transform:perspective(1000px) rotateY(-10deg) rotateX(4deg);transition:transform .3s;overflow:hidden}
@@ -423,8 +424,11 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
 <p class="fs-15">&copy; 2026 <a href="https://www.adsofttechnologies.com" target="_blank" rel="noopener" class="text-base-color text-white-hover fw-500 text-decoration-line-bottom">AD Soft Technologies</a>. All rights reserved.</p></div></div></div>
 </footer>
 
-<div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a></div>
-
+ <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a></div>
+ <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/vendors.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+          <script src="js/nav-active.js"></script>
 <!-- Page content is built BEFORE the theme scripts so main.js picks up the accordion/dropdowns.
      NOTE: no global "const $" here (it was overriding jQuery and breaking the theme). -->
 <script>
@@ -486,11 +490,14 @@ addEventListener('scroll',()=>{const t=Q('#tl'),r=t.getBoundingClientRect(),p=Ma
                     typingElement.textContent += textToType.charAt(charIndex);
                     charIndex++;
                     setTimeout(type, typingSpeed);
+                } else {
+                    var cursor = typingElement.parentElement.querySelector(".blinking-cursor");
+                    if (cursor) cursor.style.display = "none";
                 }
             }
 
-            // Start typing after a short delay
-            setTimeout(type, 500);
+            // Start typing immediately; the fixed hero title height prevents layout shaking
+            setTimeout(type, 100);
         }
     });
 </script>

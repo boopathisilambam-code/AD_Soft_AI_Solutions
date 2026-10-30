@@ -2387,12 +2387,13 @@
     <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span
                 class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a>
     </div>
-    <script src="js/jquery.js"></script>
-    <script src="js/vendors.min.js"></script>
-    <script src="js/main.js"></script>
+ <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/vendors.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+          <script src="js/nav-active.js"></script>
     <script>(function () {
-            var t = document.getElementById('typer'), w = ["AI Agent Development Services for Businesses"], wi = 0, ci = 0, del = false;
-            function tick() { var s = w[wi]; t.textContent = s.slice(0, ci); if (!del && ci === s.length) { del = true; return setTimeout(tick, 1800) } if (del && ci === 0) { del = false; wi = (wi + 1) % w.length } ci += del ? -1 : 1; setTimeout(tick, del ? 28 : 60) } tick();
+            var t = document.getElementById('typer'), s = "AI Agent Development Services for Businesses", ci = 0;
+            if (t) { function tick() { t.textContent = s.slice(0, ci); ci++; if (ci <= s.length) setTimeout(tick, 45); } tick(); }
             var io = new IntersectionObserver(function (e) { e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target) } }) }, { threshold: .15 }); document.querySelectorAll('.rv').forEach(function (el) { io.observe(el) })
         })();</script>
     <script>(function () {

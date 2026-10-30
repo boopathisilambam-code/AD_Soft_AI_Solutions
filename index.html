@@ -664,8 +664,29 @@ section[style*="demo-marketing-dot.svg"]::before {
     }
 }
 
+
+    /* Tappable bubble-style filter tabs */
+    .portfolio-filter{gap:12px;flex-wrap:wrap}
+    .portfolio-filter li,.portfolio-filter li:first-child,.portfolio-filter li:last-child{padding:0}
+    .portfolio-filter li a{
+        display:inline-block;padding:10px 24px;border-radius:40px;
+        background:#eef7ea;border:1.5px solid #d3e6cb;color:#2f4a28;font-weight:600;
+        box-shadow:0 3px 8px rgba(85,150,67,.12);cursor:pointer;
+        transition:transform .2s,background .2s,color .2s,box-shadow .2s,border-color .2s;
+    }
+    .portfolio-filter li:hover a,.portfolio-filter li:focus a{
+        background:#dcefd3;border-color:#559643;color:#1f3a1a;
+        transform:translateY(-2px);box-shadow:0 8px 16px rgba(85,150,67,.25);
+    }
+    .portfolio-filter li.active a{
+        background:#559643;border-color:#559643;color:#fff;
+        box-shadow:0 8px 16px rgba(85,150,67,.35);
+    }
+    .portfolio-filter li a:active{transform:translateY(0) scale(.97)}
+    @media(max-width:575px){.portfolio-filter li a{padding:8px 16px;font-size:14px}}
 </style>
-    </head>
+    <link rel="stylesheet" href="css/nav-active.css">
+</head>
     <body data-mobile-nav-style="classic" class="custom-cursor home-page">
         <!-- start cursor -->
         <div class="cursor-page-inner">
@@ -864,7 +885,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                     
                     <!-- Left Side: Image -->
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px text-center"> 
-                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
                             <!-- Image size reduced using w-80 -->
                             <img src="images/about-1.png" class="w-80 sm-w-100 border-radius-6px" alt="AD Soft Technologies">
                             
@@ -1300,7 +1321,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                 <!-- Content and Image Row -->
                 <div class="row align-items-center justify-content-md-center">
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px text-center order-lg-2">
-                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
+                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
                             <img src="images/why-01.png" class="w-90 sm-w-100 border-radius-6px" alt="Upgrade what you already have">
                         </figure>
                     </div>
@@ -1407,7 +1428,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                 <!-- Content and Image Row -->
                 <div class="row align-items-center justify-content-md-center">
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px text-center">
-                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
                             <img src="images/why-02.png" class="w-90 sm-w-100 border-radius-6px" alt="Business Automation & Digital Transformation">
                         </figure>
                     </div>
@@ -1464,7 +1485,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                 <div class="row align-items-center mb-6 xs-mb-12 justify-content-md-center"> 
                     <!-- Left Side Image Layout -->
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px"> 
-                        <figure class="position-relative m-0 text-center" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
+                        <figure class="position-relative m-0 text-center" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
                             <img src="images/why-04.png" class="border-radius-6px w-100" alt="">
                             <figcaption class="position-absolute bottom-60px right-0px" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 800, "delay": 1000, "staggervalue": 300, "easing": "easeOutQuad" }'> 
                                 <img src="images/about-2.png" class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
@@ -2478,5 +2499,6 @@ section[style*="demo-marketing-dot.svg"]::before {
     });
 })();
 </script>
-    </body>
+    <script src="js/nav-active.js"></script>
+</body>
 </html>

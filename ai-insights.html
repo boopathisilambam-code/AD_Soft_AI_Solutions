@@ -1215,7 +1215,7 @@
         <div class="container">
             <div class="row align-items-center g-5">
               <div class="col-lg-6 order-lg-2 col-md-10 position-relative md-mb-50px sm-mb-40px text-center">
-  <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
+  <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
     <img src="images/why-04.png" class="w-90 sm-w-100 border-radius-6px" alt="Who AI Insights is for">
     <figcaption class="position-absolute bottom-50px right-0px sm-right-0px" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 800, "delay": 1000, "staggervalue": 300, "easing": "easeOutQuad" }'>
       <img src="images/about-2.png" class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
@@ -1422,7 +1422,15 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var txt = "Practical AI Insights for Smarter Business Decisions", el = document.getElementById("ins-typing-text");
-            if (el) { el.textContent = ""; var i = 0; (function t() { if (i < txt.length) { el.textContent += txt.charAt(i++); setTimeout(t, 60) } })(); }
+            if (!el || el.dataset.typed === "true") return;
+            el.dataset.typed = "true";
+            el.textContent = "";
+            var i = 0;
+            (function typeText() {
+                if (i >= txt.length) return;
+                el.textContent += txt.charAt(i++);
+                setTimeout(typeText, 45);
+            })();
         });
     </script>
     <script>
@@ -1484,9 +1492,10 @@
             const sp = Q('#sp'); addEventListener('scroll', () => { const d = document.documentElement; sp.style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%' }, { passive: true });
         })();
     </script>
-    <script src="js/jquery.js"></script>
-    <script src="js/vendors.min.js"></script>
-    <script src="js/main.js"></script>
+ <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/vendors.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+          <script src="js/nav-active.js"></script>
 </body>
 
 </html>

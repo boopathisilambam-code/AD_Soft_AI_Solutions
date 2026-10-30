@@ -359,6 +359,52 @@
         }
     });
 
+    var currentFile = (window.location.pathname.split('/').pop() || 'index.html').replace(/\.html$/, '');
+    var softwarePages = [
+        'website-development',
+        'mobile-app-development',
+        'custom-software-development',
+        'software-modification-modernization'
+    ];
+    var aiPages = [
+        'ai-agent-developemnt',
+        'ai-chatbot-developemt',
+        'ai-automation',
+        'ai-integration',
+        'ai-adoption-and-consulting'
+    ];
+    var businessPages = [
+        'business-automation',
+        'digital-transformation',
+        'branding',
+        'business-services'
+    ];
+
+    $('.navbar-nav .dropdown').each(function () {
+        var $dropdown = $(this);
+        var dropdownLinks = $dropdown.find('.dropdown-menu a').map(function () {
+            return $(this).attr('href').replace(/\.html$/, '').replace(/^.*\//, '');
+        }).get();
+
+        var isActiveGroup = false;
+        var dropdownText = $.trim($dropdown.children('.nav-link').text());
+
+        if (dropdownText === 'Software Development') {
+            isActiveGroup = softwarePages.indexOf(currentFile) !== -1;
+        } else if (dropdownText === 'AI Solutions') {
+            isActiveGroup = aiPages.indexOf(currentFile) !== -1;
+        } else if (dropdownText === 'Business Solutions') {
+            isActiveGroup = businessPages.indexOf(currentFile) !== -1;
+        } else {
+            isActiveGroup = dropdownLinks.indexOf(currentFile) !== -1;
+        }
+
+        if (isActiveGroup) {
+            $dropdown.addClass('active');
+            $dropdown.children('.nav-link').addClass('active');
+        }
+    });
+
     // Sticky left menu
     if ($.fn.stick_in_parent !== undefined && $.fn.stick_in_parent !== null) {
         if ($('.left-sidebar-wrapper').length) {
@@ -4091,4 +4137,24 @@ document.addEventListener("DOMContentLoaded", function() {
     mobileSocial.appendChild(link.cloneNode(true));
   });
   collapse.appendChild(mobileSocial);
+})();
+
+/* Apply the dark middle section color to one content section on every page. */
+(function () {
+  if (document.querySelector('.ad-middle-dark-section')) return;
+
+  var sections = Array.prototype.filter.call(
+    document.querySelectorAll('body section'),
+    function (section) {
+      return !section.classList.contains('wd-hero') &&
+        !section.classList.contains('ai-hero') &&
+        !section.classList.contains('home-hero') &&
+        !section.closest('footer');
+    }
+  );
+
+  if (sections.length < 3) return;
+
+  var middleIndex = Math.floor(sections.length / 2);
+  sections[middleIndex].classList.add('ad-middle-dark-section');
 })();
