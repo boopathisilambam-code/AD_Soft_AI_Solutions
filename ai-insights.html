@@ -303,7 +303,7 @@
             font-weight: 600;
             font-size: 14px;
             margin: 5px;
-            transition: .3s
+            transition: var(--tr-ui)
         }
 
         .pill i {
@@ -353,7 +353,7 @@
             font-size: 15px;
             line-height: 1.3;
             color: #445;
-            transition: .3s
+            transition: var(--tr-ui)
         }
 
         .ex-nav button i {
@@ -368,7 +368,7 @@
             justify-content: center;
             font-size: 19px;
             box-shadow: 0 4px 0 #dbe8d2;
-            transition: .3s
+            transition: var(--tr-ui)
         }
 
         .ex-nav button:hover {
@@ -501,7 +501,7 @@
             border: 1px solid #e1eddb;
             box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
             text-align: left;
-            transition: .35s;
+            transition: var(--tr-ui);
             display: flex;
             flex-direction: column
         }
@@ -535,7 +535,7 @@
 
         .path a i {
             margin-left: 6px;
-            transition: .3s
+            transition: var(--tr-ui)
         }
 
         .path:hover a i {
@@ -553,7 +553,7 @@
             justify-content: center;
             font-size: 24px;
             margin-bottom: 16px;
-            transition: .4s
+            transition: var(--tr-ui)
         }
 
         .path:hover .ic {
@@ -649,7 +649,7 @@
             border-radius: 16px;
             padding: 14px 22px;
             font-weight: 700;
-            transition: .3s
+            transition: var(--tr-ui)
         }
 
         .ind span i {
@@ -696,7 +696,7 @@
             margin: 5px;
             font-weight: 600;
             font-size: 14px;
-            transition: .3s;
+            transition: var(--tr-ui);
             opacity: 0;
             transform: scale(.7)
         }
@@ -981,6 +981,8 @@
         }
     </style>
 <link rel="stylesheet" href="css/eq-image.css">
+<script>document.documentElement.classList.add("js-motion")</script>
+<link rel="stylesheet" href="css/site-standard.css">
 </head>
 
 <body data-mobile-nav-style="classic" class="wd custom-cursor">
@@ -1131,7 +1133,7 @@
     <section>
         <div class="container">
              <div class="text-center mb-5 rv"><span class="eyebrow">Practical AI Insights</span>
-                    <h2 class="mb-4">Practical AI Insights for Smarter Business Decisions</h2>
+                    <h2 class="mb-4">Practical AI Insights for Smarter <span class="hd-accent">Business Decisions</span></h2>
              </div>
             <div class="row g-5 align-items-stretch">
                 <div class="col-lg-6 rv d-flex flex-column justify-content-center">
@@ -1161,7 +1163,7 @@
     <section class="alt" id="explore">
         <div class="container">
             <div class="text-center mb-5 rv"><span class="eyebrow">Explore by topic</span>
-                <h2>Explore AI and Technology Insights</h2>
+                <h2>Explore AI and <span class="hd-accent">Technology Insights</span></h2>
                 <p class="fs-17">Pick a topic to see what each part of the hub will cover.</p>
             </div>
             <div class="ex rv">
@@ -1175,7 +1177,7 @@
     <section>
         <div class="container">
             <div class="text-center mb-5 rv"><span class="eyebrow">Where to begin</span>
-                <h2>How to Use the AI Insights Hub</h2>
+                <h2>How to Use the AI <span class="hd-accent">Insights Hub</span></h2>
                 <p class="fs-17">Start with the topic that best matches your current requirement.</p>
             </div>
             <div class="paths" id="paths"></div>
@@ -1188,7 +1190,7 @@
     <section class="alt">
         <div class="container">
             <div class="text-center mb-5 rv"><span class="eyebrow">Why follow us</span>
-                <h2>Why Follow AD Soft Technologies AI Insights?</h2>
+                <h2>Why Follow AD Soft Technologies <span class="hd-accent">AI Insights?</span></h2>
             </div>
             <div class="row g-4 justify-content-center" id="why"></div>
             <div class="dnote rv"><i class="bi bi-info-circle-fill"></i>AD Soft Technologies has delivered 20+ digital
@@ -1201,7 +1203,7 @@
     <section>
         <div class="container">
             <div class="text-center mb-5 rv"><span class="eyebrow">Use cases</span>
-                <h2>AI Use Cases Across Industries</h2>
+                <h2>AI Use Cases <span class="hd-accent">Across Industries</span></h2>
                 <p class="fs-17 w-70 lg-w-95 mx-auto">AI applications vary by industry, data, customer needs and
                     processes. Each article will explain the business problem, potential solution, implementation
                     considerations and limitations.</p>
@@ -1225,7 +1227,7 @@
   </figure>
 </div>
                 <div class="col-lg-6 order-lg-1 rv"><span class="eyebrow">Who it's for</span>
-                    <h2 class="mb-3">Who Are These AI Insights For?</h2>
+                    <h2 class="mb-3">Who Are These AI <span class="hd-accent">Insights For?</span></h2>
                     <p class="fs-17">Whether you want to understand a new AI concept or evaluate a business application,
                         our articles help you explore the topic and find useful next steps.</p>
                     <div id="who"></div>
@@ -1241,7 +1243,7 @@
                 <div class="col-xl-8 col-lg-9 text-center">
                     <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Got
                         Questions?</span>
-                    <h3 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Frequently Asked Questions</h3>
+                    <h2 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Frequently Asked <span class="hd-accent">Questions</span></h2>
                     <p class="fs-18 mb-0">Clear answers about the AI Insights hub and practical AI adoption.</p>
                 </div>
             </div>
@@ -1255,7 +1257,7 @@
             <div class="soon rv">
                 <div class="row align-items-center g-4">
                     <div class="col-lg-6">
-                        <h3 class="mb-3">Looking to apply AI to your business?</h3>
+                        <h2 class="mb-3">Looking to apply AI to your business?</h2>
                         <p class="mb-0">Businesses can explore our dedicated services, based on their requirements.</p>
                     </div>
                     <div class="col-lg-6">
@@ -1290,7 +1292,7 @@
                         <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Plan Your Next
                             Step</span>
                         <h3 class="fw-800 text-white ls-minus-1px mb-20px">Explore AI. Understand the Opportunities.
-                            Plan Your Next Step.</h3>
+                            Plan Your <span class="hd-accent">Next Step.</span></h3>
                         <p class="fs-18 text-light-opacity mb-15px w-90 mx-auto sm-w-100">AI and digital technologies
                             offer new ways to improve operations, develop products and create better customer
                             experiences. Making the right choices starts with understanding your options and evaluating
@@ -1358,10 +1360,10 @@
                         class="d-flex align-items-center justify-content-center justify-content-sm-start flex-wrap gap-3 mt-auto">
                         <span class="text-white fw-500"><i class="bi bi-geo-alt me-10px align-middle"></i>India |
                             USA</span>
-                        <div class="d-flex gap-2"><a href="https://www.facebook.com/YOUR_PAGE" target="_blank"
+                        <div class="d-flex gap-2"><a href="                        https://www.facebook.com/profile.php?id=100086515603367" target="_blank"
                                 rel="noopener" aria-label="Facebook"
                                 class="d-flex align-items-center justify-content-center w-40px h-40px rounded-circle border border-color-transparent-white-light text-white"><i
-                                    class="bi bi-facebook fs-16"></i></a><a href="https://www.instagram.com/YOUR_PAGE"
+                                    class="bi bi-facebook fs-16"></i></a><a href="                                    https://www.instagram.com/adsofttechnologies?igsh=MW12Z3lsNTJvMnV2Yw=="
                                 target="_blank" rel="noopener" aria-label="Instagram"
                                 class="d-flex align-items-center justify-content-center w-40px h-40px rounded-circle border border-color-transparent-white-light text-white"><i
                                     class="bi bi-instagram fs-16"></i></a></div>
@@ -1490,6 +1492,7 @@
         <script type="text/javascript" src="js/vendors.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
           <script src="js/nav-active.js"></script>
+<script defer src="js/site-motion.js"></script>
 </body>
 
 </html>

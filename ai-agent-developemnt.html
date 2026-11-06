@@ -264,7 +264,7 @@
             height: 100%;
             overflow: hidden;
             box-shadow: 0 10px 35px rgba(0, 0, 0, .07);
-            transition: .35s
+            transition: var(--tr-ui)
         }
 
         .svc:hover {
@@ -311,7 +311,7 @@
             padding: 26px;
             height: 100%;
             border: 1px solid #e6efe0;
-            transition: .3s
+            transition: var(--tr-ui)
         }
 
         .uc:hover {
@@ -509,7 +509,7 @@
             border-radius: 16px;
             font-weight: 700;
             color: #555;
-            transition: .3s
+            transition: var(--tr-ui)
         }
 
         .vs-tabs button.on {
@@ -680,7 +680,7 @@
             font-size: 13.5px;
             font-weight: 600;
             line-height: 1.35;
-            transition: .3s;
+            transition: var(--tr-ui);
             backdrop-filter: blur(4px)
         }
 
@@ -1172,7 +1172,7 @@
             background: #eef6e4;
             color: var(--g);
             font-size: 24px;
-            transition: .5s
+            transition: var(--tr-ui)
         }
 
         .ai-opportunity.is-active .ai-opportunity-icon {
@@ -1259,7 +1259,7 @@
             .ai-opportunities .ai-opportunity-title,
             .ai-opportunities .ai-opportunity.is-active .ai-opportunity-title {
                 color: #232323;
-                font-size: 20px;
+                font-size: 10px;
                 writing-mode: horizontal-tb;
                 transform: none;
                 white-space: normal
@@ -1334,6 +1334,8 @@
             transform: none !important
         }
     </style>
+<script>document.documentElement.classList.add("js-motion")</script>
+<link rel="stylesheet" href="css/site-standard.css">
 </head>
 
 <body data-mobile-nav-style="classic" class="custom-cursor">
@@ -1527,7 +1529,7 @@
         <div class="container">
             <div class="text-center mb-40px rv">
                 <span class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Hover to explore</span>
-                <h2 id="ai-opportunities-title" class="fw-800 text-dark-gray ls-minus-1px">How Can AI Help Your Business?</h2>
+                <h2 id="ai-opportunities-title" class="fw-800 text-dark-gray ls-minus-1px">How Can AI Help <span class="hd-accent">Your Business?</span></h2>
             </div>
             <p class="ai-opportunities-intro text-center fs-18">AI opportunities can exist across different parts of an organization.</p>
             <div class="ai-opportunities-cards rv">
@@ -1537,7 +1539,7 @@
                         <span class="ai-opportunity-icon"><i class="bi bi-headset" aria-hidden="true"></i></span>
                     </div>
                     <div>
-                        <h3 class="ai-opportunity-title">Customer Experience</h3>
+                        <h6 class="ai-opportunity-title">Customer Experience</h6>
                         <p class="ai-opportunity-description">AI can help businesses respond to customer questions, provide information and improve digital interactions.</p>
                     </div>
                 </article>
@@ -1547,7 +1549,7 @@
                         <span class="ai-opportunity-icon"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></span>
                     </div>
                     <div>
-                        <h3 class="ai-opportunity-title">Sales &amp; Marketing</h3>
+                        <h6 class="ai-opportunity-title">Sales &amp; Marketing</h6>
                         <p class="ai-opportunity-description">AI can assist with lead qualification, content workflows, customer communication and sales-support processes.</p>
                     </div>
                 </article>
@@ -1557,7 +1559,7 @@
                         <span class="ai-opportunity-icon"><i class="bi bi-gear-wide-connected" aria-hidden="true"></i></span>
                     </div>
                     <div>
-                        <h3 class="ai-opportunity-title">Operations</h3>
+                        <h6 class="ai-opportunity-title">Operations</h6>
                         <p class="ai-opportunity-description">AI automation can reduce repetitive administrative work and improve workflow efficiency.</p>
                     </div>
                 </article>
@@ -1567,7 +1569,7 @@
                         <span class="ai-opportunity-icon"><i class="bi bi-chat-dots" aria-hidden="true"></i></span>
                     </div>
                     <div>
-                        <h3 class="ai-opportunity-title">Customer Support</h3>
+                        <h6 class="ai-opportunity-title">Customer Support</h6>
                         <p class="ai-opportunity-description">AI chatbots and assistants can handle suitable enquiries and provide information around the clock.</p>
                     </div>
                 </article>
@@ -1577,7 +1579,7 @@
                         <span class="ai-opportunity-icon"><i class="bi bi-journal-bookmark" aria-hidden="true"></i></span>
                     </div>
                     <div>
-                        <h3 class="ai-opportunity-title">Internal Knowledge</h3>
+                        <h6 class="ai-opportunity-title">Internal Knowledge</h6>
                         <p class="ai-opportunity-description">AI assistants can help employees access approved business information more efficiently.</p>
                     </div>
                 </article>
@@ -1587,7 +1589,7 @@
                         <span class="ai-opportunity-icon"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></span>
                     </div>
                     <div>
-                        <h3 class="ai-opportunity-title">Document Processing</h3>
+                        <h6 class="ai-opportunity-title">Document Processing</h6>
                         <p class="ai-opportunity-description">AI can help extract, classify, summarize and process information from documents where appropriate.</p>
                     </div>
                 </article>
@@ -1597,7 +1599,7 @@
                         <span class="ai-opportunity-icon"><i class="bi bi-phone" aria-hidden="true"></i></span>
                     </div>
                     <div>
-                        <h3 class="ai-opportunity-title">Digital Products</h3>
+                        <h6 class="ai-opportunity-title">Digital Products</h6>
                         <p class="ai-opportunity-description">AI can be incorporated into websites, mobile apps and software products to create intelligent features.</p>
                     </div>
                 </article>
@@ -1607,7 +1609,7 @@
                         <span class="ai-opportunity-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></span>
                     </div>
                     <div>
-                        <h3 class="ai-opportunity-title">Business Automation</h3>
+                        <h6 class="ai-opportunity-title">Business Automation</h6>
                         <p class="ai-opportunity-description">AI can work alongside existing workflows, APIs and software to automate information-heavy processes.</p>
                     </div>
                 </article>
@@ -1620,7 +1622,7 @@
                 <div class="col-lg-6 rv mb-5"><span
                         class="fs-14 text-uppercase fw-700 mb-15px d-block ls-1px text-base-color">Understand the
                         Basics</span>
-                    <h2 class="fw-800 text-dark-gray ls-minus-1px mb-4">What Is an AI Agent?</h2>
+                    <h2 class="fw-800 text-dark-gray ls-minus-1px mb-4">What Is an <span class="hd-accent">AI Agent?</span></h2>
                     <p class="text-muted">An AI agent is a software system that can understand a goal or request, reason
                         through a task, use available tools or information, and take actions within defined boundaries.
                     </p>
@@ -1653,7 +1655,7 @@
         <div class="container">
             <div class="text-center mb-50px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">AI Agent Use Cases</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">How Can AI Agents Help Your Business?</h2>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">How Can AI Agents Help <span class="hd-accent">Your Business?</span></h2>
             </div>
             <p class="text-center fs-18 w-60 lg-w-90 mx-auto mb-50px">AI agents can be developed for different business
                 functions depending on where intelligent task execution can create value.</p>
@@ -1724,7 +1726,7 @@
             <div class="text-center mb-40px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">What Is the
                     Difference?</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agent vs AI Chatbot</h2>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agent vs <span class="hd-accent">AI Chatbot</span></h2>
                 <p class="fs-18 w-60 lg-w-90 mx-auto mb-0">AI agents and AI chatbots are related but are not the same
                     thing. Switch between them and see the same customer question handled both ways.</p>
             </div>
@@ -1753,7 +1755,7 @@
     <section class="dark-band">
         <div class="container">
             <div class="text-center mb-30px rv">
-                <h2 class="fw-800 ls-minus-1px">What Can Our AI Agents Do?</h2>
+                <h2 class="fw-800 ls-minus-1px">What Can Our AI <span class="hd-accent">Agents Do?</span></h2>
                 <p class="fs-18 w-60 lg-w-90 mx-auto mb-0">We develop custom AI agents based on specific business
                     processes and technical requirements. Depending on the use case, an AI agent can be designed to:</p>
             </div>
@@ -1781,7 +1783,7 @@
     <section class="pt-90px">
         <div class="container">
             <div class="text-center mb-50px rv">
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">Custom AI Agent Development</h2><span
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">Custom AI <span class="hd-accent">Agent Development</span></h2><span
                     class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">Built Around Your Business,
                     Not a Generic Template</span>
             </div>
@@ -1855,7 +1857,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 rv">
-                    <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agents for Existing Business Systems</h2><span
+                    <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agents for Existing <span class="hd-accent">Business Systems</span></h2><span
                         class="fs-18 text-base-color fw-600 d-block font-style-italic mb-15px">Make Your Existing
                         Software More Intelligent</span>
                     <p>Many businesses already use CRM platforms, ERP systems, websites, mobile applications, databases
@@ -1891,7 +1893,7 @@
     <section class="pb-80px">
         <div class="container">
             <div class="text-center mb-50px rv">
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agent Development Process</h2><span
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Agent <span class="hd-accent">Development Process</span></h2><span
                     class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">From Business Requirement to
                     Intelligent Agent</span>
             </div>
@@ -1943,7 +1945,7 @@
     <section class="bg-very-light-gray">
         <div class="container">
             <div class="text-center mb-50px rv">
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">Where Can AI Agents Be Used?</h2>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">Where Can AI Agents <span class="hd-accent">Be Used?</span></h2>
             </div>
             <p class="text-center fs-18 mb-40px">AI agents can be applied across many business functions.</p>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 justify-content-center">
@@ -2002,8 +2004,8 @@
     <section>
         <div class="container">
             <div class="text-center mb-50px rv">
-                <h3 class="fw-800 text-dark-gray ls-minus-1px">Why Choose AD Soft Technologies for AI Agent Development?
-                </h3><span class="fs-18 text-base-color fw-600 d-block font-style-italic mb-15px">AI Development Backed
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">Why Choose AD Soft Technologies for AI <span class="hd-accent">Agent Development?</span>
+                </h2><span class="fs-18 text-base-color fw-600 d-block font-style-italic mb-15px">AI Development Backed
                     by Software Engineering Experience</span>
                 <p class="fs-18 w-70 lg-w-95 mx-auto mb-0">Developing an AI agent is not just about connecting an AI
                     model to a chat interface. A production-ready solution may require APIs, authentication, databases,
@@ -2099,7 +2101,7 @@
         <div class="container">
             <div class="text-center mb-50px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Got Questions?</span>
-                <h3 class="fw-800 text-dark-gray ls-minus-1px">Frequently Asked Questions</h3>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">Frequently Asked <span class="hd-accent">Questions</span></h2>
             </div>
             <div class="row">
                 <div class="col-lg-6 md-mb-30px">
@@ -2306,8 +2308,8 @@
                         class="bg-dark-gray p-60px lg-p-40px sm-p-30px border-radius-8px box-shadow-extra-large text-center">
                         <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Let's Build
                             Together</span>
-                        <h3 class="fw-800 text-white ls-minus-1px mb-20px">Build Your Custom AI Agent With AD Soft
-                            Technologies</h3>
+                        <h2 class="fw-800 text-white ls-minus-1px mb-20px">Build Your Custom AI Agent With AD <span class="hd-accent">Soft
+                            Technologies</span></h2>
                         <p class="fs-18 text-light-opacity mb-15px w-90 mx-auto sm-w-100">Your business may not need
                             another basic chatbot. It may need an intelligent system that can understand requests,
                             access information, interact with tools and help execute real business tasks.</p>
@@ -2434,6 +2436,7 @@
                 });
             });
         })();</script>
+<script defer src="js/site-motion.js"></script>
 </body>
 
 </html>

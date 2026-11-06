@@ -436,7 +436,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      transition: .4s
+      transition: var(--tr-ui)
     }
 
     .svc:hover .ic {
@@ -492,7 +492,7 @@
       padding: 18px 22px;
       margin-bottom: 16px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, .05);
-      transition: .3s
+      transition: var(--tr-ui)
     }
 
     .pick:hover {
@@ -507,7 +507,7 @@
       padding: 26px;
       height: 100%;
       border: 1px solid #e6efe0;
-      transition: .3s;
+      transition: var(--tr-ui);
       position: relative;
       overflow: hidden
     }
@@ -522,7 +522,7 @@
       font-size: 30px;
       color: var(--g);
       display: inline-block;
-      transition: .4s
+      transition: var(--tr-ui)
     }
 
     .uc:hover i {
@@ -549,7 +549,7 @@
       border-radius: 14px;
       height: 100%;
       background: rgba(255, 255, 255, .04);
-      transition: .35s
+      transition: var(--tr-ui)
     }
 
     .ben:hover {
@@ -571,7 +571,7 @@
       margin-bottom: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
       border: 1px solid rgba(0, 0, 0, 0.02);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: var(--tr-ui);
       animation: floatUpAndDown 6s ease-in-out infinite;
       display: flex;
       align-items: flex-start;
@@ -1146,7 +1146,7 @@
       padding-left: 90px;
       margin-bottom: 34px;
       opacity: .35;
-      transition: .5s
+      transition: var(--tr-ui)
     }
 
     .st.on {
@@ -1167,7 +1167,7 @@
       justify-content: center;
       font-weight: 800;
       color: var(--g);
-      transition: .4s;
+      transition: var(--tr-ui);
       z-index: 1
     }
 
@@ -1305,6 +1305,8 @@
     }
   </style>
 <link rel="stylesheet" href="css/eq-image.css">
+<script>document.documentElement.classList.add("js-motion")</script>
+<link rel="stylesheet" href="css/site-standard.css">
 </head>
 
 <body data-mobile-nav-style="classic" class="custom-cursor">
@@ -1435,7 +1437,7 @@
           <span class="fs-14 text-uppercase fw-700 mb-15px d-block ls-1px" style="color: #4CAF50;">AI Solutions for
             Businesses</span>
           <h2 class="fw-700 text-dark-gray ls-minus-1px mb-0" style="font-size: 2.8rem; line-height: 1.2;">
-            Build Smarter. Automate Faster. Grow with AI.
+            Build Smarter. Automate Faster. Grow <span class="hd-accent">with AI.</span>
           </h2>
         </div>
       </div>
@@ -1539,7 +1541,7 @@
           <span class="fs-14 text-uppercase fw-700 mb-15px d-block ls-1px" style="color: #4CAF50;">Discover The
             Potential</span>
           <h2 class="fw-800 text-dark-gray ls-minus-1px mb-4" style="font-size: 2.5rem; line-height: 1.2;">
-            What are AI solutions for businesses?
+            What are AI solutions <span class="hd-accent">for businesses?</span>
           </h2>
           <p class="mb-4 text-muted" style="font-size: 1.05rem; line-height: 1.7;">
             AI solutions are software systems that use artificial intelligence to perform tasks that traditionally need
@@ -1608,7 +1610,7 @@
     <div class="container">
       <div class="text-center mb-50px rv"><span
           class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Our AI Solutions</span>
-        <h2 class="fw-800 text-dark-gray ls-minus-1px">Five ways we put AI to work</h2>
+        <h2 class="fw-800 text-dark-gray ls-minus-1px">Five ways we put AI <span class="hd-accent">to work</span></h2>
       </div>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
         <div class="col rv" id="agents">
@@ -1690,7 +1692,7 @@
   <section>
     <div class="container">
       <div class="text-center mb-50px rv">
-        <h2 class="fw-800 text-dark-gray ls-minus-1px">How can AI help your business?</h2>
+        <h2 class="fw-800 text-dark-gray ls-minus-1px">How can AI help <span class="hd-accent">your business?</span></h2>
         <p class="fs-18 w-60 lg-w-90 mx-auto">AI can be applied across many parts of an organization. The right
           opportunity depends on your processes, customers, data, existing technology and objectives.</p>
       </div>
@@ -1753,7 +1755,7 @@
       style="left:4%;bottom:40px;animation-delay:-2s"><i class="bi bi-bar-chart"></i></span>
     <div class="container position-relative">
       <div class="text-center mb-50px rv">
-        <h3 class="fw-800 ls-minus-1px">Why should businesses adopt AI?</h3>
+        <h2 class="fw-800 ls-minus-1px">Why should businesses <span class="hd-accent">adopt AI?</span></h2>
         <p class="fs-18">AI adoption should have a clear business purpose. The potential benefits include:</p>
       </div>
 
@@ -1795,7 +1797,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5 rv">
-          <h2 class="fw-800 text-dark-gray ls-minus-1px">AI for Your Existing Business</h2>
+          <h2 class="fw-800 text-dark-gray ls-minus-1px">AI for Your <span class="hd-accent">Existing Business</span></h2>
           <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block">You Don't Have to Start From
             Zero</span>
 
@@ -1845,7 +1847,7 @@
   <section class="bg-very-light-gray pb-80px">
     <div class="container">
       <div class="text-center mb-60px rv">
-        <h2 class="fw-800 text-dark-gray ls-minus-1px">Our Approach to AI Development
+        <h2 class="fw-800 text-dark-gray ls-minus-1px">Our Approach to <span class="hd-accent">AI Development</span>
         </h2>
         <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block">From Business Problem to AI Solution
         </span>
@@ -1904,7 +1906,7 @@
       <div class="row justify-content-center mb-5 md-mb-40px">
         <div class="col-xl-8 col-lg-9 text-center"
           data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-          <h3 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Why Choose AD Soft Technologies for AI?</h3>
+          <h2 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Why Choose AD Soft Technologies <span class="hd-accent">for AI?</span></h2>
           <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block mb-15px">AI Backed by Real Software
             Engineering</span>
           <p class="fs-18 mb-0">AI solutions rarely exist alone. They need websites, apps, databases, APIs,
@@ -2014,7 +2016,7 @@
         <div class="col-xl-8 col-lg-9 text-center"
           data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
           <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Got Questions?</span>
-          <h3 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Frequently Asked Questions About AI Solutions</h3>
+          <h2 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Frequently Asked Questions About <span class="hd-accent">AI Solutions</span></h2>
           <p class="fs-18 mb-0">Clear answers about our AI agents, chatbots, automation, integration and consulting
             services.</p>
         </div>
@@ -2236,7 +2238,7 @@
               class="position-absolute right-minus-50px bottom-minus-50px w-200px h-200px bg-base-color opacity-2 rounded-circle">
             </div>
             <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Let's Build Together</span>
-            <h3 class="fw-800 text-white ls-minus-1px mb-20px">Not Sure Which AI Solution You Need?</h3>
+            <h2 class="fw-800 text-white ls-minus-1px mb-20px">Not Sure Which AI Solution <span class="hd-accent">You Need?</span></h2>
             <p class="fs-18 text-light-opacity mb-15px w-90 mx-auto sm-w-100">You don't have to arrive with a technical
               specification. Tell us about your business, current processes and challenges, and we'll help identify
               whether the answer is an AI agent, chatbot, automation, integration or custom software.</p>
@@ -2420,6 +2422,7 @@
     })();
   </script>
 
+<script defer src="js/site-motion.js"></script>
 </body>
 
 </html>
