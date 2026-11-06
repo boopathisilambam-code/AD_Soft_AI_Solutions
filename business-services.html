@@ -89,7 +89,7 @@ html,body{max-width:100%;overflow-x:clip}
 .stackwrap:hover .scol{animation-play-state:paused}
 @keyframes colup{to{transform:translateY(-50%)}}
 @keyframes coldown{from{transform:translateY(-50%)}to{transform:none}}
-.sc2{background:#fff;border:1px solid #e1efdb;border-radius:20px;padding:20px;margin-bottom:18px;box-shadow:0 14px 34px rgba(60,90,20,.12);transition:.3s}
+.sc2{background:#fff;border:1px solid #e1efdb;border-radius:20px;padding:20px;margin-bottom:18px;box-shadow:0 14px 34px rgba(60,90,20,.12);transition:var(--tr-ui)}
 .sc2:hover{transform:translateY(-4px);border-color:var(--g)}
 .sc2 .ib{width:48px;height:48px;font-size:21px;margin-bottom:14px}
 .sc2 b{display:block;font-size:17px;color:var(--d);letter-spacing:-.3px;margin-bottom:4px}
@@ -104,7 +104,7 @@ html,body{max-width:100%;overflow-x:clip}
 .sv{background:linear-gradient(180deg,#f5faf3,#fff)}
 .con{display:grid;grid-template-columns:320px 1fr;background:#fff;border-radius:24px;box-shadow:0 40px 90px rgba(60,90,20,.16);overflow:hidden;border:1px solid #e1efdb}
 .tabs{background:#f5faf3;padding:14px;display:flex;flex-direction:column;gap:6px}
-.tabs button{display:flex;align-items:center;gap:12px;border:0;background:none;text-align:left;padding:13px 14px;border-radius:14px;font-weight:700;font-size:15px;color:#4d5a46;transition:.3s;cursor:pointer;line-height:1.25}
+.tabs button{display:flex;align-items:center;gap:12px;border:0;background:none;text-align:left;padding:13px 14px;border-radius:14px;font-weight:700;font-size:15px;color:#4d5a46;transition:var(--tr-ui);cursor:pointer;line-height:1.25}
 .tabs button i{width:34px;height:34px;border-radius:10px;background:#fff;color:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 10px rgba(0,0,0,.06)}
 .tabs button:hover{background:#fff}.tabs button.on{background:var(--d);color:#fff}.tabs button.on i{background:var(--g-l);color:#fff}
 .pan{padding:42px 44px;min-height:470px}
@@ -128,7 +128,7 @@ html,body{max-width:100%;overflow-x:clip}
 .rail:before{content:"";position:absolute;left:8%;right:8%;top:34px;height:4px;background:#3a3f36}
 .rf{position:absolute;left:8%;top:34px;height:4px;background:linear-gradient(90deg,var(--g),var(--g-l));width:0;transition:width .8s;box-shadow:0 0 18px var(--g-l)}
 .rn{position:relative;z-index:2;width:16.66%;text-align:center;background:none;border:0;color:#9aa693;cursor:pointer;padding:0 4px}
-.rn .c{width:68px;height:68px;margin:0 auto 12px;border-radius:50%;background:#2c3128;border:3px solid #474d41;display:flex;align-items:center;justify-content:center;font-size:24px;transition:.4s}
+.rn .c{width:68px;height:68px;margin:0 auto 12px;border-radius:50%;background:#2c3128;border:3px solid #474d41;display:flex;align-items:center;justify-content:center;font-size:24px;transition:var(--tr-ui)}
 .rn small{display:block;font-size:12.5px;font-weight:700;line-height:1.25}
 .rn.past .c{border-color:var(--g);color:var(--g-l)}
 .rn.on{color:#fff}.rn.on .c{background:linear-gradient(145deg,#c6e06a,#94b92f 55%,#6f8f1f);border-color:#fff;color:#fff;transform:scale(1.15);box-shadow:0 0 0 8px rgba(148,185,47,.22)}
@@ -138,20 +138,23 @@ html,body{max-width:100%;overflow-x:clip}
 @media(max-width:767px){.rn small{display:none}.rn .c{width:46px;height:46px;font-size:17px}.rail:before,.rf{top:23px}}
 /* why + who */
 .bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.bt{background:#fff;border-radius:22px;padding:30px 26px;border:1px solid #e1efdb;transition:.35s}
+.bt{background:#fff;border-radius:22px;padding:30px 26px;border:1px solid #e1efdb;transition:var(--tr-ui)}
 .bt:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(60,90,20,.16)}
 .bt .ib{margin-bottom:20px}.bt h5{font-weight:800;font-size:19px;color:var(--d);margin:0 0 10px}.bt p{margin:0;font-size:15px;line-height:1.7;color:#5f6b59}
-.au{background:linear-gradient(180deg,#fff,#eef7ea)}
+.au{background:linear-gradient(180deg,#293b24,#181c16)}
+.au h2{color:#fff!important}.au p{color:#e5ece1!important;opacity:1!important}
 .chips{display:flex;flex-wrap:wrap;gap:12px}
-.chips span{background:#fff;border:1px solid #cfe5c6;border-radius:30px;padding:10px 18px;font-weight:600;font-size:15px;color:var(--g-d);display:inline-flex;gap:8px;align-items:center;transition:.3s}
+.chips span{background:#fff;border:1px solid #cfe5c6;border-radius:30px;padding:10px 18px;font-weight:600;font-size:15px;color:var(--g-d);display:inline-flex;gap:8px;align-items:center;transition:var(--tr-ui)}
 .chips span:hover{background:var(--g);color:#fff;transform:translateY(-3px)}
 .linkrow{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
-.linkrow a{border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:30px;padding:10px 20px;font-weight:600;font-size:14.5px;transition:.3s}
+.linkrow a{border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:30px;padding:10px 20px;font-weight:600;font-size:14.5px;transition:var(--tr-ui)}
 .linkrow a:hover{background:var(--g);border-color:var(--g)}
 @media(max-width:991px){.con{grid-template-columns:1fr}.tabs{flex-direction:row;overflow-x:auto}.tabs button{white-space:nowrap;flex-shrink:0}.pan{padding:30px 22px}.its,.sgrid{grid-template-columns:1fr}.bento{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:575px){.bento{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
+<script>document.documentElement.classList.add("js-motion")</script>
+<link rel="stylesheet" href="css/site-standard.css">
 </head>
 <body data-mobile-nav-style="classic" class="ba custom-cursor">
 <header>
@@ -245,14 +248,14 @@ html,body{max-width:100%;overflow-x:clip}
 <section class="bg-very-light-gray"><div class="container">
 <div class="row justify-content-center mb-5"><div class="col-xl-8 col-lg-9 text-center">
 <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Frequently Asked Questions</span>
-<h3 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Common questions about business services</h3></div></div>
+<h2 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Common questions about <span class="hd-accent">business services</span></h2></div></div>
 <div class="row align-items-stretch" id="faq"></div></div></section>
 
 <!-- CTA -->
 <section class="pb-90px mb-50px" style="padding-top:0"><div class="container"><div class="row justify-content-center"><div class="col-xl-10">
 <div class="bg-dark-gray p-60px lg-p-40px sm-p-30px border-radius-8px box-shadow-extra-large text-center position-relative overflow-hidden">
 <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Find the Right Digital Support</span>
-<h3 class="fw-800 text-white ls-minus-1px mb-20px">Have a business or digital requirement to discuss?</h3>
+<h2 class="fw-800 text-white ls-minus-1px mb-20px">Have a business or digital requirement <span class="hd-accent">to discuss?</span></h2>
 <p class="fs-18 text-light-opacity mb-30px w-90 mx-auto sm-w-100">Every business has different operational challenges and growth objectives. Contact AD Soft Technologies to explain your needs and explore the services that best fit your objectives.</p>
 <a href="contact.html" class="mag btn btn-large btn-base-color text-white btn-hover-animation-switch btn-round-edge btn-box-shadow"><span class="text-white"><span class="btn-text text-white">Discuss Your Business Requirements</span><span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span></span></a>
 <div class="linkrow"><a href="business-automation.html">Business Automation</a><a href="digital-transformation.html">Digital Transformation</a><a href="branding.html">Branding</a></div>
@@ -352,6 +355,6 @@ QA('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)
 QA('.mag').forEach(m=>{m.addEventListener('mousemove',e=>{const r=m.getBoundingClientRect();m.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.15}px,${(e.clientY-r.top-r.height/2)*.25}px)`});m.addEventListener('mouseleave',()=>m.style.transform='')});
 })();
 </script>
-<script src="js/jquery.js"></script><script src="js/vendors.min.js"></script><script src="js/main.js"></script>
+<script defer src="js/site-motion.js"></script>
 </body>
 </html>

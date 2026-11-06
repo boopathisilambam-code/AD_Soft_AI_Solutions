@@ -110,7 +110,7 @@
             /* grid */
             section.work-section { background:var(--page-bg); padding:90px 0 110px; }
             .work-filter { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:50px; }
-            .work-filter button { border:1px solid #dfe8da; background:var(--page-bg); color:#232323; font-weight:600; font-size:15px; padding:10px 22px; border-radius:30px; transition:all .3s ease; cursor:pointer; }
+            .work-filter button { border:1px solid #dfe8da; background:var(--page-bg); color:#232323; font-weight:600; font-size:15px; padding:10px 22px; border-radius:30px; transition:var(--tr-ui); cursor:pointer; }
             .work-filter button:hover { border-color:var(--green); color:var(--green); transform:translateY(-2px); }
             .work-filter button.active { background:var(--green); border-color:var(--green); color:#fff; box-shadow:0 10px 24px rgba(85,150,67,.35); }
             .work-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:30px;margin-bottom: 55px; }
@@ -129,8 +129,12 @@
             .work-meta { position:relative; display:flex; flex-direction:column; gap:4px; padding:20px 70px 22px 24px; border-top:1px solid #eef3eb; background:var(--page-bg); text-align:left; }
             .work-name { font-weight:700; color:#232323; font-size:17px; line-height:1.3; }
             .work-tag { font-size:14px; color:var(--green); font-weight:600; }
-            .work-arrow { position:absolute; right:20px; top:50%; width:40px; height:40px; margin-top:-20px; border-radius:50%; background:var(--green-soft); color:var(--green); display:flex; align-items:center; justify-content:center; transition:all .35s ease; }
+            .work-arrow { position:absolute; right:20px; top:50%; width:40px; height:40px; margin-top:-20px; border-radius:50%; background:var(--green-soft); color:var(--green); display:flex; align-items:center; justify-content:center; transition:var(--tr-ui); }
             .work-card:hover .work-arrow { background:var(--green); color:#fff; transform:rotate(45deg); }
+            .work-meta,.work-meta .work-name,.work-meta .work-tag{color:#232323!important;opacity:1!important;visibility:visible!important}
+            .work-meta .work-tag{color:#559643!important}
+            .bg-dark-gray,.bg-dark-gray p,.bg-dark-gray span,.bg-dark-gray small,.bg-dark-gray h1,.bg-dark-gray h2,.bg-dark-gray h3,.bg-dark-gray h4,.bg-dark-gray h5,.bg-dark-gray h6,footer.footer-dark p{color:#fff!important;opacity:1!important;visibility:visible!important}
+            .bg-dark-gray .text-dark-gray{color:#232323!important}
             @media (max-width:991px) { .work-card { width:calc((100% - 30px) / 2); } }
             @media (max-width:575px) { .work-card { width:100%; } .work-logo { height:210px; } }
             @media (prefers-reduced-motion: reduce) {
@@ -138,7 +142,9 @@
                 .logo-track,.blob { animation:none; } .work-card { opacity:1; transform:none; border-color:#e6efe2; transition:none; }
             }
         </style>
-    </head>
+    <script>document.documentElement.classList.add("js-motion")</script>
+<link rel="stylesheet" href="css/site-standard.css">
+</head>
     <body data-mobile-nav-style="classic" class="custom-cursor">
         <div class="cursor-page-inner">
             <div class="circle-cursor circle-cursor-inner"></div>
@@ -213,13 +219,8 @@
         <!-- start page title (banner) -->
         <section class="work-hero p-0 full-screen md-h-600px sm-h-600px ipad-top-space-margin background-position-center-top position-relative overflow-hidden" style="background-image: url('images/demo-marketing-dot.svg')">
             <span class="blob blob-1"></span><span class="blob blob-2"></span>
-            <div class="logo-wall-wrap" aria-hidden="true"><div class="logo-wall"><div class="logo-col"><div class="logo-track"><div class="logo-tile"><img src="images/pr1.png" alt=""></div><div class="logo-tile"><img src="images/pr4.png" alt=""></div><div class="logo-tile"><img src="images/pr7.png" alt=""></div><div class="logo-tile"><img src="images/pr10.png" alt=""></div><div class="logo-tile"><img src="images/pr13.png" alt=""></div><div class="logo-tile"><img src="images/pr16.png" alt=""></div><div class="logo-tile"><img src="images/pr19.png" alt=""></div><div class="logo-tile"><img src="images/pr1.png" alt=""></div><div class="logo-tile"><img src="images/pr4.png" alt=""></div><div class="logo-tile"><img src="images/pr7.png" alt=""></div><div class="logo-tile"><img src="images/pr10.png" alt=""></div><div class="logo-tile"><img src="images/pr13.png" alt=""></div><div class="logo-tile"><img src="images/pr16.png" alt=""></div><div class="logo-tile"><img src="images/pr19.png" alt=""></div></div></div><div class="logo-col rev"><div class="logo-track"><div class="logo-tile"><img src="images/pr2.png" alt=""></div><div class="logo-tile"><img src="images/pr5.png" alt=""></div><div class="logo-tile"><img src="images/pr11.png" alt=""></div><div class="logo-tile"><img src="images/pr14.png" alt=""></div><div class="logo-tile"><img src="images/pr17.webp" alt=""></div><div class="logo-tile"><img src="images/pr2.png" alt=""></div><div class="logo-tile"><img src="images/pr5.png" alt=""></div><div class="logo-tile"><img src="images/pr11.png" alt=""></div><div class="logo-tile"><img src="images/pr14.png" alt=""></div><div class="logo-tile"><img src="images/pr17.webp" alt=""></div></div></div><div class="logo-col"><div class="logo-track"><div class="logo-tile"><img src="images/pr3.png" alt=""></div><div class="logo-tile"><img src="images/pr6.png" alt=""></div><div class="logo-tile"><img src="images/pr9.png" alt=""></div><div class="logo-tile"><img src="images/pr12.png" alt=""></div><div class="logo-tile"><img src="images/pr15.png" alt=""></div><div class="logo-tile"><img src="images/pr18.webp" alt=""></div><div class="logo-tile"><img src="images/pr3.png" alt=""></div><div class="logo-tile"><img src="images/pr6.png" alt=""></div><div class="logo-tile"><img src="images/pr9.png" alt=""></div><div class="logo-tile"><img src="images/pr12.png" alt=""></div><div class="logo-tile"><img src="images/pr15.png" alt=""></div><div class="logo-tile"><img src="images/pr18.webp" alt=""></div></div></div></div></div>
-            <div class="container h-100 position-relative" style="z-index:2;">
-                <div class="row align-items-center h-100">
-                    <div class="col-xl-6 col-lg-7 col-md-10 d-flex flex-column justify-content-center h-100 hero-col">
-                        <span class="hero-pill"><i class="bi bi-stars"></i> Our Work &amp; Case Studies</span>
-                        <h1 class="fs-55 lg-fs-50 md-fs-45 sm-fs-35 text-dark-gray lh-60 lg-lh-55 md-lh-50 sm-lh-40 fw-800 mb-20px ls-minus-2px"><span class="rw" style="--i:0">Work</span> <span class="rw" style="--i:1">that</span> <span class="rw" style="--i:2">moves</span> <span class="rw" style="--i:3">businesses</span> <span class="rw" style="--i:4">forward.</span></h1>
-                        <h2 class="fs-16 lg-fs-14 text-uppercase text-base-color fw-700 mb-30px d-block ls-1px hero-fade" style="--d:.9s">Build Smarter. Automate Faster. Grow with Technology.</h2>
+            <div class="logo-wall-wrap" aria-hidden="true"><div class="logo-wall"><div class="logo-col"><div class="logo-track"><div class="logo-tile"><img src="images/pr1.png" alt=""></div><div class="logo-tile"><img src="images/pr21.webp" alt=""></div><div class="logo-tile"><img src="images/pr7.png" alt=""></div><div class="logo-tile"><img src="images/pr10.png" alt=""></div><div class="logo-tile"><img src="images/pr13.png" alt=""></div><div class="logo-tile"><img src="images/pr16.png" alt=""></div><div class="logo-tile"><img src="images/pr19.png" alt=""></div><div class="logo-tile"><img src="images/pr1.png" alt=""></div><div class="logo-tile"><img src="images/pr21.webp" alt=""></div><div class="logo-tile"><img src="images/pr7.png" alt=""></div><div class="logo-tile"><img src="images/pr10.png" alt=""></div><div class="logo-tile"><img src="images/pr13.png" alt=""></div><div class="logo-tile"><img src="images/pr16.png" alt=""></div><div class="logo-tile"><img src="images/pr19.png" alt=""></div></div></div><div class="logo-col rev"><div class="logo-track"><div class="logo-tile"><img src="images/pr2.png" alt=""></div><div class="logo-tile"><img src="images/pr5.png" alt=""></div><div class="logo-tile"><img src="images/pr11.png" alt=""></div><div class="logo-tile"><img src="images/pr14.png" alt=""></div><div class="logo-tile"><img src="images/pr17.webp" alt=""></div><div class="logo-tile"><img src="images/pr2.png" alt=""></div><div class="logo-tile"><img src="images/pr5.png" alt=""></div><div class="logo-tile"><img src="images/pr11.png" alt=""></div><div class="logo-tile"><img src="images/pr14.png" alt=""></div><div class="logo-tile"><img src="images/pr17.webp" alt=""></div></div></div><div class="logo-col"><div class="logo-track"><div class="logo-tile"><img src="images/pr3.png" alt=""></div><div class="logo-tile"><img src="images/pr6.png" alt=""></div><div class="logo-tile"><img src="images/pr9.png" alt=""></div><div class="logo-tile"><img src="images/pr12.png" alt=""></div><<div class(" logo-tile}><img src="images/pr15.png" alt=""></ div>
+                        <h2 class="fs-16 lg-fs-14 text-uppercase text-base-color fw-700 mb-30px d-block ls-1px hero-fade" style="--d:.9s">Build Smarter. Automate Faster. Grow <span class="hd-accent">with Technology.</span></h2>
                         <div class="hero-fade mb-45px" style="--d:1.2s">
                             <a href="#projects" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-20px xs-mt-10px xs-mb-10px d-inline-block">
                                 <span><span class="btn-text">Browse projects</span><span class="btn-icon"><i class="feather icon-feather-arrow-down"></i></span><span class="btn-icon"><i class="feather icon-feather-arrow-down"></i></span></span>
@@ -241,7 +242,7 @@
             <div class="container">
                 <div class="row justify-content-center mb-5 md-mb-40px">
                     <div class="col-xl-8 col-lg-9 text-center">
-                        <h3 class="fw-800 text-dark-gray ls-minus-1px mb-10px">Projects we have delivered</h3>
+                        <h2 class="fw-800 text-dark-gray ls-minus-1px mb-10px">Projects we <span class="hd-accent">have delivered</span></h2>
                         <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block">Click any project to visit the live website</span>
                     </div>
                 </div>
@@ -280,7 +281,7 @@
                         </span>
                     </a>
                     <a class="work-card" href="https://merciinternational.com/" target="_blank" rel="noopener" data-cat="community" aria-label="Merci Overseas (opens website)">
-                        <span class="work-logo"><img src="images/pr4.png" alt="Merci Overseas logo" loading="lazy"></span>
+                        <span class="work-logo"><img src="images/pr21.webp" alt="Merci Overseas logo" loading="lazy"></span>
                         <span class="work-meta">
                             <span class="work-name">Merci Overseas</span>
                             <span class="work-tag">Non-profit</span>
@@ -409,7 +410,7 @@
                         </span>
                     </a>
                     <a class="work-card" href="https://www.poykaconnect.in/" target="_blank" rel="noopener" data-cat="business" aria-label="Poyka Connect (opens website)">
-    <span class="work-logo"><img src="images/pr21.png" alt="Poyka Connect logo" loading="lazy"></span>
+    <span class="work-logo"><img src="images/pr22.png" alt="Poyka Connect logo" loading="lazy"></span>
     <span class="work-meta">
         <span class="work-name">Poyka Connect</span>
         <span class="work-tag">Service Directory</span>
@@ -543,5 +544,6 @@
             });
         })();
         </script>
-    </body>
+    <script defer src="js/site-motion.js"></script>
+</body>
 </html>

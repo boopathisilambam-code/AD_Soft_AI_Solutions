@@ -1,28 +1,30 @@
-# AD Soft Technologies - pretty URLs
-# Works at domain root (Hostinger) AND in a subfolder (XAMPP: localhost/ad_soft_tech/)
-# /about  ->  serves about.html   |   /about.html  ->  301 to /about
+# AD Soft Technologies - pretty URLs (Apache, site at domain root)
+# /about  ->  about.html   |   /about.html  ->  301 to /about
+# Needs: mod_rewrite enabled + AllowOverride All for this folder.
 
 DirectoryIndex index.html
+Options -MultiViews
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteBase /
 
-# 1. /index.html -> folder root  (e.g. /ad_soft_tech/index.html -> /ad_soft_tech/)
-RewriteCond %{THE_REQUEST} \s(/(?:[^\s?]*/)?)index\.html[\s?] [NC]
-RewriteRule ^ %1 [R=301,L,QSA]
+# 1. /index.html  ->  /
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
 
-# 2. /page.html -> /page  (only when the browser asked for .html directly, so no loop)
-RewriteCond %{THE_REQUEST} \s(/[^\s?]+)\.html[\s?] [NC]
-RewriteRule ^ %1 [R=301,L,QSA]
+# 2. /page.html  ->  /page  (only when the browser asked for .html directly, so no loop)
+RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
 
-# 3. /page/ -> /page  (a trailing slash breaks relative css/js/image paths)
+# 3. /page/  ->  /page  (a trailing slash breaks relative css/js/image paths)
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} ^(.+)/$
-RewriteRule ^ %1 [R=301,L,QSA]
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)/$ /$1 [R=301,L]
 
-# 4. /page -> serve page.html silently (checks the real file next to .htaccess)
+# 4. /page  ->  serve page.html silently
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+?)/?$ $1.html [L]
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)$ $1.html [L]
 </IfModule>

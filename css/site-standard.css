@@ -1,0 +1,268 @@
+/* =========================================================
+   AD Soft Technologies - SITE STANDARD
+   One rulebook for every page. Loaded LAST on every page.
+   Change a value here and the whole site follows.
+   ========================================================= */
+
+:root {
+  /* brand colours */
+  --brand: #559643;
+  --brand-dark: #3f7431;
+  --brand-light: #94b92f;
+  --brand-tint: #eef7ea;
+  --ink: #232323;            /* heading colour on light backgrounds */
+  --ink-on-dark: #ffffff;    /* heading colour on dark backgrounds */
+
+  /* heading scale (mobile -> desktop, fluid) */
+  --h1-size: clamp(2.125rem, 1.4rem + 3vw, 3.5rem);
+  --h2-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+  --h3-size: clamp(1.5rem, 1.15rem + 1.2vw, 2.125rem);
+  --h4-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --h5-size: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+  --h6-size: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+
+  /* spacing system */
+  --section-y: clamp(48px, 6vw, 88px);
+  --heading-gap: clamp(28px, 3.5vw, 48px);   /* heading block -> content */
+  --grid-gap: 30px;                          /* gap between cards */
+  --card-pad: clamp(24px, 2.6vw, 35px);
+  --card-radius: 8px;
+
+  /* motion system: ONE duration, ONE easing */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.3s;
+  --dur-reveal: 0.7s;
+  --reveal-distance: 28px;
+  --stagger: 80ms;
+  --shadow-rest: 0 4px 18px rgba(35, 45, 30, 0.07);
+  --shadow-hover: 0 18px 40px rgba(63, 116, 49, 0.18);
+
+  /* the only properties that are allowed to animate on hover */
+  --tr-ui: transform var(--dur) var(--ease), opacity var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+html { scroll-behavior: smooth; }
+body { overflow-x: clip; }
+img, video, svg { max-width: 100%; }
+
+/* ---------- 1. HEADINGS: same colour + same size everywhere ---------- */
+html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
+  color: var(--ink);
+  font-family: "Poppins", sans-serif;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+html body h1 { font-size: var(--h1-size); line-height: 1.12; font-weight: 800; letter-spacing: -0.03em; }
+html body h2 { font-size: var(--h2-size); line-height: 1.18; font-weight: 800; letter-spacing: -0.025em; }
+html body h3 { font-size: var(--h3-size); line-height: 1.22; font-weight: 800; letter-spacing: -0.02em; }
+html body h4 { font-size: var(--h4-size); line-height: 1.3;  font-weight: 700; letter-spacing: -0.015em; }
+html body h5 { font-size: var(--h5-size); line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; }
+html body h6 { font-size: var(--h6-size); line-height: 1.4;  font-weight: 700; letter-spacing: -0.01em; }
+
+/* template helper classes (fs-50 etc.) map onto the same scale */
+html body h1:is(.fs-50, .fs-55, .fs-60) { font-size: var(--h1-size); line-height: 1.12; }
+html body h3.fs-30 { font-size: var(--h3-size); line-height: 1.22; }
+html body h5:is(.fs-20, .fs-22) { font-size: var(--h5-size); line-height: 1.35; }
+html body h6:is(.fs-16, .fs-17) { font-size: var(--h6-size); line-height: 1.4; }
+
+/* headings on dark surfaces stay white */
+html body :is(.bg-dark-gray, footer, .text-white, .is-dark, .ad-middle-dark-section, .au) :is(h1, h2, h3, h4, h5, h6),
+html body :is(h1, h2, h3, h4, h5, h6).text-white {
+  color: var(--ink-on-dark);
+}
+
+/* ---------- 2. HEADING ACCENT: dark text + green phrase (AI Agent page style) ---------- */
+html body :is(h1, h2, h3) :is(.hd-accent, .ig-grad, .text-base-color, em) {
+  font-style: normal;
+  color: transparent;
+  background: linear-gradient(90deg, var(--brand-dark), var(--brand-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  animation: none;
+}
+html body :is(.bg-dark-gray, footer, .is-dark, .ad-middle-dark-section, .au) :is(h1, h2, h3) :is(.hd-accent, .ig-grad, .text-base-color, em),
+html body :is(h1, h2, h3).text-white :is(.hd-accent, .ig-grad, .text-base-color, em) {
+  background: linear-gradient(90deg, var(--brand-light), #c6e06a);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+/* typing cursor / counters inside headings keep their own colour */
+html body :is(h1, h2, h3) :is(.blinking-cursor, .blink, .cnt) { background: none; color: var(--brand); -webkit-text-fill-color: currentColor; }
+
+/* section title block: one consistent gap below every heading block */
+html body :is(section, .section) .row > [class*="col"] > :is(h2, h3).mb-0 { margin-bottom: 0; }
+
+/* ---------- 3. SECTION RHYTHM: equal padding between sections ---------- */
+html body section:not(.home-hero):not([class*="cover-background"]):not(.p-0):not(.pt-0):not(.pb-0) {
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+/* two plain sections in a row would double the gap, so trim the join */
+html body section + section:not([class*="bg-"]):not([style*="background"]) { padding-top: calc(var(--section-y) * 0.55); }
+
+/* gutter between cards: same on every page */
+html body .row { --bs-gutter-x: var(--grid-gap); }
+
+/* ---------- 4. CARDS: one look, one hover (the Services-page card) ---------- */
+html body :is(.feature-box, .card-idx, .work-card, .info-card, .std-card, .svc-card):not(.no-hover) {
+  border-radius: var(--card-radius);
+  border: 1px solid rgba(85, 150, 67, 0.14);
+  box-shadow: var(--shadow-rest);
+  transition: var(--tr-ui);
+  will-change: auto;
+}
+html body :is(.feature-box, .card-idx, .work-card, .info-card, .std-card, .svc-card):not(.no-hover):is(:hover, :focus-within) {
+  transform: translateY(-8px);
+  border-color: rgba(85, 150, 67, 0.55);
+  box-shadow: var(--shadow-hover);
+}
+html body :is(.feature-box, .card-idx):not(.no-hover) :is(h5, h6, .feature-box-icon i) { transition: color var(--dur) var(--ease), transform var(--dur) var(--ease); }
+html body :is(.feature-box, .card-idx):not(.no-hover):hover :is(h5, h6) { color: var(--brand-dark); }
+html body :is(.feature-box, .card-idx):not(.no-hover):hover .feature-box-icon i { transform: translateY(-3px) scale(1.06); }
+
+/* cards inside a grid are always the same height */
+html body .row > [class*="col"] > :is(.feature-box, .card-idx, .work-card) { height: 100%; }
+
+/* project examples (About page): readable titles in brand green */
+html body .project-example h6 { color: var(--brand-dark); }
+html body .project-example p { color: #5c6657; }
+html body .project-label { font-size: var(--h5-size); font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+
+/* pills / chips: one style, one hover */
+html body .std-pill {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid rgba(85, 150, 67, 0.3);
+  border-radius: 30px;
+  padding: 6px 20px;
+  margin: 0 6px 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: var(--tr-ui);
+}
+html body .std-pill:hover { transform: translateY(-2px); border-color: var(--brand); color: var(--brand-dark); background: var(--brand-tint); }
+
+/* ---------- 5. SCROLL REVEAL: transform + opacity only ---------- */
+html body .rv,
+html body [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+  transition: opacity var(--dur-reveal) var(--ease), transform var(--dur-reveal) var(--ease);
+  transition-delay: calc(var(--i, 0) * var(--stagger));
+  will-change: opacity, transform;
+}
+html body .rv.in,
+html body [data-reveal].in {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+/* tame the heavy 3D slide-ins some pages used on alternating items */
+html body .rv:nth-child(odd), html body .rv:nth-child(even) { filter: none; }
+
+/* no-JS safety: never leave content hidden */
+html:not(.js-motion) body .rv,
+html:not(.js-motion) body [data-reveal] { opacity: 1; transform: none; }
+
+/* ---------- 6. SMOOTHNESS ---------- */
+/* buttons, links and nav: only cheap properties animate */
+html body :is(a, button, .btn) { transition-timing-function: var(--ease); }
+html body .btn { transition: var(--tr-ui); }
+
+/* GPU-friendly infinite animations only where they already exist */
+.client-logo-track, .hero-tech-icon { backface-visibility: hidden; }
+
+/* ---------- 7. RESPONSIVE ---------- */
+@media (max-width: 991px) {
+  :root { --grid-gap: 24px; --reveal-distance: 20px; }
+  html body .row { --bs-gutter-x: 24px; }
+}
+@media (max-width: 575px) {
+  :root { --grid-gap: 20px; --reveal-distance: 16px; --stagger: 50ms; }
+  html body .row { --bs-gutter-x: 20px; }
+  html body :is(.feature-box, .card-idx):not(.no-hover):hover { transform: none; }   /* no sticky hover lift on touch */
+  html body .std-pill { font-size: 13px; padding: 5px 16px; }
+}
+@media (hover: none) {
+  html body :is(.feature-box, .card-idx, .work-card):not(.no-hover):hover { transform: none; box-shadow: var(--shadow-rest); }
+}
+
+/* ---------- 8. REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html body .rv, html body [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  html body :is(.feature-box, .card-idx, .work-card, .std-pill, .btn) { transition: none !important; }
+  html body :is(.feature-box, .card-idx, .work-card):hover { transform: none; }
+}
+
+/* keyboard focus is always visible */
+html body :is(a, button, .btn, input, textarea, select):focus-visible {
+  outline: 3px solid rgba(85, 150, 67, 0.55);
+  outline-offset: 3px;
+}
+
+/* ---------- 9. HEADING WEIGHTS (no more 600/700/800 mix-and-match) ---------- */
+html body :is(h1, h2, h3)[class*="fw-"] { font-weight: 800; }
+html body :is(h4, h5, h6)[class*="fw-"] { font-weight: 700; }
+
+/* ---------- 10. ENFORCED SIZES: page-level CSS may not change the scale ---------- */
+html body h1 { font-size: var(--h1-size) !important; line-height: 1.12 !important; }
+html body h2:not(.text-uppercase) { font-size: var(--h2-size) !important; line-height: 1.18 !important; }
+html body h3:not(.text-success) { font-size: var(--h3-size) !important; line-height: 1.22 !important; }
+html body :is(.pane, .tab-pane) h3 { font-size: var(--h4-size) !important; line-height: 1.3 !important; }
+html body :is(h4, h5, h6) { line-height: inherit; }
+
+/* ---------- 11. NAVBAR: all 8 links must fit on laptop widths (1200px+) ---------- */
+@media (min-width: 1200px) {
+  html body header .navbar > .container-fluid { padding-left: clamp(20px, 2vw, 45px); padding-right: clamp(20px, 2vw, 45px); }
+  html body header .navbar .navbar-nav > li > a.nav-link {
+    padding-left: clamp(8px, 0.8vw, 20px);
+    padding-right: clamp(8px, 0.8vw, 20px);
+    font-size: clamp(13.5px, 1.1vw, 16px);
+    white-space: nowrap;
+  }
+  html body header .navbar .navbar-brand { flex-shrink: 0; }
+  html body header .navbar .navbar-brand img { max-height: 100%; }
+}
+
+/* ---------- 12. DARK MIDDLE SECTION (main.js darkens one section per page) ----------
+   style.css makes every .bg-white card translucent there but also keeps its text dark,
+   which gives dark-on-dark. Cards that turned translucent must use light text. */
+html body .ad-middle-dark-section .bg-white:not(.gbox):not(.sg):not(.callout):not(.quote) { color: #d7d7d7; }
+html body .ad-middle-dark-section .bg-white:not(.gbox):not(.sg):not(.callout):not(.quote) :is(h1, h2, h3, h4, h5, h6, .text-dark-gray) { color: #ffffff !important; }
+html body .ad-middle-dark-section .bg-white:not(.gbox):not(.sg):not(.callout):not(.quote) :is(p, li, small, span:not(.text-base-color):not(.hd-accent):not(.bi)) { color: #d7d7d7 !important; }
+html body .ad-middle-dark-section .bg-white:not(.gbox):not(.sg) :is(i, .text-base-color) { color: var(--brand-light) !important; }
+html body .ad-middle-dark-section .feature-box:hover :is(h5, h6) { color: var(--brand-light) !important; }
+
+/* pills inside the dark section */
+html body .ad-middle-dark-section .std-pill {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(148, 185, 47, 0.55);
+  color: #ffffff;
+}
+html body .ad-middle-dark-section .std-pill:hover { background: rgba(148, 185, 47, 0.18); color: #ffffff; border-color: var(--brand-light); }
+html body .ad-middle-dark-section :is(.project-label) { color: #ffffff; }
+html body .ad-middle-dark-section .project-example p { color: #d7d7d7 !important; }
+
+/* cards on the dark section: same lift, glow instead of dark shadow */
+html body .ad-middle-dark-section :is(.feature-box, .card-idx):not(.no-hover) { border-color: rgba(255, 255, 255, 0.1); box-shadow: none; }
+html body .ad-middle-dark-section :is(.feature-box, .card-idx):not(.no-hover):hover {
+  border-color: rgba(148, 185, 47, 0.7);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(148, 185, 47, 0.25);
+}
+/* the project cards no longer need their own green title rule on dark */
+html body .ad-middle-dark-section .project-example h6 { color: #ffffff !important; }
+
+/* ---------- 13. DARK SECTION FULL-BLEED: no sideways shift on any screen ---------- */
+html body .ad-middle-dark-section {
+  left: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}

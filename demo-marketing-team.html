@@ -22,7 +22,9 @@
         <link rel="stylesheet" href="css/responsive.css"/>
          <link rel="stylesheet" href="css/nav-active.css">
         <link rel="stylesheet" href="demos/marketing/marketing.css" />
-    </head>
+    <script>document.documentElement.classList.add("js-motion")</script>
+<link rel="stylesheet" href="css/site-standard.css">
+</head>
     <body data-mobile-nav-style="classic" class="custom-cursor"> 
         <!-- start cursor -->
         <div class="cursor-page-inner">
@@ -125,8 +127,8 @@
             <div class="container">
                 <div class="row align-items-center extra-small-screen">
                     <div class="col-8 col-lg-4 col-sm-7 position-relative page-title-extra-small" data-anime='{ "el": "childs", "opacity": [0, 1], "translateX": [-50, 0], "duration": 800, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                        <h1 class="mb-20px text-base-color fw-500 ls-minus-05px">Expert dedicated people</h1>
-                        <h2 class=" fw-700 text-dark-gray mb-0 ls-minus-2px">Marketing people</h2>
+                        <h1 class="mb-20px text-base-color fw-500 ls-minus-05px">Expert dedicated <span class="hd-accent">people</span></h1>
+                        <h2 class=" fw-700 text-dark-gray mb-0 ls-minus-2px">Marketing <span class="hd-accent">people</span></h2>
                     </div>
                 </div>
             </div>
@@ -426,5 +428,6 @@
         <script type="text/javascript" src="js/vendors.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
           <script src="js/nav-active.js"></script>
-    </body>
+    <script defer src="js/site-motion.js"></script>
+</body>
 </html>

@@ -405,6 +405,38 @@
             box-shadow: 0 14px 40px rgba(60, 90, 20, .08)
         }
 
+        .existing-business-section .existing-tech-lane {
+            max-width: 820px;
+            margin: 0 auto 30px
+        }
+
+        .existing-business-section .existing-business-layout {
+            align-items: stretch
+        }
+
+        .existing-business-section .existing-business-layout .img-col {
+            min-height: 520px
+        }
+
+        .existing-business-section .existing-business-layout .img-col figure,
+        .existing-business-section .existing-business-layout .img-col img {
+            width: 100%;
+            height: 100%
+        }
+
+        .existing-business-section .existing-business-layout .img-col img {
+            object-fit: cover;
+            display: block
+        }
+
+        .existing-business-section .existing-er-col .er {
+            height: 100%
+        }
+
+        .existing-business-section .existing-er-col .er>div {
+            flex: 1
+        }
+
         .note-bar {
             display: flex;
             gap: 16px;
@@ -541,7 +573,7 @@
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            transition: .5s
+            transition: var(--tr-ui)
         }
 
         .xi.on .xic {
@@ -657,7 +689,7 @@
             border-radius: 20px;
             padding: 26px 22px;
             opacity: .6;
-            transition: .5s;
+            transition: var(--tr-ui);
             box-shadow: 0 10px 30px rgba(60, 90, 20, .06)
         }
 
@@ -673,7 +705,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 14px;
-            transition: .5s
+            transition: var(--tr-ui)
         }
 
         .sn:not(:nth-child(4n)):after {
@@ -723,7 +755,7 @@
             border-radius: 18px;
             padding: 22px 16px;
             text-align: center;
-            transition: .3s;
+            transition: var(--tr-ui);
             width: calc(25% - 12px)
         }
 
@@ -831,6 +863,24 @@
             color: #fff
         }
 
+        .asm-l h2 {
+            color: #fff
+        }
+
+        .asm-l h2 .hd-accent {
+            color: #c6e06a !important;
+            background: none !important;
+            -webkit-text-fill-color: #c6e06a !important
+        }
+
+        .asm-l>p,
+        .asm-l .quote p,
+        .asm-l .rt,
+        .asm-l .rt span {
+            color: #fff;
+            opacity: 1
+        }
+
         .asm-r {
             height: 100%;
             background: #fff;
@@ -853,7 +903,7 @@
             border-radius: 16px;
             padding: 16px 18px;
             font-weight: 600;
-            transition: .3s;
+            transition: var(--tr-ui);
             user-select: none;
             height: 100%
         }
@@ -879,6 +929,12 @@
             background: var(--g);
             border-color: var(--g);
             color: #fff
+        }
+
+        .ck span {
+            color: #232323 !important;
+            opacity: 1 !important;
+            visibility: visible !important
         }
 
         .ring {
@@ -939,8 +995,9 @@
         }
 
         .wg {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 18px
         }
 
@@ -949,7 +1006,9 @@
             border: 1px solid #dbe8d2;
             border-radius: 20px;
             padding: 26px 20px;
-            box-shadow: 0 12px 34px rgba(60, 90, 20, .08)
+            box-shadow: 0 12px 34px rgba(60, 90, 20, .08);
+            flex: 0 0 calc((100% - 72px) / 5);
+            min-width: 210px
         }
 
         .wn {
@@ -977,6 +1036,28 @@
         }
 
         @media(max-width:991px) {
+            .wg .wc {
+                flex-basis: calc((100% - 18px) / 2);
+                min-width: 0
+            }
+
+            .existing-business-section .existing-tech-lane {
+                max-width: 100%;
+                margin-bottom: 24px
+            }
+
+            .existing-business-section .existing-business-layout .img-col {
+                min-height: 0;
+                margin-bottom: 24px
+            }
+
+            .existing-business-section .existing-business-layout .img-col figure {
+                height: auto
+            }
+
+            .existing-business-section .existing-business-layout .img-col img {
+                height: auto
+            }
 
             .v3,
             .itg {
@@ -1048,6 +1129,10 @@
         }
 
         @media(max-width:575px) {
+            .wg .wc {
+                flex-basis: 100%;
+                min-width: 0
+            }
 
             .ovg,
             .bgg,
@@ -1079,7 +1164,7 @@
             border: 1px solid #dbe8d2;
             border-radius: 18px;
             padding: 16px 20px;
-            transition: .3s;
+            transition: var(--tr-ui);
             box-shadow: 0 10px 30px rgba(60, 90, 20, .06)
         }
 
@@ -1125,9 +1210,20 @@
             font-size: 14.5px
         }
 
+        .pl2 .pt:last-child {
+            grid-column: 1;
+            justify-self: center;
+            width: calc(100% - 24px)
+        }
+
         @media(max-width:575px) {
             .pl2 {
                 grid-template-columns: 1fr
+            }
+
+            .pl2 .pt:last-child {
+                grid-column: 1;
+                width: 100%
             }
         }
         html,
@@ -1169,6 +1265,8 @@
         }
     </style>
 <link rel="stylesheet" href="css/eq-image.css">
+<script>document.documentElement.classList.add("js-motion")</script>
+<link rel="stylesheet" href="css/site-standard.css">
 </head>
 
 <body data-mobile-nav-style="classic" class="custom-cursor">
@@ -1330,7 +1428,7 @@
                     <div class="pnl"><span
                             class="fs-14 text-uppercase fw-700 d-block ls-1px mb-15px text-base-color">Understand the
                             Basics</span>
-                        <h2 class="fw-800 text-dark-gray ls-minus-1px mb-4">What Is AI Adoption Consulting?</h2>
+                        <h2 class="fw-800 text-dark-gray ls-minus-1px mb-4">What Is AI <span class="hd-accent">Adoption Consulting?</span></h2>
                         <p class="text-muted">AI adoption consulting is the process of helping a business understand
                             where and how artificial intelligence can be introduced into its operations, products,
                             workflows and existing technology.</p>
@@ -1358,7 +1456,7 @@
         <div class="container">
             <div class="text-center mb-40px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Why a Strategy</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">Don't Adopt AI Just Because Everyone Else Is</h2><span
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">Don't Adopt AI Just Because Everyone <span class="hd-accent">Else Is</span></h2><span
                     class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">AI can provide significant
                     value, but not every AI technology suits every business</span>
             </div>
@@ -1393,7 +1491,7 @@
         <div class="container">
             <div class="text-center mb-40px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Hover to explore</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">How Can AI Help Your Business?</h2>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">How Can AI Help <span class="hd-accent">Your Business?</span></h2>
             </div>
             <p class="text-center fs-18 mb-30px">AI opportunities can exist across different parts of an organization.
             </p>
@@ -1478,7 +1576,7 @@
                 <div class="col-lg-6 rv">
                     <div class="pnl"><span
                             class="fs-14 text-uppercase fw-700 d-block ls-1px mb-15px text-base-color">Service 01</span>
-                        <h2 class="fw-800 text-dark-gray ls-minus-1px mb-4">AI Readiness Assessment</h2>
+                        <h2 class="fw-800 text-dark-gray ls-minus-1px mb-4">AI Readiness <span class="hd-accent">Assessment</span></h2>
                         <p class="text-muted">Before implementing AI, it is useful to understand where your business
                             currently stands.</p>
                         <p class="text-muted mb-0">The goal is to identify opportunities and limitations before
@@ -1503,7 +1601,7 @@
             <div class="ov-hd rv">
                 <div class="row align-items-center g-4">
                     <div class="col-lg-6"><span class="eyebrow">Service 02</span>
-                        <h2 class="fw-800 text-white ls-minus-1px mb-0">AI Use Case Identification</h2>
+                        <h2 class="fw-800 text-white ls-minus-1px mb-0">AI Use <span class="hd-accent">Case Identification</span></h2>
                     </div>
                     <div class="col-lg-6">
                         <p class="fs-18 text-white mb-10px">Not every business process is suitable for AI.</p>
@@ -1557,7 +1655,7 @@
         <div class="container">
             <div class="text-center mb-40px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Service 03</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Strategy &amp; Roadmap</h2><span
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Strategy <span class="hd-accent">&amp; Roadmap</span></h2><span
                     class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">Know What to Implement
                     First</span>
             </div>
@@ -1597,7 +1695,7 @@
         <div class="container">
             <div class="text-center mb-40px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Service 04</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Technology Selection</h2><span
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Technology <span class="hd-accent">Selection</span></h2><span
                     class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">Choose the Right Technology
                     for the Use Case</span>
             </div>
@@ -1631,31 +1729,31 @@
             </div>
         </div>
     </section>
-    <section data-fx="split" class="">
+    <section data-fx="split" class="existing-business-section">
         <div class="container">
             <div class="text-center mb-40px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Service 05</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Adoption for Existing Businesses</h2><span
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Adoption for <span class="hd-accent">Existing Businesses</span></h2><span
                     class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">You Don't Have to Start From
                     Scratch</span>
             </div>
-            <div class="row align-items-stretch g-5 eq">
+            <div class="lane existing-tech-lane rv">
+                <p class="mb-10px fw-600 text-dark-gray">Many established businesses already have valuable
+                    technology:</p>
+                <div class="chn"><span class="ch">Websites</span><span class="ch">Mobile
+                        applications</span><span class="ch">CRM systems</span><span class="ch">ERP
+                        systems</span><span class="ch">Databases</span><span class="ch">Customer-support
+                        platforms</span><span class="ch">Custom software</span><span class="ch">Internal
+                        tools</span></div>
+            </div>
+            <div class="row align-items-stretch g-5 eq existing-business-layout">
                 <div class="col-lg-5 img-col position-relative text-center">
                     <figure class="position-relative m-0 d-inline-block"
                         data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
                         <img src="images/ai-solution/ai-adoption-and-consulting/ai-adoption-and-consulting-3.webp" class="w-100 border-radius-6px" alt="AI for existing systems">
                     </figure>
                 </div>
-                <div class="col-lg-7 rv">
-                    <div class="lane mb-20px">
-                        <p class="mb-10px fw-600 text-dark-gray">Many established businesses already have valuable
-                            technology:</p>
-                        <div class="chn"><span class="ch">Websites</span><span class="ch">Mobile
-                                applications</span><span class="ch">CRM systems</span><span class="ch">ERP
-                                systems</span><span class="ch">Databases</span><span class="ch">Customer-support
-                                platforms</span><span class="ch">Custom software</span><span class="ch">Internal
-                                tools</span></div>
-                    </div>
+                <div class="col-lg-7 rv existing-er-col">
                     <div class="er">
                         <div>
                             <div class="ico3d" style="margin:0 0 16px;width:56px;height:56px"><i
@@ -1706,7 +1804,7 @@
         <div class="container">
             <div class="text-center mb-40px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Service 06</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Proof of Concept &amp; Pilot Projects</h2><span
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">AI Proof of Concept &amp; <span class="hd-accent">Pilot Projects</span></h2><span
                     class="fs-18 text-base-color fw-600 d-block font-style-italic mb-10px">Validate an AI Idea Before
                     Scaling It</span>
             </div>
@@ -1738,7 +1836,7 @@
         <div class="container">
             <div class="text-center mb-40px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Our Process</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">From Business Challenge to AI Roadmap</h2>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">From Business Challenge to <span class="hd-accent">AI Roadmap</span></h2>
             </div>
             <div class="snk rv" id="pr">
                 <div class="sn">
@@ -1793,7 +1891,7 @@
     <section class="dark-band" data-fx="zoom">
         <div class="container">
             <div class="text-center mb-40px rv"><span class="eyebrow">Responsible AI</span>
-                <h2 class="fw-800 ls-minus-1px">AI Adoption Should Include Human Oversight</h2><span
+                <h2 class="fw-800 ls-minus-1px">AI Adoption Should Include <span class="hd-accent">Human Oversight</span></h2><span
                     class="fs-18 fw-600 d-block font-style-italic" style="color:#94b92f">Not Every Decision Should Be
                     Automated</span>
             </div>
@@ -1826,7 +1924,7 @@
         <div class="container">
             <div class="text-center mb-40px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Common Challenges</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">What Stops Businesses From Adopting AI?</h2>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">What Stops Businesses From <span class="hd-accent">Adopting AI?</span></h2>
             </div>
             <div class="row align-items-stretch g-5 eq">
                 <div class="col-lg-7 rv">
@@ -1898,7 +1996,7 @@
     <section data-fx="flip" class="bg-very-light-gray pb-80px">
         <div class="container">
             <div class="text-center mb-60px rv">
-                <h3 class="fw-800 text-dark-gray ls-minus-1px">Why Choose AD Soft Technologies for AI Consulting?</h3>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">Why Choose AD Soft Technologies for <span class="hd-accent">AI Consulting?</span></h2>
                 <span class="fs-18 text-base-color fw-600 d-block font-style-italic mb-15px">Consulting Backed by Real
                     Software Development Capability</span>
                 <p class="fs-18 w-70 lg-w-95 mx-auto mb-0">Our AI consulting is supported by experience in website
@@ -1949,7 +2047,7 @@
                 <div class="row g-0 align-items-stretch">
                     <div class="col-lg-5">
                         <div class="asm-l">
-                            <h3 class="fw-800 ls-minus-1px mb-10px">Who Should Consider AI Adoption Consulting?</h3>
+                            <h2 class="fw-800 ls-minus-1px mb-10px">Who Should Consider AI <span class="hd-accent">Adoption Consulting?</span></h2>
                             <p class="mb-0">Tap what applies to you:</p>
                             <div class="ring"><svg viewBox="0 0 120 120">
                                     <circle cx="60" cy="60" r="52" class="rb" />
@@ -2006,10 +2104,11 @@
                 </div>
             </div>
             <div class="text-center mt-60px mb-40px rv">
-                <h3 class="fw-800 text-dark-gray ls-minus-1px">When Should a Business Start Its AI Journey?</h3>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">When Should a Business Start Its <span class="hd-accent">AI Journey?</span></h2>
                 <p class="fs-18 mb-0">AI adoption is worth exploring when you notice:</p>
             </div>
-            <div class="wg">
+
+            <div class="wg justify-items-center">
                 <div class="wc rv">
                     <div class="wn">1</div>
                     <p class="mb-0 fw-600 text-dark-gray">Increasing repetitive workloads</p>
@@ -2058,7 +2157,7 @@
         <div class="container">
             <div class="text-center mb-40px rv"><span
                     class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Got Questions?</span>
-                <h2 class="fw-800 text-dark-gray ls-minus-1px">Frequently Asked Questions</h2>
+                <h2 class="fw-800 text-dark-gray ls-minus-1px">Frequently Asked <span class="hd-accent">Questions</span></h2>
             </div>
             <div class="row">
                 <div class="col-lg-6 md-mb-30px">
@@ -2260,8 +2359,8 @@
                         class="bg-dark-gray p-60px lg-p-40px sm-p-30px border-radius-8px box-shadow-extra-large text-center">
                         <span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Let's Build
                             Together</span>
-                        <h3 class="fw-800 text-white ls-minus-1px mb-20px">Start Your AI Adoption Journey With AD Soft
-                            Technologies</h3>
+                        <h2 class="fw-800 text-white ls-minus-1px mb-20px">Start Your AI Adoption Journey With AD <span class="hd-accent">Soft
+                            Technologies</span></h2>
                         <p class="fs-18 text-light-opacity mb-15px w-90 mx-auto sm-w-100">You don't need to know exactly
                             which AI technology your business needs. You need to understand where your business has an
                             opportunity to improve—and whether AI is the right way to achieve it.</p>
@@ -2356,6 +2455,7 @@
             if (matchMedia('(hover:hover)').matches) { document.querySelectorAll('.ovc,.ig3,.bgc,.wc,.pt').forEach(function (e) { e.addEventListener('mousemove', function (v) { var r = e.getBoundingClientRect(), x = (v.clientX - r.left) / r.width - .5, y = (v.clientY - r.top) / r.height - .5; e.style.transform = 'perspective(900px) rotateY(' + x * 10 + 'deg) rotateX(' + (-y * 10) + 'deg) translateY(-6px)' }); e.addEventListener('mouseleave', function () { e.style.transform = '' }) }) }
             function sp() { var d = document.documentElement; bar.style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%' } addEventListener('scroll', sp, { passive: true }); sp()
         })();</script>
+<script defer src="js/site-motion.js"></script>
 </body>
 
 </html>
