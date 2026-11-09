@@ -979,6 +979,38 @@
                 transform: none
             }
         }
+
+        .who-images-figure {
+            display: block !important;
+            width: 100%;
+            padding-bottom: 12px;
+        }
+
+        .who-images-figure > img {
+            display: block;
+            width: 90%;
+            max-width: 100%;
+            margin-left: auto;
+        }
+
+        .who-images-figure > figcaption {
+            right: 0;
+            bottom: 12px;
+            z-index: 2;
+            width: 52%;
+            max-width: 360px;
+        }
+
+        .who-images-figure > figcaption img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        @media(max-width:767px) {
+            .who-images-figure > img { width: 94%; }
+            .who-images-figure > figcaption { width: 58%; max-width: 280px; }
+        }
     </style>
 <link rel="stylesheet" href="css/eq-image.css">
 <script>document.documentElement.classList.add("js-motion")</script>
@@ -1219,9 +1251,9 @@
         <div class="container">
             <div class="row align-items-center g-5">
               <div class="col-lg-6 order-lg-2 col-md-10 position-relative md-mb-50px sm-mb-40px text-center">
-  <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
+  <figure class="who-images-figure position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
     <img src="images/ai-solution/ai-insights/ai-insights-2.webp" class="w-90 sm-w-100 border-radius-6px" alt="Who AI Insights is for">
-    <figcaption class="position-absolute bottom-50px right-0px sm-right-0px" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 800, "delay": 1000, "staggervalue": 300, "easing": "easeOutQuad" }'>
+    <figcaption class="position-absolute" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 800, "delay": 1000, "staggervalue": 300, "easing": "easeOutQuad" }'>
       <img src="images/ai-solution/ai-insights/ai-insights-float-2.webp" class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
     </figcaption>
   </figure>
@@ -1257,7 +1289,7 @@
             <div class="soon rv">
                 <div class="row align-items-center g-4">
                     <div class="col-lg-6">
-                        <h2 class="mb-3">Looking to apply AI to your business?</h2>
+                        <h2 class="text-white mb-3">Looking to apply AI to your business?</h2>
                         <p class="mb-0">Businesses can explore our dedicated services, based on their requirements.</p>
                     </div>
                     <div class="col-lg-6">
@@ -1338,8 +1370,8 @@
                         <div class="feature-box-content last-paragraph-no-margin"><span
                                 class="text-white fs-18 lh-22 mb-5px d-block">Have a project in mind?</span>
                             <h6 class="d-inline-block fw-600 mb-0 text-nowrap"><a
-                                    href="mailto:info@adsofttechnologies.com"
-                                    class="text-dark-gray text-decoration-line-bottom-medium text-white-hover">info@adsofttechnologies.com</a>
+                                    href="mailto:adsofttechnologies2020@gmail.com"
+                                    class="text-dark-gray text-decoration-line-bottom-medium text-white-hover">adsofttechnologies2020@gmail.com</a>
                             </h6>
                         </div>
                     </div>
