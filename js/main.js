@@ -3293,9 +3293,20 @@
             let lastY, lastX;
             let magneticFlag = false;
             let anchorHover = false;
+            const headerEl = document.querySelector('header');
+            const navEl = headerEl ? headerEl.querySelector('nav') : null;
 
             // Document - mouse move
             window.onmousemove = function (event) {
+                const isOverHeader = (headerEl && headerEl.contains(event.target)) ||
+                    (navEl && event.clientY < navEl.getBoundingClientRect().bottom);
+                if (isOverHeader) {
+                    cursorInnerEl.style.visibility = 'hidden';
+                    cursorOuterEl.style.visibility = 'hidden';
+                    return;
+                }
+                cursorInnerEl.style.visibility = 'visible';
+                cursorOuterEl.style.visibility = 'visible';
                 if (!magneticFlag) {
                     cursorOuterEl.style.transform = 'translate(' + event.clientX + 'px, ' + event.clientY + 'px' + ')';
                 }
