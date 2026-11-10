@@ -1243,7 +1243,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             </div>
                             <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">AI Agent Development</h6>
                             <p class="mb-20px">Intelligent AI agents that can perform tasks, use connected tools, interact with business systems and support automated workflows — for customer assistance, lead qualification, internal operations and task automation.</p>
-                            <a href="ai-agent-development.html" class="btn btn-link btn-hover-animation-switch text-dark-gray p-0 fw-600">
+                            <a href="ai-agent-developemnt.html" class="btn btn-link btn-hover-animation-switch text-dark-gray p-0 fw-600">
                                 <span>
                                     <span class="btn-text">Explore AI Agent Development</span>
                                     <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1261,7 +1261,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             </div>
                             <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">AI Chatbot Development</h6>
                             <p class="mb-20px">Intelligent conversational assistants for websites, applications and business platforms that support customer service, answer questions, assist sales teams and help employees access information faster.</p>
-                            <a href="ai-chatbot-development.html" class="btn btn-link btn-hover-animation-switch text-dark-gray p-0 fw-600">
+                            <a href="ai-chatbot-developemt.html" class="btn btn-link btn-hover-animation-switch text-dark-gray p-0 fw-600">
                                 <span>
                                     <span class="btn-text">Explore AI Chatbot Development</span>
                                     <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1422,7 +1422,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                     
                     <!-- 4. Software Modification & Modernization -->
                     <div class="col mb-30px text-center">
-                             <a href="software-modification-and-modernization.html" class="p-0 fw-600">
+                             <a href="software-modification-modernization.html" class="p-0 fw-600">
                         <div class="feature-box p-30px h-100 bg-white border-radius-6px box-shadow-large">
                             <div class="feature-box-icon mb-20px">
                                 <i class="bi bi-tools icon-extra-large text-base-color"></i>
@@ -2524,11 +2524,10 @@ section[style*="demo-marketing-dot.svg"]::before {
                                 <h4 class="d-inline-block alt-font ls-minus-1px fw-700 text-dark-gray mb-15px">Subscribe to the latest updates!</h4>
                                 <p>Subscribe to our newsletters and get the latest business updates.</p>
                                 <div class="d-inline-block w-100 newsletter-style-05 position-relative mb-20px">
-                                    <form action="email-templates/subscribe-newsletter.php" method="post">
-                                        <input class="input-medium w-100 border-radius-4px form-control required mb-15px" type="email" name="email" placeholder="Enter your email address" />
-                                        <input type="hidden" name="redirect" value="">
-                                        <button type="submit" class="btn btn-medium btn-round-edge btn-dark-gray btn-box-shadow w-100 submit">Subscribe now!</button>
-                                        <div class="form-results border-radius-4px mt-10px lh-normal pt-10px pb-10px ps-15px pe-15px fs-16 w-100 text-center position-absolute z-index-1 d-none"></div>
+                                    <form id="newsletter-subscribe-form">
+                                        <input class="input-medium w-100 border-radius-4px form-control required mb-15px" type="email" name="email" placeholder="Enter your email address" required />
+                                        <button type="submit" class="btn btn-medium btn-round-edge btn-dark-gray btn-box-shadow w-100">Subscribe now!</button>
+                                        <div class="form-results border-radius-4px mt-10px lh-normal pt-10px pb-10px ps-15px pe-15px fs-16 w-100 text-center position-absolute z-index-1 d-none" role="status" aria-live="polite"></div>
                                     </form>
                                 </div>
                                 <label for="newsletter-off" class="fs-15"><input class="w-auto me-10px position-relative top-1px p-0" type="checkbox" id="newsletter-off" name="newsletter-off">Don't show this popup again</label>
@@ -2551,6 +2550,67 @@ section[style*="demo-marketing-dot.svg"]::before {
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/vendors.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+        <script>
+            (function () {
+                var form = document.getElementById('newsletter-subscribe-form');
+                var emailInput = form.querySelector('input[name="email"]');
+                var submitButton = form.querySelector('button[type="submit"]');
+                var result = form.querySelector('.form-results');
+                var firebaseConfig = {
+                    apiKey: "AIzaSyCiSDYQukrsFtL2-loQj2v3BX0b8yXFo2c",
+                    authDomain: "adsoft-b88db.firebaseapp.com",
+                    databaseURL: "https://adsoft-b88db-default-rtdb.firebaseio.com",
+                    projectId: "adsoft-b88db",
+                    storageBucket: "adsoft-b88db.appspot.com",
+                    messagingSenderId: "870985803057",
+                    appId: "1:870985803057:web:7d5a341f4205be7c17bc10"
+                };
+                var db;
+
+                function showResult(type, message) {
+                    result.className = 'form-results border-radius-4px mt-10px lh-normal pt-10px pb-10px ps-15px pe-15px fs-16 w-100 text-center position-absolute z-index-1 alert-' + type;
+                    result.textContent = message;
+                }
+
+                try {
+                    firebase.initializeApp(firebaseConfig);
+                    db = firebase.firestore();
+                } catch (error) {
+                    console.error('Firebase initialization failed:', error);
+                    showResult('danger', 'The subscription service is temporarily unavailable. Please try again later.');
+                }
+
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    if (!form.reportValidity()) return;
+                    if (!db) {
+                        showResult('danger', 'The subscription service is temporarily unavailable. Please try again later.');
+                        return;
+                    }
+
+                    var email = emailInput.value.trim().toLowerCase();
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Subscribing...';
+                    result.classList.add('d-none');
+
+                    db.collection('Subscriptions').add({
+                        email: email,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    }).then(function () {
+                        emailInput.value = '';
+                        showResult('success', 'Thanks for subscribing!');
+                    }).catch(function (error) {
+                        console.error('Newsletter subscription failed:', error);
+                        showResult('danger', 'We could not save your subscription. Please try again later.');
+                    }).finally(function () {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Subscribe now!';
+                    });
+                });
+            })();
+        </script>
         <script>
 (function () {
     function centerLastRow() {
@@ -2604,7 +2664,7 @@ section[style*="demo-marketing-dot.svg"]::before {
             proto.__centerPatched = true;
         }
 
-        inst.layout(); // ippo thirumba layout panni center aakkum
+        inst.layout(); 
         return true;
     }
 
