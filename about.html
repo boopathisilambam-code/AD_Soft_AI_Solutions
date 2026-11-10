@@ -79,6 +79,24 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 @media (min-width:768px) { .team-photo { width:42%; height:auto; min-height:100%; flex-shrink:0; } }
 /* step numbers */
 .step-no { font-size: 46px; font-weight: 800; line-height: 1; letter-spacing: -2px; color: rgba(85,150,67,.28); }
+.about-approach-steps > .col > div {
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.about-approach-steps > .col > div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, .12);
+}
+.about-approach-steps .step-no {
+    transition: color .25s ease, transform .25s ease;
+}
+.about-approach-steps > .col > div:hover .step-no {
+    color: rgba(85, 150, 67, .6);
+    transform: scale(1.05);
+}
+@media (prefers-reduced-motion: reduce) {
+    .about-approach-steps > .col > div,
+    .about-approach-steps .step-no { transition: none; }
+}
 /* leadership cards (full-width rows) */
 @media (min-width:768px) { .team-photo.lead { width:36%; min-height:400px; } }
 </style>
@@ -345,7 +363,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <p class="fs-18 mb-0">We follow a structured, requirement-driven approach to developing and implementing digital solutions.</p>
 </div>
 </div>
-<div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 justify-content-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+<div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 justify-content-center about-approach-steps" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
 <div class="col mb-30px"><div class="bg-white p-30px border-radius-6px box-shadow-small h-100 border-top border-4 border-color-base-color">
 <div class="step-no mb-15px">01</div>
 <h5 class="fw-700 text-dark-gray mb-10px fs-20">Understand</h5>
