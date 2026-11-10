@@ -107,10 +107,10 @@
 .card-idx>p{flex:1 1 auto;margin:0 0 18px!important;line-height:1.7}
 .card-idx .lst{margin:auto 0 0;display:inline-block;align-self:center;min-width:170px}
 .lst{list-style:none;padding:0;margin:12px 0 0;text-align:left}.lst li{font-size:14px;padding:3px 0}.lst li:before{content:"\2713";color:var(--g);font-weight:700;margin-right:8px}
-.chip{display:inline-block;background:#fff;border:1px solid #d6e8cf;border-radius:30px;padding:8px 18px;margin:5px;font-weight:600;font-size:14px;color:#232323;opacity:1;transform:none;will-change:transform,opacity,background-color,color;transition:opacity .45s cubic-bezier(.2,.8,.2,1),transform .45s cubic-bezier(.2,.8,.2,1),background-color .25s ease,color .25s ease,box-shadow .25s ease}
+.chip{display:inline-block;background:#fff;border:1px solid #d6e8cf;border-radius:30px;padding:8px 18px;margin:5px;font-weight:600;font-size:14px;color:#232323;opacity:1;transform:none;will-change:transform,opacity,background-color,color;transition:opacity .45s cubic-bezier(.2,.8,.2,1),transform .45s cubic-bezier(.2,.8,.2,1),background-color .25s ease,color .25s ease,box-shadow .25s ease;transition-delay:var(--chip-delay,0ms),var(--chip-delay,0ms),0ms,0ms,0ms}
 html.js-motion .chip{opacity:0;transform:translateY(12px) scale(.96)}
 html.js-motion .in .chip{opacity:1;transform:none}
-.chip:hover,.chip:focus-visible{background:var(--g)!important;color:#fff!important;transform:translateY(-4px);box-shadow:0 10px 24px rgba(85,150,67,.18);outline:none}
+.chip:hover,.chip:focus-visible{transition-delay:0ms!important;background:var(--g)!important;color:#fff!important;transform:translateY(-4px);box-shadow:0 10px 24px rgba(85,150,67,.18);outline:none}
 /* flow */
 .flow{--flow-icon-center:65px;display:flex;align-items:flex-start;justify-content:space-between;position:relative;flex-wrap:wrap;gap:20px;padding:30px 0}
 .flow:before{content:"";position:absolute;left:5%;right:5%;top:var(--flow-icon-center);height:3px;background:repeating-linear-gradient(90deg,var(--g) 0 10px,transparent 10px 20px);opacity:.4}
@@ -498,7 +498,7 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
 (function(){
 const Q=s=>document.querySelector(s),L=a=>a.map(x=>`<li>${x}</li>`).join('');
 const card=(ic,t,p,ul)=>`<div class="feature-box card-idx p-30px h-100 bg-white border-radius-6px box-shadow-large text-center"><div class="ico3d"><i class="bi ${ic}"></i></div><h5>${t}</h5><p class="mb-0" style="font-size:15px">${p}</p>${ul?`<ul class="lst">${L(ul)}</ul>`:''}</div>`;
-const chips=(a,d)=>a.map((c,i)=>`<span class="chip" style="transition-delay:${i*d}ms">${c}</span>`).join('');
+const chips=(a,d)=>a.map((c,i)=>`<span class="chip" style="--chip-delay:${i*d}ms">${c}</span>`).join('');
 const col=(a,c)=>a.map(x=>`<div class="${c} rv">${card(...x)}</div>`).join('');
 const nodes=a=>a.map(n=>`<div class="node"><span><i class="bi ${n[0]}"></i></span><b>${n[1]}</b></div>`).join('');
 

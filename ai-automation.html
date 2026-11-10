@@ -2566,7 +2566,20 @@
             padding: 12px 20px;
             font-weight: 700;
             color: #232323;
-            transition: var(--tr-ui)
+            cursor: pointer;
+            transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease
+        }
+
+        .ptab:not(.on):hover {
+            color: var(--g-d);
+            background: #f4f9ef;
+            border-color: var(--g);
+            box-shadow: 0 6px 16px rgba(85, 150, 67, .14)
+        }
+
+        .ptab:focus-visible {
+            outline: 3px solid rgba(85, 150, 67, .45);
+            outline-offset: 3px
         }
 
         .ptab i {
@@ -3892,7 +3905,42 @@
             var bar = document.createElement('div'); bar.id = 'sp3'; document.body.appendChild(bar);
             var io = new IntersectionObserver(function (e) { e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target) } }) }, { threshold: .1 });
             document.querySelectorAll('section').forEach(function (s) { s.querySelectorAll('.rv').forEach(function (e, k) { e.style.transitionDelay = (k % 4) * 90 + 'ms'; io.observe(e) }); s.querySelectorAll('.pt,.ck,.card-idx,.dc,.cl li').forEach(function (e, k) { e.style.animationDelay = (k % 10) * 80 + 'ms' }) });
-            var pt = document.querySelectorAll('.ptab'), pp = document.querySelectorAll('.ppan'); pt.forEach(function (b, i) { b.onclick = function () { pt.forEach(function (x) { x.classList.remove('on') }); pp.forEach(function (x) { x.classList.remove('on') }); b.classList.add('on'); pp[i].classList.add('on') } });
+            var pt = document.querySelectorAll('.ptabs .ptab'), pp = document.querySelectorAll('.ppan');
+            var autoTabTimer = null, tabWasClicked = false;
+            function activateProcessTab(index) {
+                pt.forEach(function (button, i) {
+                    button.classList.toggle('on', i === index);
+                    button.setAttribute('aria-pressed', i === index ? 'true' : 'false');
+                    pp[i].classList.toggle('on', i === index);
+                });
+            }
+            if (pt.length && pt.length === pp.length) {
+                pt.forEach(function (button, i) {
+                    button.setAttribute('aria-pressed', button.classList.contains('on') ? 'true' : 'false');
+                    button.addEventListener('click', function () {
+                        tabWasClicked = true;
+                        clearInterval(autoTabTimer);
+                        activateProcessTab(i);
+                    });
+                });
+                if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    var activeProcessTab = Array.prototype.findIndex.call(pt, function (button) { return button.classList.contains('on') });
+                    if (activeProcessTab < 0) activeProcessTab = 0;
+                    var processTabsSection = pt[0].closest('section');
+                    var processTabsObserver = new IntersectionObserver(function (entries) {
+                        if (entries[0].isIntersecting && !tabWasClicked && !autoTabTimer) {
+                            autoTabTimer = setInterval(function () {
+                                activeProcessTab = (activeProcessTab + 1) % pt.length;
+                                activateProcessTab(activeProcessTab);
+                            }, 5000);
+                        } else if (!entries[0].isIntersecting && autoTabTimer) {
+                            clearInterval(autoTabTimer);
+                            autoTabTimer = null;
+                        }
+                    }, { threshold: .2 });
+                    if (processTabsSection) processTabsObserver.observe(processTabsSection);
+                }
+            }
             var ck = document.querySelectorAll('.ck'); ck.forEach(function (c) { c.onclick = function () { c.classList.toggle('on'); var n = document.querySelectorAll('.ck.on').length; document.getElementById('ckn').textContent = n; document.getElementById('ckm').style.width = (n / ck.length * 100) + '%' } });
             var xi = document.querySelectorAll('.xi'); function act(e) { xi.forEach(function (x) { x.classList.toggle('on', x === e) }) } xi.forEach(function (e) { e.addEventListener('mouseenter', function () { if (matchMedia('(min-width:992px)').matches) act(e) }); e.addEventListener('click', function () { act(e) }) });
             function cyc(sel, prog, ms) { var s = document.querySelectorAll(sel); if (!s.length) return; var n = 0; function st() { s.forEach(function (x, i) { x.classList.toggle('on', i === n); x.classList.toggle('done', i < n) }); if (prog) prog.style.width = (n / (s.length - 1) * 100) + '%'; n = (n + 1) % s.length } st(); setInterval(st, ms) }
