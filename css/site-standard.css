@@ -266,3 +266,215 @@ html body .ad-middle-dark-section {
   width: 100% !important;
   max-width: 100% !important;
 }
+
+/* ---------- 14. MOBILE LAYOUT: shared header, hero and footer ---------- */
+@media (max-width: 767px) {
+  :root {
+    --section-y: clamp(40px, 10vw, 56px);
+    --grid-gap: 18px;
+    --h1-size: clamp(1.9rem, 8vw, 3rem);
+  }
+
+  html body .row { --bs-gutter-x: 18px; }
+
+  html body header .navbar.disable-fixed > .container-fluid {
+    width: 100%;
+    min-width: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  html body header .navbar.disable-fixed .navbar-brand {
+    min-width: 0;
+    max-width: calc(100vw - 88px);
+  }
+  html body header .navbar.disable-fixed .navbar-toggler {
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  html body header .navbar.disable-fixed .navbar-toggler-line:nth-child(1) { top: 15px; }
+  html body header .navbar.disable-fixed .navbar-toggler-line:nth-child(2),
+  html body header .navbar.disable-fixed .navbar-toggler-line:nth-child(3) { top: 21px; }
+  html body header .navbar.disable-fixed .navbar-toggler-line:nth-child(4) { top: 27px; }
+  html body.navbar-collapse-show header .navbar.disable-fixed .navbar-toggler-line:nth-child(1),
+  html body.navbar-collapse-show header .navbar.disable-fixed .navbar-toggler-line:nth-child(2),
+  html body.navbar-collapse-show header .navbar.disable-fixed .navbar-toggler-line:nth-child(3),
+  html body.navbar-collapse-show header .navbar.disable-fixed .navbar-toggler-line:nth-child(4) { top: 21px; }
+  html body header .navbar.disable-fixed .navbar-nav > .nav-item > .dropdown-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    pointer-events: auto;
+  }
+  html body header .navbar.disable-fixed .navbar-nav > .nav-item > .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  html body :is(.home-hero, .work-hero) {
+    height: auto !important;
+    min-height: calc(100vh - 64px) !important;
+    min-height: calc(100svh - 64px) !important;
+    padding-top: 84px !important;
+    padding-bottom: 48px !important;
+  }
+  html body > header + section.full-screen {
+    height: auto !important;
+    min-height: calc(100vh - 64px) !important;
+    min-height: calc(100svh - 64px) !important;
+    padding: 84px 16px 48px !important;
+  }
+  html body > header + section.cover-background.page-title-big-typography.xs-py-0 {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 96px 16px 48px !important;
+  }
+  html body.home-page .home-hero {
+    height: auto !important;
+    min-height: calc(100vh - 64px) !important;
+    min-height: calc(100svh - 64px) !important;
+    padding-top: 88px !important;
+    padding-bottom: 48px !important;
+  }
+  html body.home-page .home-hero > .container,
+  html body.home-page .home-hero > .container > .row {
+    height: auto !important;
+    min-height: inherit;
+  }
+  html body.home-page .home-hero > .container > .row > .col-xl-5 {
+    display: flex !important;
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    align-self: auto !important;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  html body.home-page .home-hero > .container > .row > .col-xl-5 > .position-absolute {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: min(100%, 340px) !important;
+    max-width: 100%;
+    margin: 0 auto !important;
+  }
+  html body.home-page .home-hero > .container > .row > .col-xl-5 img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+    object-fit: contain;
+    object-position: bottom;
+  }
+  @media (min-width: 421px) {
+    html body.home-page .home-hero > .container > .row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+      align-items: center;
+      column-gap: 12px;
+    }
+    html body.home-page .home-hero > .container > .row > .col-xl-7,
+    html body.home-page .home-hero > .container > .row > .col-xl-5 {
+      width: auto;
+      max-width: none;
+      min-width: 0;
+    }
+    html body.home-page .home-hero > .container > .row > .col-xl-7 {
+      padding-top: 0;
+    }
+    html body.home-page .home-hero {
+      --h1-size: clamp(1.7rem, 6vw, 2.1rem);
+    }
+    html body.home-page .home-hero > .container > .row > .col-xl-5 {
+      padding: 0;
+      margin-top: 0;
+    }
+    html body.home-page .home-hero > .container > .row > .col-xl-5 > .position-absolute {
+      width: 100% !important;
+      max-width: 190px;
+    }
+    html body.home-page .home-hero > .container > .row > .col-xl-5 img {
+      max-height: 260px;
+    }
+  }
+  html body :is(.ai-hero, .wd-hero, .ba-hero, .contact-hero) > .container > .row > [class*="col-"]:last-child {
+    display: flex !important;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin: 24px 0 0 !important;
+  }
+  html body :is(.ai-hero, .wd-hero, .ba-hero, .contact-hero) > .container > .row > [class*="col-"]:last-child :is(.chat, .wk) {
+    width: 100%;
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  html body :is(.ai-hero, .wd-hero, .ba-hero, .contact-hero) > .container > .row > [class*="col-"]:last-child > :is(.browser, .phone-wrap, .stack, .stackwrap, .viz-wrap, .hv-wrap) {
+    width: 100%;
+  }
+  html body .wd-hero > .container > .row > [class*="col-"]:last-child > .stack {
+    max-width: 430px;
+  }
+  html body .wd-hero .fi {
+    display: flex;
+  }
+  html body .wd-hero .fi[style*="left"] { left: 0 !important; }
+  html body .wd-hero .fi[style*="right"] { right: 0 !important; }
+  html body > header + section.full-screen:not(.home-hero):not(.work-hero) > .container > .row > [class*="col-"]:last-child {
+    display: flex !important;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin: 24px 0 0 !important;
+  }
+  html body > header + section.full-screen:not(.home-hero):not(.work-hero) > .container > .row > [class*="col-"]:last-child img {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  html body :is(.ai-hero, .wd-hero, .ba-hero, .contact-hero, .ci-hero) {
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    padding-top: 96px !important;
+    padding-bottom: 48px !important;
+  }
+  html body :is(.home-hero, .work-hero, .ai-hero, .wd-hero, .ba-hero, .contact-hero, .ci-hero) :is(.container, .container-fluid, .row, [class*="col-"]) {
+    min-width: 0;
+  }
+  html body :is(.home-hero, .work-hero, .ai-hero, .wd-hero, .ba-hero, .contact-hero, .ci-hero, .page-title-big-typography) h1 {
+    font-size: var(--h1-size) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.025em;
+    overflow-wrap: anywhere;
+  }
+  html body.home-page .home-hero h1 {
+    font-size: var(--h1-size) !important;
+  }
+  html body :is(.home-hero, .work-hero, .ai-hero, .wd-hero, .ba-hero, .contact-hero, .ci-hero) .btn {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  html body footer .footer-dark,
+  html body footer .footer-dark .row,
+  html body footer .footer-dark [class*="col-"] {
+    min-width: 0;
+  }
+  html body footer .footer-dark :is(p, a, span, h4, h5, h6) {
+    overflow-wrap: anywhere;
+  }
+  html body footer .footer-dark :is(.w-90, .lg-w-95, .xs-w-60) {
+    width: 100% !important;
+    max-width: 100%;
+  }
+}
