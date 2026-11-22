@@ -3,6 +3,7 @@ InvitationPlatform.register({
   name: 'Violet Butterfly — Animated Wedding',
   tag: 'Wedding · Violet · Live butterfly',
   occasion: 'Wedding',
+  categories: ['Wedding', 'Engagement', 'Save the date', 'Reception'],
 
   required: ['groom', 'bride', 'weddingDate'],
   requiredLabels: { groom: "Groom's name", bride: "Bride's name", weddingDate: 'Wedding date' },
