@@ -4,19 +4,19 @@
 window.INV_CONFIG = {
   // Firebase web-app config (Project settings → Your apps → Web app)
   firebase: {
-                    apiKey: "AIzaSyCiSDYQukrsFtL2-loQj2v3BX0b8yXFo2c",
-                    authDomain: "adsoft-b88db.firebaseapp.com",
-                    databaseURL: "https://adsoft-b88db-default-rtdb.firebaseio.com",
-                    projectId: "adsoft-b88db",
-                    storageBucket: "adsoft-b88db.appspot.com",
-                    messagingSenderId: "870985803057",
-                    appId: "1:870985803057:web:7d5a341f4205be7c17bc10"
+  apiKey: "AIzaSyC94YPBZNKKPIt22ociotCQbYnc2ZR6Lmw",
+  authDomain: "ad-soft-technologies.firebaseapp.com",
+  projectId: "ad-soft-technologies",
+  storageBucket: "ad-soft-technologies.firebasestorage.app",
+  messagingSenderId: "877722051605",
+  appId: "1:877722051605:web:0264cd012532309e9f5a1c",
+  measurementId: "G-F3ETJQGL5Q"
   },
 
   // Cloudinary — create an UNSIGNED upload preset (Settings → Upload → Upload presets)
   cloudinary: {
-    cloudName: 'YOUR_CLOUD_NAME',
-    uploadPreset: 'YOUR_UNSIGNED_PRESET',
+    cloudName: 'da4dneb1d',
+    uploadPreset: 'ad-soft-invitation',
     folder: 'invitations',
   },
 
