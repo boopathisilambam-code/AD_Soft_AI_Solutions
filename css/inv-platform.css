@@ -16,11 +16,18 @@
 html.ip-lock { overflow: hidden !important; }
 
 /* ---------- template gallery ---------- */
+.ip-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; max-width: 1080px; margin: 0 auto 30px; }
+.ip-filters button { min-height: 42px; padding: 9px 18px; border: 1px solid var(--ip-line); border-radius: 24px; background: #fff; color: var(--ip-ink); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.ip-filters button:hover, .ip-filters button[aria-pressed="true"] { border-color: var(--ip-green); background: var(--ip-green); color: #fff; }
+.ip-empty { margin: 18px 0 0; text-align: center; color: var(--ip-mute); }
 .ip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; max-width: 1080px; margin: 0 auto; }
 .ip-card { position: relative; display: flex; flex-direction: column; text-align: left; padding: 0; border: 0; border-radius: 24px; overflow: hidden; background: #fff; cursor: pointer; font: inherit; color: inherit;
   box-shadow: 0 1px 2px rgba(20, 40, 20, .06), 0 14px 34px -12px rgba(20, 50, 20, .22);
   transition: transform .5s var(--ip-ease), box-shadow .5s var(--ip-ease); isolation: isolate; }
+.ip-card[hidden] { display: none !important; }
 .ip-card:hover, .ip-card:focus-visible { transform: translateY(-10px); box-shadow: 0 2px 4px rgba(20, 40, 20, .06), 0 36px 60px -16px rgba(60, 120, 50, .42); outline: none; }
+@keyframes ipCardShuffle { from { opacity: .55; } to { opacity: 1; } }
+.ip-card--shuffling { animation: ipCardShuffle .3s ease-out var(--ip-shuffle-delay, 0ms) both; }
 .ip-card__stage { position: relative; display: block; background: #1c1530; overflow: hidden; }
 .ip-card__body { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 18px 18px 20px; background: #fff; }
 .ip-card__body > span:first-child { min-width: 0; }
@@ -33,7 +40,7 @@ html.ip-lock { overflow: hidden !important; }
 .ip-card__go svg { width: 16px; height: 16px; transition: transform .4s var(--ip-ease); }
 .ip-card:hover .ip-card__go, .ip-card:focus-visible .ip-card__go { background: var(--ip-green); color: #fff; }
 .ip-card:hover .ip-card__go svg { transform: translateX(4px); }
-.ip-mine { max-width: 1080px; margin: 0 auto 26px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; }
+.ip-mine { max-width: 1080px; margin: 0 auto 26px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; text-align: center; font-size: 14px; }
 .ip-chip { padding: 6px 15px; border: 1px solid var(--ip-line); border-radius: 20px; background: #fff; color: var(--ip-ink); text-decoration: none; }
 .ip-chip:hover { border-color: var(--ip-green); color: var(--ip-green); }
 
@@ -241,3 +248,22 @@ html.ip-lock { overflow: hidden !important; }
   .ip-grid { gap: 26px; }
 }
 @media (prefers-reduced-motion: reduce) { .ip-modal, .ip-sheet, .ip-card, .ip-pane, .ip-hero-card, .ip-card__badge i { animation: none !important; transition: none !important; } }
+
+/* live-preview cards: static thumbnail underneath, real preview fades in on top */
+.ip-live__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+.ip-live.has-poster { animation: none; background: #1c1530; }
+.ip-live__frame { contain: strict; }
+/* preview iframe never lets the template's content spill outside the phone frame */
+.ip-frame { max-width: 100%; overflow: hidden; }
+.ip-list__item .ip-img { margin-top: 4px; }
+.ip-list__item .ip-img__prev { width: 64px; height: 64px; }
+
+/* loading slider shown while a live preview is preparing */
+.ip-live { background: linear-gradient(160deg, #f4f1ea, #e9e4d8); animation: none !important; }
+.ip-live__load { position: absolute; inset: 0; z-index: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; transition: opacity .5s ease; }
+.ip-live.is-ready .ip-live__load { opacity: 0; }
+.ip-live__lbl { font: 600 12px/1 system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #7d7a6e; }
+.ip-live__track { width: 56%; max-width: 200px; height: 5px; border-radius: 5px; background: rgba(0, 0, 0, .09); overflow: hidden; }
+.ip-live__track i { display: block; height: 100%; width: 0; border-radius: 5px; background: linear-gradient(90deg, #559643, #9bcf5f); animation: ipLoadBar 9s cubic-bezier(.12, .7, .25, 1) forwards; }
+@keyframes ipLoadBar { to { width: 94%; } }
+.ip-live__poster { display: none; }

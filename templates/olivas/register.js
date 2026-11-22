@@ -3,6 +3,7 @@ InvitationPlatform.register({
   name: 'Olivas — Floral Celebration',
   tag: 'Wedding · Floral envelope',
   occasion: 'Wedding',
+  categories: ['Wedding', 'Save the date', 'Reception'],
 
   required: ['groom', 'bride', 'weddingDate'],
   requiredLabels: { groom: "Groom's name", bride: "Bride's name", weddingDate: 'Wedding date' },

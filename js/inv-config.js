@@ -24,7 +24,15 @@ window.INV_CONFIG = {
   collection: 'premiumInvitations',
 
   // Add a folder name here every time you build a new template in /templates/<id>/
-  templates: ['royal-ivory', 'olivas', 'violet-butterfly'],
+  templates: [
+    'royal-ivory',
+    'olivas',
+    'violet-butterfly',
+    'wedding-European',
+    'wedding-invitation',
+    'aadhi-birthday',
+    'chocolate-birthday-invitation',
+  ],
 
   // Public page that renders a saved invitation (relative to site root)
   viewerUrl: 'invitation.html',

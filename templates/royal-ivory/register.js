@@ -10,6 +10,7 @@ InvitationPlatform.register({
   name: 'Royal Ivory — Envelope Wedding',
   tag: 'Wedding · Animated envelope',
   occasion: 'Wedding',
+  categories: ['Wedding', 'Save the date', 'Reception'],
 
   required: ['groom', 'bride', 'weddingDate'],
   requiredLabels: { groom: "Groom's name", bride: "Bride's name", weddingDate: 'Wedding date' },

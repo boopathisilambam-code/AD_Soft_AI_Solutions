@@ -46,12 +46,37 @@
     kids.flat().forEach((c) => c != null && n.append(c.nodeType ? c : document.createTextNode(c)));
     return n;
   };
+  const preparePreviewFrame = (frame) => {
+    const doc = frame.contentDocument;
+    if (!doc || !doc.head) return;
+    const style = doc.createElement('style');
+    style.textContent = 'html,body{overflow-x:hidden!important;scrollbar-width:none!important}*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}';
+    doc.head.append(style);
+    const mediaPrototype = frame.contentWindow && frame.contentWindow.HTMLMediaElement && frame.contentWindow.HTMLMediaElement.prototype;
+    if (mediaPrototype && !mediaPrototype.play.__ipSilent) {
+      const play = mediaPrototype.play;
+      const silentPlay = function (...args) {
+        this.muted = true;
+        this.volume = 0;
+        return play.apply(this, args);
+      };
+      silentPlay.__ipSilent = true;
+      mediaPrototype.play = silentPlay;
+    }
+    doc.querySelectorAll('audio,video').forEach((media) => { media.muted = true; media.volume = 0; });
+  };
   const randId = (n = 6) => {
     const a = new Uint8Array(n); crypto.getRandomValues(a);
     return Array.from(a, (b) => 'abcdefghjkmnpqrstuvwxyz23456789'[b % 31]).join('');
   };
   const slugify = (s) => String(s || '').toLowerCase().normalize('NFKD').replace(/[^\w\s-]/g, '').trim().replace(/[\s_]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
-  const assetUrl = (v) => (!v ? '' : /^(https?:|data:|blob:|\/\/)/i.test(v) ? v : new URL(v, SITE).href);
+  let ASSET_DIR = SITE; /* set while an editor is open: bare file names (e.g. "boat.jpg") live inside the template folder */
+  const assetUrl = (v) => {
+    if (!v) return '';
+    if (/^(https?:|data:|blob:|\/\/)/i.test(v)) return v;
+    if (/^(templates|images|videos|assets)\//.test(v) || v.startsWith('/')) return new URL(v, SITE).href;
+    return new URL(v, ASSET_DIR).href;
+  };
   const thumb = (v, w = 400) => {
     const u = assetUrl(v);
     return /res\.cloudinary\.com\/.+\/image\/upload\//.test(u) && !/\/upload\/(f_|q_|w_|c_)/.test(u)
@@ -75,7 +100,7 @@
     });
   }
   async function loadTemplate(id) {
-    if (!/^[a-z0-9-]+$/.test(id || '')) return null;
+    if (!/^[A-Za-z0-9-]+$/.test(id || '')) return null;
     if (!registry.has(id)) { try { await loadScript(`${SITE}templates/${id}/register.js`); } catch (e) { return null; } }
     return registry.get(id) || null;
   }
@@ -207,55 +232,78 @@
   const cleanTitle = (t) => String(t || '').replace(/^[\s\p{Extended_Pictographic}️‍]+/u, '').trim();
 
   /* ---------------- live template preview ----------------
-     Shows the REAL template (envelope, seal, butterfly, petals…) in a scaled,
-     non-interactive iframe: it waits, "taps" the seal, lets the opening
-     animation play, then loops. Only runs while on screen. */
-  function livePreview(def, { delay = 1700, loop = 11000 } = {}) {
-    /* neutral skeleton (no template-lookalike placeholder) — real frame fades in only once painted */
+     Cards show a light static thumbnail first. A real (iframe) preview is only started for the few
+     cards that are on screen, one at a time, and it is removed again as soon as the card scrolls away,
+     the tab is hidden or the editor is open -> the page stays smooth even with many heavy templates. */
+  const Live = (() => {
+    /* every template is loaded ONCE (one after another) and then simply stays – no reloading, no rotating */
+    const all = new Set(); const started = new Set(); let chain = Promise.resolve(); let paused = false;
+    const api = {
+      add(c) { all.add(c); },
+      want(c) { if (paused || started.has(c)) return; started.add(c); c.start(); },
+      forget(c) { if (!c.loaded()) { started.delete(c); c.stop(); } },
+      serial(fn) { const p = chain.then(fn, fn); chain = p.catch(() => {}); return p; },
+      pause(on) { paused = on; if (!on) all.forEach((c) => { if (c.visible()) api.want(c); }); },
+    };
+    const sync = () => api.pause(document.hidden || document.documentElement.classList.contains('ip-lock'));
+    document.addEventListener('visibilitychange', sync);
+    new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return api;
+  })();
+
+  function livePreview(def, { delay = 1700, loop = 20000 } = {}) {
     const box = el('span', { class: 'ip-live' });
-    box.append(el('i', { class: 'ip-live__spin' }));
+    /* nothing of the template is shown until it is fully loaded (fonts included) -> a loading slider instead of a half-styled draft */
+    const bar = el('i');
+    box.append(el('span', { class: 'ip-live__load', 'aria-hidden': 'true' }, el('span', { class: 'ip-live__lbl', text: 'Loading preview…' }), el('span', { class: 'ip-live__track' }, bar)));
+    const restartBar = () => { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; };
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let timers = []; let on = false; let gen = 0; let curFrame = null;
-    const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+    let timers = []; let on = false; let gen = 0; let curFrame = null; let tries = 0; let loading = false;
+    const later = (fn, ms) => { const t = setTimeout(fn, ms); timers.push(t); return t; };
     const clearT = () => { timers.forEach(clearTimeout); timers = []; };
     const fit = () => { const w = box.clientWidth; if (w) box.style.setProperty('--s', w / 390); };
     new ResizeObserver(fit).observe(box);
-    const openIn = (fr) => { try { const b = fr.contentDocument.querySelector('#seal, #open'); if (b) b.click(); } catch (e) { /* ignore */ } };
+    const openIn = (fr) => { try { const b = fr.contentDocument.querySelector('#seal, #open, #openBtn, #env, #gc0, #gc'); if (b) b.click(); } catch (e) { /* ignore */ } };
+    const teardown = () => { clearT(); gen++; if (curFrame) { curFrame.remove(); curFrame = null; } box.classList.remove('is-ready'); restartBar(); };
 
-    /* double-buffered: a new iframe loads hidden on top, then fades in and the old one is removed
-       -> no blank / placeholder flash on first load or on every loop */
     function spawn() {
       if (!on) return;
       const my = ++gen;
-      const fr = el('iframe', { class: 'ip-live__frame', tabindex: '-1', 'aria-hidden': 'true', scrolling: 'no', title: `${def.name} preview` });
-      let ready = false;
-      const onMsg = (e) => {
-        if (e.source !== fr.contentWindow || !e.data || e.data.type !== 'inv:ready' || ready) return;
-        ready = true; window.removeEventListener('message', onMsg);
-        try { fr.contentWindow.postMessage({ type: 'inv:data', data: def.defaults, base: SITE }, location.origin); } catch (x) { /* ignore */ }
-        /* wait for the first painted frame (+ webfonts) before showing it */
-        const reveal = () => {
-          if (my !== gen || !on) { fr.remove(); return; }
-          const old = curFrame; curFrame = fr;
-          fr.classList.add('is-on'); box.classList.add('is-ready');
-          if (old) setTimeout(() => old.remove(), 700);
-          if (reduced) return;
-          later(() => openIn(fr), delay);
-          later(spawn, loop);
+      Live.serial(() => new Promise((done) => {
+        if (my !== gen || !on) return done();
+        loading = true;
+        const fr = el('iframe', { class: 'ip-live__frame', tabindex: '-1', 'aria-hidden': 'true', scrolling: 'no', title: `${def.name} preview` });
+        let ready = false; let finished = false;
+        const end = () => { if (!finished) { finished = true; loading = false; done(); } };
+        const onMsg = (e) => {
+          if (e.source !== fr.contentWindow || !e.data || e.data.type !== 'inv:ready' || ready) return;
+          ready = true; window.removeEventListener('message', onMsg);
+          preparePreviewFrame(fr);
+          try { fr.contentWindow.postMessage({ type: 'inv:data', data: def.defaults, base: SITE }, location.origin); } catch (x) { /* ignore */ }
+          const reveal = () => {
+            if (my !== gen || !on) { fr.remove(); return end(); }
+            const old = curFrame; curFrame = fr; tries = 0;
+            fr.classList.add('is-on'); box.classList.add('is-ready');
+            if (old) setTimeout(() => old.remove(), 600);
+            end();
+            if (reduced) return;
+            later(() => openIn(fr), delay);
+          };
+          const fonts = (fr.contentDocument && fr.contentDocument.fonts && fr.contentDocument.fonts.ready) || Promise.resolve();
+          setTimeout(() => Promise.race([fonts, new Promise((r) => setTimeout(r, 6000))]).then(() => requestAnimationFrame(() => setTimeout(reveal, 300))), 400);
         };
-        const fonts = (fr.contentDocument && fr.contentDocument.fonts && fr.contentDocument.fonts.ready) || Promise.resolve();
-        Promise.race([fonts, new Promise((r) => setTimeout(r, 1500))]).then(() => requestAnimationFrame(() => setTimeout(reveal, 250)));
-      };
-      window.addEventListener('message', onMsg);
-      fr.src = `${entryUrl(def)}?embed=preview&card=1&t=${Date.now()}`;
-      box.append(fr);
-      later(() => { window.removeEventListener('message', onMsg); if (!ready && my === gen) { fr.remove(); if (!curFrame) later(spawn, 1500); } }, 12000);
+        window.addEventListener('message', onMsg);
+        fr.src = `${entryUrl(def)}?embed=preview&card=1`;
+        box.append(fr);
+        later(() => { window.removeEventListener('message', onMsg); if (!ready && my === gen) { fr.remove(); end(); if (!curFrame && tries++ < 2) later(spawn, 2500); } }, 15000);
+      }));
     }
+    const ctl = { visible: () => on, loaded: () => !!curFrame || loading, start: spawn, stop: teardown };
+    Live.add(ctl);
     const io = new IntersectionObserver((es) => {
       on = es[0].isIntersecting;
-      if (on) { fit(); if (!curFrame) spawn(); else { later(() => openIn(curFrame), 300); later(spawn, loop); } }
-      else { clearT(); gen++; }
-    }, { rootMargin: '300px 0px', threshold: 0 });
+      if (on) { fit(); if (curFrame) later(() => openIn(curFrame), 300); else Live.want(ctl); } else Live.forget(ctl);
+    }, { rootMargin: '80px 0px', threshold: 0.25 });
     io.observe(box);
     return { node: box, open: () => { if (curFrame) openIn(curFrame); } };
   }
@@ -271,6 +319,7 @@
     const def = await loadTemplate(templateId);
     if (!def) { alert('Template not found.'); return; }
 
+    ASSET_DIR = new URL(`templates/${def.id}/`, SITE).href;
     const draftKey = `inv:draft:${def.id}`;
     let state; let editingId = null; let notice = '';
     if (doc) {
@@ -339,7 +388,7 @@
     const onMsg = (e) => {
       if (e.source !== frame.contentWindow) return;
       const m = e.data || {};
-      if (m.type === 'inv:ready') sendData();
+      if (m.type === 'inv:ready') { preparePreviewFrame(frame); sendData(); }
       if (m.type === 'inv:rsvp') post({ type: 'inv:rsvp:result', id: m.id, ok: true });
     };
     window.addEventListener('message', onMsg);
@@ -470,8 +519,18 @@
           const inner = el('div', { class: 'ip-list__fields' });
           f.fields.forEach((sf) => {
             const id = 'ipf' + (++uidc);
+            if (sf.type === 'image') {
+              const prev = el('div', { class: 'ip-img__prev' });
+              const url = el('input', { id, type: 'text', placeholder: '…or paste an image URL' });
+              const paint = () => { const v = item[sf.key] || ''; url.value = v; prev.style.backgroundImage = v ? `url("${thumb(v, 300)}")` : 'none'; prev.classList.toggle('empty', !v); };
+              const up = uploader({ kind: 'image', accept: 'image/*', label: 'Upload photo', onDone: (u) => { item[sf.key] = u; paint(); changed(); } });
+              url.addEventListener('change', () => { item[sf.key] = url.value.trim(); paint(); changed(); });
+              paint();
+              inner.append(el('div', { class: 'ip-field' }, el('label', { for: id, text: sf.label }), el('div', { class: 'ip-img' }, prev, el('div', { class: 'ip-img__side' }, up.nodes, url))));
+              return;
+            }
             const c = sf.type === 'select' ? el('select', { id }, sf.options.map(([v, l]) => el('option', { value: v, text: l })))
-              : sf.type === 'textarea' ? el('textarea', { id, rows: 2 }) : el('input', { id, type: 'text' });
+              : sf.type === 'textarea' ? el('textarea', { id, rows: 2 }) : el('input', { id, type: /^(date|time|url)$/.test(sf.type || '') ? sf.type : 'text' });
             c.value = item[sf.key] || '';
             c.addEventListener('input', () => { item[sf.key] = c.value; if (sf.key === f.itemTitle) $('summary span', box).textContent = c.value || `Item ${i + 1}`; changed(); });
             inner.append(el('div', { class: 'ip-field' }, el('label', { for: id, text: sf.label }), c));
@@ -532,8 +591,8 @@
       sheet.addEventListener('click', (e) => { if (e.target === sheet) close(); });
 
       const showForm = () => {
-        const g = slugify(state.groom || state.couple?.groom || '') || 'our';
-        const b = slugify(state.bride || state.couple?.bride || '') || 'wedding';
+        const g = slugify(state.groom || state.couple?.groom || state.celebrant || '') || 'our';
+        const b = slugify(state.bride || state.couple?.bride || '') || 'invitation';
         const slug = el('input', { type: 'text', value: `${g}-${b}-${randId(4)}`, maxlength: 40, 'aria-label': 'Link name', spellcheck: 'false' });
         const err = el('p', { class: 'ip-err', hidden: true });
         const go = el('button', { type: 'button', class: 'ip-btn ip-btn--primary ip-btn--block', text: editingId ? 'Update invitation' : 'Publish invitation' });
@@ -559,7 +618,7 @@
         const input = el('input', { type: 'text', readonly: true, value: link, 'aria-label': 'Invitation link' });
         const copy = el('button', { type: 'button', class: 'ip-btn ip-btn--primary', text: 'Copy link' });
         copy.addEventListener('click', async () => { try { await navigator.clipboard.writeText(link); } catch (e) { input.select(); document.execCommand('copy'); } copy.textContent = 'Copied ✓'; setTimeout(() => { copy.textContent = 'Copy link'; }, 2000); });
-        const names = `${state.groom || ''} & ${state.bride || ''}`;
+        const names = state.groom && state.bride ? `${state.groom} & ${state.bride}` : (state.celebrant || def.name);
         const wa = el('a', { class: 'ip-btn', target: '_blank', rel: 'noopener', href: `https://wa.me/?text=${encodeURIComponent(`You are invited! ${names}\n${link}`)}`, text: 'Share on WhatsApp' });
         const open = el('a', { class: 'ip-btn', target: '_blank', rel: 'noopener', href: link, text: 'Open invitation' });
         const editLink = `${location.origin}${location.pathname}?edit=${encodeURIComponent(id)}`;
@@ -687,12 +746,60 @@
     const ids = CFG.templates || [];
     const defs = (await Promise.all(ids.map(loadTemplate))).filter(Boolean);
     host.innerHTML = '';
+    const categories = ['All', 'Wedding', 'Engagement', 'Save the date', 'Reception', 'Birthday', 'Baby shower'];
+    const filters = el('nav', { class: 'ip-filters', 'aria-label': 'Filter invitation templates' });
+    const cards = [];
+    let activeCategory = 'All';
+    const filterCards = () => {
+      let visible = 0;
+      cards.forEach(({ card, values }) => {
+        const show = activeCategory === 'All' || values.includes(activeCategory.toLowerCase());
+        card.hidden = !show;
+        if (show) visible++;
+      });
+      empty.hidden = visible > 0;
+      const visibleCards = cards.filter(({ card }) => !card.hidden);
+      const currentOrder = Array.from(host.children).filter((node) => node.classList.contains('ip-card') && !node.hidden);
+      for (let i = visibleCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [visibleCards[i], visibleCards[j]] = [visibleCards[j], visibleCards[i]];
+      }
+      if (visibleCards.length > 1 && visibleCards.every(({ card }, i) => card === currentOrder[i])) {
+        [visibleCards[0], visibleCards[1]] = [visibleCards[1], visibleCards[0]];
+      }
+      visibleCards.forEach(({ card }, i) => {
+        card.style.setProperty('--ip-shuffle-delay', `${i * 45}ms`);
+        card.classList.remove('ip-card--shuffling');
+        void card.offsetWidth;
+        card.classList.add('ip-card--shuffling');
+        host.append(card);
+        const clearShuffle = (event) => {
+          if (event.target !== card || event.animationName !== 'ipCardShuffle') return;
+          card.classList.remove('ip-card--shuffling');
+          card.removeEventListener('animationend', clearShuffle);
+        };
+        card.addEventListener('animationend', clearShuffle);
+      });
+    };
+    categories.forEach((category, i) => {
+      const button = el('button', { type: 'button', text: category, 'aria-pressed': i === 0 ? 'true' : 'false' });
+      button.addEventListener('click', () => {
+        activeCategory = category;
+        filters.querySelectorAll('button').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        filterCards();
+      });
+      filters.append(button);
+    });
+    host.before(filters);
+    const empty = el('p', { class: 'ip-empty', text: 'No templates in this category yet.', hidden: true });
+    host.after(empty);
     const mine = readMine();
     if (mine.length) {
       host.before(el('div', { class: 'ip-mine' }, el('b', { text: 'Your invitations: ' }),
         mine.map((m) => el('a', { class: 'ip-chip', href: `${location.pathname}?edit=${encodeURIComponent(m.id)}`, text: m.title || m.id }))));
     }
     defs.forEach((def) => {
+      const values = (def.categories || [def.occasion || '']).map((value) => String(value).toLowerCase());
       const lp = livePreview(def);
       const card = el('button', { type: 'button', class: 'ip-card', 'aria-label': `Customize ${def.name}` },
         el('span', { class: 'ip-card__stage' }, lp.node),
@@ -702,6 +809,7 @@
       card.addEventListener('mouseenter', lp.open);
       card.addEventListener('click', () => openEditor(def.id));
       host.append(card);
+      cards.push({ card, values });
     });
     renderHero(defs);
     if (!defs.length) host.append(el('p', { text: 'No templates found.' }));
