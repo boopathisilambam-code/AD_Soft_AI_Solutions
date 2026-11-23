@@ -7,6 +7,12 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+# -1. Invitation share links -> invitation.php (server-rendered title / WhatsApp preview + instant data)
+#     MUST stay above the pretty-URL rules, otherwise /invitation.html is 301'd to the static page.
+#     Works for:  /invitation?id=abc   /invitation.html?id=abc   /invitation-viewer.html?id=abc
+RewriteRule ^invitation(?:\.html)?/?$ invitation.php [L,QSA]
+RewriteRule ^invitation-viewer(?:\.html)?/?$ invitation.php [L,QSA]
+
 # 0. Old misspelled page URLs -> corrected ones (301 keeps Google rankings and old shared links working)
 RewriteCond %{REQUEST_URI} ^(.*/)ai-agent-developemnt(?:\.html)?/?$ [NC]
 RewriteRule ^ %1ai-agent-development [R=301,L]
@@ -14,10 +20,13 @@ RewriteCond %{REQUEST_URI} ^(.*/)ai-chatbot-developemt(?:\.html)?/?$ [NC]
 RewriteRule ^ %1ai-chatbot-development [R=301,L]
 
 # 1. /index.html -> folder root  (e.g. /ad_soft_tech/index.html -> /ad_soft_tech/)
+RewriteCond %{REQUEST_URI} !\.php$
 RewriteCond %{THE_REQUEST} \s(/(?:[^\s?]*/)?)index\.html[\s?] [NC]
 RewriteRule ^ %1 [R=301,L,QSA]
 
 # 2. /page.html -> /page  (only when the browser asked for .html directly, so no loop)
+#    (!\.php$ : after /invitation.html is internally rewritten to invitation.php, THE_REQUEST still says .html – don't redirect it)
+RewriteCond %{REQUEST_URI} !\.php$
 RewriteCond %{THE_REQUEST} \s(/[^\s?]+)\.html[\s?] [NC]
 RewriteRule ^ %1 [R=301,L,QSA]
 

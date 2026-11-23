@@ -35,7 +35,7 @@ window.INV_CONFIG = {
   ],
 
   // Public page that renders a saved invitation (relative to site root)
-  viewerUrl: 'invitation.html',
+  viewerUrl: 'invitation',
 
   // Optional: site root if the pages are not served from the site root
   // siteRoot: '/',

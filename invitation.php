@@ -1,7 +1,7 @@
 <?php
 /* =========================================================
    invitation.php  —  server-rendered Open Graph tags (Hostinger / any PHP host)
-   .htaccess maps  /invitation.html?id=<slug>  ->  this file.
+   .htaccess maps  /invitation?id=<slug>  ->  this file.
    It reads the invitation from Firestore (REST), builds a unique title / description / image
    and injects the <meta og:*> tags into the FIRST html response, so WhatsApp, Facebook, Telegram,
    LinkedIn, X ... can read them without running JavaScript. Visitors get the normal viewer page.
@@ -11,7 +11,7 @@ const FIREBASE_API_KEY = 'AIzaSyC94YPBZNKKPIt22ociotCQbYnc2ZR6Lmw'; // public we
 const COLLECTION       = 'premiumInvitations';
 const SITE_NAME        = 'AD Soft Technologies';
 const VIEWER_FILE      = __DIR__ . '/invitation-viewer.html';
-const CACHE_SECONDS    = 300;
+const CACHE_SECONDS    = 120;
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 function esc($s) { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
@@ -104,6 +104,27 @@ function og_image($src, $origin, $basePath, $templateId) {
   return $fallback;
 }
 
+/* ---------- template info (occasion / entry file) read from templates/<id>/register.js ---------- */
+function template_info($tpl) {
+  $id = preg_replace('/[^A-Za-z0-9_-]/', '', (string)$tpl);
+  $info = ['id' => $id, 'occasion' => '', 'entry' => "templates/$id/index.html"];
+  $f = __DIR__ . "/templates/$id/register.js";
+  if ($id !== '' && is_file($f)) {
+    $js = (string)@file_get_contents($f, false, null, 0, 4000);
+    if (preg_match('/\boccasion\s*:\s*[\'"]([^\'"]+)[\'"]/', $js, $m)) $info['occasion'] = trim($m[1]);
+    if (preg_match('/\bentry\s*:\s*[\'"]([^\'"]+)[\'"]/', $js, $m) && preg_match('#^templates/[A-Za-z0-9_-]+/[A-Za-z0-9_./-]+$#', $m[1])) $info['entry'] = $m[1];
+  }
+  return $info;
+}
+/* normalised occasion key: wedding | engagement | birthday | babyshower | housewarming | other */
+function occasion_key($occ, $data, $doc) {
+  $o = strtolower(preg_replace('/[^a-z]/i', '', (string)$occ));
+  if (in_array($o, ['wedding','engagement','birthday','babyshower','housewarming'], true)) return $o;
+  if (first_str($data, ['celebrant','babyName'])) return 'birthday';
+  if (first_str($data, ['groom','groomName']) && first_str($data, ['bride','brideName'])) return 'wedding';
+  return 'other';
+}
+
 /* ---------- meta ---------- */
 function build_meta($doc, $id, $origin, $basePath) {
   $data = is_array($doc['data'] ?? null) ? $doc['data'] : [];
@@ -114,19 +135,32 @@ function build_meta($doc, $id, $origin, $basePath) {
   $time  = fmt_time(first_str($data, ['weddingTime','eventTime','time']));
   $venue = clip(first_str($data, ['venue','venueName','ceremony.venue','map.title','venueAddress']), 70);
   $msg   = first_str($data, ['invitationMessage','message','blessingMessage','tagline','dateMessage','programMessage']);
-  if ($groom !== '' && $bride !== '') {
-    $names = "$groom & $bride"; $title = "$names | Wedding Invitation"; $lead = "You are warmly invited to the wedding of $names";
-  } elseif ($celebrant !== '') {
-    $age = first_str($data, ['age']); $names = $celebrant;
-    $title = "$celebrant's Birthday Invitation"; $lead = "Join us to celebrate $celebrant" . ($age !== '' ? " turning $age" : '');
-  } else {
-    $names = clip($doc['title'] ?? 'You are invited', 60); $title = "$names | Digital Invitation"; $lead = "You are invited to $names";
+  $ti   = template_info($tpl);
+  $occ  = occasion_key($ti['occasion'], $data, $doc);
+  $docTitle = clip($doc['title'] ?? '', 60);
+  $couple = ($groom !== '' && $bride !== '') ? "$groom & $bride" : ($docTitle !== '' ? $docTitle : '');
+  $who = $celebrant !== '' ? $celebrant : $docTitle;
+  switch ($occ) {
+    case 'wedding':
+      $names = $couple !== '' ? $couple : 'Our Wedding'; $title = "$names | Wedding Invitation"; $lead = "You are warmly invited to the wedding of $names"; break;
+    case 'engagement':
+      $names = $couple !== '' ? $couple : 'Our Engagement'; $title = "$names | Engagement Invitation"; $lead = "You are warmly invited to the engagement of $names"; break;
+    case 'birthday':
+      $age = first_str($data, ['age']); $names = $who !== '' ? $who : 'Birthday Celebration';
+      $title = $who !== '' ? "$who's Birthday Invitation" : 'Birthday Invitation';
+      $lead = $who !== '' ? "Join us to celebrate $who" . ($age !== '' ? " turning $age" : '') : 'You are invited to a birthday celebration'; break;
+    case 'babyshower':
+      $names = $who !== '' ? $who : 'Baby Shower'; $title = $who !== '' ? "$who | Baby Shower Invitation" : 'Baby Shower Invitation'; $lead = 'You are invited to a baby shower' . ($who !== '' ? " for $who" : ''); break;
+    case 'housewarming':
+      $names = $who !== '' ? $who : 'Housewarming'; $title = $who !== '' ? "$who | Housewarming Invitation" : 'Housewarming Invitation'; $lead = 'You are invited to a housewarming' . ($who !== '' ? " – $who" : ''); break;
+    default:
+      $names = $who !== '' ? $who : 'You are invited'; $title = "$names | Digital Invitation"; $lead = "You are invited to $names";
   }
   $when = trim($date . ($time !== '' ? " at $time" : ''));
   $desc = $lead . ($when !== '' ? " on $when" : '') . ($venue !== '' ? ", $venue" : '') . '.';
   if ($msg !== '') $desc = clip("$desc $msg", 200);
   return [
-    'title' => clip($title, 70), 'description' => $desc, 'url' => "$origin$basePath/invitation.html?id=" . rawurlencode($id),
+    'title' => clip($title, 70), 'description' => $desc, 'url' => "$origin$basePath/invitation?id=" . rawurlencode($id),
     'image' => og_image(first_image($data), $origin, $basePath, $tpl), 'imageAlt' => "$names – digital invitation",
   ];
 }
@@ -134,7 +168,7 @@ function generic_meta($origin, $basePath) {
   return [
     'title' => 'Digital Invitation | ' . SITE_NAME,
     'description' => 'View a personalized digital invitation – animated designs with RSVP, venue maps and music. Powered by AD Soft Technologies.',
-    'url' => "$origin$basePath/invitation.html", 'image' => "$origin$basePath/templates/royal-ivory/og.jpg", 'imageAlt' => 'Digital invitation',
+    'url' => "$origin$basePath/invitation", 'image' => "$origin$basePath/templates/royal-ivory/og.jpg", 'imageAlt' => 'Digital invitation',
   ];
 }
 function meta_block($m) {
@@ -147,11 +181,18 @@ function meta_block($m) {
     $t('twitter:card', 'summary_large_image'), $t('twitter:title', $m['title']), $t('twitter:description', $m['description']), $t('twitter:image', $m['image']), $t('twitter:image:alt', $m['imageAlt']),
   ]);
 }
-function inject($html, $m) {
+function inject($html, $m, $inv = null) {
   $html = preg_replace('#<title>.*?</title>#is', '', $html, 1);
   $html = preg_replace('#<meta\s+name=["\']description["\'][^>]*>#i', '', $html, 1);
   $html = preg_replace('#<link\s+rel=["\']canonical["\'][^>]*>#i', '', $html, 1);
   $block = meta_block($m);
+  if (is_array($inv) && !empty($inv['templateId'])) {
+    $flags = JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_PARTIAL_OUTPUT_ON_ERROR;
+    $block .= "\n  " . '<link rel="preload" as="script" href="templates/' . esc($inv['templateId']) . '/register.js">'
+            . "\n  " . '<script>window.__INV__=' . json_encode($inv, $flags) . ';</script>';
+    /* start downloading the template right away – in parallel with the scripts below */
+    $html = preg_replace('#<iframe id="f"#', '<iframe id="f" src="' . esc($inv['entry']) . '?embed=live"', $html, 1);
+  }
   return preg_replace_callback('#<head([^>]*)>#i', fn($x) => $x[0] . "\n  " . $block, $html, 1);
 }
 
@@ -164,16 +205,21 @@ $basePath = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')
 $id = (string)($_GET['id'] ?? '');
 $valid = (bool)preg_match('/^[A-Za-z0-9_-]{1,64}$/', $id);
 
-$meta = generic_meta($origin, $basePath); $cacheHdr = 'public, max-age=0, s-maxage=60';
+$meta = generic_meta($origin, $basePath); $cacheHdr = 'public, max-age=0, s-maxage=60'; $inv = null;
 if ($valid) {
-  $cacheFile = rtrim(sys_get_temp_dir(), '/') . '/inv_meta_' . md5($origin . $id) . '.json';
+  $cacheFile = rtrim(sys_get_temp_dir(), '/') . '/inv_meta2_' . md5($origin . $id) . '.json';
   $cached = (!getenv('INV_MOCK_FILE') && is_file($cacheFile) && time() - filemtime($cacheFile) < CACHE_SECONDS) ? json_decode(@file_get_contents($cacheFile), true) : null;
-  if (is_array($cached)) { $meta = $cached; $cacheHdr = 'public, max-age=0, s-maxage=300'; }
+  if (is_array($cached) && isset($cached['meta'])) { $meta = $cached['meta']; $inv = $cached['inv'] ?? null; $cacheHdr = 'public, max-age=0, s-maxage=' . CACHE_SECONDS; }
   else {
     $doc = fetch_invitation($id);
     if (is_array($doc) && ($doc['status'] ?? '') !== 'unpublished') {
-      $meta = build_meta($doc, $id, $origin, $basePath); $cacheHdr = 'public, max-age=0, s-maxage=300';
-      @file_put_contents($cacheFile, json_encode($meta, JSON_UNESCAPED_UNICODE));
+      $meta = build_meta($doc, $id, $origin, $basePath); $cacheHdr = 'public, max-age=0, s-maxage=' . CACHE_SECONDS;
+      $ti = template_info($doc['templateId'] ?? '');
+      /* the viewer renders from this copy at once (no Firebase round-trip); it refreshes quietly in the background */
+      $inv = ['id' => $id, 'templateId' => $ti['id'], 'entry' => $ti['entry'], 'occasion' => $ti['occasion'],
+              'title' => (string)($doc['title'] ?? ''), 'data' => is_array($doc['data'] ?? null) ? $doc['data'] : new stdClass()];
+      if ($ti['id'] === '') $inv = null;
+      @file_put_contents($cacheFile, json_encode(['meta' => $meta, 'inv' => $inv], JSON_UNESCAPED_UNICODE | JSON_PARTIAL_OUTPUT_ON_ERROR));
     } elseif ($doc === false) { $cacheHdr = 'no-store'; }
   }
 }
@@ -181,4 +227,4 @@ $html = @file_get_contents(VIEWER_FILE);
 if ($html === false) { http_response_code(500); header('Content-Type: text/plain'); echo 'Invitation page unavailable'; exit; }
 header('Content-Type: text/html; charset=utf-8');
 header('Cache-Control: ' . $cacheHdr);
-echo inject($html, $meta);
+echo inject($html, $meta, $inv);
