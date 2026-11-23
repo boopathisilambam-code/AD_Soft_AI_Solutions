@@ -54,7 +54,7 @@
 <link rel="preload" href="fonts/gf/poppins-latin-400.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="fonts/gf/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-500.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-600.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/nav-active.css">
-<link rel="stylesheet" href="css/inv-platform.css">
+<link rel="stylesheet" href="css/inv-platform.css?v=20261123">
 <link rel="preload" href="templates/royal-ivory/card.jpg" as="image" fetchpriority="high">
 <link rel="stylesheet" href="demos/marketing/marketing.css" />
 <style>
@@ -139,7 +139,7 @@
 .ci-ico{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#eef7ea;color:#559643;margin-bottom:18px}
 .ad-middle-dark-section .ci-ico{background:rgba(255,255,255,.1);color:#b4d96a}
 .ci-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.ci-tags span{padding:7px 16px;border:1px solid #dfe8da;border-radius:30px;background:#fff;font-size:14px;font-weight:600;color:#232323}
-.ci-stat{padding:26px 28px;border-radius:6px;color:#fff!important}.ci-stat b{display:block;font-size:34px;line-height:1.15;font-weight:800;color:#fff!important}.ci-stat span{font-size:15px;color:#fff!important}
+.ci-stat{height:100%;min-height:150px;padding:24px 22px;border-radius:14px;color:#fff!important;display:flex;flex-direction:column;justify-content:center}.ci-stat b{display:block;font-size:clamp(21px,2.3vw,32px);line-height:1.15;font-weight:800;color:#fff!important;white-space:nowrap}.ci-stat span{margin-top:6px;font-size:15px;line-height:1.35;color:#fff!important}@media(max-width:575px){.ci-stat{min-height:128px;padding:18px 16px}.ci-stat span{font-size:13.5px}}
 .bg-dark-gray,.bg-dark-gray p,.bg-dark-gray span,.bg-dark-gray small,.bg-dark-gray h4,.bg-dark-gray h6,footer.footer-dark p{color:#fff!important;opacity:1!important;visibility:visible!important}
 
 /* ===== modern hero ===== */
@@ -181,6 +181,69 @@ html body section.hx{padding:175px 0 70px!important;text-align:left}
 @media(max-width:991px){html body section.hx{padding:130px 0 50px!important}}
 @media(max-width:767px){html body section.hx{padding:100px 0 40px!important}.hx-points{display:grid;grid-template-columns:repeat(3,auto);justify-content:space-between;gap:10px}.hx-points b{font-size:21px}.hx-points span{font-size:12.5px}.hx-btn{flex:1 1 auto;justify-content:center}}
 @media(prefers-reduced-motion:reduce){.hx-phone,.hx-chip,.hx-pill i{animation:none!important}}
+
+
+/* equal stat tiles */
+.ci-stats{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:16px}
+.ci-stats .ci-stat{height:auto;min-height:160px;padding:22px 20px;border-radius:16px;min-width:0}
+.ci-stats .ci-stat b{font-size:clamp(20px,1.9vw,27px);white-space:nowrap}
+@media(max-width:575px){.ci-stats{gap:12px}.ci-stats .ci-stat{min-height:128px;padding:16px}.ci-stats .ci-stat b{font-size:22px}}
+
+/* ===== digital invitation timeline & etiquette ===== */
+.de-h{margin:34px 0 18px;font-size:22px;font-weight:700;color:#141a15;letter-spacing:-.01em}
+.de-time{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative}
+.de-step{position:relative;padding:22px 18px;border-radius:18px;border:1px solid #e3ebdf;background:#fff;box-shadow:0 14px 30px -24px rgba(20,40,20,.4)}
+.de-step--on{background:#141a15;border-color:#141a15}
+.de-wk{display:inline-block;padding:5px 12px;border-radius:999px;background:#eef6ea;color:#2f5a25;font-size:12.5px;font-weight:700;letter-spacing:.02em}
+.de-step--on .de-wk{background:var(--green);color:#fff}
+.de-step b{display:block;margin:12px 0 6px;font-size:16px;line-height:1.3;color:#141a15}
+.de-step p{margin:0;font-size:14px;line-height:1.5;color:#5e675c}
+.de-step--on b{color:#fff}.de-step--on p{color:rgba(255,255,255,.75)}
+.de-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.de-card{padding:26px;border-radius:20px;border:1px solid #e3ebdf;background:#fff}
+.de-card h4{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:19px;font-weight:700;color:#141a15}
+.de-card--do{background:linear-gradient(180deg,#f3faef,#fff);border-color:#cfe3c6}.de-card--do h4 i{color:var(--green)}
+.de-card--dont h4 i{color:#c0a063}.de-card--share h4 i{color:#141a15}
+.de-card ul{list-style:none;margin:0;padding:0}
+.de-card li{padding:9px 0;border-top:1px solid #eef2eb;font-size:15px;line-height:1.5;color:#2c352b}
+.de-card li:first-child{border-top:0}
+.de-tip{margin:12px 0 0;padding:12px 14px;border-radius:12px;background:#f3faef;font-size:14px;color:#2f5a25}
+@media(max-width:1100px){.de-time{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:991px){.de-grid{grid-template-columns:1fr}}
+@media(max-width:575px){.de-time{grid-template-columns:1fr 1fr;gap:10px}.de-step{padding:16px 14px}.de-step b{font-size:14.5px}.de-step p{font-size:13px}}
+
+/* ===== digital invitations guide ===== */
+.dg-vs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.dg-col{padding:30px;border-radius:20px;border:1px solid #e3ebdf;background:#fff;box-shadow:0 18px 40px -28px rgba(20,40,20,.35)}
+.dg-col--on{background:linear-gradient(180deg,#f3faef,#fff);border-color:#cfe3c6}
+.dg-col h3{margin:0 0 6px;font-size:22px;font-weight:700;color:#141a15;display:flex;align-items:center;gap:10px}
+.dg-col h3 i{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#141a15;color:#fff;font-size:18px}
+.dg-col--on h3 i{background:var(--green)}
+.dg-col>p{margin:0 0 16px;color:#6a7367;font-size:14.5px}
+.dg-col ul{list-style:none;margin:0;padding:0}
+.dg-col li{display:flex;gap:10px;padding:9px 0;border-top:1px solid #eef2eb;font-size:15.5px;line-height:1.5;color:#2c352b}
+.dg-col li:first-child{border-top:0}
+.dg-col li i{flex:none;margin-top:2px;font-size:16px}
+.dg-col--on li i{color:var(--green)}.dg-col li i.no{color:#c0a063}
+.dg-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0}
+.dg-fact{padding:24px;border-radius:18px;background:#141a15;color:#fff;text-align:center}
+.dg-fact b{display:block;font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.02em;background:linear-gradient(95deg,#8fd16b,#e0c77a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dg-fact span{display:block;margin-top:6px;font-size:14.5px;line-height:1.45;color:rgba(255,255,255,.82)}
+.dg-how{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.dg-card{padding:30px;border-radius:20px;background:#fff;border:1px solid #e3ebdf}
+.dg-card h3{margin:0 0 16px;font-size:20px;font-weight:700;color:#141a15}
+.dg-check{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+.dg-check li{display:flex;gap:9px;font-size:15px;line-height:1.45;color:#2c352b}
+.dg-check li i{flex:none;margin-top:2px;color:var(--green)}
+.dg-steps{list-style:none;margin:0;padding:0;counter-reset:dg}
+.dg-steps li{position:relative;padding:0 0 18px 48px;font-size:15.5px;line-height:1.55;color:#2c352b;counter-increment:dg}
+.dg-steps li:last-child{padding-bottom:0}
+.dg-steps li:before{content:counter(dg);position:absolute;left:0;top:-1px;width:32px;height:32px;border-radius:50%;background:#eaf5e4;color:#2f5a25;font-weight:700;display:grid;place-items:center;font-size:14px}
+.dg-steps li b{color:#141a15}
+.dg-note{margin:26px auto 0;max-width:820px;text-align:center;font-size:13.5px;color:#7a8377;line-height:1.7}
+.dg-note a{color:#2f5a25;text-decoration:underline}
+@media(max-width:991px){.dg-vs,.dg-how{grid-template-columns:1fr}.dg-facts{grid-template-columns:1fr}.dg-check{grid-template-columns:1fr}}
+@media(max-width:575px){.dg-col,.dg-card{padding:22px}}
 </style>
 <script>document.documentElement.classList.add("js-motion")</script>
 <link rel="stylesheet" href="css/site-standard.css">
@@ -327,12 +390,115 @@ html body .ci-hero{padding:170px 0 40px!important}
 <p class="fs-18 mb-0">Whether you plan a traditional Kerala wedding, a South Indian muhurtham or a modern reception, you can write the invitation in your own language and match the colours to your theme.</p>
 <div class="ci-tags"><span>Wedding invitation</span><span>Engagement</span><span>Save the date</span><span>Reception</span><span>Birthday</span><span>Baby shower (coming soon)</span></div>
 </div>
-<div class="col-lg-5 offset-lg-1"><div class="row g-3">
-<div class="col-6"><div class="ci-stat bg-base-color"><b>5 min</b><span>to create and share</span></div></div>
-<div class="col-6"><div class="ci-stat bg-dark-gray"><b>100%</b><span>mobile friendly</span></div></div>
-<div class="col-6"><div class="ci-stat bg-dark-gray"><b>Unlimited</b><span>guests per link</span></div></div>
-<div class="col-6"><div class="ci-stat bg-base-color"><b>Live</b><span>edits, same link</span></div></div>
+<div class="col-lg-5 offset-lg-1"><div class="ci-stats">
+<div class="ci-stat bg-base-color"><b>5 min</b><span>to create and share</span></div>
+<div class="ci-stat bg-dark-gray"><b>100%</b><span>mobile friendly</span></div>
+<div class="ci-stat bg-dark-gray"><b>Unlimited</b><span>guests per link</span></div>
+<div class="ci-stat bg-base-color"><b>Live</b><span>edits, same link</span></div>
 </div></div></div></div></section>
+
+<!-- digital invitation timeline & etiquette -->
+<section id="digital-etiquette"><div class="container">
+<div class="row justify-content-center mb-6 md-mb-40px"><div class="col-xl-8 col-lg-9 text-center">
+<span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Plan it right</span>
+<h2 class="fw-800 text-dark-gray ls-minus-1px mb-15px">When to Send &amp; How to Word <span class="hd-accent">Your Invitation</span></h2>
+<p class="fs-18 mb-0">A digital invitation is quick to send, but timing and tone still matter. These are the rules of thumb wedding and event planners recommend.</p></div></div>
+
+<h3 class="de-h">When to send</h3>
+<div class="de-time">
+<div class="de-step"><span class="de-wk">8&ndash;12 weeks</span><b>Destination or very formal events</b><p>Guests need time to book travel and leave.</p></div>
+<div class="de-step"><span class="de-wk">6&ndash;8 weeks</span><b>Guests travelling in</b><p>Relatives from another city or country, and shower guests.</p></div>
+<div class="de-step de-step--on"><span class="de-wk">4&ndash;6 weeks</span><b>Most weddings &amp; big events</b><p>The usual window for the full invitation.</p></div>
+<div class="de-step"><span class="de-wk">2&ndash;3 weeks</span><b>Casual local gatherings</b><p>Sending months early only gets it forgotten.</p></div>
+<div class="de-step"><span class="de-wk">10&ndash;14 days before</span><b>RSVP deadline</b><p>Then one friendly reminder about a week earlier.</p></div>
+</div>
+
+<h3 class="de-h">Wording &amp; etiquette</h3>
+<div class="de-grid">
+<div class="de-card de-card--do"><h4><i class="bi bi-check-circle-fill"></i>Do</h4><ul>
+<li>Put the event, date, time and place in one clear line</li>
+<li>Add helpful extras: parking, dress code, a map link</li>
+<li>Say exactly how to RSVP and by when</li>
+<li>Close with a warm, personal line in your own voice</li>
+<li>Message or call guests who have not replied, and thank those who did</li>
+</ul></div>
+<div class="de-card de-card--dont"><h4><i class="bi bi-x-circle-fill"></i>Don&rsquo;t</h4><ul>
+<li>Sound pushy in reminders &ndash; keep them short and kind</li>
+<li>Send casual invitations months ahead</li>
+<li>Assume digital is too casual for a formal event &ndash; a polished design and personal touches make it special</li>
+<li>Forget guests who are not online &ndash; keep a printed card or a call for them</li>
+</ul></div>
+<div class="de-card de-card--share"><h4><i class="bi bi-send-fill"></i>Ways to share</h4><ul>
+<li><b>WhatsApp or text:</b> one link, opens on any phone</li>
+<li><b>Email:</b> reaches everyone at once</li>
+<li><b>Invitation link as your event page:</b> date, venue map, RSVP and music in one place</li>
+</ul><p class="de-tip">With AD Soft you share a single link, so there is nothing to attach.</p></div>
+</div>
+
+<p class="dg-note">Timing and etiquette are adapted from public guides by
+<a href="https://www.minted.com/lp/online-invitation-etiquette" target="_blank" rel="noopener">Minted</a>,
+<a href="https://www.theknot.com/content/digital-invitation-options" target="_blank" rel="noopener">The Knot</a>,
+<a href="https://withjoy.com/blog/digital-vs-print-wedding-invitations-which-is-right-for-you-2026/" target="_blank" rel="noopener">Joy</a> and
+<a href="https://sayi.do/blog/digital-wedding-invitation-ideas-etiquette/" target="_blank" rel="noopener">Sayi.do</a>.
+They are general guidelines, so adjust them to your family&rsquo;s customs.</p>
+</div></section>
+
+<!-- digital invitations guide -->
+<section id="digital-guide"><div class="container">
+<div class="row justify-content-center mb-6 md-mb-40px"><div class="col-xl-8 col-lg-9 text-center">
+<span class="fs-15 text-uppercase text-base-color fw-600 mb-15px d-block ls-1px">Digital invitation guide</span>
+<h2 class="fw-800 text-dark-gray ls-minus-1px mb-15px">Everything to Know About <span class="hd-accent">Digital Invitations</span></h2>
+<span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block mb-20px">Digital or printed? Here is how to decide</span>
+<p class="fs-18 mb-0">A digital invitation is a web link you share on WhatsApp, SMS or email. Guests open it on their phone to see the details, the venue map and the music, and reply with one tap.</p></div></div>
+
+<div class="dg-vs">
+<div class="dg-col dg-col--on"><h3><i class="bi bi-phone"></i>Digital invitation</h3><p>Best when time, budget or guest location is a concern</p>
+<ul>
+<li><i class="bi bi-check-circle-fill"></i>Costs far less, and the price barely changes with the number of guests</li>
+<li><i class="bi bi-check-circle-fill"></i>Delivered instantly, even to relatives abroad</li>
+<li><i class="bi bi-check-circle-fill"></i>Edit the date, time or venue later &ndash; the same link updates</li>
+<li><i class="bi bi-check-circle-fill"></i>Map, music, photos and RSVP are built in</li>
+<li><i class="bi bi-dash-circle-fill no"></i>No physical keepsake, and some elders may prefer paper</li>
+</ul></div>
+<div class="dg-col"><h3><i class="bi bi-envelope-paper"></i>Printed invitation</h3><p>Best for formal tone and guests who are not online</p>
+<ul>
+<li><i class="bi bi-check-circle-fill"></i>A keepsake guests can hold and keep</li>
+<li><i class="bi bi-check-circle-fill"></i>Works for every guest, whatever their comfort with technology</li>
+<li><i class="bi bi-dash-circle-fill no"></i>Printing takes weeks and cannot be changed afterwards</li>
+<li><i class="bi bi-dash-circle-fill no"></i>Cost rises with every extra copy, plus delivery</li>
+<li><i class="bi bi-dash-circle-fill no"></i>Replies are slower and harder to track</li>
+</ul></div>
+</div>
+
+<div class="dg-facts">
+<div class="dg-fact"><b>70&ndash;90%</b><span>lower cost than print, by one wedding-planning platform&rsquo;s estimate</span></div>
+<div class="dg-fact"><b>80&ndash;90%</b><span>of digital RSVPs arrive within two weeks, against 50&ndash;60% for paper cards</span></div>
+<div class="dg-fact"><b>20&ndash;30%</b><span>of guests still miss the deadline, so plan one friendly reminder</span></div>
+</div>
+
+<div class="dg-how">
+<div class="dg-card"><h3>What every invitation should include</h3>
+<ul class="dg-check">
+<li><i class="bi bi-check2-circle"></i>Names of the couple or the celebrant, and the hosts</li>
+<li><i class="bi bi-check2-circle"></i>Date and start time</li>
+<li><i class="bi bi-check2-circle"></i>Venue with a map link</li>
+<li><i class="bi bi-check2-circle"></i>Reception venue, if different</li>
+<li><i class="bi bi-check2-circle"></i>RSVP deadline and how to reply</li>
+<li><i class="bi bi-check2-circle"></i>Dress code or special notes</li>
+</ul></div>
+<div class="dg-card"><h3>Sharing it the right way</h3>
+<ol class="dg-steps">
+<li><b>Save the date first.</b> Send it as soon as the date is fixed, so guests can plan leave and travel.</li>
+<li><b>Send the full invitation early.</b> Give more time to guests travelling from abroad or another city.</li>
+<li><b>Remind once.</b> Send one RSVP reminder before the deadline.</li>
+<li><b>Keep paper for some guests.</b> Elders who are not online may still prefer a printed card or a phone call.</li>
+</ol></div>
+</div>
+<p class="dg-note">Figures and guidance are adapted from public articles by
+<a href="https://withjoy.com/blog/digital-vs-print-wedding-invitations-which-is-right-for-you-2026/" target="_blank" rel="noopener">Joy</a> and
+<a href="https://sayi.do/blog/digital-wedding-invitation-ideas-etiquette/" target="_blank" rel="noopener">Sayi.do</a>.
+They are general estimates from wedding platforms and vary by event.</p>
+</div></section>
 
 <!-- faq -->
 <section id="faq"><div class="container">
@@ -417,7 +583,7 @@ html body .ci-hero{padding:170px 0 40px!important}
 <script defer src="js/main.js"></script>
 <script src="js/nav-active.js"></script>
 <script src="js/inv-config.js"></script>
-<script src="js/inv-platform.js"></script>
+<script src="js/inv-platform.js?v=20261123"></script>
 <script defer src="js/site-motion.js"></script>
 </body>
 </html>
