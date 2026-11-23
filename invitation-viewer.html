@@ -6,8 +6,8 @@
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#f6efe2">
   <meta name="author" content="AD Soft Technologies">
-  <title>Digital Wedding Invitation | AD Soft Technologies</title>
-  <meta name="description" content="View your personalized digital wedding invitation – animated designs with RSVP, venue maps and music. Powered by AD Soft Technologies.">
+  <title>Digital Invitation | AD Soft Technologies</title>
+  <meta name="description" content="View a personalized digital invitation – animated designs with RSVP, venue maps and music. Powered by AD Soft Technologies.">
   <link rel="canonical" href="https://www.adsofttechnologies.com/invitation">
 
   <!-- Google tag (gtag.js) -->
@@ -35,17 +35,29 @@
     #f { position: fixed; inset: 0; width: 100%; height: 100%; height: 100dvh; border: 0; display: block; }
     #s { position: fixed; inset: 0; display: grid; place-items: center; text-align: center; padding: 24px;
          font: 400 17px/1.6 Georgia, 'Times New Roman', serif; color: #575b41; }
+    #s:empty { display: none; }
     #s small { display: block; margin-top: 6px; font: 400 13px system-ui, sans-serif; color: #8a7a69; }
-    .dot { width: 34px; height: 34px; margin: 0 auto 16px; border: 2px solid #cdb283; border-top-color: transparent; border-radius: 50%; animation: sp 1s linear infinite; }
-    @keyframes sp { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
-  <div id="s"><div><div class="dot"></div>Opening your invitation…</div></div>
+  <!-- no spinner / loading text: the invitation is rendered from data the server already put in this page -->
+  <div id="s"></div>
+  <script>
+  /* message bridge is registered BEFORE the iframe exists, so the template can never talk to nobody */
+  (function () {
+    var wait = {}; window.__invReady = new Promise(function (res) { wait.res = res; });
+    var frame;
+    window.addEventListener('message', function (e) {
+      frame = frame || document.getElementById('f');
+      if (!frame || e.source !== frame.contentWindow || e.origin !== location.origin) return;
+      var m = e.data || {};
+      if (m.type === 'inv:ready') wait.res(frame);
+      else if (m.type === 'inv:rsvp' && window.__invRsvp) window.__invRsvp(m, frame);
+    });
+  })();
+  </script>
   <iframe id="f" title="Invitation" allow="autoplay; fullscreen" hidden></iframe>
 
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script src="js/inv-config.js"></script>
   <script src="js/inv-platform.js"></script>
   <script>
@@ -54,39 +66,71 @@
     const state = document.getElementById('s');
     const frame = document.getElementById('f');
     const fail = (title, sub) => { state.innerHTML = `<div>${title}<small>${sub || ''}</small></div>`; };
-
-    const id = new URLSearchParams(location.search).get('id');
+    const base = new URL('.', document.baseURI).href;
+    const q = new URLSearchParams(location.search);
+    const id = q.get('id');
     if (!id) return fail('Invitation not found', 'This link is missing its invitation id.');
 
+    const setTitle = (doc, def) => {
+      const occ = (def && def.occasion) || 'Digital';
+      const names = doc.title ? doc.title + ' · ' : '';
+      document.title = /^(Wedding|Engagement|Birthday|Baby shower|Housewarming)$/i.test(occ) ? `${names}${occ} Invitation` : `${names}Invitation`;
+    };
+    let current = null; /* JSON of the data the template is currently showing */
+
+    const pre = window.__INV__ && window.__INV__.id === id ? window.__INV__ : null;
+
+    /* ---- RSVP (Firebase SDK is only fetched when a guest actually sends one) ---- */
+    window.__invRsvp = async (m, fr) => {
+      let res = { type: 'inv:rsvp:result', id: m.id, ok: true };
+      try { await P.saveRsvp(id, m.payload || {}); }
+      catch (err) { console.error(err); res = { type: 'inv:rsvp:result', id: m.id, ok: false, error: 'Could not send your RSVP. Please try again.' }; }
+      fr.contentWindow.postMessage(res, location.origin);
+    };
+
+    const show = async (doc, def, fr) => {
+      const data = P.mergeData(def.defaults, doc.data);
+      current = JSON.stringify(doc.data || {});
+      const style = fr.contentDocument.createElement('style');
+      style.textContent = 'html,body{overflow-x:hidden!important;scrollbar-width:none!important}*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}';
+      fr.contentDocument.head.append(style);
+      fr.contentWindow.postMessage({ type: 'inv:data', data, base }, location.origin);
+      fr.hidden = false; state.textContent = '';
+    };
+
+    /* ---- background refresh: pick up edits made in the last couple of minutes (never blocks the first view) ---- */
+    const refresh = async (def) => {
+      try {
+        const live = await P.getInvitation(id);
+        if (!live || live.status === 'unpublished') return;
+        const next = JSON.stringify(live.data || {});
+        if (next === current) return;
+        current = next;
+        frame.contentWindow.postMessage({ type: 'inv:data', data: P.mergeData(def.defaults, live.data), base }, location.origin);
+      } catch (e) { /* offline / rules – the embedded copy is already on screen */ }
+    };
+
+    if (pre) {
+      /* FAST PATH – data + template url came with the page; iframe is already loading */
+      const [def, fr] = await Promise.all([P.loadTemplate(pre.templateId), window.__invReady]);
+      if (!def) return fail('Invitation unavailable', 'Its design could not be loaded.');
+      await show(pre, def, fr);
+      const idle = window.requestIdleCallback || ((f) => setTimeout(f, 1500));
+      idle(() => refresh(def), { timeout: 6000 });
+      return;
+    }
+
+    /* FALLBACK – page opened without server data (static hosting): read it from Firestore */
     let doc;
     try { doc = await P.getInvitation(id); }
     catch (e) { console.error(e); return fail('Could not load the invitation', 'Please check your connection and try again.'); }
     if (!doc || doc.status === 'unpublished') return fail('Invitation not found', 'The link may be wrong or the invitation was removed.');
-
     const def = await P.loadTemplate(doc.templateId);
     if (!def) return fail('Invitation unavailable', 'Its design could not be loaded.');
-
-    const data = P.mergeData(def.defaults, doc.data);
-    document.title = (doc.title ? doc.title + ' · ' : '') + (def.occasion || 'Digital') + ' Invitation';
-    const base = new URL('.', document.baseURI).href;
-
-    window.addEventListener('message', async (e) => {
-      if (e.source !== frame.contentWindow || e.origin !== location.origin) return;
-      const m = e.data || {};
-      if (m.type === 'inv:ready') {
-        const style = frame.contentDocument.createElement('style');
-        style.textContent = 'html,body{overflow-x:hidden!important;scrollbar-width:none!important}*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}';
-        frame.contentDocument.head.append(style);
-        frame.contentWindow.postMessage({ type: 'inv:data', data, base }, location.origin);
-        frame.hidden = false; state.remove();
-      } else if (m.type === 'inv:rsvp') {
-        let res = { type: 'inv:rsvp:result', id: m.id, ok: true };
-        try { await P.saveRsvp(id, m.payload || {}); }
-        catch (err) { console.error(err); res = { type: 'inv:rsvp:result', id: m.id, ok: false, error: 'Could not send your RSVP. Please try again.' }; }
-        frame.contentWindow.postMessage(res, location.origin);
-      }
-    });
     frame.src = P.entryUrl(def) + '?embed=live';
+    const fr = await window.__invReady;
+    await show(doc, def, fr);
+    setTitle(doc, def);
   })();
   </script>
 </body>

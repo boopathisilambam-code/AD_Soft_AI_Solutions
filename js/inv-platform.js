@@ -107,6 +107,19 @@
 
   /* ---------------- Firebase ---------------- */
   let _db = null;
+  const FB_VER = '10.12.2';
+  let _fbLoad = null;
+  /* Firebase SDK is loaded on demand (never blocks the first paint) */
+  function ensureFirebase(withAuth) {
+    const need = ['app', 'firestore'].concat(withAuth ? ['auth'] : []);
+    const have = (n) => (n === 'app' ? !!window.firebase : !!(window.firebase && firebase[n]));
+    _fbLoad = _fbLoad || {};
+    return need.reduce((chain, n) => chain.then(() => {
+      if (have(n)) return;
+      _fbLoad[n] = _fbLoad[n] || loadScript(`https://www.gstatic.com/firebasejs/${FB_VER}/firebase-${n}-compat.js`);
+      return _fbLoad[n];
+    }), Promise.resolve());
+  }
   function app() {
     if (!window.firebase) throw new Error('Firebase SDK is not loaded on this page.');
     const f = CFG.firebase || {};
@@ -115,6 +128,7 @@
   }
   const db = () => _db || (_db = app().firestore());
   async function currentUser() {
+    await ensureFirebase(true);
     const a = app();
     if (!firebase.auth) throw new Error('Add firebase-auth-compat.js to this page.');
     const auth = a.auth();
@@ -124,11 +138,13 @@
     return u;
   }
   async function getInvitation(id) {
+    await ensureFirebase();
     const s = await db().collection(COL).doc(id).get();
     return s.exists ? { id: s.id, ...s.data() } : null;
   }
   const clip = (v, n) => String(v == null ? '' : v).slice(0, n);
   async function saveRsvp(id, p) {
+    await ensureFirebase();
     const doc = {
       name: clip(p.name, 120), email: clip(p.email, 160), phone: clip(p.phone, 40),
       attendance: clip(p.attendance, 40), guests: Math.max(0, Math.min(50, Number(p.guests) || 0)),
@@ -138,6 +154,7 @@
     await db().collection(COL).doc(id).collection('rsvps').add(doc);
   }
   async function listRsvps(id) {
+    await ensureFirebase();
     const s = await db().collection(COL).doc(id).collection('rsvps').orderBy('createdAt', 'desc').limit(500).get();
     return s.docs.map((d) => ({ id: d.id, ...d.data() }));
   }
@@ -231,82 +248,14 @@
   };
   const cleanTitle = (t) => String(t || '').replace(/^[\s\p{Extended_Pictographic}️‍]+/u, '').trim();
 
-  /* ---------------- live template preview ----------------
-     Cards show a light static thumbnail first. A real (iframe) preview is only started for the few
-     cards that are on screen, one at a time, and it is removed again as soon as the card scrolls away,
-     the tab is hidden or the editor is open -> the page stays smooth even with many heavy templates. */
-  const Live = (() => {
-    /* every template is loaded ONCE (one after another) and then simply stays – no reloading, no rotating */
-    const all = new Set(); const started = new Set(); let chain = Promise.resolve(); let paused = false;
-    const api = {
-      add(c) { all.add(c); },
-      want(c) { if (paused || started.has(c)) return; started.add(c); c.start(); },
-      forget(c) { if (!c.loaded()) { started.delete(c); c.stop(); } },
-      serial(fn) { const p = chain.then(fn, fn); chain = p.catch(() => {}); return p; },
-      pause(on) { paused = on; if (!on) all.forEach((c) => { if (c.visible()) api.want(c); }); },
-    };
-    const sync = () => api.pause(document.hidden || document.documentElement.classList.contains('ip-lock'));
-    document.addEventListener('visibilitychange', sync);
-    new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return api;
-  })();
-
-  function livePreview(def, { delay = 1700, loop = 20000 } = {}) {
-    const box = el('span', { class: 'ip-live' });
-    /* nothing of the template is shown until it is fully loaded (fonts included) -> a loading slider instead of a half-styled draft */
-    const bar = el('i');
-    box.append(el('span', { class: 'ip-live__load', 'aria-hidden': 'true' }, el('span', { class: 'ip-live__lbl', text: 'Loading preview…' }), el('span', { class: 'ip-live__track' }, bar)));
-    const restartBar = () => { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; };
-    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let timers = []; let on = false; let gen = 0; let curFrame = null; let tries = 0; let loading = false;
-    const later = (fn, ms) => { const t = setTimeout(fn, ms); timers.push(t); return t; };
-    const clearT = () => { timers.forEach(clearTimeout); timers = []; };
-    const fit = () => { const w = box.clientWidth; if (w) box.style.setProperty('--s', w / 390); };
-    new ResizeObserver(fit).observe(box);
-    const openIn = (fr) => { try { const b = fr.contentDocument.querySelector('#seal, #open, #openBtn, #env, #gc0, #gc'); if (b) b.click(); } catch (e) { /* ignore */ } };
-    const teardown = () => { clearT(); gen++; if (curFrame) { curFrame.remove(); curFrame = null; } box.classList.remove('is-ready'); restartBar(); };
-
-    function spawn() {
-      if (!on) return;
-      const my = ++gen;
-      Live.serial(() => new Promise((done) => {
-        if (my !== gen || !on) return done();
-        loading = true;
-        const fr = el('iframe', { class: 'ip-live__frame', tabindex: '-1', 'aria-hidden': 'true', scrolling: 'no', title: `${def.name} preview` });
-        let ready = false; let finished = false;
-        const end = () => { if (!finished) { finished = true; loading = false; done(); } };
-        const onMsg = (e) => {
-          if (e.source !== fr.contentWindow || !e.data || e.data.type !== 'inv:ready' || ready) return;
-          ready = true; window.removeEventListener('message', onMsg);
-          preparePreviewFrame(fr);
-          try { fr.contentWindow.postMessage({ type: 'inv:data', data: def.defaults, base: SITE }, location.origin); } catch (x) { /* ignore */ }
-          const reveal = () => {
-            if (my !== gen || !on) { fr.remove(); return end(); }
-            const old = curFrame; curFrame = fr; tries = 0;
-            fr.classList.add('is-on'); box.classList.add('is-ready');
-            if (old) setTimeout(() => old.remove(), 600);
-            end();
-            if (reduced) return;
-            later(() => openIn(fr), delay);
-          };
-          const fonts = (fr.contentDocument && fr.contentDocument.fonts && fr.contentDocument.fonts.ready) || Promise.resolve();
-          setTimeout(() => Promise.race([fonts, new Promise((r) => setTimeout(r, 6000))]).then(() => requestAnimationFrame(() => setTimeout(reveal, 300))), 400);
-        };
-        window.addEventListener('message', onMsg);
-        fr.src = `${entryUrl(def)}?embed=preview&card=1`;
-        box.append(fr);
-        later(() => { window.removeEventListener('message', onMsg); if (!ready && my === gen) { fr.remove(); end(); if (!curFrame && tries++ < 2) later(spawn, 2500); } }, 15000);
-      }));
-    }
-    const ctl = { visible: () => on, loaded: () => !!curFrame || loading, start: spawn, stop: teardown };
-    Live.add(ctl);
-    const io = new IntersectionObserver((es) => {
-      on = es[0].isIntersecting;
-      if (on) { fit(); if (curFrame) later(() => openIn(curFrame), 300); else Live.want(ctl); } else Live.forget(ctl);
-    }, { rootMargin: '80px 0px', threshold: 0.25 });
-    io.observe(box);
-    return { node: box, open: () => { if (curFrame) openIn(curFrame); } };
-  }
+  /* ---------------- gallery card image ----------------
+     Cards are plain images (templates/<id>/card.jpg) – they paint instantly, nothing is loaded
+     in the background and there is no loading state. The real live preview lives in the editor. */
+  const cardImg = (def) => assetUrl(def.card || `templates/${def.id}/card.jpg`);
+  const splitName = (def) => {
+    const [t, ...r] = String(def.name || def.id).split(/\s+[—–-]\s+/);
+    return { title: t, sub: r.join(' — ') };
+  };
 
   /* =========================================================
      POPUP EDITOR
@@ -735,12 +684,6 @@
   /* =========================================================
      TEMPLATE GALLERY (cards that open the popup)
      ========================================================= */
-  function renderHero(defs) {
-    const h = $('#heroStack'); if (!h || h.dataset.done || !defs.length) return;
-    h.dataset.done = '1';
-    defs.slice(0, 3).forEach((def) => { const lp = livePreview(def, { delay: 2200, loop: 12000 }); h.append(el('div', { class: 'ip-hero-card' }, lp.node)); });
-  }
-
   async function renderGrid(host) {
     host.classList.add('ip-grid');
     const ids = CFG.templates || [];
@@ -798,20 +741,24 @@
       host.before(el('div', { class: 'ip-mine' }, el('b', { text: 'Your invitations: ' }),
         mine.map((m) => el('a', { class: 'ip-chip', href: `${location.pathname}?edit=${encodeURIComponent(m.id)}`, text: m.title || m.id }))));
     }
-    defs.forEach((def) => {
+    defs.forEach((def, i) => {
       const values = (def.categories || [def.occasion || '']).map((value) => String(value).toLowerCase());
-      const lp = livePreview(def);
+      const { title, sub } = splitName(def);
+      const tagLine = String(def.tag || '').split('·').slice(1).join('·').trim() || sub;
+      const img = el('img', { class: 'ip-card__img', src: cardImg(def), alt: `${def.name} invitation template`, width: 390, height: 540, decoding: 'async', loading: i < 3 ? 'eager' : 'lazy' });
+      if (i < 3) img.setAttribute('fetchpriority', 'high');
       const card = el('button', { type: 'button', class: 'ip-card', 'aria-label': `Customize ${def.name}` },
-        el('span', { class: 'ip-card__stage' }, lp.node),
+        el('span', { class: 'ip-card__stage' },
+          img,
+          el('span', { class: 'ip-card__occ', text: def.occasion || 'Invitation' }),
+          el('span', { class: 'ip-card__anim' }, el('i'), 'Animated')),
         el('span', { class: 'ip-card__body' },
-          el('span', {}, el('b', { text: def.name }), el('small', { text: def.tag || def.occasion || '' }), el('span', { class: 'ip-card__badge' }, el('i'), 'Live preview')),
-          el('span', { class: 'ip-card__go', html: `Customize ${SVG(IC.arrow)}` })));
-      card.addEventListener('mouseenter', lp.open);
+          el('span', { class: 'ip-card__info' }, el('b', { text: title }), tagLine ? el('small', { text: tagLine }) : null),
+          el('span', { class: 'ip-card__go', 'aria-hidden': 'true', html: SVG(IC.arrow) })));
       card.addEventListener('click', () => openEditor(def.id));
       host.append(card);
       cards.push({ card, values });
     });
-    renderHero(defs);
     if (!defs.length) host.append(el('p', { text: 'No templates found.' }));
   }
 
@@ -835,4 +782,8 @@
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  if (document.getElementById('ipGrid') || /[?&](edit|template)=/.test(location.search)) {
+    const warm = () => ensureFirebase(true).catch(() => {});
+    window.addEventListener('load', () => (window.requestIdleCallback ? requestIdleCallback(warm, { timeout: 4000 }) : setTimeout(warm, 2500)));
+  }
 })();
