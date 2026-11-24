@@ -1,0 +1,70 @@
+/* =========================================================
+   AD Soft Technologies - DESKTOP FIT (large screens, up to 24" / 1920px and beyond)
+   Loaded AFTER site-standard.css on every page.
+
+   Why: the template stops growing at a 1220px content width from 1400px upward, while the header
+   is full width. On a 1920px (24") monitor that left ~350px of empty space on each side and the
+   logo / menu sat far away from the content edge.
+
+   Rules here only apply from 1600px up, so laptops (<1600px), tablets and mobile are untouched.
+   To change the content width on big screens, edit --fit-container below.
+   ========================================================= */
+
+:root { --fit-container: 1220px; }
+
+/* 1600px - 1799px : 20-22" monitors (1600x900, 1680x1050) */
+@media (min-width: 1600px) { :root { --fit-container: 1380px; } }
+/* 1800px - 2199px : 24" monitors (1920x1080, 1920x1200) */
+@media (min-width: 1800px) { :root { --fit-container: 1500px; } }
+/* 2200px+ : QHD / 4K: keep a comfortable reading width, never stretch edge to edge */
+@media (min-width: 2200px) { :root { --fit-container: 1640px; } }
+
+@media (min-width: 1600px) {
+  /* 1. Content width follows the screen */
+  html body .container { max-width: var(--fit-container); }
+
+  /* 2. Header logo / menu / icons line up with the content edges (they were pinned to the screen edge) */
+  html body header .navbar > .container-fluid {
+    /* -3px: the logo / icon columns already carry 15px of their own inner padding, so the logo's
+       left edge lands exactly on the text edge of the page content (container padding is 12px) */
+    padding-left: max(clamp(20px, 2vw, 45px), calc((100% - var(--fit-container)) / 2 - 3px));
+    padding-right: max(clamp(20px, 2vw, 45px), calc((100% - var(--fit-container)) / 2 - 3px));
+  }
+
+  /* 3. Footer, "container-fluid" content blocks and dark full-bleed sections keep the same edges */
+  html body footer > .container-fluid,
+  html body footer .container-fluid {
+    padding-left: max(15px, calc((100% - var(--fit-container)) / 2 + 12px));
+    padding-right: max(15px, calc((100% - var(--fit-container)) / 2 + 12px));
+  }
+
+  /* 4. Headings grow a little with the wider layout (site-standard caps them at 56 / 44 / 34px) */
+  :root {
+    --h1-size: 3.75rem;
+    --h2-size: 2.875rem;
+    --h3-size: 2.25rem;
+    --h4-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  :root {
+    --h1-size: 4rem;
+    --h2-size: 3rem;
+    --h3-size: 2.375rem;
+    --h4-size: 1.75rem;
+  }
+}
+
+/* 4b. Invitation gallery (create-invitation.html): wrappers were fixed at 1080-1180px */
+@media (min-width: 1600px) {
+  html body .ip-filters,
+  html body .ip-grid,
+  html body .ip-mine { max-width: calc(var(--fit-container) - 24px); }
+  html body .ip-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+}
+
+/* 5. Very large screens: nothing may stretch past the content width or lose its centre */
+@media (min-width: 2200px) {
+  html body header .navbar > .container-fluid { max-width: 100%; }
+}
