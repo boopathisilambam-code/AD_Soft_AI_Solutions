@@ -22,9 +22,9 @@ window.INV_CONFIG = {
 
   // EmailJS (https://www.emailjs.com) - sends the invitation link to the creator's email
   emailjs: {
-    serviceId: 'YOUR_SERVICE_ID',
-    templateId: 'YOUR_TEMPLATE_ID',
-    publicKey: 'YOUR_PUBLIC_KEY',
+    serviceId: 'service_gsv4gjg',
+    templateId: 'template_yev5gar',
+    publicKey: 'r7zSVKUmSE0pTaX4I',
   },
   // Private collection where creator emails are stored (clients can write, never read)
   leadsCollection: 'invitationLeads',
