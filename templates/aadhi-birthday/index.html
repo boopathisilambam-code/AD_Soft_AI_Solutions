@@ -335,7 +335,7 @@ background:linear-gradient(transparent,rgba(75,42,120,.0));pointer-events:none;o
 </section>
 
 <main id="card">
-  <section class="sheet hero">
+  <section class="sheet hero" id="sec-hero">
     <div class="photo" id="photo" aria-label="Aadhi's photo"><div><img onerror="this.style.display='none'" id="phimg" src="aadhi-pic.jpeg" alt="Aadhi"></div></div>
     <p class="lead" id="welcomeText">Join us as we celebrate</p>
     <h1 class="script">Aadhi’s</h1>
@@ -346,7 +346,7 @@ background:linear-gradient(transparent,rgba(75,42,120,.0));pointer-events:none;o
     <div class="gifts" aria-hidden="true"><svg><use href="#gf"/></svg><svg><use href="#bl"/></svg><svg><use href="#gf"/></svg><svg><use href="#bl"/></svg><svg><use href="#gf"/></svg></div>
   </section>
 
-  <section class="sheet">
+  <section class="sheet" id="sec-program">
     <h2 class="script" id="programTitle">Program</h2>
     <p class="lead" id="programMessage">A lazy, happy day on the backwaters</p>
     <ul class="tl">
@@ -357,7 +357,7 @@ background:linear-gradient(transparent,rgba(75,42,120,.0));pointer-events:none;o
     </ul>
   </section>
 
-  <section class="sheet">
+  <section class="sheet" id="sec-venue">
     <h2 class="script" id="venueTitle">Venue</h2>
     <a class="vp" id="vp" target="_blank" rel="noopener" aria-label="Open Kumarakom Houseboat in Google Maps" href="#"><img onerror="this.style.display='none'" id="venueImage" src="boat.jpg" alt="Kumarakom houseboat"><span class="go">Tap to open in Google Maps</span></a>
     <p class="addr"><b id="venueName">Kumarakom Houseboat</b><br><span id="venueAddressText">Kumarakom, Kerala</span></p>
@@ -365,7 +365,7 @@ background:linear-gradient(transparent,rgba(75,42,120,.0));pointer-events:none;o
     <a class="btn" id="maps" target="_blank" rel="noopener" href="#">Open in Maps</a>
   </section>
 
-  <section class="sheet">
+  <section class="sheet" id="sec-journey">
     <h2 class="script" id="journeyTitle">Aadhi’s little journey</h2>
     <p class="lead" id="journeyMessage">Two years of smiles, and counting</p>
     <ul class="jr">
@@ -376,20 +376,20 @@ background:linear-gradient(transparent,rgba(75,42,120,.0));pointer-events:none;o
     </ul>
   </section>
 
-  <section class="sheet">
+  <section class="sheet" id="sec-dress">
     <h2 class="script" id="dressCodeTitle">Dress code</h2>
     <p class="lead" id="dressCodeMessage">Purple &amp; white, please</p>
     <div class="sw"><i style="background:#4b2a78"></i><i style="background:#7a4fb5"></i><i style="background:#cdb8ee"></i><i style="background:#fff"></i></div>
   </section>
 
-  <section class="sheet">
+  <section class="sheet" id="sec-rsvp">
     <h2 class="script" id="rsvpTitle">Will you join us?</h2>
     <p class="lead" id="rsvpMessage">Your presence is the best gift. Please let us know you’re coming.</p>
     <a class="btn" id="yes" target="_blank" rel="noopener" href="#">Happy to join</a>
     <a class="btn alt" id="no" target="_blank" rel="noopener" href="#">Can’t make it</a>
   </section>
 
-  <section class="sheet">
+  <section class="sheet" id="sec-gallery">
     <h2 class="script" id="galleryTitle">Smiles with our guests</h2>
     <p class="lead" id="galleryMessage">Aadhi with the people we love</p>
     <div class="galwrap">
@@ -505,11 +505,12 @@ function floats(){
     s.style.setProperty('--sx',(Math.random()*60-30)+'px');s.style.animationDuration=(13+Math.random()*9)+'s';s.style.animationDelay=(-Math.random()*14)+'s';
     s.innerHTML='<use href="#'+id+'"/>';document.body.appendChild(s)});
 }
+var PV_OPEN=new URLSearchParams(location.search).get('embed')==='preview';
 function openIt(){
   if(opened)return;opened=true;
   stage.classList.add('opening');env.classList.add('open');document.body.classList.add('ready');startMusic();env.setAttribute('aria-expanded','true');
-  setTimeout(petals,2300);
-  setTimeout(function(){stage.classList.add('gone');document.body.classList.remove('locked');card.classList.add('show');window.scrollTo(0,0);floats();confetti(70)},3900);
+  setTimeout(petals,PV_OPEN?900:2300);
+  setTimeout(function(){stage.classList.add('gone');document.body.classList.remove('locked');card.classList.add('show');window.scrollTo(0,0);floats();confetti(70)},PV_OPEN?1500:3900);
 }
 env.addEventListener('click',openIt);
 
@@ -639,6 +640,10 @@ function applyInvitation(data){
 window.addEventListener('message',function(event){
   if(event.source!==window.parent||event.origin!==location.origin||!event.data)return;
   if(event.data.type==='inv:data')applyInvitation(event.data.data||{});
+  else if(event.data.type==='inv:open'){try{openIt()}catch(e){}}   /* editor preview: open the envelope by itself */
+  else if(event.data.type==='inv:scrollTo'&&typeof event.data.selector==='string'&&!document.body.classList.contains('locked')){
+    try{var t=document.querySelector(event.data.selector);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}catch(x){}
+  }
 });
 if(window.parent!==window)window.parent.postMessage({type:'inv:ready'},location.origin);
 

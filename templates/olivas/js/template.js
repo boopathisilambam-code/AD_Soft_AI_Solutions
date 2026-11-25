@@ -224,6 +224,11 @@
       if (message.base) base = message.base;
       data = message.data;
       render();
+    } else if (message.type === 'inv:open') {
+      openInvitation();                            /* editor preview: open the card without waiting for a tap */
+    } else if (message.type === 'inv:scrollTo' && typeof message.selector === 'string') {
+      const go = () => { const t = $(message.selector); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+      if (intro && !intro.classList.contains('hidden')) { openInvitation(); setTimeout(go, 1100); } else go();
     } else if (message.type === 'inv:rsvp:result') {
       const button = $('#rsvpForm button[type="submit"]');
       button.disabled = false;

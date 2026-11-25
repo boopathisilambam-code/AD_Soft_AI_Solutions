@@ -408,8 +408,11 @@
       D = m.data; if (m.base) BASE = m.base;
       render();
       if (firstData) { firstData = false; if (params.get('skip') === '1') openInvitation(true); }
-    } else if (m.type === 'inv:scrollTo' && opened && typeof m.selector === 'string') {
-      const t = $(m.selector); if (t && !t.hidden) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (m.type === 'inv:open') {
+      openInvitation(true);                       /* editor preview: open the card without waiting for a tap */
+    } else if (m.type === 'inv:scrollTo' && typeof m.selector === 'string') {
+      openInvitation(true);                       /* no-op when already open */
+      requestAnimationFrame(() => { const t = $(m.selector); if (t && !t.hidden) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     } else if (m.type === 'inv:rsvp:result') {
       const p = pending.get(m.id);
       if (p) { pending.delete(m.id); if (m.ok) p.res(); else p.rej(new Error(m.error || 'Could not send RSVP')); }

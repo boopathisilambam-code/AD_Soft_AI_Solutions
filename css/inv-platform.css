@@ -265,3 +265,12 @@ html.ip-lock { overflow: hidden !important; }
 .ip-grid { align-items: stretch; margin-top: 0; }
 .ip-card { height: 100%; }
 .ip-card__body { flex: 1; min-height: 96px; }
+
+/* hidden-link + email popup */
+.ip-sheet--pop { z-index: 8; }
+.ip-lockurl { flex: 1; min-width: 0; display: flex; align-items: center; padding: 0 14px; min-height: 46px; border: 1px dashed var(--ip-line); border-radius: 10px; background: var(--ip-soft); color: var(--ip-mute); font-size: 13px; overflow: hidden; user-select: none; -webkit-user-select: none; }
+.ip-lockurl span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ip-emailbox { margin: 14px 0 4px; }
+.ip-emailbox input { width: 100%; }
+.ip-trap { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+button.ip-chip { font: inherit; font-size: 14px; cursor: pointer; }

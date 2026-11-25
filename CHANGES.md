@@ -58,3 +58,16 @@
 3. Add a 390x540 portrait screenshot `templates/<new-id>/card.jpg` (gallery card) and `og.jpg` (1200x630, WhatsApp preview).
 4. Add `'<new-id>'` to the `templates: [...]` list in `js/inv-config.js`.
 5. New filter chip (e.g. "Housewarming")? Put the same word in `categories` of the template – chips are built automatically.
+
+## 8. Update 5 – desktop fit + editor preview auto-open
+- `css/desktop-fit.css` (new, loaded after site-standard.css): content width 1380 / 1500 / 1640px on 1600 / 1800 / 2200px+ screens; header + footer edges line up with the content; no effect below 1600px.
+- Editor: pressing Next / Back / a step icon now opens the card in the live preview by itself (like a guest tapping the seal) and scrolls to that section.
+  `inv:open` message added to `templates/royal-ivory/template.js` and `templates/olivas/js/template.js`; `js/inv-platform.js` (`goToTarget`) also taps the visible opener (#open, #seal, #openBtn, #skip, [data-open]) for templates that do not know `inv:open`.
+  The first screen of the editor still shows the closed envelope; the toolbar "skip intro" toggle works as before.
+
+## 8. Update 5 – editor preview auto-opens the card
+- Editor "Next" now opens the invitation by itself (envelope / gift card / seal) and only scrolls to the section once the card is really open – no guest tap needed.
+- `inv:open` message now handled by chocolate-birthday, aadhi-birthday, wedding-European, wedding-invitation and violet-butterfly (olivas / royal-ivory already had it).
+- Platform waits (up to ~15 s) while the template is still locked, then scrolls; old templates without `inv:open` get their opener tapped once.
+- New templates: handle `inv:open` in the template, or the platform falls back to tapping `#open / #seal / #openBtn / #skip / [data-open]`.
+- Aadhi birthday: added `inv:scrollTo` handler + section ids (#sec-hero/program/venue/journey/gallery); editor steps now scroll to their own section.

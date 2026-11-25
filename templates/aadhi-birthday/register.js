@@ -96,7 +96,7 @@ InvitationPlatform.register({
     familyMusic: '',
   },
   schema: [
-    { title: 'Birthday details', target: '#card', fields: [
+    { title: 'Birthday details', target: '#sec-hero', fields: [
       { path: 'celebrant', label: 'Birthday celebrant', type: 'text', max: 50 },
       { path: 'age', label: 'Age', type: 'text', max: 3 },
       { path: 'eventDate', label: 'Party date', type: 'date' },
@@ -105,7 +105,7 @@ InvitationPlatform.register({
       { path: 'welcomeText', label: 'Welcome line', type: 'text', max: 80 },
       { path: 'birthdayTitle', label: 'Event title', type: 'text', max: 40 },
     ] },
-    { title: 'Program', target: '#card', fields: [
+    { title: 'Program', target: '#sec-program', fields: [
       { path: 'programTitle', label: 'Program heading', type: 'text', max: 60 },
       { path: 'programMessage', label: 'Program message', type: 'textarea', rows: 2, max: 180 },
       { path: 'program.0.time', label: 'Event 1 time', type: 'text', max: 40 },
@@ -117,14 +117,14 @@ InvitationPlatform.register({
       { path: 'program.3.time', label: 'Event 4 time', type: 'text', max: 40 },
       { path: 'program.3.title', label: 'Event 4 activity', type: 'text', max: 80 },
     ] },
-    { title: 'Venue', target: '#vp', fields: [
+    { title: 'Venue', target: '#sec-venue', fields: [
       { path: 'venueTitle', label: 'Venue heading', type: 'text', max: 60 },
       { path: 'venue', label: 'Venue name', type: 'text', max: 100 },
       { path: 'venueAddress', label: 'Venue address', type: 'textarea', rows: 2, max: 180 },
       { path: 'mapsUrl', label: 'Google Maps link', type: 'url' },
       { path: 'venueImage', label: 'Venue photo', type: 'image' },
     ] },
-    { title: 'Journey & RSVP', target: '#card', fields: [
+    { title: 'Journey & RSVP', target: '#sec-journey', fields: [
       { path: 'journeyTitle', label: 'Journey heading', type: 'text', max: 80 },
       { path: 'journeyMessage', label: 'Journey introduction', type: 'text', max: 180 },
       { path: 'journey.0.title', label: 'Journey 1 heading', type: 'text', max: 60 },
@@ -145,7 +145,7 @@ InvitationPlatform.register({
       { path: 'galleryMessage', label: 'Photo-gallery message', type: 'text', max: 160 },
       { path: 'closingMessage', label: 'Closing message', type: 'text', max: 120 },
     ] },
-    { title: 'Photos & music', target: '#card', fields: [
+    { title: 'Photos & music', target: '#sec-gallery', fields: [
       { path: 'celebrantImage', label: 'Birthday photo', type: 'image' },
       { path: 'programPhotos', label: 'Program photos', type: 'gallery', max: 4 },
       { path: 'journeyPhotos', label: 'Journey photos', type: 'gallery', max: 4 },
