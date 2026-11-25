@@ -578,6 +578,9 @@
     const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     const maskEmail = (m) => m.replace(/^(.).*(@.*)$/, (x, f, d) => f + '•••' + d);
     let lastSend = 0;
+    const SENT_KEY = (id) => 'inv:sent:' + id;
+    const sentList = (id) => { try { return JSON.parse(localStorage.getItem(SENT_KEY(id)) || '[]'); } catch (e) { return []; } };
+    const markSent = (id, email) => { try { const l = sentList(id); if (!l.includes(email)) l.push(email); localStorage.setItem(SENT_KEY(id), JSON.stringify(l.slice(-10))); } catch (e) { /* ignore */ } };
 
     /* Saves the email in Firebase (private collection) and sends the link by EmailJS. The link never appears on screen. */
     async function emailLink(id, email) {
@@ -585,6 +588,7 @@
       if (!E.serviceId || !E.templateId || !E.publicKey || /YOUR_/.test(E.publicKey)) throw new Error('Email service is not configured yet (js/inv-config.js → emailjs).');
       const user = await currentUser();
       const names = state.groom && state.bride ? `${state.groom} & ${state.bride}` : (state.celebrant || def.name);
+      const link = shareUrl(id);
       const lead = db().collection(LEADS).doc(id);
       const ts = firebase.firestore.FieldValue.serverTimestamp();
       try {
@@ -597,7 +601,12 @@
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           service_id: E.serviceId, template_id: E.templateId, user_id: E.publicKey,
-          template_params: { to_email: email, invitation_title: names, invitation_link: shareUrl(id), site_name: 'AD Soft Technologies' },
+          template_params: {
+            to_email: email, invitation_title: names, invitation_link: link, site_name: 'AD Soft Technologies',
+            whatsapp_share_url: `https://wa.me/?text=${encodeURIComponent(`You are invited! ${names}\n${link}`)}`,
+            facebook_share_url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(link)}`,
+            twitter_share_url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(`You are invited! ${names}`)}&url=${encodeURIComponent(link)}`,
+          },
         }),
       });
       if (!res.ok) {
@@ -606,6 +615,7 @@
       }
       try { await lead.set({ status: 'sent', sentAt: ts }, { merge: true }); } catch (e) { /* ignore */ }
       try { localStorage.setItem('inv:email', email); } catch (e) { /* ignore */ }
+      markSent(id, email);
     }
 
     /* popup: "Enter your Gmail ID" */
@@ -628,6 +638,15 @@
         err.hidden = true;
         const email = input.value.trim().toLowerCase();
         if (!EMAIL_RE.test(email)) { err.textContent = 'Please enter a valid email address.'; err.hidden = false; input.focus(); return; }
+        if (sentList(id).includes(email)) {
+          box.innerHTML = '';
+          box.append(
+            el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: close }),
+            el('h3', { text: 'Already sent ✓' }),
+            el('p', { class: 'ip-hint', text: `The invitation link was already sent to ${maskEmail(email)}. Please check your inbox (and the Spam / Promotions folder).` }),
+            el('button', { type: 'button', class: 'ip-btn ip-btn--primary ip-btn--block', text: 'OK', onclick: close }));
+          return;
+        }
         if (Date.now() - lastSend < 20000) { err.textContent = 'Please wait a few seconds before sending again.'; err.hidden = false; return; }
         send.disabled = true; send.textContent = 'Sending…';
         try {

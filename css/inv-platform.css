@@ -274,3 +274,15 @@ html.ip-lock { overflow: hidden !important; }
 .ip-emailbox input { width: 100%; }
 .ip-trap { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 button.ip-chip { font: inherit; font-size: 14px; cursor: pointer; }
+
+/* popup spacing + email input (same look as the other fields) */
+.ip-modal input[type=email] { width: 100%; margin: 0; padding: 12px 14px; border: 1.5px solid transparent; border-radius: 12px; background: var(--ip-soft); font-size: 14.5px; color: var(--ip-ink); box-shadow: none; height: auto; box-sizing: border-box; transition: border-color .2s, background .2s, box-shadow .2s; }
+.ip-modal input[type=email]:hover { background: #eff4ec; }
+.ip-modal input[type=email]:focus { outline: 0; background: #fff; border-color: var(--ip-green); box-shadow: 0 0 0 4px rgba(85, 150, 67, .15); }
+.ip-sheet__box .ip-hint { margin: 8px 0 0; line-height: 1.5; }
+.ip-sheet__box .ip-emailbox { margin: 20px 0 0; }
+.ip-sheet__box .ip-err { margin: 10px 0 0; }
+.ip-sheet__box .ip-btn--block { margin-top: 20px; }
+.ip-sheet__box .ip-linkbox { margin: 20px 0 6px; align-items: stretch; }
+.ip-sheet__box .ip-row { margin-top: 16px; }
+.ip-sheet__box .ip-note-ok { margin: 14px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--ip-soft); color: var(--ip-ink); }
