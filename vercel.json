@@ -1,4 +1,12 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false
+  "rewrites": [
+    {
+      "source": "/invitation",
+      "destination": "/invitation.html"
+    },
+    {
+      "source": "/create-invitation",
+      "destination": "/create-invitation.html"
+    }
+  ]
 }
