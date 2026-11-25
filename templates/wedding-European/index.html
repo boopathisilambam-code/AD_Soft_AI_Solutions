@@ -914,6 +914,7 @@ window.addEventListener('message',function(event){
   if(event.source!==window.parent||event.origin!==location.origin||!event.data)return;
   var m=event.data;
   if(m.type==='inv:data'){if(m.base)BASE=m.base;applyInvitation(m.data||{})}
+  else if(m.type==='inv:open'){try{if(!intro.hidden&&document.documentElement.classList.contains('locked'))closeIntro()}catch(x){}}
   else if(m.type==='inv:scrollTo'&&typeof m.selector==='string'&&!document.documentElement.classList.contains('locked')){try{var t=document.querySelector(m.selector);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}catch(x){}}
 });
 if(new URLSearchParams(location.search).get('skip')==='1')setTimeout(function(){try{intro.hidden=true;document.documentElement.classList.remove('locked')}catch(e){}},50);

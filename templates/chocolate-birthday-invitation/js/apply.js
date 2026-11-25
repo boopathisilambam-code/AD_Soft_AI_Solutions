@@ -104,6 +104,9 @@
     if (e.source !== window.parent || e.origin !== location.origin || !e.data) return;
     var m = e.data;
     if (m.type === 'inv:data') { if (m.base) base = m.base; apply(m.data); }
+    else if (m.type === 'inv:open') {            /* editor preview: open the gift card by itself (no guest tap needed) */
+      if (document.getElementById('gate') && typeof window.openGate === 'function') window.openGate();
+    }
     else if (m.type === 'inv:scrollTo' && typeof m.selector === 'string' && !root.classList.contains('locked')) {
       var t = null; try { t = document.querySelector(m.selector); } catch (x) { /* ignore */ }
       if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });

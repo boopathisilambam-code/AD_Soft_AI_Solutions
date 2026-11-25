@@ -118,6 +118,7 @@ window.addEventListener('message',function(event){
   if(event.source!==window.parent||event.origin!==location.origin||!event.data)return;
   var m=event.data;
   if(m.type==='inv:data'){if(m.base)BASE=m.base;applyInvitation(m.data||{})}
+  else if(m.type==='inv:open'){var ob=document.getElementById('openBtn');if(ob&&document.body.classList.contains('locked'))ob.click()}
   else if(m.type==='inv:rsvp:result'&&m.id===RID&&!m.ok){$('#ok').textContent=m.error||'Could not send your reply. Please try again.'}
   else if(m.type==='inv:scrollTo'&&typeof m.selector==='string'&&!document.body.classList.contains('locked')){try{var t=document.querySelector(m.selector);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}catch(x){}}
 });

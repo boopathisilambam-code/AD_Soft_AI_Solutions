@@ -129,6 +129,7 @@ function render(){
 const couple_svg=couple;
 addEventListener('message',e=>{if(!embedded||e.source!==window.parent||e.origin!==origin)return;const m=e.data||{};
   if(m.type==='inv:data'&&m.data){if(m.base)base=m.base;const first=!D;D=m.data;render();if(first&&params.get('skip')==='1'){env.classList.add('open','zoom','gone');env.style.display='none';document.body.classList.remove('lock')}}
+  else if(m.type==='inv:open'){if(!env.classList.contains('open'))seal.click()}
   else if(m.type==='inv:scrollTo'&&m.selector){const t=$1(m.selector);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}
   else if(m.type==='inv:rsvp:result'){const b=$1('#rsvpForm button'),s=$1('#success');b.disabled=false;b.textContent='Send RSVP';s.textContent=m.ok?'Thank you! Your RSVP has been received.':(m.error||'Could not send. Please try again.');s.classList.add('show');if(m.ok)$1('#rsvpForm').reset()}});
 $1('#rsvpForm').addEventListener('submit',e=>{e.preventDefault();const f=e.currentTarget;if(!f.reportValidity())return;const b=$1('button',f),p=Object.fromEntries(new FormData(f).entries());b.disabled=true;b.textContent='Sending...';
