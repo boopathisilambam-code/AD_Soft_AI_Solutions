@@ -71,8 +71,3 @@
 - Platform waits (up to ~15 s) while the template is still locked, then scrolls; old templates without `inv:open` get their opener tapped once.
 - New templates: handle `inv:open` in the template, or the platform falls back to tapping `#open / #seal / #openBtn / #skip / [data-open]`.
 - Aadhi birthday: added `inv:scrollTo` handler + section ids (#sec-hero/program/venue/journey/gallery); editor steps now scroll to their own section.
-
-## 9. Update 6 – invitation link only by e-mail
-- Publish sheet no longer shows the link (or a link-name box). After publish: **Copy invitation link** -> popup "enter your Gmail" ->
-  e-mail saved to Firestore `invitationLeads` -> `send-invitation.php` e-mails the link. Setup steps: `EMAIL-LINK-SETUP.md`.
-- WhatsApp / Open invitation buttons removed from the done screen (they exposed the link); "Edit again" button instead of the edit link.

@@ -11,8 +11,7 @@
 
   const CFG = window.INV_CONFIG || {};
   const COL = CFG.collection || 'premiumInvitations';
-  const LEADS = CFG.leadsCollection || 'invitationLeads';          /* e-mails entered in the "send me the link" popup */
-  const MAIL_ENDPOINT = CFG.mailEndpoint || 'send-invitation.php';  /* PHP script that e-mails the link */
+  const LEADS = CFG.leadsCollection || 'invitationLeads';
   const SITE = new URL(CFG.siteRoot || '.', document.baseURI).href;
 
   /* ---------------- helpers ---------------- */
@@ -576,6 +575,78 @@
     nextBtn.addEventListener('click', () => { if (nextBtn.dataset.last) openSheet(); else showStep(cur + 1); });
 
     /* ----- publish sheet ----- */
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const maskEmail = (m) => m.replace(/^(.).*(@.*)$/, (x, f, d) => f + '•••' + d);
+    let lastSend = 0;
+
+    /* Saves the email in Firebase (private collection) and sends the link by EmailJS. The link never appears on screen. */
+    async function emailLink(id, email) {
+      const E = CFG.emailjs || {};
+      if (!E.serviceId || !E.templateId || !E.publicKey || /YOUR_/.test(E.publicKey)) throw new Error('Email service is not configured yet (js/inv-config.js → emailjs).');
+      const user = await currentUser();
+      const names = state.groom && state.bride ? `${state.groom} & ${state.bride}` : (state.celebrant || def.name);
+      const lead = db().collection(LEADS).doc(id);
+      const ts = firebase.firestore.FieldValue.serverTimestamp();
+      try {
+        await lead.set({ email, emails: firebase.firestore.FieldValue.arrayUnion(email), invitationId: id, ownerUid: user.uid, templateId: def.id, title: names, status: 'pending', updatedAt: ts }, { merge: true });
+      } catch (e) {
+        if (e.code === 'permission-denied') throw new Error('Permission denied for ' + LEADS + '. Add the Firestore rule from SETUP-EMAIL.md.');
+        throw e;
+      }
+      const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: E.serviceId, template_id: E.templateId, user_id: E.publicKey,
+          template_params: { to_email: email, invitation_title: names, invitation_link: shareUrl(id), site_name: 'AD Soft Technologies' },
+        }),
+      });
+      if (!res.ok) {
+        try { await lead.set({ status: 'send-failed', updatedAt: ts }, { merge: true }); } catch (e) { /* ignore */ }
+        throw new Error('Could not send the email right now. Your address is saved - please try again in a minute.');
+      }
+      try { await lead.set({ status: 'sent', sentAt: ts }, { merge: true }); } catch (e) { /* ignore */ }
+      try { localStorage.setItem('inv:email', email); } catch (e) { /* ignore */ }
+    }
+
+    /* popup: "Enter your Gmail ID" */
+    function askEmail(id, onSent) {
+      const pop = el('div', { class: 'ip-sheet ip-sheet--pop', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Send invitation link to email' });
+      const box = el('div', { class: 'ip-sheet__box' });
+      pop.append(box); modal.append(pop);
+      const close = () => pop.remove();
+      pop.addEventListener('click', (e) => { if (e.target === pop) close(); });
+      let saved = ''; try { saved = localStorage.getItem('inv:email') || ''; } catch (e) { /* ignore */ }
+      const input = el('input', { type: 'email', inputmode: 'email', autocomplete: 'email', placeholder: 'yourname@gmail.com', value: saved, 'aria-label': 'Your Gmail ID', maxlength: 120 });
+      const err = el('p', { class: 'ip-err', hidden: true });
+      const send = el('button', { type: 'button', class: 'ip-btn ip-btn--primary ip-btn--block', text: 'Send link to my email' });
+      box.append(
+        el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: close }),
+        el('h3', { text: 'Enter your Gmail ID' }),
+        el('p', { class: 'ip-hint', text: 'Your invitation link will be sent to this email address.' }),
+        el('div', { class: 'ip-emailbox' }, input), err, send);
+      const go = async () => {
+        err.hidden = true;
+        const email = input.value.trim().toLowerCase();
+        if (!EMAIL_RE.test(email)) { err.textContent = 'Please enter a valid email address.'; err.hidden = false; input.focus(); return; }
+        if (Date.now() - lastSend < 20000) { err.textContent = 'Please wait a few seconds before sending again.'; err.hidden = false; return; }
+        send.disabled = true; send.textContent = 'Sending…';
+        try {
+          await emailLink(id, email);
+          lastSend = Date.now();
+          box.innerHTML = '';
+          box.append(
+            el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: close }),
+            el('h3', { text: 'Link sent ✓' }),
+            el('p', { class: 'ip-hint', text: `We sent your invitation link to ${maskEmail(email)}. Check your inbox (and the Spam / Promotions folder).` }),
+            el('button', { type: 'button', class: 'ip-btn ip-btn--primary ip-btn--block', text: 'Done', onclick: close }));
+          if (onSent) onSent(email);
+        } catch (e) { console.error('[InvitationPlatform] email send failed:', e); err.textContent = e.message || String(e); err.hidden = false; send.disabled = false; send.textContent = 'Send link to my email'; }
+      };
+      send.addEventListener('click', go);
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); go(); } });
+      setTimeout(() => input.focus({ preventScroll: true }), 50);
+    }
+
     function openSheet() {
       const sheet = el('div', { class: 'ip-sheet', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Publish invitation' });
       const box = el('div', { class: 'ip-sheet__box' });
@@ -586,87 +657,38 @@
       const showForm = () => {
         const g = slugify(state.groom || state.couple?.groom || state.celebrant || '') || 'our';
         const b = slugify(state.bride || state.couple?.bride || '') || 'invitation';
-        /* the link name is generated automatically and never shown: the person gets the link by e-mail */
-        const autoSlug = () => slugify(`${g}-${b}`).slice(0, 30).replace(/-$/, '') + '-' + randId(5);
         const err = el('p', { class: 'ip-err', hidden: true });
         const go = el('button', { type: 'button', class: 'ip-btn ip-btn--primary ip-btn--block', text: editingId ? 'Update invitation' : 'Publish invitation' });
         box.innerHTML = '';
         box.append(
           el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: close }),
           el('h3', { text: editingId ? 'Update your invitation' : 'Publish your invitation' }),
-          el('p', { class: 'ip-hint', text: editingId ? 'Your link stays the same. Guests will see the new version.' : 'We will create your private invitation link and email it to you in the next step.' }),
+          el('p', { class: 'ip-hint', text: editingId ? 'Your link stays the same. Guests will see the new version.' : 'A private link is created for you and sent to your email.' }),
           err, go);
         go.addEventListener('click', async () => {
           err.hidden = true; go.disabled = true; go.textContent = 'Publishing…';
-          let tries = 0, lastErr;
-          while (tries++ < 3) {
-            try { showDone(await publish(editingId ? null : autoSlug())); return; }
-            catch (e) { lastErr = e; if (!/already taken/.test(e.message)) break; }
-          }
-          err.textContent = lastErr.message; err.hidden = false; go.disabled = false; go.textContent = editingId ? 'Update invitation' : 'Publish invitation';
-        });
-      };
-
-      /* ----- "send me the link" popup (the link itself is never shown on the page) ----- */
-      const EMAIL_KEY = 'inv:email';
-      const askEmail = (id, onSent) => {
-        const pop = el('div', { class: 'ip-sheet ip-sheet--top', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Get invitation link' });
-        const card = el('div', { class: 'ip-sheet__box ip-sheet__box--sm' });
-        pop.append(card); modal.append(pop);
-        const shut = () => pop.remove();
-        pop.addEventListener('click', (e) => { if (e.target === pop) shut(); });
-        let saved = ''; try { saved = localStorage.getItem(EMAIL_KEY) || ''; } catch (e) { /* ignore */ }
-        const email = el('input', { type: 'email', inputmode: 'email', autocomplete: 'email', placeholder: 'yourname@gmail.com', maxlength: 160, value: saved, 'aria-label': 'Your email address', required: true });
-        const err = el('p', { class: 'ip-err', hidden: true });
-        const send = el('button', { type: 'submit', class: 'ip-btn ip-btn--primary ip-btn--block', text: 'Send me the link' });
-        const form = el('form', { novalidate: true },
-          el('div', { class: 'ip-field' }, el('label', { text: 'Your Gmail / email address' }), email), err, el('div', { style: 'margin-top:14px' }, send));
-        card.append(
-          el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: shut }),
-          el('h3', { text: 'Get your invitation link' }),
-          el('p', { class: 'ip-hint', text: 'Enter your email. We will send the invitation link straight to your inbox.' }),
-          form);
-        setTimeout(() => email.focus(), 60);
-        let leadSaved = '';
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const addr = email.value.trim().toLowerCase();
-          if (!/^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]{2,}$/.test(addr) || addr.length > 160) { err.textContent = 'Please enter a valid email address.'; err.hidden = false; email.focus(); return; }
-          err.hidden = true; send.disabled = true; send.textContent = 'Sending…';
           try {
-            const user = await currentUser();
-            if (leadSaved !== addr) {                       /* 1) keep the e-mail in Firebase, even if the mail fails */
-              await db().collection(LEADS).add({
-                email: addr, invitationId: id, ownerUid: user.uid, templateId: def.id,
-                title: String(def.title ? def.title(state) : def.name).slice(0, 200), source: 'publish-sheet',
-                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-              });
-              leadSaved = addr;
+            let id = null;
+            if (editingId) id = await publish(null);
+            else {
+              /* link name is generated automatically (never shown) - retry if it is already taken */
+              for (let n = 0; n < 4 && !id; n++) {
+                try { id = await publish(slugify(`${g}-${b}-${randId(6)}`).slice(0, 40).replace(/-+$/, '')); }
+                catch (e) { if (!/already taken/.test(e.message) || n === 3) throw e; }
+              }
             }
-            const idToken = await user.getIdToken();       /* 2) server e-mails the link */
-            const r = await fetch(new URL(MAIL_ENDPOINT, SITE).href, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, email: addr, idToken }) });
-            let j = null; try { j = await r.json(); } catch (x) { /* not json */ }
-            if (!r.ok || !j || !j.ok) throw new Error((j && j.error) || 'Email could not be sent right now. Please try again in a minute.');
-            try { localStorage.setItem(EMAIL_KEY, addr); } catch (x) { /* ignore */ }
-            card.innerHTML = '';
-            card.append(
-              el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: shut }),
-              el('div', { class: 'ip-sent' }, '✉️'),
-              el('h3', { text: 'Link sent!' }),
-              el('p', { class: 'ip-hint' }, 'We emailed your invitation link to ', el('b', { text: addr }), '. If you do not see it in a minute, check the Spam / Promotions folder.'),
-              el('div', { style: 'margin-top:16px' }, el('button', { type: 'button', class: 'ip-btn ip-btn--primary ip-btn--block', text: 'Done', onclick: shut })));
-            if (onSent) onSent(addr);
-          } catch (x) {
-            err.textContent = x.code === 'permission-denied' ? 'Could not save your email (Firestore rules). Please contact support.' : (x.message || 'Something went wrong.');
-            err.hidden = false; send.disabled = false; send.textContent = 'Send me the link';
-          }
+            showDone(id);
+          } catch (e) { err.textContent = e.message; err.hidden = false; go.disabled = false; go.textContent = editingId ? 'Update invitation' : 'Publish invitation'; }
         });
       };
 
       const showDone = (id) => {
-        const names = state.groom && state.bride ? `${state.groom} & ${state.bride}` : (state.celebrant || def.name);
-        const copy = el('button', { type: 'button', class: 'ip-btn ip-btn--primary ip-btn--block', text: '🔗 Copy invitation link' });
-        copy.addEventListener('click', () => askEmail(id));
+        /* the real link is never put in the DOM - only a masked placeholder */
+        const masked = shareUrl('').replace(/^https?:\/\//, '') + '••••••••••';
+        const lock = el('div', { class: 'ip-lockurl', 'aria-label': 'Link hidden until you receive it by email' }, el('span', { text: '🔒 ' + masked }));
+        const copy = el('button', { type: 'button', class: 'ip-btn ip-btn--primary', text: 'Copy link' });
+        const note = el('p', { class: 'ip-hint', hidden: true });
+        copy.addEventListener('click', () => askEmail(id, (email) => { note.textContent = `Link sent to ${maskEmail(email)}.`; note.hidden = false; }));
         const rsvpBox = el('div', { class: 'ip-rsvps', hidden: true });
         const rsvpBtn = el('button', { type: 'button', class: 'ip-btn ip-btn--ghost', text: 'View RSVPs' });
         rsvpBtn.addEventListener('click', async () => {
@@ -674,14 +696,15 @@
           try { showRsvps(rsvpBox, await listRsvps(id), id); rsvpBox.hidden = false; } catch (e) { toast(e.message); }
           rsvpBtn.disabled = false; rsvpBtn.textContent = 'Refresh RSVPs';
         });
-        const editBtn = el('button', { type: 'button', class: 'ip-btn ip-btn--ghost', text: 'Edit again', onclick: () => { location.href = `${location.pathname}?edit=${encodeURIComponent(id)}`; } });
+        const keepEditing = el('button', { type: 'button', class: 'ip-btn ip-btn--ghost', text: 'Continue editing', onclick: close });
         box.innerHTML = '';
         box.append(
           el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: close }),
           el('h3', { text: 'Your invitation is live 🎉' }),
-          el('p', { class: 'ip-hint', text: `${names} — tap the button below. Enter your email and we will send the link to your inbox, ready to share with your guests.` }),
-          el('div', { style: 'margin:16px 0 10px' }, copy),
-          el('div', { class: 'ip-row ip-row--wrap' }, rsvpBtn, editBtn),
+          el('p', { class: 'ip-hint', text: 'Tap “Copy link” and enter your Gmail ID. We will email the invitation link to you.' }),
+          el('div', { class: 'ip-linkbox' }, lock, copy),
+          note,
+          el('div', { class: 'ip-row ip-row--wrap' }, rsvpBtn, keepEditing),
           rsvpBox);
       };
       showForm();
@@ -834,7 +857,13 @@
     const mine = readMine();
     if (mine.length) {
       host.before(el('div', { class: 'ip-mine' }, el('b', { text: 'Your invitations: ' }),
-        mine.map((m) => el('a', { class: 'ip-chip', href: `${location.pathname}?edit=${encodeURIComponent(m.id)}`, text: m.title || m.id }))));
+        mine.map((m) => {
+          const chip = el('button', { type: 'button', class: 'ip-chip', text: m.title || 'My invitation' });
+          chip.addEventListener('click', async () => {
+            try { const doc = await getInvitation(m.id); if (doc) openEditor(doc.templateId, { doc }); } catch (e) { console.warn('[InvitationPlatform]', e.message); }
+          });
+          return chip;
+        })));
     }
     defs.forEach((def, i) => {
       const values = (def.categories || [def.occasion || '']).map((value) => String(value).toLowerCase());

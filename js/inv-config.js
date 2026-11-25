@@ -20,6 +20,15 @@ window.INV_CONFIG = {
     folder: 'invitations',
   },
 
+  // EmailJS (https://www.emailjs.com) - sends the invitation link to the creator's email
+  emailjs: {
+    serviceId: 'service_gsv4gjg',
+    templateId: 'template_yev5gar',
+    publicKey: 'r7zSVKUmSE0pTaX4I',
+  },
+  // Private collection where creator emails are stored (clients can write, never read)
+  leadsCollection: 'invitationLeads',
+
   // Firestore collection used by this platform (kept separate from your existing data)
   collection: 'premiumInvitations',
 
