@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Admin | AD Soft Technologies</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="shortcut icon" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<style>
+:root{--green:#559643;--green-d:#1f3a1a;--green-l:#eef6ea;--line:#e3eadf;--bg:#f5f8f3;--text:#232323;--muted:#6b7a67;--danger:#c0392b;--warn:#b7791f;--card:#fff;--shadow:0 6px 24px rgba(31,58,26,.08)}
+@media (prefers-color-scheme:dark){:root{--bg:#121712;--card:#1b231a;--text:#e8efe5;--muted:#9bad96;--line:#2b3829;--green-l:#223020}}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--green)}
+[hidden]{display:none!important}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);padding:9px 16px;border-radius:10px;cursor:pointer;font-weight:600;transition:.15s;text-decoration:none;color:var(--text)}
+.btn:hover{border-color:var(--green);color:var(--green)}
+.btn.primary{background:var(--green);border-color:var(--green);color:#fff}
+.btn.primary:hover{background:#447f34;color:#fff}
+.btn.danger{color:var(--danger)}
+.btn.danger:hover{border-color:var(--danger);background:var(--danger);color:#fff}
+.btn.sm{padding:5px 11px;font-size:13px;border-radius:8px}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+/* login */
+#login{min-height:100vh;display:grid;place-items:center;padding:24px}
+.login-card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:40px 34px;max-width:420px;width:100%;text-align:center}
+.login-card h1{font-size:24px;margin:14px 0 6px}
+.login-card p{color:var(--muted);margin:0 0 22px}
+.logo-dot{width:54px;height:54px;border-radius:14px;background:var(--green);color:#fff;display:inline-grid;place-items:center;font-weight:800;font-size:20px}
+.err{background:#fdecea;color:#8a1f14;border:1px solid #f5c2bc;padding:10px 12px;border-radius:10px;margin-top:16px;text-align:left;font-size:14px}
+@media (prefers-color-scheme:dark){.err{background:#3a1b18;color:#ffb4aa;border-color:#6b2f29}}
+/* shell */
+#app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+aside{background:var(--green-d);color:#fff;padding:22px 14px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh}
+aside .brand{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:6px 10px 20px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,.12);text-decoration:none;color:#fff}
+aside .brand img{display:block;height:42px;width:auto;max-width:100%;object-fit:contain;object-position:left center}
+aside .brand .logo-dot{width:42px;height:42px;font-size:16px;border-radius:11px}
+aside .brand .tag{font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#a9c7a0}
+.login-card .login-logo{display:block;height:56px;width:auto;max-width:80%;margin:0 auto 4px;object-fit:contain}
+aside button.nav{all:unset;box-sizing:border-box;cursor:pointer;padding:11px 14px;border-radius:10px;color:#cfe3c8;font-weight:600;display:flex;gap:12px;align-items:center;line-height:20px}
+aside button.nav svg{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+aside button.nav:focus-visible{outline:2px solid #b5d65a;outline-offset:2px}
+aside button.nav:hover{background:rgba(255,255,255,.08);color:#fff}
+aside button.nav.on{background:#b5d65a;color:var(--green-d)}
+aside .grow{flex:1}
+aside .who{font-size:12px;color:#a9c7a0;padding:8px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+main{padding:28px 30px 60px;min-width:0}
+main h2{margin:0 0 4px;font-size:24px}
+main .sub{color:var(--muted);margin:0 0 22px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 16px}
+.bar .grow{flex:1}
+.bar input[type=search],.bar select{padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);min-width:200px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:22px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:30px;line-height:1.1}
+.stat span{color:var(--muted);font-size:13px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px;margin-bottom:18px}
+.panel h3{margin:0 0 6px;font-size:17px}
+.panel p{margin:0 0 12px;color:var(--muted)}
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:720px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:14px}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);background:var(--green-l);position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+td .thumb{width:64px;height:44px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;display:block}
+td .photo{width:48px;height:48px;object-fit:cover;border-radius:50%;border:1px solid var(--line);display:block}
+td small{color:var(--muted);display:block;word-break:break-all}
+td .acts{display:flex;gap:6px;flex-wrap:wrap}
+.pill{display:inline-block;padding:2px 10px;border-radius:20px;background:var(--green-l);color:var(--green);font-size:12px;font-weight:700}
+.pill.warn{background:#fff4d6;color:var(--warn)}
+.pill.off{background:#eee;color:#777}
+.arrows{display:flex;flex-direction:column;gap:2px}
+.arrows button{all:unset;cursor:pointer;line-height:1;padding:2px 7px;border:1px solid var(--line);border-radius:6px;text-align:center;font-size:11px}
+.arrows button:hover{border-color:var(--green);color:var(--green)}
+.switch{position:relative;display:inline-block;width:42px;height:24px}
+.switch input{opacity:0;width:0;height:0}
+.switch i{position:absolute;inset:0;background:#c9d2c5;border-radius:24px;transition:.2s;cursor:pointer}
+.switch i:before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+.switch input:checked+i{background:var(--green)}
+.switch input:checked+i:before{transform:translateX(18px)}
+.empty{padding:34px;text-align:center;color:var(--muted)}
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(10,20,8,.55);display:grid;place-items:center;padding:16px;z-index:50;overflow:auto}
+.modal{background:var(--card);border-radius:16px;max-width:600px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.35);max-height:calc(100vh - 32px);display:flex;flex-direction:column}
+.modal header{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.modal header h3{margin:0;font-size:18px}
+.modal .body{padding:20px 22px;overflow:auto}
+.modal footer{padding:14px 22px;border-top:1px solid var(--line);display:flex;gap:10px;justify-content:flex-end}
+.x{all:unset;cursor:pointer;font-size:22px;line-height:1;padding:4px 8px;border-radius:8px}
+.x:hover{background:var(--green-l)}
+.f{margin-bottom:14px}
+.f label{display:block;font-weight:600;font-size:13px;margin-bottom:5px}
+.f .hint{font-weight:400;color:var(--muted);font-size:12px;margin-top:4px}
+.f input[type=text],.f input[type=url],.f input[type=number],.f select,.f textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.f textarea{min-height:130px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--green);outline-offset:0;border-color:var(--green)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.imgbox{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.imgbox .pv{width:120px;height:90px;border:1px dashed var(--line);border-radius:10px;display:grid;place-items:center;overflow:hidden;background:#fff;color:#999;font-size:12px;text-align:center}
+.imgbox .pv img{width:100%;height:100%;object-fit:contain}
+.imgbox .ctl{flex:1;min-width:200px;display:grid;gap:8px}
+.bar-progress{height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar-progress i{display:block;height:100%;width:0;background:var(--green);transition:width .2s}
+#toasts{position:fixed;right:16px;bottom:16px;display:grid;gap:8px;z-index:90}
+.toast{background:var(--green-d);color:#fff;padding:11px 16px;border-radius:10px;box-shadow:var(--shadow);max-width:340px;font-size:14px}
+.toast.bad{background:var(--danger)}
+.spin{display:inline-block;width:16px;height:16px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-3px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.loading{padding:40px;text-align:center;color:var(--muted)}
+@media (max-width:860px){
+  #app{grid-template-columns:1fr}
+  aside{position:static;height:auto;flex-direction:row;flex-wrap:wrap;padding:10px;align-items:center}
+  aside .brand{flex-direction:row;align-items:center;padding:0 12px 0 4px;margin:0;border:0}
+  aside .brand img,aside .brand .logo-dot{height:34px}
+  aside .brand .tag{display:none}
+  aside .grow,aside .who{display:none}
+  main{padding:18px 14px 60px}
+  .row2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<section id="login" hidden>
+  <div class="login-card">
+    <img class="login-logo" src="images/logo-green-320.webp" alt="AD Soft Technologies" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-dot',textContent:'AD'}))">
+    <h1>AD Soft Admin</h1>
+    <p>Sign in with the admin account to manage this website.</p>
+    <form id="emailForm" novalidate style="text-align:left">
+      <div class="f"><label for="lgEmail">Email</label><input type="email" id="lgEmail" autocomplete="username" placeholder="admin@example.com" required style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card)"></div>
+      <div class="f"><label for="lgPass">Password</label><input type="password" id="lgPass" autocomplete="current-password" placeholder="Password" required style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card)"></div>
+      <button class="btn primary" id="btnEmail" type="submit" style="width:100%;justify-content:center">Sign in</button>
+      <div style="text-align:right;margin-top:8px"><a href="#" id="forgot" style="font-size:13px">Forgot password?</a></div>
+    </form>
+    <div style="display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;margin:14px 0"><span style="flex:1;height:1px;background:var(--line)"></span>or<span style="flex:1;height:1px;background:var(--line)"></span></div>
+    <button class="btn" id="btnGoogle" style="width:100%;justify-content:center">Sign in with Google</button>
+    <div class="err" id="loginErr" hidden></div>
+  </div>
+</section>
+
+<!-- APP -->
+<div id="app" hidden>
+  <aside>
+    <a class="brand" href="admin.html" aria-label="AD Soft Admin"><img src="images/logo-white-320.webp" alt="AD Soft Technologies" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-dot',textContent:'AD'}))"><span class="tag">Admin panel</span></a>
+    <button class="nav on" data-view="dashboard"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span>Dashboard</span></button>
+    <button class="nav" data-view="projects"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 13h20"/></svg><span>Projects</span></button>
+    <button class="nav" data-view="team"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Team</span></button>
+    <button class="nav" data-view="leads"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>Invitation creators</span></button>
+    <div class="grow"></div>
+    <a class="btn sm" href="our-work" target="_blank" rel="noopener" style="justify-content:center;margin:0 6px 6px">View website ↗</a>
+    <div class="who" id="who"></div>
+    <button class="btn sm" id="btnOut" style="margin:0 6px">Sign out</button>
+  </aside>
+  <main id="view"><div class="loading"><span class="spin"></span> Loading…</div></main>
+</div>
+
+<div id="modalRoot"></div>
+<div id="toasts"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="js/inv-config.js"></script>
+<script>
+(function () {
+'use strict';
+
+/* ============ config ============ */
+const CFG = window.INV_CONFIG || {};
+const COLS = {
+  projects: 'showcaseProjects',
+  team: 'teamMembers',
+  leads: CFG.leadsCollection || 'invitationLeads',
+  inv: CFG.collection || 'premiumInvitations',
+};
+const CLD = CFG.cloudinary || {};
+const CLD_FOLDER = 'adsoft-site';
+const MAX_IMG_MB = 8;
+
+/* Existing hard-coded website content (imported once with the "Import" button) */
+const SEED = {"projects":[{"name":"Radio Media Village 90.8 FM","url":"https://radiomediavillage.com/","category":"community","tag":"Media","logo":"images/pr1.opt.webp","logoW":null,"logoH":null,"order":10,"visible":true},{"name":"Ausland International","url":"https://auslandinternational.com/","category":"education","tag":"Education","logo":"images/pr2.opt.webp","logoW":null,"logoH":null,"order":20,"visible":true},{"name":"LaBa Cabs","url":"https://labacabs.com/","category":"travel","tag":"Travel","logo":"images/pr3.opt.webp","logoW":null,"logoH":null,"order":30,"visible":true},{"name":"Merci Overseas","url":"https://merciinternational.com/","category":"community","tag":"Non-profit","logo":"images/pr21.opt.webp","logoW":null,"logoH":null,"order":40,"visible":true},{"name":"German Academy","url":"https://germanacademytr.com/","category":"education","tag":"Education","logo":"images/pr5.opt.webp","logoW":null,"logoH":null,"order":50,"visible":true},{"name":"Bold 'N' Beauty","url":"https://boldnbeauty.in/","category":"retail","tag":"Retail","logo":"images/pr6.opt.webp","logoW":null,"logoH":null,"order":60,"visible":true},{"name":"Perfection Electronics Engineering","url":"https://www.perfectionelectronicsengineering.com/","category":"business","tag":"Engineering","logo":"images/pr7.opt.webp","logoW":null,"logoH":null,"order":70,"visible":true},{"name":"Lenora Language Academy","url":"https://lenoralanguageacademy.com/","category":"education","tag":"Education","logo":"images/pr9.opt.webp","logoW":null,"logoH":null,"order":80,"visible":true},{"name":"Mindfully Sustainable","url":"https://mindfullysustainable.co.uk/","category":"community","tag":"Sustainability","logo":"images/pr10.opt.webp","logoW":null,"logoH":null,"order":90,"visible":true},{"name":"IB WorldWide Academy","url":"https://ibworldwideacademy.com/","category":"education","tag":"Education","logo":"images/pr11.opt.webp","logoW":null,"logoH":null,"order":100,"visible":true},{"name":"Dream Rich Education","url":"https://dreamrichindia.com/","category":"education","tag":"Education","logo":"images/pr12.opt.webp","logoW":null,"logoH":null,"order":110,"visible":true},{"name":"ProHealth Clinic","url":"https://prohealthclinic.org/","category":"healthcare","tag":"Healthcare","logo":"images/pr13.opt.webp","logoW":null,"logoH":null,"order":120,"visible":true},{"name":"Rockland Holidays Idukki","url":"https://rocklandholidaysidukki.com/","category":"travel","tag":"Travel","logo":"images/pr14.opt.webp","logoW":null,"logoH":null,"order":130,"visible":true},{"name":"Ultimate Fitness Studio","url":"https://www.ultimatefitnessstudio.com/","category":"healthcare","tag":"Fitness","logo":"images/pr15.opt.webp","logoW":null,"logoH":null,"order":140,"visible":true},{"name":"Elite Catering","url":"https://elitecatering.adsofttechnologies.com/","category":"business","tag":"Catering & Events","logo":"images/pr16.opt.webp","logoW":360,"logoH":116,"order":150,"visible":true},{"name":"Thrive Foreign Language School","url":"https://thrivelanguageschool.adsofttechnologies.com/","category":"education","tag":"Education","logo":"images/pr17.webp","logoW":null,"logoH":null,"order":160,"visible":true},{"name":"Kangazha Mahadevar Temple","url":"https://kangazhamahadevartemple.in/","category":"community","tag":"Community","logo":"images/pr18.webp","logoW":null,"logoH":null,"order":170,"visible":true},{"name":"Aarohi Bridals","url":"https://aarohibridals.in/","category":"retail","tag":"Retail","logo":"images/pr19.opt.webp","logoW":null,"logoH":null,"order":180,"visible":true},{"name":"Spice Roots Idukki","url":"https://www.spicerootsidukki.com/","category":"retail","tag":"Retail","logo":"images/pr20.webp","logoW":490,"logoH":169,"order":190,"visible":true},{"name":"Poyka Connect","url":"https://www.poykaconnect.in/","category":"business","tag":"Service Directory","logo":"images/pr22.opt.webp","logoW":null,"logoH":null,"order":200,"visible":true}],"team":[{"name":"Akhil Kumar","role":"Founder & CEO","subtitle":"","bio":"Professionally a Mechanical Engineer with 6+ years of experience, who has worked on multiple IT projects as Project Manager and Technical Head. Involved in business development of modern technologies for apps, websites and more.\n\nAn expert in Product Design, Digital Marketing and finding technical solutions, he constantly strives to make an impact in the business sector and founded AD Soft Technologies.","photo":"images/team/founder.opt.webp","photoSrcset":"images/team/founder-320w.webp 320w, images/team/founder-480w.webp 480w, images/team/founder-640w.webp 640w, images/team/founder-768w.webp 768w, images/team/founder.opt.webp 1280w","photoSizes":"(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 34vw, (max-width: 1399px) 35vw, 437px","photoW":1280,"photoH":853,"photoAlt":"Akhil Kumar, Founder and CEO","tier":"lead","order":10,"visible":true},{"name":"Midhul Jacob Mathew","role":"Associate Director","subtitle":"","bio":"Professionally an Electrical Engineer, with a Master's and a Bachelor's degree in Electrical Engineering, both from the City University of New York.\n\nMy strength in design and product development motivated me to build a strong base in the IT field. That inspired me to work alongside my friend Akhil to build a dream organisation, AD Soft Technologies.","photo":"images/team/Midhul.opt.webp","photoSrcset":"","photoSizes":"","photoW":735,"photoH":735,"photoAlt":"Midhul Jacob Mathew, Associate Director","tier":"lead","order":20,"visible":true},{"name":"Prasanna N","role":"Software Engineer Intern","subtitle":"Final year student, Bharath Niketan Engineering College","bio":"Passionate about building efficient and user-centric web applications. Committed to leveraging modern technologies to deliver impactful digital solutions.","photo":"images/team/Prasanna.opt.webp","photoSrcset":"images/team/Prasanna-240w.webp 240w, images/team/Prasanna-320w.webp 320w, images/team/Prasanna-480w.webp 480w, images/team/Prasanna-640w.webp 640w, images/team/Prasanna-768w.webp 768w, images/team/Prasanna.opt.webp 1089w","photoSizes":"(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 39vw, (max-width: 1199px) 21vw, (max-width: 1399px) 20vw, 249px","photoW":1089,"photoH":1280,"photoAlt":"Prasanna N","tier":"member","order":30,"visible":true},{"name":"J. Boopathiraj","role":"Software Engineer Intern","subtitle":"Pre-final year student, Bharath Niketan Engineering College","bio":"Dedicated to developing responsive and well-structured web applications. Continuously exploring modern technologies to create better digital experiences.","photo":"images/team/boobathi.webp","photoSrcset":"","photoSizes":"","photoW":960,"photoH":890,"photoAlt":"J. Boopathiraj","tier":"member","order":40,"visible":true}]};
+
+/* ============ tiny helpers ============ */
+const $ = (s, r) => (r || document).querySelector(s);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const slug = (s) => String(s || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+const cap = (s) => String(s || '').charAt(0).toUpperCase() + String(s || '').slice(1);
+const byOrder = (a, b) => (Number(a.order) || 0) - (Number(b.order) || 0);
+const fmtDate = (t) => { try { const d = t && t.toDate ? t.toDate() : (t ? new Date(t) : null); return d ? d.toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }) : '—'; } catch (e) { return '—'; } };
+const tsVal = (t) => (t && t.toMillis ? t.toMillis() : 0);
+function cldThumb(url, w) {
+  url = String(url || '');
+  return (url.indexOf('res.cloudinary.com') > -1 && /\/upload\/v\d+\//.test(url)) ? url.replace('/upload/', '/upload/f_auto,q_auto,w_' + w + '/') : url;
+}
+function toast(msg, bad) {
+  const t = document.createElement('div'); t.className = 'toast' + (bad ? ' bad' : ''); t.textContent = msg;
+  $('#toasts').appendChild(t); setTimeout(() => t.remove(), bad ? 6500 : 3200);
+}
+function niceError(e) {
+  if (e && (e.code === 'permission-denied' || /permission/i.test(e.message || ''))) return 'Permission denied. Publish firestore.rules and add your Google email as admin (see SETUP-ADMIN.md).';
+  return (e && e.message) || String(e);
+}
+
+/* ============ firebase ============ */
+if (!CFG.firebase) { document.body.innerHTML = '<p style="padding:30px">js/inv-config.js is missing the Firebase config.</p>'; return; }
+firebase.initializeApp(CFG.firebase);
+const auth = firebase.auth();
+const db = firebase.firestore();
+const TS = () => firebase.firestore.FieldValue.serverTimestamp();
+
+const state = { user: null, projects: null, team: null, leads: null, view: 'dashboard', leadQ: '', leadTpl: '', projQ: '' };
+
+/* ============ auth ============ */
+$('#btnGoogle').addEventListener('click', async () => {
+  const err = $('#loginErr'); err.hidden = true;
+  try { await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()); }
+  catch (e) { err.textContent = authMsg(e); err.hidden = false; }
+});
+const authMsg = (e) => ({
+  'auth/invalid-credential': 'Wrong email or password.',
+  'auth/wrong-password': 'Wrong email or password.',
+  'auth/user-not-found': 'Wrong email or password.',
+  'auth/invalid-email': 'Enter a valid email address.',
+  'auth/too-many-requests': 'Too many attempts. Wait a few minutes or reset your password.',
+  'auth/operation-not-allowed': 'Email/Password sign-in is not enabled in Firebase → Authentication → Sign-in method.',
+  'auth/network-request-failed': 'Network error. Check your internet connection.',
+  'auth/unauthorized-domain': 'This domain is not authorised in Firebase → Authentication → Settings → Authorized domains.',
+}[e.code] || e.message || String(e));
+$('#emailForm').addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  const err = $('#loginErr'); err.hidden = true;
+  const email = $('#lgEmail').value.trim(), pass = $('#lgPass').value;
+  if (!email || !pass) { err.textContent = 'Enter your email and password.'; err.hidden = false; return; }
+  const b = $('#btnEmail'); b.disabled = true; b.innerHTML = '<span class="spin"></span> Signing in…';
+  try { await auth.signInWithEmailAndPassword(email, pass); }
+  catch (e) { err.textContent = authMsg(e); err.hidden = false; }
+  b.disabled = false; b.textContent = 'Sign in';
+});
+$('#forgot').addEventListener('click', async (ev) => {
+  ev.preventDefault();
+  const err = $('#loginErr'); err.hidden = true;
+  const email = $('#lgEmail').value.trim();
+  if (!email) { err.textContent = 'Type your email above first, then click “Forgot password?”.'; err.hidden = false; return; }
+  try { await auth.sendPasswordResetEmail(email); toast('Password reset email sent to ' + email + ' ✓'); }
+  catch (e) { err.textContent = authMsg(e); err.hidden = false; }
+});
+$('#btnOut').addEventListener('click', () => auth.signOut());
+
+auth.onAuthStateChanged(async (user) => {
+  if (!user || user.isAnonymous) { showLogin(); return; }
+  /* Is this Google account an admin? Rules allow reading invitationLeads only for admins. */
+  try { await db.collection(COLS.leads).limit(1).get(); }
+  catch (e) {
+    if (e.code === 'permission-denied') {
+      showLogin('The account ' + (user.email || '') + ' is not an admin. Add this UID to isAdmin() in firestore.rules and publish the rules:  ' + user.uid);
+      auth.signOut(); return;
+    }
+  }
+  state.user = user;
+  $('#login').hidden = true; $('#app').hidden = false;
+  $('#who').textContent = user.email || ''; $('#who').title = user.email || '';
+  go(state.view);
+});
+function showLogin(msg) {
+  $('#app').hidden = true; $('#login').hidden = false;
+  const err = $('#loginErr'); if (msg) { err.textContent = msg; err.hidden = false; }
+}
+
+/* ============ navigation ============ */
+document.querySelectorAll('aside button.nav').forEach((b) => b.addEventListener('click', () => go(b.dataset.view)));
+function go(view) {
+  state.view = view;
+  document.querySelectorAll('aside button.nav').forEach((b) => b.classList.toggle('on', b.dataset.view === view));
+  ({ dashboard: viewDashboard, projects: viewProjects, team: viewTeam, leads: viewLeads })[view]();
+}
+const main = () => $('#view');
+const loading = (t) => { main().innerHTML = '<div class="loading"><span class="spin"></span> ' + esc(t || 'Loading…') + '</div>'; };
+const failBox = (e) => { main().innerHTML = '<div class="panel"><h3>Something went wrong</h3><p>' + esc(niceError(e)) + '</p><button class="btn" id="retry">Try again</button></div>'; $('#retry').onclick = () => go(state.view); };
+
+/* ============ data ============ */
+async function load(kind, force) {
+  if (state[kind] && !force) return state[kind];
+  const snap = await db.collection(COLS[kind]).get();
+  state[kind] = snap.docs.map((d) => ({ id: d.id, ...d.data() })).sort(byOrder);
+  return state[kind];
+}
+const nextOrder = (list) => (list.reduce((m, x) => Math.max(m, Number(x.order) || 0), 0)) + 10;
+
+async function move(kind, id, dir) {
+  const list = state[kind].slice().sort(byOrder);
+  const i = list.findIndex((x) => x.id === id), j = i + dir;
+  if (i < 0 || j < 0 || j >= list.length) return;
+  /* renumber everything 10,20,30… with the two items swapped (also repairs duplicate orders) */
+  [list[i], list[j]] = [list[j], list[i]];
+  const batch = db.batch();
+  list.forEach((x, n) => { const o = (n + 1) * 10; if (x.order !== o) { batch.update(db.collection(COLS[kind]).doc(x.id), { order: o, updatedAt: TS() }); x.order = o; } });
+  await batch.commit();
+  state[kind] = list;
+}
+
+/* ============ Cloudinary upload ============ */
+function cloudUpload(file, sub, onProgress) {
+  return new Promise((resolve, reject) => {
+    if (!CLD.cloudName || !CLD.uploadPreset) return reject(new Error('Cloudinary is not configured in js/inv-config.js'));
+    if (!/^image\//.test(file.type)) return reject(new Error('Please choose an image file.'));
+    if (file.size > MAX_IMG_MB * 1048576) return reject(new Error('Image is larger than ' + MAX_IMG_MB + ' MB.'));
+    const send = (withFolder) => {
+      const fd = new FormData();
+      fd.append('file', file); fd.append('upload_preset', CLD.uploadPreset);
+      if (withFolder) fd.append('folder', CLD_FOLDER + '/' + sub);
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://api.cloudinary.com/v1_1/' + CLD.cloudName + '/image/upload');
+      xhr.upload.onprogress = (e) => { if (e.lengthComputable) onProgress(e.loaded / e.total); };
+      xhr.onload = () => {
+        let j = {}; try { j = JSON.parse(xhr.responseText); } catch (e) { /* ignore */ }
+        if (xhr.status >= 200 && xhr.status < 300 && j.secure_url) return resolve({ url: j.secure_url, w: j.width, h: j.height });
+        const m = (j.error && j.error.message) || ('Upload failed (' + xhr.status + ')');
+        if (withFolder && /folder/i.test(m)) return send(false);   /* preset does not allow a custom folder: retry without */
+        reject(new Error(m));
+      };
+      xhr.onerror = () => reject(new Error('Network error while uploading.'));
+      xhr.send(fd);
+    };
+    send(true);
+  });
+}
+
+/* ============ modal + form ============ */
+function openModal(title, bodyHtml, okLabel, onSubmit, opts) {
+  opts = opts || {};
+  const root = $('#modalRoot');
+  root.innerHTML = '<div class="overlay"><form class="modal" novalidate><header><h3>' + esc(title) + '</h3><button type="button" class="x" aria-label="Close">×</button></header><div class="body">' + bodyHtml + '</div><footer><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn ' + (opts.danger ? 'danger' : 'primary') + '">' + esc(okLabel) + '</button></footer></form></div>';
+  const close = () => { root.innerHTML = ''; document.removeEventListener('keydown', onKey); };
+  const onKey = (e) => { if (e.key === 'Escape') close(); };
+  document.addEventListener('keydown', onKey);
+  root.querySelector('.x').onclick = close; root.querySelector('[data-close]').onclick = close;
+  root.querySelector('.overlay').addEventListener('mousedown', (e) => { if (e.target.classList.contains('overlay')) close(); });
+  const form = root.querySelector('form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const ok = form.querySelector('[type=submit]'); const old = ok.textContent;
+    ok.disabled = true; ok.innerHTML = '<span class="spin"></span> Saving…';
+    try { const r = await onSubmit(form); if (r !== false) close(); }
+    catch (err) { toast(niceError(err), true); }
+    ok.disabled = false; ok.textContent = old;
+  });
+  const first = form.querySelector('input,textarea,select'); if (first) first.focus();
+  return { form, close };
+}
+const confirmBox = (title, text, label) => new Promise((resolve) => {
+  let done = false;
+  const m = openModal(title, '<p style="margin:0">' + text + '</p>', label, async () => { done = true; resolve(true); }, { danger: true });
+  const obs = new MutationObserver(() => { if (!document.querySelector('#modalRoot form')) { obs.disconnect(); if (!done) resolve(false); } });
+  obs.observe($('#modalRoot'), { childList: true });
+});
+
+/* image field: returns controller with .get() → {url,w,h,changed} */
+function imageField(label, current, sub, shape) {
+  const id = 'img' + Math.random().toString(36).slice(2, 7);
+  const html = '<div class="f" id="' + id + '"><label>' + esc(label) + '</label><div class="imgbox"><div class="pv" data-pv>' +
+    (current ? '<img src="' + esc(cldThumb(current, 300)) + '" alt="">' : 'No image') + '</div><div class="ctl">' +
+    '<input type="file" accept="image/*" data-file hidden>' +
+    '<button type="button" class="btn sm" data-pick>⬆ Upload image (Cloudinary)</button>' +
+    '<div class="bar-progress" data-prog hidden><i></i></div>' +
+    '<input type="text" data-url placeholder="…or paste an image URL / images/…" value="' + esc(current || '') + '">' +
+    '</div></div><div class="hint">' + esc(shape || '') + '</div></div>';
+  const st = { url: current || '', w: null, h: null, changed: false };
+  const bind = (root) => {
+    const box = root.querySelector('#' + id), file = box.querySelector('[data-file]'), url = box.querySelector('[data-url]');
+    const pv = box.querySelector('[data-pv]'), prog = box.querySelector('[data-prog]');
+    const show = () => { pv.innerHTML = st.url ? '<img src="' + esc(cldThumb(st.url, 300)) + '" alt="">' : 'No image'; };
+    box.querySelector('[data-pick]').onclick = () => file.click();
+    url.addEventListener('input', () => { st.url = url.value.trim(); st.w = st.h = null; st.changed = st.url !== (current || ''); show(); });
+    file.addEventListener('change', async () => {
+      const f = file.files[0]; if (!f) return;
+      prog.hidden = false; prog.firstElementChild.style.width = '0';
+      try {
+        const r = await cloudUpload(f, sub, (p) => { prog.firstElementChild.style.width = Math.round(p * 100) + '%'; });
+        st.url = r.url; st.w = r.w; st.h = r.h; st.changed = true; url.value = r.url; show(); toast('Image uploaded ✓');
+      } catch (e) { toast(e.message, true); }
+      prog.hidden = true; file.value = '';
+    });
+  };
+  return { html, bind, get: () => st };
+}
+
+/* ============ DASHBOARD ============ */
+async function viewDashboard() {
+  loading();
+  try {
+    const [p, t] = await Promise.all([load('projects'), load('team')]);
+    let leadCount = '…';
+    main().innerHTML =
+      '<h2>Dashboard</h2><p class="sub">Manage what appears on the website. Changes go live as soon as you save.</p>' +
+      '<div class="cards">' +
+      '<div class="stat"><b>' + p.length + '</b><span>Projects</span></div>' +
+      '<div class="stat"><b>' + t.length + '</b><span>Team members</span></div>' +
+      '<div class="stat"><b id="dLeads">' + leadCount + '</b><span>Invitation creators</span></div></div>' +
+      seedPanel(p, t);
+    const imp = $('#btnSeed'); if (imp) imp.onclick = runSeed;
+    load('leads').then((l) => { const el = $('#dLeads'); if (el) el.textContent = l.length; }).catch(() => { const el = $('#dLeads'); if (el) el.textContent = '—'; });
+  } catch (e) { failBox(e); }
+}
+function seedPanel(p, t) {
+  const ids = new Set(p.map((x) => x.id)), tids = new Set(t.map((x) => x.id));
+  const missP = SEED.projects.filter((x) => !ids.has(slug(x.name))).length;
+  const missT = SEED.team.filter((x) => !tids.has(slug(x.name))).length;
+  if (!missP && !missT) return '';
+  return '<div class="panel" style="border-color:var(--green)"><h3>Import existing website content</h3>' +
+    '<p>' + missP + ' project(s) and ' + missT + ' team member(s) that are hard-coded in the website are not in the database yet. Import them once, then edit / delete them here. Items already imported are never overwritten.</p>' +
+    '<button class="btn primary" id="btnSeed">Import now</button></div>';
+}
+async function runSeed() {
+  const b = $('#btnSeed'); b.disabled = true; b.innerHTML = '<span class="spin"></span> Importing…';
+  try {
+    await Promise.all([load('projects', true), load('team', true)]);
+    const have = { showcaseProjects: new Set(state.projects.map((x) => x.id)), teamMembers: new Set(state.team.map((x) => x.id)) };
+    const batch = db.batch(); let n = 0;
+    SEED.projects.forEach((x) => { const id = slug(x.name); if (!have.showcaseProjects.has(id)) { batch.set(db.collection(COLS.projects).doc(id), clean({ ...x, createdAt: TS(), updatedAt: TS() })); n++; } });
+    SEED.team.forEach((x) => { const id = slug(x.name); if (!have.teamMembers.has(id)) { batch.set(db.collection(COLS.team).doc(id), clean({ ...x, createdAt: TS(), updatedAt: TS() })); n++; } });
+    await batch.commit();
+    await Promise.all([load('projects', true), load('team', true)]);
+    toast('Imported ' + n + ' item(s) ✓'); viewDashboard();
+  } catch (e) { toast(niceError(e), true); b.disabled = false; b.textContent = 'Import now'; }
+}
+const clean = (o) => { Object.keys(o).forEach((k) => { if (o[k] === undefined || o[k] === null) delete o[k]; }); return o; };
+
+/* ============ PROJECTS ============ */
+async function viewProjects() {
+  loading('Loading projects…');
+  try { await load('projects', true); } catch (e) { return failBox(e); }
+  drawProjects();
+}
+function drawProjects() {
+  const q = state.projQ.toLowerCase();
+  const all = state.projects.slice().sort(byOrder);
+  const list = all.filter((p) => !q || (p.name + ' ' + (p.category || '') + ' ' + (p.tag || '') + ' ' + (p.url || '')).toLowerCase().includes(q));
+  main().innerHTML = '<h2>Projects</h2><p class="sub">Shown on the <b>Our Work</b> page. Use ▲ ▼ to change the order.</p>' +
+    '<div class="bar"><input type="search" id="q" placeholder="Search projects…" value="' + esc(state.projQ) + '"><span class="grow"></span><button class="btn primary" id="add">＋ Add project</button></div>' +
+    (all.length ? '<div class="tbl"><table><thead><tr><th style="width:46px">Order</th><th>Logo</th><th>Project</th><th>Category</th><th>Visible</th><th>Actions</th></tr></thead><tbody>' +
+      list.map((p) => '<tr data-id="' + esc(p.id) + '"><td><div class="arrows"><button data-act="up" title="Move up">▲</button><button data-act="down" title="Move down">▼</button></div></td>' +
+        '<td>' + (p.logo ? '<img class="thumb" src="' + esc(cldThumb(p.logo, 160)) + '" alt="" loading="lazy">' : '') + '</td>' +
+        '<td><b>' + esc(p.name) + '</b><small>' + esc(p.url || '') + '</small></td>' +
+        '<td><span class="pill">' + esc(cap(p.category)) + '</span><small>' + esc(p.tag || '') + '</small></td>' +
+        '<td><label class="switch"><input type="checkbox" data-act="vis" ' + (p.visible !== false ? 'checked' : '') + '><i></i></label></td>' +
+        '<td><div class="acts"><button class="btn sm" data-act="edit">Edit</button><button class="btn sm danger" data-act="del">Delete</button></div></td></tr>').join('') +
+      '</tbody></table></div>' : '<div class="panel empty">No projects in the database yet. Go to <b>Dashboard → Import</b> to bring in the existing ones, or add a new one.</div>');
+  $('#q').oninput = (e) => { state.projQ = e.target.value; const pos = e.target.selectionStart; drawProjects(); const q2 = $('#q'); q2.focus(); q2.setSelectionRange(pos, pos); };
+  $('#add').onclick = () => projectForm(null);
+  main().querySelectorAll('tr[data-id]').forEach((tr) => {
+    const id = tr.dataset.id, item = state.projects.find((x) => x.id === id);
+    tr.addEventListener('click', async (e) => {
+      const act = e.target.dataset && e.target.dataset.act; if (!act || act === 'vis') return;
+      try {
+        if (act === 'edit') projectForm(item);
+        else if (act === 'up' || act === 'down') { await move('projects', id, act === 'up' ? -1 : 1); drawProjects(); }
+        else if (act === 'del') {
+          if (await confirmBox('Delete project', 'Delete <b>' + esc(item.name) + '</b> from the website? This cannot be undone.', 'Delete')) {
+            await db.collection(COLS.projects).doc(id).delete(); state.projects = state.projects.filter((x) => x.id !== id); toast('Deleted ✓'); drawProjects();
+          }
+        }
+      } catch (err) { toast(niceError(err), true); }
+    });
+    tr.querySelector('[data-act=vis]').addEventListener('change', async (e) => {
+      try { await db.collection(COLS.projects).doc(id).update({ visible: e.target.checked, updatedAt: TS() }); item.visible = e.target.checked; toast(e.target.checked ? 'Now visible' : 'Hidden from website'); }
+      catch (err) { e.target.checked = !e.target.checked; toast(niceError(err), true); }
+    });
+  });
+}
+function projectForm(item) {
+  const isNew = !item; item = item || { visible: true, order: nextOrder(state.projects) };
+  const cats = Array.from(new Set(['education', 'travel', 'healthcare', 'business', 'retail', 'community'].concat(state.projects.map((p) => slug(p.category)).filter(Boolean))));
+  const img = imageField('Logo / image', item.logo, 'projects', 'Wide logo works best (PNG / WebP with white or transparent background).');
+  const m = openModal(isNew ? 'Add project' : 'Edit project',
+    '<div class="f"><label>Project name *</label><input type="text" name="name" maxlength="120" value="' + esc(item.name) + '" required></div>' +
+    '<div class="f"><label>Website URL</label><input type="url" name="url" placeholder="https://example.com/" value="' + esc(item.url) + '"><div class="hint">Visitors open this when they click the card. Leave empty for a non-clickable card.</div></div>' +
+    '<div class="row2"><div class="f"><label>Category * (filter button)</label><input type="text" name="category" list="catlist" maxlength="30" value="' + esc(item.category) + '" required><datalist id="catlist">' + cats.map((c) => '<option value="' + esc(c) + '">').join('') + '</datalist></div>' +
+    '<div class="f"><label>Tag (small label)</label><input type="text" name="tag" maxlength="40" placeholder="e.g. Education" value="' + esc(item.tag) + '"></div></div>' +
+    img.html +
+    '<div class="row2"><div class="f"><label>Order</label><input type="number" name="order" step="1" value="' + esc(item.order) + '"><div class="hint">Smaller number = shown first.</div></div>' +
+    '<div class="f"><label>Visible on website</label><label class="switch" style="margin-top:6px"><input type="checkbox" name="visible" ' + (item.visible !== false ? 'checked' : '') + '><i></i></label></div></div>',
+    isNew ? 'Add project' : 'Save changes',
+    async (form) => {
+      const g = (n) => form.elements[n].value.trim();
+      if (!g('name') || !g('category')) { toast('Name and category are required.', true); return false; }
+      const url = g('url'); if (url && !/^https?:\/\//i.test(url)) { toast('URL must start with http:// or https://', true); return false; }
+      const i = img.get();
+      const data = { name: g('name'), url, category: slug(g('category')), tag: g('tag'), order: Number(g('order')) || 0, visible: form.elements.visible.checked, logo: i.url, updatedAt: TS() };
+      if (i.changed) { data.logoW = i.w || null; data.logoH = i.h || null; }
+      if (isNew) { data.createdAt = TS(); data.logoW = data.logoW || null; data.logoH = data.logoH || null; const ref = await db.collection(COLS.projects).add(data); }
+      else await db.collection(COLS.projects).doc(item.id).update(data);
+      toast(isNew ? 'Project added ✓' : 'Saved ✓');
+      await load('projects', true); drawProjects();
+    });
+  img.bind(m.form);
+}
+
+/* ============ TEAM ============ */
+async function viewTeam() {
+  loading('Loading team…');
+  try { await load('team', true); } catch (e) { return failBox(e); }
+  drawTeam();
+}
+function drawTeam() {
+  const all = state.team.slice().sort(byOrder);
+  main().innerHTML = '<h2>Team</h2><p class="sub">Shown on the <b>About Us</b> page. “Leadership” = big full-width card, “Team” = smaller card in the grid.</p>' +
+    '<div class="bar"><span class="grow"></span><button class="btn primary" id="add">＋ Add team member</button></div>' +
+    (all.length ? '<div class="tbl"><table><thead><tr><th style="width:46px">Order</th><th>Photo</th><th>Member</th><th>Card</th><th>Visible</th><th>Actions</th></tr></thead><tbody>' +
+      all.map((p) => '<tr data-id="' + esc(p.id) + '"><td><div class="arrows"><button data-act="up">▲</button><button data-act="down">▼</button></div></td>' +
+        '<td>' + (p.photo ? '<img class="photo" src="' + esc(cldThumb(p.photo, 120)) + '" alt="" loading="lazy">' : '') + '</td>' +
+        '<td><b>' + esc(p.name) + '</b><small>' + esc(p.role || '') + '</small></td>' +
+        '<td><span class="pill">' + (p.tier === 'lead' ? 'Leadership' : 'Team') + '</span></td>' +
+        '<td><label class="switch"><input type="checkbox" data-act="vis" ' + (p.visible !== false ? 'checked' : '') + '><i></i></label></td>' +
+        '<td><div class="acts"><button class="btn sm" data-act="edit">Edit</button><button class="btn sm danger" data-act="del">Delete</button></div></td></tr>').join('') +
+      '</tbody></table></div>' : '<div class="panel empty">No team members in the database yet. Go to <b>Dashboard → Import</b> or add one.</div>');
+  $('#add').onclick = () => teamForm(null);
+  main().querySelectorAll('tr[data-id]').forEach((tr) => {
+    const id = tr.dataset.id, item = state.team.find((x) => x.id === id);
+    tr.addEventListener('click', async (e) => {
+      const act = e.target.dataset && e.target.dataset.act; if (!act || act === 'vis') return;
+      try {
+        if (act === 'edit') teamForm(item);
+        else if (act === 'up' || act === 'down') { await move('team', id, act === 'up' ? -1 : 1); drawTeam(); }
+        else if (act === 'del') {
+          if (await confirmBox('Delete team member', 'Remove <b>' + esc(item.name) + '</b> from the website? This cannot be undone.', 'Delete')) {
+            await db.collection(COLS.team).doc(id).delete(); state.team = state.team.filter((x) => x.id !== id); toast('Deleted ✓'); drawTeam();
+          }
+        }
+      } catch (err) { toast(niceError(err), true); }
+    });
+    tr.querySelector('[data-act=vis]').addEventListener('change', async (e) => {
+      try { await db.collection(COLS.team).doc(id).update({ visible: e.target.checked, updatedAt: TS() }); item.visible = e.target.checked; toast(e.target.checked ? 'Now visible' : 'Hidden from website'); }
+      catch (err) { e.target.checked = !e.target.checked; toast(niceError(err), true); }
+    });
+  });
+}
+function teamForm(item) {
+  const isNew = !item; item = item || { visible: true, tier: 'member', order: nextOrder(state.team) };
+  const img = imageField('Photo', item.photo, 'team', 'Portrait or square photo, face centred.');
+  const m = openModal(isNew ? 'Add team member' : 'Edit team member',
+    '<div class="row2"><div class="f"><label>Name *</label><input type="text" name="name" maxlength="80" value="' + esc(item.name) + '" required></div>' +
+    '<div class="f"><label>Role / designation *</label><input type="text" name="role" maxlength="80" value="' + esc(item.role) + '" required></div></div>' +
+    '<div class="f"><label>Extra line (optional)</label><input type="text" name="subtitle" maxlength="140" placeholder="e.g. Final year student, XYZ College" value="' + esc(item.subtitle) + '"></div>' +
+    '<div class="f"><label>About</label><textarea name="bio" maxlength="1500">' + esc(item.bio) + '</textarea><div class="hint">Leave a blank line to start a new paragraph.</div></div>' +
+    img.html +
+    '<div class="row2"><div class="f"><label>Card style</label><select name="tier"><option value="lead"' + (item.tier === 'lead' ? ' selected' : '') + '>Leadership (large card)</option><option value="member"' + (item.tier !== 'lead' ? ' selected' : '') + '>Team (small card)</option></select></div>' +
+    '<div class="f"><label>Order</label><input type="number" name="order" step="1" value="' + esc(item.order) + '"></div></div>' +
+    '<div class="f"><label>Visible on website</label><label class="switch"><input type="checkbox" name="visible" ' + (item.visible !== false ? 'checked' : '') + '><i></i></label></div>',
+    isNew ? 'Add member' : 'Save changes',
+    async (form) => {
+      const g = (n) => form.elements[n].value.trim();
+      if (!g('name') || !g('role')) { toast('Name and role are required.', true); return false; }
+      const i = img.get();
+      const data = { name: g('name'), role: g('role'), subtitle: g('subtitle'), bio: form.elements.bio.value.trim(), tier: g('tier'), order: Number(g('order')) || 0, visible: form.elements.visible.checked, photo: i.url, updatedAt: TS() };
+      if (i.changed) { data.photoW = i.w || null; data.photoH = i.h || null; data.photoSrcset = ''; data.photoSizes = ''; data.photoAlt = ''; }
+      if (isNew) { data.createdAt = TS(); await db.collection(COLS.team).add(data); }
+      else await db.collection(COLS.team).doc(item.id).update(data);
+      toast(isNew ? 'Team member added ✓' : 'Saved ✓');
+      await load('team', true); drawTeam();
+    });
+  img.bind(m.form);
+}
+
+/* ============ INVITATION CREATORS ============ */
+async function viewLeads() {
+  loading('Loading invitation creators…');
+  try {
+    const snap = await db.collection(COLS.leads).orderBy('updatedAt', 'desc').limit(500).get();
+    const leads = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    /* join with the public invitation document (created date, published or deleted) */
+    for (let i = 0; i < leads.length; i += 15) {
+      await Promise.all(leads.slice(i, i + 15).map(async (l) => {
+        try { const s = await db.collection(COLS.inv).doc(l.invitationId || l.id).get(); l._inv = s.exists ? s.data() : null; l._checked = true; }
+        catch (e) { l._checked = false; }
+      }));
+      const el = $('.loading'); if (el) el.innerHTML = '<span class="spin"></span> Loading details… ' + Math.min(i + 15, leads.length) + ' / ' + leads.length;
+    }
+    state.leads = leads;
+  } catch (e) { return failBox(e); }
+  drawLeads();
+}
+const leadLink = (l) => location.origin + '/' + (CFG.viewerUrl || 'invitation') + '?id=' + encodeURIComponent(l.invitationId || l.id);
+const leadEmails = (l) => Array.from(new Set([].concat(l.emails || [], l.email || []).filter(Boolean)));
+function drawLeads() {
+  const all = state.leads;
+  const tpls = Array.from(new Set(all.map((l) => l.templateId).filter(Boolean))).sort();
+  const q = state.leadQ.toLowerCase();
+  const list = all.filter((l) => (!state.leadTpl || l.templateId === state.leadTpl) &&
+    (!q || (leadEmails(l).join(' ') + ' ' + (l.title || '') + ' ' + (l.templateId || '') + ' ' + l.id).toLowerCase().includes(q)));
+  const uniq = new Set(all.flatMap(leadEmails)).size;
+  const live = all.filter((l) => l._inv).length;
+  main().innerHTML = '<h2>Invitation creators</h2><p class="sub">People who created an invitation link on <b>Create Invitations</b> and entered their email.</p>' +
+    '<div class="cards"><div class="stat"><b>' + all.length + '</b><span>Invitation links</span></div><div class="stat"><b>' + uniq + '</b><span>Unique emails</span></div><div class="stat"><b>' + live + '</b><span>Still published</span></div></div>' +
+    '<div class="bar"><input type="search" id="q" placeholder="Search email, names, template…" value="' + esc(state.leadQ) + '">' +
+    '<select id="tpl"><option value="">All templates</option>' + tpls.map((t) => '<option value="' + esc(t) + '"' + (state.leadTpl === t ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '</select>' +
+    '<span class="grow"></span><button class="btn" id="csv">⬇ Export CSV</button><button class="btn" id="refresh">↻ Refresh</button></div>' +
+    (list.length ? '<div class="tbl"><table><thead><tr><th>Created</th><th>Creator email</th><th>Invitation</th><th>Template</th><th>Status</th><th>Last activity</th><th>Actions</th></tr></thead><tbody>' +
+      list.map((l) => '<tr data-id="' + esc(l.id) + '"><td>' + esc(fmtDate(l._inv && l._inv.createdAt)) + '</td>' +
+        '<td>' + leadEmails(l).map((e) => '<div>' + esc(e) + '</div>').join('') + '</td>' +
+        '<td><b>' + esc(l.title || '—') + '</b><small>' + esc(l.invitationId || l.id) + '</small></td>' +
+        '<td><span class="pill">' + esc(l.templateId || (l._inv && l._inv.templateId) || '—') + '</span></td>' +
+        '<td>' + (l._checked === false ? '<span class="pill warn">unknown</span>' : (l._inv ? '<span class="pill">published</span>' : '<span class="pill off">deleted</span>')) + (l.status ? '<small>mail: ' + esc(l.status) + '</small>' : '') + '</td>' +
+        '<td>' + esc(fmtDate(l.updatedAt)) + '</td>' +
+        '<td><div class="acts"><a class="btn sm" href="' + esc(leadLink(l)) + '" target="_blank" rel="noopener">Open</a><button class="btn sm" data-act="copy">Copy email</button><button class="btn sm danger" data-act="del">Delete</button></div></td></tr>').join('') +
+      '</tbody></table></div>' : '<div class="panel empty">No invitation creators found.</div>');
+  $('#q').oninput = (e) => { state.leadQ = e.target.value; const pos = e.target.selectionStart; drawLeads(); const q2 = $('#q'); q2.focus(); q2.setSelectionRange(pos, pos); };
+  $('#tpl').onchange = (e) => { state.leadTpl = e.target.value; drawLeads(); };
+  $('#refresh').onclick = () => viewLeads();
+  $('#csv').onclick = () => exportCsv(list);
+  main().querySelectorAll('tr[data-id]').forEach((tr) => tr.addEventListener('click', async (e) => {
+    const act = e.target.dataset && e.target.dataset.act; if (!act) return;
+    const l = state.leads.find((x) => x.id === tr.dataset.id);
+    if (act === 'copy') { try { await navigator.clipboard.writeText(leadEmails(l).join(', ')); toast('Email copied ✓'); } catch (er) { toast('Copy failed', true); } }
+    if (act === 'del') {
+      const body = 'Delete the creator record for <b>' + esc(leadEmails(l).join(', ')) + '</b>?' +
+        '<label style="display:flex;gap:8px;margin-top:14px;align-items:flex-start"><input type="checkbox" id="alsoInv" style="margin-top:4px"><span>Also delete the published invitation (<code>' + esc(l.invitationId || l.id) + '</code>). Its link will stop working.</span></label>';
+      const ok = await new Promise((resolve) => {
+        let done = false;
+        openModal('Delete creator record', body, 'Delete', async () => {
+          const also = $('#alsoInv').checked;
+          try {
+            await db.collection(COLS.leads).doc(l.id).delete(); done = true;
+            if (also) { try { await db.collection(COLS.inv).doc(l.invitationId || l.id).delete(); } catch (er) { toast('Record deleted, but the invitation could not be deleted (add the premiumInvitations admin rule).', true); } }
+            state.leads = state.leads.filter((x) => x.id !== l.id); toast('Deleted ✓'); resolve(true);
+          } catch (er) { toast(niceError(er), true); resolve(false); return false; }
+        }, { danger: true });
+        const obs = new MutationObserver(() => { if (!document.querySelector('#modalRoot form')) { obs.disconnect(); if (!done) resolve(false); } });
+        obs.observe($('#modalRoot'), { childList: true });
+      });
+      if (ok) drawLeads();
+    }
+  }));
+}
+function exportCsv(list) {
+  const q = (v) => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const head = ['created', 'emails', 'title', 'invitation_id', 'template', 'published', 'mail_status', 'last_activity', 'link'];
+  const rows = list.map((l) => [fmtDate(l._inv && l._inv.createdAt), leadEmails(l).join('; '), l.title, l.invitationId || l.id, l.templateId, l._inv ? 'yes' : 'no', l.status, fmtDate(l.updatedAt), leadLink(l)]);
+  const csv = '\ufeff' + [head.join(',')].concat(rows.map((r) => r.map(q).join(','))).join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+  a.download = 'invitation-creators-' + new Date().toISOString().slice(0, 10) + '.csv'; document.body.appendChild(a); a.click(); a.remove();
+}
+})();
+</script>
+</body>
+</html>

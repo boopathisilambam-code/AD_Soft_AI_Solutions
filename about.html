@@ -114,6 +114,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 }
 /* leadership cards (full-width rows) */
 @media (min-width:768px) { .team-photo.lead { width:36%; min-height:400px; } }
+.team-msg{width:100%;text-align:center;color:#6b6b6b;font-size:16px;font-weight:500;padding:40px 0;margin:0}
 </style>
 <link rel="stylesheet" href="css/eq-image.css?v=20261126c">
 <script>document.documentElement.classList.add("js-motion")</script>
@@ -512,41 +513,8 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block">Leadership and engineers building practical digital solutions</span>
 </div>
 </div>
-<div class="row justify-content-center mb-40px" data-anime='{ "opacity": [0,1], "translateY": [30, 0], "duration": 1000, "easing": "easeOutQuad" }'>
-<div class="col-12"><div class="bg-white border-radius-6px box-shadow-large overflow-hidden d-flex flex-column flex-md-row">
-<img loading="lazy" decoding="async" class="team-photo lead" src="images/team/founder.opt.webp" srcset="images/team/founder-320w.webp 320w, images/team/founder-480w.webp 480w, images/team/founder-640w.webp 640w, images/team/founder-768w.webp 768w, images/team/founder.opt.webp 1280w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 34vw, (max-width: 1399px) 35vw, 437px" width="1280" height="853" alt="Akhil Kumar, Founder and CEO">
-<div class="p-50px lg-p-40px sm-p-30px d-flex flex-column justify-content-center">
-<h4 class="fw-800 text-dark-gray mb-5px ls-minus-1px">Akhil Kumar</h4>
-<span class="text-base-color fw-600 fs-18 d-block mb-20px">Founder &amp; CEO</span>
-<p class="mb-15px">Professionally a Mechanical Engineer with 6+ years of experience, who has worked on multiple IT projects as Project Manager and Technical Head. Involved in business development of modern technologies for apps, websites and more.</p><p class="mb-0">An expert in Product Design, Digital Marketing and finding technical solutions, he constantly strives to make an impact in the business sector and founded AD Soft Technologies.</p>
-</div></div></div>
-</div>
-<div class="row justify-content-center mb-40px" data-anime='{ "opacity": [0,1], "translateY": [30, 0], "duration": 1000, "easing": "easeOutQuad" }'>
-<div class="col-12"><div class="bg-white border-radius-6px box-shadow-large overflow-hidden d-flex flex-column flex-md-row-reverse">
-<img loading="lazy" decoding="async" class="team-photo lead" src="images/team/Midhul.opt.webp" width="735" height="735" alt="Midhul Jacob Mathew, Associate Director">
-<div class="p-50px lg-p-40px sm-p-30px d-flex flex-column justify-content-center">
-<h4 class="fw-800 text-dark-gray mb-5px ls-minus-1px">Midhul Jacob Mathew</h4>
-<span class="text-base-color fw-600 fs-18 d-block mb-20px">Associate Director</span>
-<p class="mb-15px">Professionally an Electrical Engineer, with a Master's and a Bachelor's degree in Electrical Engineering, both from the City University of New York.</p><p class="mb-0">My strength in design and product development motivated me to build a strong base in the IT field. That inspired me to work alongside my friend Akhil to build a dream organisation, AD Soft Technologies.</p>
-</div></div></div>
-</div>
-<div class="row row-cols-1 row-cols-lg-2 justify-content-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-<div class="col mb-30px"><div class="bg-white border-radius-6px box-shadow-large overflow-hidden h-100 d-flex flex-column flex-md-row">
-<img loading="lazy" decoding="async" class="team-photo" src="images/team/Prasanna.opt.webp" srcset="images/team/Prasanna-240w.webp 240w, images/team/Prasanna-320w.webp 320w, images/team/Prasanna-480w.webp 480w, images/team/Prasanna-640w.webp 640w, images/team/Prasanna-768w.webp 768w, images/team/Prasanna.opt.webp 1089w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 39vw, (max-width: 1199px) 21vw, (max-width: 1399px) 20vw, 249px" width="1089" height="1280" alt="Prasanna N">
-<div class="p-35px d-flex flex-column justify-content-center">
-<h5 class="fw-700 text-dark-gray mb-5px ls-minus-05px">Prasanna N</h5>
-<span class="text-base-color fw-600 d-block mb-10px">Software Engineer Intern</span>
-<span class="fw-500 text-dark-gray d-block mb-15px">Final year student, Bharath Niketan Engineering College</span>
-<p class="mb-0">Passionate about building efficient and user-centric web applications. Committed to leveraging modern technologies to deliver impactful digital solutions.</p>
-</div></div></div>
-<div class="col mb-30px"><div class="bg-white border-radius-6px box-shadow-large overflow-hidden h-100 d-flex flex-column flex-md-row">
-<img loading="lazy" decoding="async" class="team-photo" src="images/team/boobathi.webp" width="960" height="890" alt="J. Boopathiraj">
-<div class="p-35px d-flex flex-column justify-content-center">
-<h5 class="fw-700 text-dark-gray mb-5px ls-minus-05px">J. Boopathiraj</h5>
-<span class="text-base-color fw-600 d-block mb-10px">Software Engineer Intern</span>
-<span class="fw-500 text-dark-gray d-block mb-15px">Pre-final year student, Bharath Niketan Engineering College</span>
-<p class="mb-0">Dedicated to developing responsive and well-structured web applications. Continuously exploring modern technologies to create better digital experiences.</p>
-</div></div></div>
+<div id="teamRoot">
+<p class="team-msg">Loading team&hellip;</p>
 </div>
 </div>
 </section>
@@ -732,7 +700,8 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
  <script defer src="js/jquery.js?v=20261126c"></script>
         <script defer src="js/vendors.min.js?v=20261126c"></script>
         <script defer src="js/main.js?v=20261126c"></script>
-          <script src="js/nav-active.js?v=20261126c"></script><script>
+          <script src="js/nav-active.js?v=20261126c"></script>
+        <script defer src="js/site-data.js?v=20261129"></script><script>
   // Local environment-il (.html) illamal click pannum pothu 404 varamal irukka or local testing fallback
   if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
     document.querySelectorAll('a').forEach(function(link) {

@@ -1018,6 +1018,6 @@ html body footer p.lh-28 > a[href^="mailto:"] {
 /* White logo on the green sticky header (desktop >=1200px); green logo everywhere else on light backgrounds */
 html body header .navbar-brand .logo-on-green { display: none; }
 @media (min-width: 1200px) {
-  html body header.sticky-active .navbar-brand .logo-on-green { display: block; height: 68px; width: auto; max-height: 68px; visibility: visible; opacity: 1; }
+  html body header.sticky-active .navbar-brand .logo-on-green { display: block; height: 48px; width: auto; max-height: 48px; visibility: visible; opacity: 1; }
   html body header.sticky-active .navbar-brand .default-logo { display: none !important; }
 }
