@@ -281,6 +281,7 @@
       state = mergeData(def.defaults, draft || {});
     }
     let skipIntro = false;
+    let published = false;
 
     /* ----- shell ----- */
     const modal = el('div', { class: 'ip-modal', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Customize invitation', 'data-tab': 'edit' });
@@ -623,7 +624,18 @@
       const pop = el('div', { class: 'ip-sheet ip-sheet--pop', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Send invitation link to email' });
       const box = el('div', { class: 'ip-sheet__box' });
       pop.append(box); modal.append(pop);
-      const close = () => pop.remove();
+      let finished = false, timer = 0;
+      const close = () => { clearInterval(timer); pop.remove(); if (finished) returnHome(); };
+      const finish = (title, text) => {
+        finished = true; box.innerHTML = '';
+        let left = 4;
+        const home = el('button', { type: 'button', class: 'ip-btn ip-btn--primary ip-btn--block', text: 'Back to Create Invitations', onclick: close });
+        const cd = el('p', { class: 'ip-hint ip-count', text: `Returning to Create Invitations in ${left}s…` });
+        box.append(el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: close }),
+          el('h3', { text: title }), el('p', { class: 'ip-hint', text }), cd, home);
+        home.focus({ preventScroll: true });
+        timer = setInterval(() => { left -= 1; if (left <= 0) close(); else cd.textContent = `Returning to Create Invitations in ${left}s…`; }, 1000);
+      };
       pop.addEventListener('click', (e) => { if (e.target === pop) close(); });
       let saved = ''; try { saved = localStorage.getItem('inv:email') || ''; } catch (e) { /* ignore */ }
       const input = el('input', { type: 'email', inputmode: 'email', autocomplete: 'email', placeholder: 'yourname@gmail.com', value: saved, 'aria-label': 'Your Gmail ID', maxlength: 120 });
@@ -639,12 +651,7 @@
         const email = input.value.trim().toLowerCase();
         if (!EMAIL_RE.test(email)) { err.textContent = 'Please enter a valid email address.'; err.hidden = false; input.focus(); return; }
         if (sentList(id).includes(email)) {
-          box.innerHTML = '';
-          box.append(
-            el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: close }),
-            el('h3', { text: 'Already sent ✓' }),
-            el('p', { class: 'ip-hint', text: `The invitation link was already sent to ${maskEmail(email)}. Please check your inbox (and the Spam / Promotions folder).` }),
-            el('button', { type: 'button', class: 'ip-btn ip-btn--primary ip-btn--block', text: 'OK', onclick: close }));
+          finish('Already sent ✓', `The invitation link was already sent to ${maskEmail(email)}. Please check your inbox (and the Spam / Promotions folder).`);
           return;
         }
         if (Date.now() - lastSend < 20000) { err.textContent = 'Please wait a few seconds before sending again.'; err.hidden = false; return; }
@@ -652,12 +659,7 @@
         try {
           await emailLink(id, email);
           lastSend = Date.now();
-          box.innerHTML = '';
-          box.append(
-            el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: close }),
-            el('h3', { text: 'Link sent ✓' }),
-            el('p', { class: 'ip-hint', text: `We sent your invitation link to ${maskEmail(email)}. Check your inbox (and the Spam / Promotions folder).` }),
-            el('button', { type: 'button', class: 'ip-btn ip-btn--primary ip-btn--block', text: 'Done', onclick: close }));
+          finish('Link sent ✓', `We sent your invitation link to ${maskEmail(email)}. Check your inbox (and the Spam / Promotions folder).`);
           if (onSent) onSent(email);
         } catch (e) { console.error('[InvitationPlatform] email send failed:', e); err.textContent = e.message || String(e); err.hidden = false; send.disabled = false; send.textContent = 'Send link to my email'; }
       };
@@ -670,7 +672,7 @@
       const sheet = el('div', { class: 'ip-sheet', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Publish invitation' });
       const box = el('div', { class: 'ip-sheet__box' });
       sheet.append(box); modal.append(sheet);
-      const close = () => sheet.remove();
+      const close = () => { sheet.remove(); if (published) returnHome(); };
       sheet.addEventListener('click', (e) => { if (e.target === sheet) close(); });
 
       const showForm = () => {
@@ -702,6 +704,7 @@
       };
 
       const showDone = (id) => {
+        published = true;
         /* the real link is never put in the DOM - only a masked placeholder */
         const masked = shareUrl('').replace(/^https?:\/\//, '') + '••••••••••';
         const lock = el('div', { class: 'ip-lockurl', 'aria-label': 'Link hidden until you receive it by email' }, el('span', { text: '🔒 ' + masked }));
@@ -715,12 +718,12 @@
           try { showRsvps(rsvpBox, await listRsvps(id), id); rsvpBox.hidden = false; } catch (e) { toast(e.message); }
           rsvpBtn.disabled = false; rsvpBtn.textContent = 'Refresh RSVPs';
         });
-        const keepEditing = el('button', { type: 'button', class: 'ip-btn ip-btn--ghost', text: 'Continue editing', onclick: close });
+        const keepEditing = el('button', { type: 'button', class: 'ip-btn ip-btn--ghost', text: 'Back to home', onclick: returnHome });
         box.innerHTML = '';
         box.append(
           el('button', { type: 'button', class: 'ip-iconbtn ip-sheet__x', 'aria-label': 'Close', text: '×', onclick: close }),
           el('h3', { text: 'Your invitation is live 🎉' }),
-          el('p', { class: 'ip-hint', text: 'Tap “Copy link” and enter your Gmail ID. We will email the invitation link to you.' }),
+          el('p', { class: 'ip-hint', text: 'Tap “Copy link” and enter your Gmail ID. We will email the invitation link to you, then bring you back to Create Invitations.' }),
           el('div', { class: 'ip-linkbox' }, lock, copy),
           note,
           el('div', { class: 'ip-row ip-row--wrap' }, rsvpBtn, keepEditing),
@@ -803,7 +806,15 @@
     $('[data-act="publish"]', modal).addEventListener('click', openSheet);
     const onKey = (e) => { if (e.key !== 'Escape' || modal.querySelector('.ip-sheet')) return; if (modal.classList.contains('is-full')) setFull(false); else close(); };
     document.addEventListener('keydown', onKey);
+    /* after publishing + sending the link: leave the editor and show the Create Invitations landing page */
+    function returnHome() {
+      close();
+      try { history.replaceState(null, '', location.pathname); } catch (e) { /* ignore */ }
+      if (gridHost) { renderMine(gridHost); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      else location.href = 'create-invitation.html';
+    }
     function close() {
+      if (document.fullscreenElement) { try { document.exitFullscreen().catch(() => {}); } catch (e) { /* ignore */ } }
       window.removeEventListener('message', onMsg); document.removeEventListener('keydown', onKey);
       modal.remove(); document.documentElement.classList.remove('ip-lock'); openModal = null;
     }
@@ -821,6 +832,22 @@
   /* =========================================================
      TEMPLATE GALLERY (cards that open the popup)
      ========================================================= */
+  let gridHost = null;
+  /* "Your invitations" strip - rebuilt whenever the landing page is shown again */
+  function renderMine(host) {
+    const old = document.querySelector('.ip-mine'); if (old) old.remove();
+    const mine = readMine();
+    if (!mine.length) return;
+    host.before(el('div', { class: 'ip-mine' }, el('b', { text: 'Your invitations: ' }),
+      mine.map((m) => {
+        const chip = el('button', { type: 'button', class: 'ip-chip', text: m.title || 'My invitation' });
+        chip.addEventListener('click', async () => {
+          try { const doc = await getInvitation(m.id); if (doc) openEditor(doc.templateId, { doc }); } catch (e) { console.warn('[InvitationPlatform]', e.message); }
+        });
+        return chip;
+      })));
+  }
+
   async function renderGrid(host) {
     host.classList.add('ip-grid');
     const ids = CFG.templates || [];
@@ -873,17 +900,8 @@
     host.before(filters);
     const empty = el('p', { class: 'ip-empty', text: 'No templates in this category yet.', hidden: true });
     host.after(empty);
-    const mine = readMine();
-    if (mine.length) {
-      host.before(el('div', { class: 'ip-mine' }, el('b', { text: 'Your invitations: ' }),
-        mine.map((m) => {
-          const chip = el('button', { type: 'button', class: 'ip-chip', text: m.title || 'My invitation' });
-          chip.addEventListener('click', async () => {
-            try { const doc = await getInvitation(m.id); if (doc) openEditor(doc.templateId, { doc }); } catch (e) { console.warn('[InvitationPlatform]', e.message); }
-          });
-          return chip;
-        })));
-    }
+    gridHost = host;
+    renderMine(host);
     defs.forEach((def, i) => {
       const values = (def.categories || [def.occasion || '']).map((value) => String(value).toLowerCase());
       const { title, sub } = splitName(def);

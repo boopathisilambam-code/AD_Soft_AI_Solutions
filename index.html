@@ -69,9 +69,9 @@
         <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
         <!-- google fonts preconnect -->
         <!-- style sheets and font icons  -->
-        <link rel="stylesheet" href="css/fonts.css">
-        <link rel="stylesheet" href="css/vendors.min.css"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css">
-        <link rel="preload" href="css/icon.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/icon.min.css"></noscript>
+        <link rel="stylesheet" href="css/fonts.css?v=20261126c">
+        <link rel="stylesheet" href="css/vendors.min.css?v=20261126c"><link rel="stylesheet" href="css/style.css?v=20261126c"><link rel="stylesheet" href="css/responsive.css?v=20261126c">
+        <link rel="preload" href="css/icon.min.css?v=20261126c" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/icon.min.css?v=20261126c"></noscript>
         <link rel="preload" href="fonts/gf/poppins-latin-400.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="fonts/gf/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-500.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-600.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-700.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="demos/marketing/marketing.css" />
@@ -350,16 +350,19 @@ section[style*="demo-marketing-dot.svg"]::before {
    the hero hidden and made it the slow Largest Contentful Paint). Below 1200px the
    template never animated these, so they simply show. */
 @media (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
-    .home-hero .hero-in-left { animation: hero-in-left 1s cubic-bezier(0.215, 0.61, 0.355, 1) both; }
-    .home-hero .hero-in-right { animation: hero-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both; }
+    .home-hero .hero-in-left { animation: hero-in-left .6s cubic-bezier(0.215, 0.61, 0.355, 1) both; }
+    .home-hero .hero-in-right { animation: hero-in-right .6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
 }
+/* Slide only, NO fade-from-0 and no delay: the tagline, buttons and hero image are painted on the very first
+   frame (they were invisible for 0.2-1.2 s on desktop, which delayed FCP/LCP and Speed Index in PageSpeed).
+   Transform-only, so no layout shift. */
 @keyframes hero-in-left {
-    from { opacity: 0; transform: translateX(-100px); }
-    to { opacity: 1; transform: none; }
+    from { transform: translateX(-60px); }
+    to { transform: none; }
 }
 @keyframes hero-in-right {
-    from { opacity: 0; transform: translateX(100px); }
-    to { opacity: 1; transform: none; }
+    from { transform: translateX(60px); }
+    to { transform: none; }
 }
 
 @media (min-width: 992px) {
@@ -740,8 +743,8 @@ section[style*="demo-marketing-dot.svg"]::before {
     .portfolio-filter li a:active{transform:translateY(0) scale(.97)}
     @media(max-width:575px){.portfolio-filter li a{padding:8px 16px;font-size:14px}}
 </style>
-    <link rel="stylesheet" href="css/nav-active.css">
-<link rel="stylesheet" href="css/eq-image.css">
+    <link rel="stylesheet" href="css/nav-active.css?v=20261126c">
+<link rel="stylesheet" href="css/eq-image.css?v=20261126c">
 <style>
 /* Goal quote */
 .goal-quote{position:relative;background: linear-gradient(326deg, #73b162 0%, #469c2e 55%, #238108 100%);border-radius:10px;padding:48px 70px;box-shadow:0 18px 45px rgba(46,187,121,.35);overflow:hidden}
@@ -758,14 +761,15 @@ section[style*="demo-marketing-dot.svg"]::before {
 .review-style-05 > div{width:100%;display:flex;flex-direction:column;background:#fff}
 .review-style-05 > div > .d-flex{flex:1 1 auto;min-height:190px}
 .review-style-05 > div > .border-top{flex:0 0 auto}
+.fa-envelope-open-text { --fa: "\f658"; }
 /* Happy customers logo + review avatars */
 .happy-logo{max-height:110px;width:auto;max-width:100%;object-fit:contain}
 .review-style-05 img.review-avatar{width:64px;height:64px;min-width:64px;flex-shrink:0;object-fit:cover;background:#fff;box-shadow:0 3px 10px rgba(46,187,121,.25)}
 @media(max-width:767px){.review-style-05 img.review-avatar{width:52px;height:52px;min-width:52px}}
 </style>
 <script>document.documentElement.classList.add("js-motion")</script>
-<link rel="stylesheet" href="css/site-standard.css">
-<link rel="stylesheet" href="css/desktop-fit.css?v=20261123">
+<link rel="stylesheet" href="css/site-standard.css?v=20261126c">
+<link rel="stylesheet" href="css/desktop-fit.css?v=20261126c">
 </head>
     <body data-mobile-nav-style="classic" class="custom-cursor home-page">
         <!-- start cursor -->
@@ -783,9 +787,10 @@ section[style*="demo-marketing-dot.svg"]::before {
 <!-- Logo + Brand Name -->
 <div class="col-auto me-lg-0 me-auto">
     <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="images/logo-160.webp" width="160" height="160" alt="" class="default-logo" style="max-height: 70px;">
-        <img src="images/logo-160.webp" width="160" height="160" alt="" class="alt-logo">
-        <img src="images/logo-160.webp" width="160" height="160" alt="" class="mobile-logo">
+        <img src="images/logo-green-320.webp" width="160" height="104" alt="" class="default-logo" style="max-height: 70px;">
+<img src="images/logo-white-320.webp" width="160" height="104" alt="" class="logo-on-green" aria-hidden="true">
+        <img src="images/logo-green-320.webp" width="160" height="104" alt="" class="alt-logo">
+        <img src="images/logo-green-320.webp" width="160" height="104" alt="" class="mobile-logo">
         <span class="ms-15px d-flex flex-column text-dark-gray fw-800 lh-20 ls-1px text-nowrap" style="font-size:16px;">
             <span>AD SOFT TECHNOLOGIES</span>
         </span>
@@ -842,6 +847,11 @@ section[style*="demo-marketing-dot.svg"]::before {
   <li><a href="business-services.html"><i class="fa-solid fa-briefcase"></i>Business Services</a></li>
 </ul></li>
 
+<li class="nav-item dropdown simple-dropdown"><a href="#" class="nav-link text-nowrap">DIY</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dDIY" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+<ul class="dropdown-menu ai-dropdown" aria-labelledby="dDIY">
+<li><a href="create-invitation.html"><i class="fa-solid fa-envelope-open-text"></i>Create Invitations <span style="background:#559643;color:#fff;font-size:10px;font-weight:700;letter-spacing:.5px;padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle;text-transform:uppercase">New</span></a></li>
+</ul></li>
+
                                 <!-- 6. OUR WORK -->
                                 <li class="nav-item"><a href="our-work.html" class="nav-link text-nowrap">Our Work</a></li>
 
@@ -887,6 +897,14 @@ section[style*="demo-marketing-dot.svg"]::before {
                 <h1 class="fs-55 lg-fs-50 md-fs-45 sm-fs-35 text-dark-gray lh-60 lg-lh-55 md-lh-50 sm-lh-40 fw-800 mb-20px ls-minus-2px mt-40px">
                     <span id="typing-text"></span><span class="blinking-cursor">•</span>
                 </h1>
+<script>
+/* Hero headline typing starts here, as soon as the h1 is parsed. It used to start in main.js, i.e. only after jQuery + vendors.min.js (600 KB) + main.js had downloaded and run. Same text, speed and markup as before. */
+(function(){var t=document.getElementById("typing-text");if(!t)return;t.setAttribute("data-typing","1");var x="AI-Powered Software Development &\nBusiness Automation Company in Kerala",i=0;
+function L(s){var f=document.createDocumentFragment();s.split("\n").forEach(function(p,k){if(k)f.appendChild(document.createElement("br"));if(p)f.appendChild(document.createTextNode(p))});return f}
+function S(c,n){var e=document.createElement("span");e.className=c;e.setAttribute("aria-hidden","true");e.appendChild(n);return e}
+function w(){t.replaceChildren(L(x.slice(0,i)),S("type-caret",document.createTextNode("\u2022")),S("type-rest",L(x.slice(i))));if(i++<x.length)setTimeout(w,25)}
+setTimeout(w,200)})();
+</script>
                 
                <!-- Tag Line (H2 Tag) -->
 <h2 class="hero-in-left fs-16 lg-fs-14 text-uppercase text-base-color fw-700 mb-40px d-block ls-1px">    Build Smarter. Automate Faster. Grow <span class="hd-accent">with Technology.</span>
@@ -2215,7 +2233,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                         <h2 class="happy-heading text-dark-gray fw-600 mb-0 ls-minus-1px">25,000+ Happy customers</h2>
                     </div>
                     <div class="col-lg-2 text-center md-mb-25px" data-anime='{ "translateX": [0, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                        <img loading="lazy" decoding="async" src="images/logo-160.webp" width="160" height="160" alt="AD Soft Technologies" class="happy-logo">
+                        <img loading="lazy" decoding="async" src="images/logo-green-640.webp" width="160" height="104" alt="AD Soft Technologies" class="happy-logo">
                     </div>
                     <div class="col-lg-5 text-center text-lg-start" data-anime='{ "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'> 
                         <div class="review-star-icon fs-22 d-inline-block align-middle me-15px">
@@ -2505,7 +2523,7 @@ section[style*="demo-marketing-dot.svg"]::before {
 <!-- Column 1: Logo + About + Location + Social -->
 <div class="col-lg-3 col-md-6 col-sm-6 d-flex flex-column last-paragraph-no-margin md-mb-35px pe-15px">
     <a href="index.html" class="footer-logo mb-20px xs-mb-20px d-flex align-items-center">
-        <img loading="lazy" decoding="async" src="images/logo-160.webp" width="160" height="160"  alt="" class="me-10px" style="height:60px; width:auto; flex-shrink:0;">
+        <img loading="lazy" decoding="async" src="images/logo-white-320.webp" width="160" height="104"  alt="" class="me-10px" style="height:60px; width:auto; flex-shrink:0;">
         <span class="text-white fw-700 fs-16 ls-0px text-nowrap">AD SOFT TECHNOLOGIES</span>
     </a>
     <p class="w-90 lg-w-95 xs-w-60 xs-mx-auto mb-15px">We are a Kerala based IT startup, which undertakes all kinds of AI solution, IT services like Website development, Android/iOS App development, custom Software development etc.</p>
@@ -2528,12 +2546,12 @@ section[style*="demo-marketing-dot.svg"]::before {
             <div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin md-mb-35px"> 
                 <span class="fs-16 fw-500 d-block text-white mb-15px">Our Clients</span>
                 <ul class="p-0 m-0 list-unstyled">
-                    <li class="mb-8px"><a href="https://www.germanacademytr.com/" target="_blank" rel="noopener">German Academy</a></li>
+                    <li class="mb-8px"><a href="https://radiomediavillage.com/" target="_blank" rel="noopener">Radio Media Village</a></li>
                     <li class="mb-8px"><a href="https://prohealthclinic.org/" target="_blank" rel="noopener">ProHealth Clinic</a></li>
                     <li class="mb-8px"><a href="https://labacabs.com/" target="_blank" rel="noopener">LaBa Cabs</a></li>
                     <li class="mb-8px"><a href="https://www.mindfullysustainable.co.uk/" target="_blank" rel="noopener">Mindfully Sustainable</a></li>
                     <li class="mb-8px"><a href="https://ibworldwideacademy.com/" target="_blank" rel="noopener">IB WorldWide Academy</a></li>
-                    <li class="mb-8px"><a href="https://radiomediavillage.com/" target="_blank" rel="noopener">Radio Media Village</a></li>
+                    <li class="mb-8px"><a href="https://www.germanacademytr.com/" target="_blank" rel="noopener">German Academy</a></li>
                 </ul>
             </div>
 
@@ -2606,9 +2624,9 @@ section[style*="demo-marketing-dot.svg"]::before {
         </div>
         <!-- end scroll progress -->
         <!-- javascript libraries -->
-        <script defer src="js/jquery.js"></script>
-        <script defer src="js/vendors.min.js"></script>
-        <script defer src="js/main.js"></script>
+        <script defer src="js/jquery.js?v=20261126c"></script>
+        <script defer src="js/vendors.min.js?v=20261126c"></script>
+        <script defer src="js/main.js?v=20261126c"></script>
         <!-- Firebase SDK is loaded on demand by the newsletter form below (faster page load) -->
         <script>
             (function () {
@@ -2753,7 +2771,7 @@ section[style*="demo-marketing-dot.svg"]::before {
     });
 })();
 </script>
-    <script src="js/nav-active.js"></script>
-<script defer src="js/site-motion.js"></script>
+    <script src="js/nav-active.js?v=20261126c"></script>
+<script defer src="js/site-motion.js?v=20261126c"></script>
 </body>
 </html>
