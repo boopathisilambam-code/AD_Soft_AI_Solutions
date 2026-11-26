@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import gzip
 import mimetypes
 import os
 import sys
@@ -85,10 +86,26 @@ class LocalSiteHandler(SimpleHTTPRequestHandler):
             return
 
         content_type, _ = mimetypes.guess_type(file_path_absolute)
+        content_type = content_type or "application/octet-stream"
+
+        # Same as production (.htaccess): gzip text files + cache static files,
+        # so a local Lighthouse run is not unfairly low ("enable text compression").
+        compressible = content_type.startswith("text/") or content_type in (
+            "application/javascript", "text/javascript", "application/json", "image/svg+xml", "application/xml")
+        if compressible and "gzip" in self.headers.get("Accept-Encoding", "") and len(content) > 512:
+            content = gzip.compress(content, 6)
+            gzipped = True
+        else:
+            gzipped = False
+        is_html = file_path_absolute.lower().endswith(".html")
+
         self.send_response(200)
-        self.send_header("Content-Type", content_type or "application/octet-stream")
+        self.send_header("Content-Type", content_type)
+        if gzipped:
+            self.send_header("Content-Encoding", "gzip")
+        self.send_header("Vary", "Accept-Encoding")
         self.send_header("Content-Length", str(len(content)))
-        self.send_header("Cache-Control", "no-store")
+        self.send_header("Cache-Control", "no-cache" if is_html else "public, max-age=3600")
         self.end_headers()
         if send_body:
             self.wfile.write(content)

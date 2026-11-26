@@ -71,3 +71,21 @@
 - Platform waits (up to ~15 s) while the template is still locked, then scrolls; old templates without `inv:open` get their opener tapped once.
 - New templates: handle `inv:open` in the template, or the platform falls back to tapping `#open / #seal / #openBtn / #skip / [data-open]`.
 - Aadhi birthday: added `inv:scrollTo` handler + section ids (#sec-hero/program/venue/journey/gallery); editor steps now scroll to their own section.
+
+## 8. Update 5 – DIY menu, invitation redirect, favicon
+- New **DIY** dropdown (after Business Solutions) on every page, with **Create Invitations** (envelope icon). It uses the same dropdown
+  style as the others, so desktop (laptop → 24"/4K), tablet and mobile menus adapt automatically. The old single "Invitations" link is removed.
+- Publish flow: after the link is e-mailed, the popup shows "Link sent ✓" and returns to the Create Invitations landing page automatically
+  (4 s countdown, or "Back to Create Invitations"). Closing the popup after publishing also returns to the landing page (scroll top, query string cleaned, "Your invitations" strip refreshed).
+- Favicon / apple-touch icon (new AD logo) added to `invitation.html`, `invitation-viewer.html` and all `templates/*/index.html`.
+- No new files, requests or libraries – Lighthouse score is unaffected.
+
+## 9. Update 6 – DIY icon fix + mobile performance
+- **DIY dropdown icon fixed.** `css/icon.min.css` is a trimmed Font Awesome file and did not contain `fa-envelope` / `fa-envelope-open-text`,
+  so the icon rendered blank on every page except the home page (which had an inline workaround). Both glyphs are now in `icon.min.css`;
+  all pages use the same `fa-envelope-open-text` icon.
+- `js/main.js` minified (204 KB -> 73 KB, gzip 35 KB -> 20 KB) + `site-motion.js` / `nav-active.js` minified; `marketing.css` minified. Less JS to download/parse on phones.
+- `serve.py` (local preview) now gzips text files and caches static files like production does. Before, it sent everything uncompressed with
+  `no-store`, which made a local Lighthouse run report "Document request latency – 124 KiB" and "unused CSS 257 KiB" far worse than the live site.
+  index.html: 188 KB -> 28 KB over the wire.
+- Asset version bumped to `?v=20261126c` on all pages.
