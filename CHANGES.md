@@ -89,3 +89,19 @@
   `no-store`, which made a local Lighthouse run report "Document request latency – 124 KiB" and "unused CSS 257 KiB" far worse than the live site.
   index.html: 188 KB -> 28 KB over the wire.
 - Asset version bumped to `?v=20261126c` on all pages.
+
+## 9. Update 6 – Accessibility, Best Practices, auto templates
+### Templates now update by themselves
+- `templates.php` (Hostinger) lists every `templates/<id>/` folder that has a `register.js`. `js/inv-platform.js` calls it when create-invitation opens, so
+  **a new template folder appears in the gallery with no edit to `js/inv-config.js`**; deleting a folder removes its card; a new category (e.g. "Housewarming") gets its filter chip automatically.
+- `?v=<file time>` is added to `register.js` / `card.jpg`, so an edited template or new card image shows at once (no 1-day cache wait).
+- `js/inv-config.js` `templates: [...]` is now only the preferred ORDER (and fallback). Hide one: `hiddenTemplates: ['id']` or an empty `.hidden` file in its folder. Folders starting with `_` are ignored.
+- No PHP (Vercel / local): run `python tools/build-templates.py` (writes `templates/manifest.json`). `serve.py` does this live for local preview.
+### Accessibility
+- Brand green on white/with white text was 3.6:1 -> darker `#3f7a30` (5.2:1) everywhere; green text on dark sections uses lighter `#7cc069`; sticky header, active menu pill, footer links, grey paragraphs on dark boxes fixed to AA.
+- Heading order: step/feature titles and the footer CTA no longer jump h2 -> h5 / h4 -> h6 (`aria-level`, look unchanged).
+### Best practices
+- Microsoft Clarity removed from all pages (it set the 4 third-party cookies). Re-add the snippet only behind a cookie-consent banner.
+- `<meta charset>` is now the first thing in `<head>`; two missing images (`demo-marketing-dot.svg`, `demo-marketing-footer-dot.svg`) added as blank placeholders and the dead `demos/marketing/marketing.css` link removed (404 console errors).
+- Security headers in `htaccess-performance.txt` (HSTS, X-Frame-Options, frame-ancestors, COOP, nosniff, Referrer-Policy) and `vercel.json`.
+- CSS/JS cache version is now `?v=20261127c`.

@@ -32,7 +32,10 @@ window.INV_CONFIG = {
   // Firestore collection used by this platform (kept separate from your existing data)
   collection: 'premiumInvitations',
 
-  // Add a folder name here every time you build a new template in /templates/<id>/
+  // AUTO: every folder in /templates/<id>/ that has a register.js shows up by itself (see templates.php).
+  // This list is only the preferred ORDER (and the fallback if discovery fails). New folders need NOT be added here.
+  // To hide one: add its id to hiddenTemplates, or put an empty file named .hidden inside its folder.
+  hiddenTemplates: [],
   templates: [
     'royal-ivory',
     'olivas',
