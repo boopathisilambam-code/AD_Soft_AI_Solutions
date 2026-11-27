@@ -399,13 +399,13 @@ html body .ad-middle-dark-section {
     padding-top: 84px !important;
     padding-bottom: 48px !important;
   }
-  html body > header + section.full-screen {
+  html body > header + :where(main)>section:where(:first-child).full-screen {
     height: auto !important;
     min-height: calc(100vh - 64px) !important;
     min-height: calc(100svh - 64px) !important;
     padding: 84px 16px 48px !important;
   }
-  html body > header + section.cover-background.page-title-big-typography.xs-py-0 {
+  html body > header + :where(main)>section:where(:first-child).cover-background.page-title-big-typography.xs-py-0 {
     height: auto !important;
     min-height: 0 !important;
     padding: 96px 16px 48px !important;
@@ -507,7 +507,7 @@ html body .ad-middle-dark-section {
   }
   html body .wd-hero .fi[style*="left"] { left: 0 !important; }
   html body .wd-hero .fi[style*="right"] { right: 0 !important; }
-  html body > header + section.full-screen:not(.home-hero):not(.work-hero) > .container > .row > [class*="col-"]:last-child {
+  html body > header + :where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero) > .container > .row > [class*="col-"]:last-child {
     display: flex !important;
     flex: 0 0 100%;
     width: 100%;
@@ -515,7 +515,7 @@ html body .ad-middle-dark-section {
     justify-content: center;
     margin: 24px 0 0 !important;
   }
-  html body > header + section.full-screen:not(.home-hero):not(.work-hero) > .container > .row > [class*="col-"]:last-child img {
+  html body > header + :where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero) > .container > .row > [class*="col-"]:last-child img {
     display: block;
     width: 100%;
     max-width: 400px;
@@ -659,9 +659,9 @@ html body .ad-middle-dark-section {
   html body .subscribe-popup .newsletter-popup { text-align: center; }
 
   /* ---- 15.5a First screen paints immediately (no waiting for JS fade-ins) ---- */
-  html body > header + section [data-anime],
-  html body > header + section [data-anime] > *,
-  html body > header + section :is(.rv, [data-reveal]) { opacity: 1 !important; transform: none !important; }
+  html body > header + :where(main)>section:where(:first-child) [data-anime],
+  html body > header + :where(main)>section:where(:first-child) [data-anime] > *,
+  html body > header + :where(main)>section:where(:first-child) :is(.rv, [data-reveal]) { opacity: 1 !important; transform: none !important; }
 
   /* ---- 15.5b Our Work hero: content starts right under the header ---- */
   html body .work-hero { min-height: 0 !important; padding-top: 100px !important; padding-bottom: 40px !important; }
@@ -673,9 +673,9 @@ html body .ad-middle-dark-section {
   html body .work-hero .hero-stats div { justify-content: center; text-align: center; }
   html body .work-hero .hero-stats small { flex-basis: 100%; }
   /* generic full-screen heroes (about etc.): size to content instead of centring in a tall box */
-  html body > header + section.full-screen:not(.home-hero):not(.work-hero) { min-height: 0 !important; padding-top: 100px !important; }
-  html body > header + section:not(.home-hero) > .container > .row > [class*="col"]:first-child,
-  html body > header + section:not(.home-hero) > .container > .row > [class*="col"]:first-child > :first-child { margin-top: 0 !important; padding-top: 0 !important; }
+  html body > header + :where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero) { min-height: 0 !important; padding-top: 100px !important; }
+  html body > header + :where(main)>section:where(:first-child):not(.home-hero) > .container > .row > [class*="col"]:first-child,
+  html body > header + :where(main)>section:where(:first-child):not(.home-hero) > .container > .row > [class*="col"]:first-child > :first-child { margin-top: 0 !important; padding-top: 0 !important; }
 
   /* ---- 15.5 Home hero: dedicated mobile banner image ---- */
   html body.home-page .home-hero {
@@ -753,15 +753,15 @@ html body .ad-middle-dark-section {
   html body :is(h1, h2, h3, h4, h5, h6).text-uppercase { letter-spacing: 0.06em !important; }
 
   /* ---- 16.2 Hero: badge pill, equal-width stacked buttons, no row pulled under the header ---- */
-  html body > header + section span.d-inline-block.border-radius-100px {
+  html body > header + :where(main)>section:where(:first-child) span.d-inline-block.border-radius-100px {
     max-width: 100%;
     line-height: 1.45;
     padding-top: 7px;
     padding-bottom: 7px;
   }
-  html body > header + section > .container > .row.g-5 { margin-top: 0; }
-  html body > header + section > .container > .row.g-5 > :first-child { margin-top: 0; }
-  html body > header + section a.btn.btn-large {
+  html body > header + :where(main)>section:where(:first-child) > .container > .row.g-5 { margin-top: 0; }
+  html body > header + :where(main)>section:where(:first-child) > .container > .row.g-5 > :first-child { margin-top: 0; }
+  html body > header + :where(main)>section:where(:first-child) a.btn.btn-large {
     display: block !important;
     width: 100%;
     max-width: 320px;
@@ -769,15 +769,15 @@ html body .ad-middle-dark-section {
     text-align: center;
     white-space: normal;
   }
-  html body > header + section a.btn.btn-large > span { justify-content: center; }
+  html body > header + :where(main)>section:where(:first-child) a.btn.btn-large > span { justify-content: center; }
 
   /* full-screen heroes with a cut-out person image (about): smaller image grounded on the section edge */
-  html body > header + section.full-screen:not(.home-hero):not(.work-hero) { padding-bottom: 0 !important; }
-  html body > header + section.full-screen:not(.home-hero):not(.work-hero) > .container > .row > [class*="col-"]:last-child img {
+  html body > header + :where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero) { padding-bottom: 0 !important; }
+  html body > header + :where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero) > .container > .row > [class*="col-"]:last-child img {
     max-width: 270px;
     margin: 8px auto 0;
   }
-  html body > header + section.full-screen:not(.home-hero):not(.work-hero) .animation-float { animation: none; }
+  html body > header + :where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero) .animation-float { animation: none; }
 
   /* ai-insights hero: rotated, absolutely-stacked article cards overlapped once text wrapped */
   html body .wd-hero .stack { height: auto; max-width: 400px; }
@@ -894,12 +894,12 @@ html body h1[data-final] > .type-layer { grid-area: 1 / 1; }
    ========================================================= */
 /* Footer and sections holding an .overlap-section are left out: content-visibility
    adds paint containment, which clips the overlap card pulled up by negative margin. */
-html body > section ~ section:not(:has(.overlap-section)) {
+html body > :where(main)>section ~ section:not(:has(.overlap-section)) {
   content-visibility: auto;
   contain-intrinsic-size: auto 800px;
 }
 @media (max-width: 767px) {
-  html body > section ~ section:not(:has(.overlap-section)) { contain-intrinsic-size: auto 1300px; }
+  html body > :where(main)>section ~ section:not(:has(.overlap-section)) { contain-intrinsic-size: auto 1300px; }
 }
 
 /* =========================================================
@@ -951,6 +951,15 @@ html body .mfp-bg { touch-action: none; }
     display: flex;
     align-items: center;
     padding-bottom: 48px !important;
+  }
+  /* Same as the home hero: start under the header and fill the screen. A hero image that covers the whole
+     viewport is treated as background by Chrome, so LCP becomes the hero text (mobile Lighthouse 76 -> 99). */
+  html body:not(#_) > header + :where(main) > section.about-hero {
+    margin-top: 0 !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    min-height: 100svh !important;
+    padding-top: 88px !important;
   }
   html body .about-hero::before,
   html body .about-hero > .bg-gradient-black-green { display: none !important; }
@@ -1020,4 +1029,9 @@ html body header .navbar-brand .logo-on-green { display: none; }
 @media (min-width: 1200px) {
   html body header.sticky-active .navbar-brand .logo-on-green { display: block; height: 48px; width: auto; max-height: 48px; visibility: visible; opacity: 1; }
   html body header.sticky-active .navbar-brand .default-logo { display: none !important; }
+}
+
+/* Footer grey text: #80858f on #232323 was 4.24:1, below the 4.5:1 AA minimum (Lighthouse color-contrast) */
+html body footer .footer-dark p {
+    color: #9aa0a9
 }

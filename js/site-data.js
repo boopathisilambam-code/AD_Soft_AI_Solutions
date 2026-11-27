@@ -168,7 +168,7 @@
       '<div class="bg-white border-radius-6px box-shadow-large overflow-hidden d-flex flex-column ' + (idx % 2 ? 'flex-md-row-reverse' : 'flex-md-row') + '">' +
       photoTag(m, 'team-photo lead') +
       '<div class="p-50px lg-p-40px sm-p-30px d-flex flex-column justify-content-center">' +
-      '<h4 class="fw-800 text-dark-gray mb-5px ls-minus-1px">' + esc(m.name) + '</h4>' +
+      '<h4 aria-level="3" class="fw-800 text-dark-gray mb-5px ls-minus-1px">' + esc(m.name) + '</h4>' +
       '<span class="text-base-color fw-600 fs-18 d-block mb-20px">' + esc(m.role) + '</span>' +
       (m.subtitle ? '<span class="fw-500 text-dark-gray d-block mb-15px">' + esc(m.subtitle) + '</span>' : '') +
       paras(m.bio) + '</div></div></div></div>';
@@ -177,7 +177,7 @@
     return '<div class="col mb-30px"><div class="bg-white border-radius-6px box-shadow-large overflow-hidden h-100 d-flex flex-column flex-md-row">' +
       photoTag(m, 'team-photo') +
       '<div class="p-35px d-flex flex-column justify-content-center">' +
-      '<h5 class="fw-700 text-dark-gray mb-5px ls-minus-05px">' + esc(m.name) + '</h5>' +
+      '<h5 aria-level="3" class="fw-700 text-dark-gray mb-5px ls-minus-05px">' + esc(m.name) + '</h5>' +
       '<span class="text-base-color fw-600 d-block mb-10px">' + esc(m.role) + '</span>' +
       (m.subtitle ? '<span class="fw-500 text-dark-gray d-block mb-15px">' + esc(m.subtitle) + '</span>' : '') +
       paras(m.bio) + '</div></div></div>';

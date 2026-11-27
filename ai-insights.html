@@ -39,9 +39,9 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="css/fonts.css?v=20261127f">
-        <link rel="stylesheet" href="css/vendors.min.css?v=20261127f"><link rel="stylesheet" href="css/style.css?v=20261127f"><link rel="stylesheet" href="css/responsive.css?v=20261127f">
-        <link rel="preload" href="css/icon.min.css?v=20261127f" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/icon.min.css?v=20261127f"></noscript>
+    <link rel="stylesheet" href="css/fonts.css?v=20261127g">
+        <link rel="stylesheet" href="css/vendors.min.css?v=20261127g"><link rel="stylesheet" href="css/style.css?v=20261127g"><link rel="stylesheet" href="css/responsive.css?v=20261127g">
+        <link rel="preload" href="css/icon.min.css?v=20261127g" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/icon.min.css?v=20261127g"></noscript>
     <link rel="preload" href="fonts/gf/poppins-latin-400.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="fonts/gf/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-500.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-600.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
@@ -1012,10 +1012,10 @@
             .who-images-figure > figcaption { width: 58%; max-width: 280px; }
         }
     </style>
-<link rel="stylesheet" href="css/eq-image.css?v=20261127f">
+<link rel="stylesheet" href="css/eq-image.css?v=20261127g">
 <script>document.documentElement.classList.add("js-motion")</script>
-<link rel="stylesheet" href="css/site-standard.css?v=20261127f">
-<link rel="stylesheet" href="css/desktop-fit.css?v=20261127f">
+<link rel="stylesheet" href="css/site-standard.css?v=20261127g">
+<link rel="stylesheet" href="css/desktop-fit.css?v=20261127g">
 </head>
 
 <body data-mobile-nav-style="classic" class="wd custom-cursor">
@@ -1111,6 +1111,7 @@
             </div>
         </nav>
     </header>
+<main>
 
     <!-- HERO -->
     <section class="wd-hero">
@@ -1142,15 +1143,15 @@
                             class="bi bi-graph-up-arrow"></i></span>
                     <div class="stack" aria-hidden="true">
                         <div class="sc"><span class="tag"><i class="bi bi-stars"></i>AI Explained</span>
-                            <h6>What is artificial intelligence?</h6>
+                            <h6 aria-level="2">What is artificial intelligence?</h6>
                             <p>Clear definitions, no advanced technical background needed.</p>
                         </div>
                         <div class="sc"><span class="tag"><i class="bi bi-robot"></i>AI Agents</span>
-                            <h6>AI agents versus chatbots</h6>
+                            <h6 aria-level="2">AI agents versus chatbots</h6>
                             <p>What each can realistically do for your business.</p>
                         </div>
                         <div class="sc"><span class="tag"><i class="bi bi-gear-wide-connected"></i>Automation</span>
-                            <h6>How to find high-value automation</h6>
+                            <h6 aria-level="2">How to find high-value automation</h6>
                             <p>Solve specific problems, not just what's possible.</p>
                         </div>
                     </div>
@@ -1361,7 +1362,8 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-dark-gray background-position-center-top">
+    </main>
+<footer class="bg-dark-gray background-position-center-top">
         <div class="container overlap-section">
             <div
                 class="row g-0 justify-content-center align-items-center bg-base-color border-radius-6px ps-7 pe-7 pt-4 pb-4 lg-p-30px sm-p-20px mb-7">
@@ -1470,7 +1472,7 @@
         (function () {
             const Q = s => document.querySelector(s);
             const chips = (a, d) => a.map((c, i) => `<span class="chip" style="--chip-delay:${i * d}ms">${c}</span>`).join('');
-            const card = (ic, t, p) => `<div class="feature-box card-idx p-30px h-100 bg-white border-radius-6px box-shadow-large text-center"><div class="ico3d"><i class="bi ${ic}"></i></div><h5>${t}</h5><p class="mb-0">${p}</p></div>`;
+            const card = (ic, t, p) => `<div class="feature-box card-idx p-30px h-100 bg-white border-radius-6px box-shadow-large text-center"><div class="ico3d"><i class="bi ${ic}"></i></div><h5 aria-level="3">${t}</h5><p class="mb-0">${p}</p></div>`;
 
             Q('#pills').innerHTML = [['bi-chat-dots', 'AI chatbots vs AI agents'], ['bi-gear-wide-connected', 'Workflow automation'], ['bi-plug', 'AI integration'], ['bi-arrow-repeat', 'Digital transformation']].map(p => `<span class="pill"><i class="bi ${p[0]}"></i>${p[1]}</span>`).join('');
 
@@ -1525,11 +1527,11 @@
             const sp = Q('#sp'); addEventListener('scroll', () => { const d = document.documentElement; sp.style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%' }, { passive: true });
         })();
     </script>
- <script defer src="js/jquery.js?v=20261127f"></script>
-        <script defer src="js/vendors.min.js?v=20261127f"></script>
-        <script defer src="js/main.js?v=20261127f"></script>
-          <script src="js/nav-active.js?v=20261127f"></script>
-<script defer src="js/site-motion.js?v=20261127f"></script>
+ <script defer src="js/jquery.js?v=20261127g"></script>
+        <script defer src="js/vendors.min.js?v=20261127g"></script>
+        <script defer src="js/main.js?v=20261127g"></script>
+          <script src="js/nav-active.js?v=20261127g"></script>
+<script defer src="js/site-motion.js?v=20261127g"></script>
 </body>
 
 </html>

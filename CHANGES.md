@@ -105,3 +105,32 @@
 - `<meta charset>` is now the first thing in `<head>`; two missing images (`demo-marketing-dot.svg`, `demo-marketing-footer-dot.svg`) added as blank placeholders and the dead `demos/marketing/marketing.css` link removed (404 console errors).
 - Security headers in `htaccess-performance.txt` (HSTS, X-Frame-Options, frame-ancestors, COOP, nosniff, Referrer-Policy) and `vercel.json`.
 - CSS/JS cache version is now `?v=20261127c`.
+
+## 10. Update 7 – mobile Lighthouse score back up
+### Performance (most pages 90 -> 98-100, about 76 -> 99)
+- **Cause:** Lighthouse estimates first paint from the trace. When `main.js` builds HTML from a string while the page loads
+  (jQuery `append('<span>…')`, `$('<div>…')`, fitVids' `<style>` via innerHTML), Lighthouse counts jQuery + vendors + main.js
+  (~235 KB) as needed for the first paint -> FCP/LCP 2.9 s instead of 1.5 s on every page.
+  - `js/main.js` (+ `_src/js/main.js`): fitVids only runs when the page has `.fit-videos` (no page has); vertical counters and
+    the magic-cursor wrapper are built with `document.createElement`. Same markup as before.
+  - **Rule for new code in main.js / page scripts that run on load: do not create elements from HTML strings**
+    (`$('<div>')`, `.append('<…>')`, `.html('<…>')`, `innerHTML`). Use `document.createElement`, or run it after the page has loaded.
+- **About:** the phone hero now fills the screen from the top, like the home hero (`css/site-standard.css`, section 22).
+  A hero photo that covers the whole screen counts as background, so LCP is the hero text (was the photo: 5.4 s -> 1.4 s).
+  `images/about/hero-mobile.webp` is also preloaded on phones (same as index).
+- `serve.py` now keeps connections open (HTTP/1.1) like the live server.
+- **Contact:** the two Firebase scripts were blocking the first paint (FCP 2.7 s). They are now `defer` and the form code runs on
+  `DOMContentLoaded` (Firebase is only needed when Send is pressed).
+
+### Accessibility / SEO
+- Every page has a `<main>` landmark (between `</header>` and `<footer>`). `site-standard.css` selectors that relied on
+  `body>header+section` / `body>section~section` now use `body>header+:where(main)>section:where(:first-child)` and
+  `body>:where(main)>section~section` (same specificity). `main.js` finds the `.overlap-height` section before the footer inside `<main>`.
+  New pages: keep `<main>` right after `</header>` and `</main>` right before `<footer>`.
+- Heading order: skipped levels (h2 -> h5/h6 cards) get `aria-level` (look unchanged) - also in the cards built by page scripts
+  and in the team cards from `js/site-data.js` (now `?v=20261129b`). New cards under an h2: add `aria-level="3"` to h4/h5/h6.
+- Footer grey text `#80858f` -> `#9aa0a9` (contrast 4.24 -> 5.97 on the dark footer).
+- Decorative "01 / 02" numbers in service cards: `aria-hidden="true"`. Process-step buttons (branding, business-*, digital-transformation)
+  have an `aria-label` (their text is hidden on phones). ai-solution: intro `<p>` moved out of the `<ul>`.
+- branding / business-services: duplicate canonical (with trailing `/`) removed.
+- CSS/JS cache version is now `?v=20261127g`.

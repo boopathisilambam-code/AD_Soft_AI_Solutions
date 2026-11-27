@@ -604,14 +604,14 @@ html body .ad-middle-dark-section {
         padding-bottom: 48px !important
     }
 
-    html body>header+section.full-screen {
+    html body>header+:where(main)>section:where(:first-child).full-screen {
         height: auto !important;
         min-height: calc(100vh - 64px) !important;
         min-height: calc(100svh - 64px) !important;
         padding: 84px 16px 48px !important
     }
 
-    html body>header+section.cover-background.page-title-big-typography.xs-py-0 {
+    html body>header+:where(main)>section:where(:first-child).cover-background.page-title-big-typography.xs-py-0 {
         height: auto !important;
         min-height: 0 !important;
         padding: 96px 16px 48px !important
@@ -734,7 +734,7 @@ html body .ad-middle-dark-section {
         right: 0 !important
     }
 
-    html body>header+section.full-screen:not(.home-hero):not(.work-hero)>.container>.row>[class*=col-]:last-child {
+    html body>header+:where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero)>.container>.row>[class*=col-]:last-child {
         display: flex !important;
         flex: 0 0 100%;
         width: 100%;
@@ -743,7 +743,7 @@ html body .ad-middle-dark-section {
         margin: 24px 0 0 !important
     }
 
-    html body>header+section.full-screen:not(.home-hero):not(.work-hero)>.container>.row>[class*=col-]:last-child img {
+    html body>header+:where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero)>.container>.row>[class*=col-]:last-child img {
         display: block;
         width: 100%;
         max-width: 400px;
@@ -1036,9 +1036,9 @@ html body .ad-middle-dark-section {
         text-align: center
     }
 
-    html body>header+section :is(.rv, [data-reveal]),
-    html body>header+section [data-anime],
-    html body>header+section [data-anime]>* {
+    html body>header+:where(main)>section:where(:first-child) :is(.rv, [data-reveal]),
+    html body>header+:where(main)>section:where(:first-child) [data-anime],
+    html body>header+:where(main)>section:where(:first-child) [data-anime]>* {
         opacity: 1 !important;
         transform: none !important
     }
@@ -1088,13 +1088,13 @@ html body .ad-middle-dark-section {
         flex-basis: 100%
     }
 
-    html body>header+section.full-screen:not(.home-hero):not(.work-hero) {
+    html body>header+:where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero) {
         min-height: 0 !important;
         padding-top: 100px !important
     }
 
-    html body>header+section:not(.home-hero)>.container>.row>[class*=col]:first-child,
-    html body>header+section:not(.home-hero)>.container>.row>[class*=col]:first-child>:first-child {
+    html body>header+:where(main)>section:where(:first-child):not(.home-hero)>.container>.row>[class*=col]:first-child,
+    html body>header+:where(main)>section:where(:first-child):not(.home-hero)>.container>.row>[class*=col]:first-child>:first-child {
         margin-top: 0 !important;
         padding-top: 0 !important
     }
@@ -1335,22 +1335,22 @@ html body .ad-middle-dark-section {
         letter-spacing: .06em !important
     }
 
-    html body>header+section span.d-inline-block.border-radius-100px {
+    html body>header+:where(main)>section:where(:first-child) span.d-inline-block.border-radius-100px {
         max-width: 100%;
         line-height: 1.45;
         padding-top: 7px;
         padding-bottom: 7px
     }
 
-    html body>header+section>.container>.row.g-5 {
+    html body>header+:where(main)>section:where(:first-child)>.container>.row.g-5 {
         margin-top: 0
     }
 
-    html body>header+section>.container>.row.g-5>:first-child {
+    html body>header+:where(main)>section:where(:first-child)>.container>.row.g-5>:first-child {
         margin-top: 0
     }
 
-    html body>header+section a.btn.btn-large {
+    html body>header+:where(main)>section:where(:first-child) a.btn.btn-large {
         display: block !important;
         width: 100%;
         max-width: 320px;
@@ -1359,20 +1359,20 @@ html body .ad-middle-dark-section {
         white-space: normal
     }
 
-    html body>header+section a.btn.btn-large>span {
+    html body>header+:where(main)>section:where(:first-child) a.btn.btn-large>span {
         justify-content: center
     }
 
-    html body>header+section.full-screen:not(.home-hero):not(.work-hero) {
+    html body>header+:where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero) {
         padding-bottom: 0 !important
     }
 
-    html body>header+section.full-screen:not(.home-hero):not(.work-hero)>.container>.row>[class*=col-]:last-child img {
+    html body>header+:where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero)>.container>.row>[class*=col-]:last-child img {
         max-width: 270px;
         margin: 8px auto 0
     }
 
-    html body>header+section.full-screen:not(.home-hero):not(.work-hero) .animation-float {
+    html body>header+:where(main)>section:where(:first-child).full-screen:not(.home-hero):not(.work-hero) .animation-float {
         animation: none
     }
 
@@ -1543,13 +1543,13 @@ html body h1[data-final]>.type-layer {
     }
 }
 
-html body>section~section:not(:has(.overlap-section)) {
+html body>:where(main)>section~section:not(:has(.overlap-section)) {
     content-visibility: auto;
     contain-intrinsic-size: auto 800px
 }
 
 @media(max-width:767px) {
-    html body>section~section:not(:has(.overlap-section)) {
+    html body>:where(main)>section~section:not(:has(.overlap-section)) {
         contain-intrinsic-size: auto 1300px
     }
 }
@@ -1611,6 +1611,16 @@ html body .mfp-bg {
         display: flex;
         align-items: center;
         padding-bottom: 48px !important
+    }
+
+    /* Same as the home hero: start under the header and fill the screen. A hero image that covers the whole
+       viewport is treated as background by Chrome, so LCP becomes the hero text (mobile Lighthouse 76 -> 99). */
+    html body:not(#_)>header+:where(main)>section.about-hero {
+        margin-top: 0 !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100svh !important;
+        padding-top: 88px !important
     }
 
     html body .about-hero:before,
@@ -1778,4 +1788,9 @@ header .navbar .dropdown-menu li a:hover,header .navbar .dropdown-menu li a:focu
   html body header #navbarNav .dropdown-menu.ai-dropdown{width:max-content!important;min-width:340px!important;max-width:calc(100vw - 32px)!important;padding:14px 16px!important}
   html body header #navbarNav .dropdown-menu.ai-dropdown li{padding:0!important;margin:0!important}
   html body header #navbarNav .dropdown-menu.ai-dropdown li a{padding:11px 12px!important;padding-right:20px!important}
+}
+
+/* Footer grey text: #80858f on #232323 was 4.24:1, below the 4.5:1 AA minimum (Lighthouse color-contrast) */
+html body footer .footer-dark p {
+    color: #9aa0a9
 }

@@ -10,6 +10,10 @@ from urllib.parse import unquote, urlsplit
 
 
 class LocalSiteHandler(SimpleHTTPRequestHandler):
+    # Keep-alive like the live server (Hostinger CDN). With the default HTTP/1.0 every file opens a new
+    # connection, and a local Lighthouse run reports FCP/LCP ~1.5 s slower than the real site.
+    protocol_version = "HTTP/1.1"
+
     def do_GET(self):
         self._serve_pretty_url()
 

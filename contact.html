@@ -50,12 +50,12 @@
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png">
      <!-- google fonts preconnect -->
         <!-- style sheets and font icons  -->
-        <link rel="stylesheet" href="css/fonts.css?v=20261127f">
-        <link rel="stylesheet" href="css/vendors.min.css?v=20261127f"><link rel="stylesheet" href="css/style.css?v=20261127f"><link rel="stylesheet" href="css/responsive.css?v=20261127f">
-        <link rel="preload" href="css/icon.min.css?v=20261127f" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/icon.min.css?v=20261127f"></noscript>
+        <link rel="stylesheet" href="css/fonts.css?v=20261127g">
+        <link rel="stylesheet" href="css/vendors.min.css?v=20261127g"><link rel="stylesheet" href="css/style.css?v=20261127g"><link rel="stylesheet" href="css/responsive.css?v=20261127g">
+        <link rel="preload" href="css/icon.min.css?v=20261127g" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/icon.min.css?v=20261127g"></noscript>
         <link rel="preload" href="fonts/gf/poppins-latin-400.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="fonts/gf/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-500.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-600.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/gf/poppins-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-         <link rel="stylesheet" href="css/nav-active.css?v=20261127f">
+         <link rel="stylesheet" href="css/nav-active.css?v=20261127g">
 <!-- ========================================== -->
     <!-- STRUCTURED DATA (JSON-LD SCHEMA MARKUP)    -->
     <!-- ========================================== -->
@@ -364,8 +364,8 @@
             @media (max-width: 767px) { .map-wrap iframe { height: 340px; } }
         </style>
     <script>document.documentElement.classList.add("js-motion")</script>
-<link rel="stylesheet" href="css/site-standard.css?v=20261127f">
-<link rel="stylesheet" href="css/desktop-fit.css?v=20261127f">
+<link rel="stylesheet" href="css/site-standard.css?v=20261127g">
+<link rel="stylesheet" href="css/desktop-fit.css?v=20261127g">
 </head>
     <body data-mobile-nav-style="classic" class="custom-cursor">
         <!-- start cursor -->
@@ -458,6 +458,7 @@
             </nav>
             <!-- end navigation -->
         </header>
+<main>
         <!-- end header -->
 
         <!-- start page hero -->
@@ -507,7 +508,7 @@
                         <div class="ci-card" data-mark="&#xF5C1;">
                             <div class="ci-top">
                                 <span class="ci-icon"><i class="bi bi-telephone-fill"></i></span>
-                                <div><h5>Call us</h5><small>Talk to our team directly</small></div>
+                                <div><h5 aria-level="2">Call us</h5><small>Talk to our team directly</small></div>
                             </div>
                             <div class="ci-list">
                                 <a class="ci-item" href="tel:+917012822057"><span class="ci-tag">INDIA</span><span class="ci-val">+91-7012822057</span><i class="bi bi-arrow-up-right ci-arrow"></i></a>
@@ -522,7 +523,7 @@
                         <div class="ci-card dark" data-mark="&#xF32F;">
                             <div class="ci-top">
                                 <span class="ci-icon"><i class="bi bi-envelope-fill"></i></span>
-                                <div><h5>Email us</h5><small>Share your requirements</small></div>
+                                <div><h5 aria-level="2">Email us</h5><small>Share your requirements</small></div>
                             </div>
                             <div class="ci-list">
                                 <a class="ci-item" href="mailto:info@adsofttechnologies.com"><span class="ci-tag">MAIL</span><span class="ci-val sm">info@adsofttechnologies.com</span><i class="bi bi-arrow-up-right ci-arrow"></i></a>
@@ -537,7 +538,7 @@
                         <div class="ci-card" data-mark="&#xF3E8;">
                             <div class="ci-top">
                                 <span class="ci-icon"><i class="bi bi-geo-alt-fill"></i></span>
-                                <div><h5>Visit us</h5><small>Offices in India and the USA</small></div>
+                                <div><h5 aria-level="2">Visit us</h5><small>Offices in India and the USA</small></div>
                             </div>
                             <div class="ci-list">
                                 <div class="ci-item"><span class="ci-tag">INDIA</span><span class="ci-val sm">2nd Floor, Puthenpurackal (H), Judgimukku, Thrikkakkara, Ernakulam, Kerala</span></div>
@@ -608,7 +609,7 @@
                     <!-- Side panel -->
                     <div class="col-lg-5 d-flex" data-anime='{ "translateX": [50, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "easing": "easeOutQuad" }'>
                         <div class="side-panel w-100">
-                            <h5 class="fw-700 text-white mb-15px">Not sure where to start?</h5>
+                            <h5 aria-level="3" class="fw-700 text-white mb-15px">Not sure where to start?</h5>
                             <p class="mb-30px" style="color: rgba(255,255,255,.75);">You don't need to know whether you need an AI agent, a chatbot, automation or custom software. Start with the problem and we'll help you find the right approach.</p>
 
                             <div class="sp-item"><i class="bi bi-check-circle"></i><span>Free initial discussion about your idea</span></div>
@@ -858,7 +859,8 @@
         <!-- end CTA -->
 
         <!-- start footer -->
-        <footer class="bg-dark-gray background-position-center-top" style="background-image: url('images/demo-marketing-footer-dot.svg')">
+        </main>
+<footer class="bg-dark-gray background-position-center-top" style="background-image: url('images/demo-marketing-footer-dot.svg')">
             <div class="container overlap-section">
                 <div class="row g-0 justify-content-center align-items-center bg-base-color border-radius-6px ps-7 pe-7 pt-4 pb-4 lg-p-30px sm-p-20px mb-7">
                     <div class="col-lg-5 col-md-9 text-center text-lg-start md-mb-20px">
@@ -962,15 +964,17 @@
         <!-- end scroll progress -->
 
         <!-- javascript libraries -->
-          <script defer src="js/jquery.js?v=20261127f"></script>
-        <script defer src="js/vendors.min.js?v=20261127f"></script>
-        <script defer src="js/main.js?v=20261127f"></script>
-          <script src="js/nav-active.js?v=20261127f"></script>
+          <script defer src="js/jquery.js?v=20261127g"></script>
+        <script defer src="js/vendors.min.js?v=20261127g"></script>
+        <script defer src="js/main.js?v=20261127g"></script>
+          <script src="js/nav-active.js?v=20261127g"></script>
 
         <!-- Firebase -->
-        <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+        <!-- defer: Firebase is only needed when the form is sent; blocking scripts here delayed the first paint (Lighthouse FCP 1.4 s -> 2.7 s) -->
+        <script defer src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
         <script>
+          document.addEventListener('DOMContentLoaded', function () { /* runs after the deferred Firebase scripts */
             const firebaseConfig = {
                 apiKey: "AIzaSyCiSDYQukrsFtL2-loQj2v3BX0b8yXFo2c",
                 authDomain: "adsoft-b88db.firebaseapp.com",
@@ -1072,7 +1076,8 @@
                     });
                 });
             })();
+          });
         </script>
-    <script defer src="js/site-motion.js?v=20261127f"></script>
+    <script defer src="js/site-motion.js?v=20261127g"></script>
 </body>
 </html>

@@ -1062,7 +1062,19 @@
 
         // Adding the div.vertical-counter-number in div.counter multiple(valueLength) times
         for (var i = 0; i < valueLength; i++) {
-            _this.append('<span class="vertical-counter-number"><ul><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ul></span>');
+            // Built with DOM calls, not an HTML string: jQuery would run the HTML parser here, and an
+            // HTML parse inside main.js makes Lighthouse count all deferred JS as needed for first paint.
+            _this.append((function () {
+                var span = document.createElement('span'), ul = document.createElement('ul');
+                span.className = 'vertical-counter-number';
+                for (var d = 0; d < 10; d++) {
+                    var li = document.createElement('li');
+                    li.textContent = d;
+                    ul.appendChild(li);
+                }
+                span.appendChild(ul);
+                return span;
+            })());
         }
 
         // Adding the individual data-to in each div.vertical-counter-number
@@ -1237,8 +1249,9 @@
         }
     });
 
-    // Fit video
-    if (typeof $.fn.fitVids === 'function') {
+    // Fit video (only when the page has one: fitVids injects its <style> with innerHTML, and that
+    // extra ParseHTML makes Lighthouse count jQuery + vendors + main.js as needed for first paint, FCP +1.4 s)
+    if (typeof $.fn.fitVids === 'function' && $('.fit-videos').length) {
         $('.fit-videos').fitVids();
     }
 
@@ -2975,8 +2988,12 @@
                                 overlayTop = (areaHeight / 2) - overlayTop;
                             }
                             _this.css('margin-top', overlayTop);
-                            var parentSectionObj = closestSectionObj.prev('.overlap-height'),
-                                    overlapGap = parentSectionObj.find('.overlap-gap-section');
+                            var parentSectionObj = closestSectionObj.prev('.overlap-height');
+                            // pages wrap their sections in <main>: the footer's previous sibling is then <main>
+                            if (!parentSectionObj.length) {
+                                parentSectionObj = closestSectionObj.prev('main').children().last().filter('.overlap-height');
+                            }
+                            var overlapGap = parentSectionObj.find('.overlap-gap-section');
                             parentSectionObj.imagesLoaded(function () {
                                 if (overlapGap.length > 0) {
                                     var gapSectionHeight = overlapGap.outerHeight() + (Math.abs(overlayTop) - sectionPaddingTop);
@@ -3021,7 +3038,14 @@
      ====================================== */
 
     if ($('.magic-cursor').length > 0) {
-        $('<div class="magic-cursor-wrapper"><div id="ball-cursor"><div id="ball-cursor-loader"></div></div></div>').clone(false).appendTo('body');
+        // DOM calls instead of an HTML string (see vertical-counter above)
+        var mcWrap = document.createElement('div'), mcBall = document.createElement('div'), mcLoader = document.createElement('div');
+        mcWrap.className = 'magic-cursor-wrapper';
+        mcBall.id = 'ball-cursor';
+        mcLoader.id = 'ball-cursor-loader';
+        mcBall.appendChild(mcLoader);
+        mcWrap.appendChild(mcBall);
+        document.body.appendChild(mcWrap);
 
         if ($('.magic-cursor').hasClass('light')) {
             $('.magic-cursor-wrapper').addClass('magic-cursor-light');
