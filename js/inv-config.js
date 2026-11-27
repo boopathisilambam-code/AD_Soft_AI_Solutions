@@ -41,6 +41,13 @@ window.INV_CONFIG = {
     'wedding-invitation',
     'aadhi-birthday',
     'chocolate-birthday-invitation',
+    'engagement-invite-1',
+    'engagement-invite-2',
+    'engagement-invite-3',
+    'babyshower-v2',
+    'babyshower-invitation',
+    'brahmin-wedding',
+    'wedding-invitation-02',
   ],
 
   // Public page that renders a saved invitation (relative to site root)

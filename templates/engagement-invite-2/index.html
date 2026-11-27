@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Engagement Invitation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="register.js"></script>
+    <script src="inv-runtime.js"></script>
+</head>
+
+<body>
+
+    <div id="cover">
+        <div class="wrap">
+            <div class="glow"></div>
+            <div class="dr dl"></div>
+            <div class="dr drr"></div>
+            <button class="knock" id="openBtn" aria-label="Open the invitation"><span id="sealTxt">Open</span></button>
+        </div>
+        <div class="hint" id="coverHint"></div>
+    </div>
+
+    <section id="hero">
+        <div class="hc">
+            <div class="bless" id="blessing"></div>
+            <div class="tag" id="tagline"></div>
+            <h1 class="names script"><span id="nA"></span><br><span class="amp">&amp;</span><br><span id="nB"></span></h1>
+            <p class="sub" id="inviteLine"></p>
+        </div>
+    </section>
+
+    <section id="date">
+        <h2 id="dateTitle"></h2>
+        <p class="sub" id="dateSub"></p>
+        <div class="scratch">
+            <div class="d"><b id="dB"></b><span id="dS"></span></div><canvas id="sc" width="300"
+                height="118"></canvas>
+        </div>
+        <small>✦ Scratch to reveal the date ✦</small>
+        <div class="cd" id="cd"></div>
+    </section>
+
+    <section id="events">
+        <h2 id="evTitle"></h2>
+        <p class="sub" id="evSub"></p>
+        <div id="evList"></div>
+    </section>
+
+    <section id="couple">
+        <div class="stage" id="stage">
+            <h2 id="coupleTitle"></h2>
+            <div class="layer l-bg" data-s="-.1"></div>
+            <div class="layer bl" data-s=".15" style="left:-70px;top:60px;width:300px"><i class="lotus"></i></div>
+            <div class="layer bl" data-s="-.2" style="right:-80px;top:250px;width:340px"><i class="lotus"></i></div>
+            <div class="layer bl" data-s=".1" style="left:22%;top:390px;width:220px"><i class="lotus"></i></div>
+            <div class="layer person p1" style="top:100px;margin-left:-175px" data-s=".06"><span id="pA"></span></div>
+            <div class="layer person p2" style="top:190px;margin-left:5px" data-s="-.05"><span id="pB"></span></div>
+            <div class="layer hrt" data-s=".1"><span>♥</span></div>
+            <div class="layer pn" style="top:470px" data-s=".1" id="coupleCap"></div>
+        </div>
+    </section>
+
+    <section id="story">
+        <h2 id="sTitle"></h2>
+        <p class="sub" id="sSub"></p>
+        <div class="arch">
+            <div class="ac" id="sPhoto"></div><span class="ah a1">♥</span><span class="ah a2">♥</span><span class="ah a3">♥</span>
+        </div>
+        <div class="tl" id="tlList"></div>
+    </section>
+
+    <section id="journey" style="padding-left:0;padding-right:0">
+        <h2 id="jTitle"></h2>
+        <p class="sub" id="jSub"></p>
+        <div class="track" id="track"></div>
+    </section>
+
+    <section id="love">
+        <h2 id="lTitle"></h2>
+        <p class="sub" id="lSub"></p>
+        <div class="rings"><svg viewBox="0 0 240 130" aria-hidden="true">
+                <g class="rg r1">
+                    <circle cx="92" cy="72" r="40" fill="none" stroke="#c99a3d" stroke-width="9" />
+                    <circle cx="92" cy="72" r="40" fill="none" stroke="#f6e3a8" stroke-width="2.500"
+                        stroke-dasharray="40 210" />
+                </g>
+                <g class="rg r2">
+                    <circle cx="148" cy="72" r="40" fill="none" stroke="#c99a3d" stroke-width="9" />
+                    <circle cx="148" cy="72" r="40" fill="none" stroke="#f6e3a8" stroke-width="2.500"
+                        stroke-dasharray="40 210" />
+                    <path d="M148 14l9 12-9 12-9-12z" fill="#fff" stroke="#b8893c" stroke-width="2" />
+                </g>
+            </svg></div>
+        <p class="quote script" id="lQuote"></p>
+        <button class="btn" id="lv"></button>
+        <div class="sub" id="lc"></div>
+    </section>
+
+    <section id="gift">
+        <h2 id="gTitle"></h2>
+        <p class="sub" id="gSub"></p>
+        <div class="gift">
+            <h3 id="gCard"></h3>
+            <p id="gText"></p><b
+                id="upi"></b><br><button class="btn" id="cp">Copy UPI ID</button>
+        </div>
+    </section>
+
+    <section id="rsvp">
+        <h2>RSVP</h2>
+        <p class="sub" id="rSub"></p>
+        <div class="rs"><input id="rn" placeholder="Your name" autocomplete="name">
+            <select id="rg"></select>
+            <select id="ra">
+                <option value="Joyfully Accepts">Joyfully attending</option>
+                <option value="Regretfully Declines">Sorry, cannot attend</option>
+            </select>
+            <button class="btn" id="rb" style="justify-self:center">Send RSVP</button>
+            <div id="rm" class="sub" style="text-align:center"></div>
+        </div>
+    </section>
+
+    <section id="venue">
+        <h2>Venue</h2>
+        <p class="sub" id="vSub"></p>
+        <iframe class="map" id="vMap" title="Venue map" loading="lazy"></iframe>
+        <a class="btn" id="vLink" target="_blank" rel="noopener" href="#">Open in Google Maps</a>
+    </section>
+
+    <footer>
+        <div id="closing"></div>
+        <div class="soc"><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.500" cy="6.500" r="1" fill="currentColor" stroke="none" />
+                </svg></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"
+                    fill="currentColor">
+                    <path
+                        d="M14 22v-8h3l.5-3.500H14V8.500c0-1 .3-1.700 1.800-1.700h1.700V3.400C17.200 3.300 16.200 3.200 15.100 3.200 12.800 3.200 11 4.600 11 7.300v3.200H8V14h3v8z" />
+                </svg></a>
+        </div>
+        <p style="margin:14px 0 0">Made with ♥ by <a href="https://adsoftechnologies.com" target="_blank"
+                rel="noopener">adsoftechnologies.com</a></p>
+    </footer>
+    <div id="zoom">
+        <div class="zm" id="zc"><em></em></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

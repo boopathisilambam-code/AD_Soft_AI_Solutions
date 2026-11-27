@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wedding Invitation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="animations.css">
+<script src="register.js"></script>
+<script src="inv-runtime.js"></script>
+</head>
+<body class="lock">
+
+<div class="envo" id="envo"><div class="envw"><div class="half l"></div><div class="half r"></div><button class="seal" id="seal" aria-label="Open invitation"></button><div class="hint" id="coverHint"></div></div></div>
+
+<div class="page">
+<section class="hero" id="hero"><div class="in"><small id="intro"></small><div class="n"><i id="nA"></i><span class="amp">&amp;</span><i id="nB"></i></div><div class="d" id="heroDate"></div></div></section>
+
+<section id="date"><div class="fl tl"></div><h2 id="dateTitle"></h2><div class="gold"></div><p id="dateSub"></p>
+<div class="sc" id="sc"><div><b id="dMain"></b><span id="dNote"></span></div><canvas id="cv"></canvas></div><div class="cd" id="cd"></div><div class="fl br"></div></section>
+
+<section id="couple"><div class="fl tr"></div><div class="fl bl"></div><h2 id="coupleTitle"></h2><div class="gold"></div>
+<div class="pair">
+<div class="pt"><div class="ph" id="phB"></div><h3 id="bName"></h3><p id="bFam"></p></div>
+<div class="pt"><div class="ph" id="phG"></div><h3 id="gName"></h3><p id="gFam"></p></div>
+</div></section>
+
+<section id="events"><div class="fl tl"></div><h2 id="evTitle"></h2><div class="gold"></div><div id="evList"></div></section>
+
+<section class="px" id="bless"><div class="bg" data-p=".18"></div><div class="card" data-p="-.06"><h2 id="blessTitle"></h2><div class="gold"></div><p id="blessText"></p></div></section>
+
+<section class="gal" id="journey"><h2 id="jTitle"></h2><div class="gold"></div><p id="jSub"></p><div class="tr" id="tr"></div></section>
+
+<section id="gift"><div class="fl bl"></div><h2 id="gTitle"></h2><div class="gold"></div><p id="gText"></p>
+<div class="gift"><svg viewBox="0 0 64 64"><rect x="8" y="26" width="48" height="30" rx="2"/><rect x="5" y="18" width="54" height="10" rx="2"/><path d="M32 18v38M32 18c-6-12-18-10-14-4 3 4 14 4 14 4zM32 18c6-12 18-10 14-4-3 4-14 4-14 4z"/></svg>
+<p>UPI ID</p><code id="upi"></code><button class="btn" id="cp">Copy UPI ID</button></div><div class="fl br"></div></section>
+
+<section id="rsvp"><div class="fl tl"></div><div class="fl br"></div><h2 id="rTitle"></h2><div class="gold"></div><p id="rSub"></p>
+<form id="rf"><label>Your name<input required id="rn" name="n" autocomplete="name"></label>
+<label>Attending<select id="ra" name="a"><option>Joyfully accepts</option><option>Regretfully declines</option></select></label>
+<label>Number of guests<input type="number" min="1" max="10" value="1" id="rg" name="g"></label>
+<label>Message for the couple<textarea rows="3" id="rm" name="m"></textarea></label><button class="btn" type="submit" id="rbtn">Send RSVP</button><div class="err" id="rerr"></div></form>
+<div class="thx" id="thx"></div></section>
+
+<section id="venue"><div class="fl tr"></div><div class="fl bl"></div><h2 id="vTitle"></h2><div class="gold"></div><p id="vText"></p>
+<div class="map"><svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="#b8923f" stroke-width="2"><path d="M32 58S12 38 12 26a20 20 0 0 1 40 0c0 12-20 32-20 32z"/><circle cx="32" cy="26" r="7"/></svg><b id="vName"></b><span id="vAddr"></span></div>
+<a class="btn" id="vLink" href="#" target="_blank" rel="noopener">Open in Google Maps</a></section>
+
+<footer>Made with love by <a href="https://adsoftetchnologies.com" target="_blank" rel="noopener">adsoftetchnologies.com</a>
+<div class="soc"><a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8"/></svg></a>
+<a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a></div></footer>
+</div>
+
+<div class="lb" id="lb"><div id="lbi"><p id="lbt"></p></div></div>
+<script src="script.js"></script>
+</body>
+</html>
