@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vivaha Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&family=Noto+Serif+Tamil:wght@500&family=Noto+Serif+Devanagari:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="register.js"></script>
+<script src="inv-runtime.js"></script>
+</head>
+<body class="locked">
+
+<div id="cover" role="button" tabindex="0" aria-label="Open the temple doors"><div class="cs">
+ <div class="gp"></div><div class="cb l"></div><div class="cb r"></div>
+ <div class="dw"><div class="door l"><b class="ring"></b></div><div class="door r"><b class="ring"></b></div></div>
+ <div class="tap" id="tapText">Tap to open the doors</div>
+</div></div>
+
+<header class="hero" id="hero">
+ <div class="a bl"></div><div class="a br"></div>
+ <div class="a ar"><div class="gpb"></div></div>
+ <div class="zone">
+  <div class="sc" id="s1" style="background-image:var(--el)"></div><div class="sc" id="s2" style="background-image:var(--dr)"></div><div class="sc" id="s3" style="background-image:var(--fi)"></div><div class="sc" id="s4" style="background-image:var(--ka)"></div>
+  <div class="nm" id="nm">
+   <div class="sk" id="shloka"></div>
+   <div class="ta" id="tamilTitle"></div>
+   <p id="intro"></p>
+   <div class="nn"><span id="n1"></span><span class="amp">&amp;</span><span id="n2"></span></div>
+   <div class="dt"><i id="hWeek"></i><b id="hDay"></b><i id="hMonth"></i></div>
+   <p id="hLine"></p>
+  </div>
+ </div>
+</header>
+<a class="fab" id="fab" href="#rsvp">RSVP</a>
+
+<section id="date">
+ <h2 id="dateE" data-e="THE DAY"></h2>
+ <p class="sub" id="dateSub"></p>
+ <div class="card">
+  <div class="sc2"><b id="dMain"></b><span id="dNote"></span><canvas id="scr"></canvas></div>
+  <div id="cd"></div>
+ </div>
+</section>
+
+<section id="events">
+ <h2 id="evH" data-e="PROGRAMME"></h2>
+ <p class="sub" id="evSub"></p>
+ <div id="evList"></div>
+</section>
+
+<section class="pair-wrap" id="couple" style="max-width:900px">
+ <h2 id="pairH" data-e="THE COUPLE"></h2>
+ <p class="sub" id="pairSub"></p>
+ <div class="pair">
+  <div class="pc"><div class="arch" id="archB"><i class="mo" data-p="-.03" id="moB"></i><i class="fl l"></i><i class="fl r"></i><i class="ic" id="icB"></i></div><div class="plate"><h3 id="bName"></h3><p id="bFam"></p></div></div>
+  <div class="pc"><div class="arch" id="archG"><i class="mo" data-p="-.03" id="moG"></i><i class="fl l"></i><i class="fl r"></i><i class="ic" id="icG"></i></div><div class="plate"><h3 id="gName"></h3><p id="gFam"></p></div></div>
+ </div>
+</section>
+
+<section id="blessings">
+ <h2 id="noteH" data-e="BLESSINGS"></h2>
+ <p class="sub" id="noteSub"></p>
+ <div class="nw"><div class="note"><div class="hi" id="noteIcon"></div><p id="noteText"></p><hr><small id="noteSmall"></small></div></div>
+</section>
+
+<section id="journey">
+ <h2 id="jH" data-e="MEMORIES"></h2>
+ <p class="sub" id="jSub"></p>
+ <div class="gal" id="gal"><div class="trk" id="trk"></div></div>
+</section>
+<div id="lb" aria-modal="true"><div class="box"><div class="pic im" id="lbp"></div><h3 id="lbt"></h3><p id="lbd" style="padding:0 20px;font-size:1rem"></p><button id="pv">‹</button><button id="cl">Close</button><button id="nx">›</button></div></div>
+
+<section id="gift">
+ <h2 id="gH" data-e="WITH LOVE"></h2>
+ <div class="card">
+  <p id="gText"></p>
+  <div class="upi" id="upi"></div><br>
+  <button class="btn" id="cp">Copy UPI ID</button>
+ </div>
+</section>
+
+<section id="rsvp">
+ <h2 id="rH" data-e="KINDLY REPLY"></h2>
+ <p class="sub" id="rSub"></p>
+ <div class="card">
+  <form id="rs">
+   <input id="rn" name="n" placeholder="Your name" required aria-label="Your name">
+   <select id="ra" name="a" aria-label="Attending"><option>Joyfully attending</option><option>Unable to attend</option></select>
+   <input id="rg" name="g" type="number" min="1" max="10" value="1" aria-label="Number of guests">
+   <textarea id="rm" name="m" rows="2" placeholder="Your blessings for the couple"></textarea>
+   <button class="btn" type="submit" id="rbtn">Send RSVP</button>
+   <div class="err" id="rerr"></div>
+  </form>
+  <div class="thx" id="thx"></div>
+ </div>
+</section>
+
+<section id="venue">
+ <h2 id="vH" data-e="FIND US"></h2>
+ <p id="vText"></p>
+ <iframe id="vMap" title="Venue map" loading="lazy"></iframe>
+ <a class="btn" id="vLink" href="#" target="_blank" rel="noopener">Open in Google Maps</a>
+</section>
+
+<footer>
+ <div>Made with love by <a href="https://adsoftechnologies.com" target="_blank" rel="noopener">adsoftechnologies.com</a></div>
+ <div class="soc">
+  <a href="https://instagram.com/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.500a4.500 4.500 0 110 9 4.500 4.500 0 010-9zm0 2a2.500 2.500 0 100 5 2.500 2.500 0 000-5zM17.300 5.800a1.100 1.100 0 110 2.200 1.100 1.100 0 010-2.200z"/></svg></a>
+  <a href="https://facebook.com/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8V6.500c0-.7.2-1 1.200-1H17V2h-2.800C11.300 2 10 3.700 10 6v2H7.500v3.500H10V22h4V11.500h2.800L17.300 8H14z"/></svg></a>
+ </div>
+</footer>
+
+<script src="script.js"></script>
+</body></html>
