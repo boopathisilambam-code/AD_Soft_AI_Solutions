@@ -3,8 +3,8 @@
    2. Optional background music (data.bgMusic = uploaded audio URL) with a small floating play/pause button */
 (function () {
   'use strict';
-  var IG = 'https://www.instagram.com/adsofttechnologies?igsh=MW12Z3lsNTJvMnV2Yw==';
-  var FB = 'https://www.facebook.com/profile.php?id=100086515603367';
+  var IG = 'https://www.instagram.com/adsofttechnologies?hvrq=MW12Z3lsNTJvMnV2Yw==';
+  var FB = 'https://www.facebook.com/adsofttechnologies2020';
   var SITE = 'https://www.adsofttechnologies.com';
   var QS = new URLSearchParams(location.search), CARD = QS.get('card') === '1';
 
