@@ -100,9 +100,35 @@
       document.head.append(s);
     });
   }
+  /* ---------------- auto-discovery ----------------
+     Every folder in /templates/ that has a register.js appears in the gallery by itself (templates.php on Hostinger,
+     templates/manifest.json on hosts without PHP). CFG.templates is only the preferred ORDER + the fallback if both fail.
+     Folder removed -> card disappears. Template edited -> ?v=<mtime> makes browsers load the new register.js / card.jpg. */
+  const tplVer = {};
+  async function fetchList(url) {
+    const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 4000);
+    try {
+      const r = await fetch(url, { cache: 'no-cache', signal: ctl.signal });
+      if (!r.ok) return null;
+      const j = await r.json();
+      const list = Array.isArray(j) ? j : j && j.templates;
+      return Array.isArray(list) ? list : null;
+    } catch (e) { return null; } finally { clearTimeout(timer); }
+  }
+  async function discoverTemplates() {
+    const found = (await fetchList(new URL('templates.php', SITE).href))
+      || (await fetchList(new URL('templates/manifest.json', SITE).href)) || [];
+    const hidden = new Set(CFG.hiddenTemplates || []);
+    const ids = [], seen = new Set();
+    const add = (id) => { if (id && !seen.has(id) && !hidden.has(id) && /^[A-Za-z0-9-]+$/.test(id)) { seen.add(id); ids.push(id); } };
+    found.forEach((f) => { if (f && f.id) tplVer[f.id] = f.v || ''; });
+    (CFG.templates || []).forEach((id) => { if (!found.length || id in tplVer) add(id); });   /* your order first */
+    found.slice().sort((a, b) => (b.t || 0) - (a.t || 0)).forEach((f) => add(f && f.id));    /* new folders next, newest first */
+    return ids;
+  }
   async function loadTemplate(id) {
     if (!/^[A-Za-z0-9-]+$/.test(id || '')) return null;
-    if (!registry.has(id)) { try { await loadScript(`${SITE}templates/${id}/register.js`); } catch (e) { return null; } }
+    if (!registry.has(id)) { try { await loadScript(`${SITE}templates/${id}/register.js${tplVer[id] ? '?v=' + tplVer[id] : ''}`); } catch (e) { return null; } }
     return registry.get(id) || null;
   }
 
@@ -252,7 +278,7 @@
   /* ---------------- gallery card image ----------------
      Cards are plain images (templates/<id>/card.jpg) – they paint instantly, nothing is loaded
      in the background and there is no loading state. The real live preview lives in the editor. */
-  const cardImg = (def) => assetUrl(def.card || `templates/${def.id}/card.jpg`);
+  const cardImg = (def) => assetUrl(def.card || `templates/${def.id}/card.jpg`) + (!def.card && tplVer[def.id] ? `?v=${tplVer[def.id]}` : '');
   const splitName = (def) => {
     const [t, ...r] = String(def.name || def.id).split(/\s+[—–-]\s+/);
     return { title: t, sub: r.join(' — ') };
@@ -850,10 +876,15 @@
 
   async function renderGrid(host) {
     host.classList.add('ip-grid');
-    const ids = CFG.templates || [];
+    const ids = await discoverTemplates();
     const defs = (await Promise.all(ids.map(loadTemplate))).filter(Boolean);
     host.innerHTML = '';
     const categories = ['All', 'Wedding', 'Engagement', 'Save the date', 'Reception', 'Birthday', 'Baby shower'];
+    /* a template with a brand-new category (e.g. "Housewarming") gets its filter chip automatically */
+    defs.forEach((d) => (d.categories || [d.occasion]).forEach((c) => {
+      c = String(c || '').trim();
+      if (c && !categories.some((x) => x.toLowerCase() === c.toLowerCase())) categories.push(c);
+    }));
     const filters = el('nav', { class: 'ip-filters', 'aria-label': 'Filter invitation templates' });
     const cards = [];
     let activeCategory = 'All';
