@@ -134,3 +134,13 @@
   have an `aria-label` (their text is hidden on phones). ai-solution: intro `<p>` moved out of the `<ul>`.
 - branding / business-services: duplicate canonical (with trailing `/`) removed.
 - CSS/JS cache version is now `?v=20261127g`.
+
+## 11. Update 8 – PageSpeed "Agentic Browsing" 2/2 (desktop)
+- Agentic Browsing scores two checks for this site: the accessibility tree (names/roles of links and buttons) and CLS.
+  `llms.txt`, ARD manifest and WebMCP checks are "not applicable" (no such files/tools).
+- Header social icons need `aria-label` on every page (icon-only links had no name; they only show on desktop, so
+  mobile passed and desktop failed). our-work.html was still missing them.
+- Header social icons are now at least 24x24px tap targets (`css/site-standard.css`, end of file).
+- ai-agent-development: the "AI opportunities" cards were `<article role="button">` (not allowed); now `<div role="button">`, same look.
+- New icon-only links/buttons: always add `aria-label`. `role="button"` only on `div`/`span`, not on article/section/li.
+- CSS/JS cache version is now `?v=20261128a`.

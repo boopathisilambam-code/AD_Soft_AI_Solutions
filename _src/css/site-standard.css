@@ -1035,3 +1035,12 @@ html body header .navbar-brand .logo-on-green { display: none; }
 html body footer .footer-dark p {
     color: #9aa0a9
 }
+
+/* Header social icons: tap target at least 24x24px (Lighthouse "target-size"); icon stays right-aligned so spacing looks the same */
+html body header .header-icon .header-social-icon a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 24px;
+    min-height: 24px
+}
